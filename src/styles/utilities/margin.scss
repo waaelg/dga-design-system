@@ -1,0 +1,391 @@
+// =============================================================================
+// DGA Design System - Margin Utilities
+// File: styles/utilities/margin.scss
+// =============================================================================
+
+// Import spacing variables
+@import "../variables/spacing";
+
+// =============================================================================
+// MARGIN UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-margin-utilities: (
+  // All sides margin
+  "margin":
+    (
+      "prefix": "m",
+      "property": "margin",
+      "values": $dga-spacing,
+    ),
+
+  // Individual sides
+  "margin-top":
+    (
+      "prefix": "mt",
+      "property": "margin-top",
+      "values": $dga-spacing,
+    ),
+  "margin-right": (
+    "prefix": "mr",
+    "property": "margin-right",
+    "values": $dga-spacing,
+  ),
+  "margin-bottom": (
+    "prefix": "mb",
+    "property": "margin-bottom",
+    "values": $dga-spacing,
+  ),
+  "margin-left": (
+    "prefix": "ml",
+    "property": "margin-left",
+    "values": $dga-spacing,
+  ),
+
+  // Axis-based margin
+  "margin-x":
+    (
+      "prefix": "mx",
+      "property": (
+        "margin-left",
+        "margin-right",
+      ),
+      "values": $dga-spacing,
+    ),
+  "margin-y": (
+    "prefix": "my",
+    "property": (
+      "margin-top",
+      "margin-bottom",
+    ),
+    "values": $dga-spacing,
+  )
+);
+
+// =============================================================================
+// NAMED MARGIN UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-named-margin-utilities: (
+  // All sides margin with named values
+  "margin-named":
+    (
+      "prefix": "m",
+      "property": "margin",
+      "values": $dga-named-spacing,
+    ),
+
+  // Individual sides with named values
+  "margin-top-named":
+    (
+      "prefix": "mt",
+      "property": "margin-top",
+      "values": $dga-named-spacing,
+    ),
+  "margin-right-named": (
+    "prefix": "mr",
+    "property": "margin-right",
+    "values": $dga-named-spacing,
+  ),
+  "margin-bottom-named": (
+    "prefix": "mb",
+    "property": "margin-bottom",
+    "values": $dga-named-spacing,
+  ),
+  "margin-left-named": (
+    "prefix": "ml",
+    "property": "margin-left",
+    "values": $dga-named-spacing,
+  ),
+
+  // Axis-based margin with named values
+  "margin-x-named":
+    (
+      "prefix": "mx",
+      "property": (
+        "margin-left",
+        "margin-right",
+      ),
+      "values": $dga-named-spacing,
+    ),
+  "margin-y-named": (
+    "prefix": "my",
+    "property": (
+      "margin-top",
+      "margin-bottom",
+    ),
+    "values": $dga-named-spacing,
+  )
+);
+
+// =============================================================================
+// MARGIN AUTO UTILITIES
+// =============================================================================
+
+$dga-margin-auto-utilities: (
+  "margin-auto": (
+    "prefix": "m",
+    "property": "margin",
+    "values": (
+      "auto": auto,
+    ),
+  ),
+  "margin-x-auto": (
+    "prefix": "mx",
+    "property": (
+      "margin-left",
+      "margin-right",
+    ),
+    "values": (
+      "auto": auto,
+    ),
+  ),
+  "margin-y-auto": (
+    "prefix": "my",
+    "property": (
+      "margin-top",
+      "margin-bottom",
+    ),
+    "values": (
+      "auto": auto,
+    ),
+  ),
+  "margin-top-auto": (
+    "prefix": "mt",
+    "property": "margin-top",
+    "values": (
+      "auto": auto,
+    ),
+  ),
+  "margin-right-auto": (
+    "prefix": "mr",
+    "property": "margin-right",
+    "values": (
+      "auto": auto,
+    ),
+  ),
+  "margin-bottom-auto": (
+    "prefix": "mb",
+    "property": "margin-bottom",
+    "values": (
+      "auto": auto,
+    ),
+  ),
+  "margin-left-auto": (
+    "prefix": "ml",
+    "property": "margin-left",
+    "values": (
+      "auto": auto,
+    ),
+  ),
+);
+
+// =============================================================================
+// NEGATIVE MARGIN VALUES (for pull effects)
+// =============================================================================
+
+// Create negative margin values
+$dga-negative-spacing: ();
+@each $key, $value in $dga-spacing {
+  @if $key != "0" {
+    $dga-negative-spacing: map-merge(
+      $dga-negative-spacing,
+      (
+        "#{$key}": -#{$value},
+      )
+    );
+  }
+}
+
+$dga-negative-margin-utilities: (
+  // Negative margins
+  "negative-margin":
+    (
+      "prefix": "-m",
+      "property": "margin",
+      "values": $dga-negative-spacing,
+    ),
+  "negative-margin-top": (
+    "prefix": "-mt",
+    "property": "margin-top",
+    "values": $dga-negative-spacing,
+  ),
+  "negative-margin-right": (
+    "prefix": "-mr",
+    "property": "margin-right",
+    "values": $dga-negative-spacing,
+  ),
+  "negative-margin-bottom": (
+    "prefix": "-mb",
+    "property": "margin-bottom",
+    "values": $dga-negative-spacing,
+  ),
+  "negative-margin-left": (
+    "prefix": "-ml",
+    "property": "margin-left",
+    "values": $dga-negative-spacing,
+  ),
+  "negative-margin-x": (
+    "prefix": "-mx",
+    "property": (
+      "margin-left",
+      "margin-right",
+    ),
+    "values": $dga-negative-spacing,
+  ),
+  "negative-margin-y": (
+    "prefix": "-my",
+    "property": (
+      "margin-top",
+      "margin-bottom",
+    ),
+    "values": $dga-negative-spacing,
+  )
+);
+
+// =============================================================================
+// MARGIN UTILITIES GENERATOR MIXINS
+// =============================================================================
+
+@mixin generate-margin-utilities($utilities: $dga-margin-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $values: map-get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: if(
+        $key == "0",
+        ".dga-#{$prefix}-0",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        @if type-of($property) == "list" {
+          @each $prop in $property {
+            #{$prop}: #{$value} !important;
+          }
+        } @else {
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-named-margin-utilities(
+  $utilities: $dga-named-margin-utilities
+) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $values: map-get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: if(
+        $key == "none",
+        ".dga-#{$prefix}-none",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        @if type-of($property) == "list" {
+          @each $prop in $property {
+            #{$prop}: #{$value} !important;
+          }
+        } @else {
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-margin-auto-utilities($utilities: $dga-margin-auto-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $values: map-get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: ".dga-#{$prefix}-#{$key}";
+
+      #{$class-name} {
+        @if type-of($property) == "list" {
+          @each $prop in $property {
+            #{$prop}: #{$value} !important;
+          }
+        } @else {
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-negative-margin-utilities(
+  $utilities: $dga-negative-margin-utilities
+) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $values: map-get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: ".dga#{$prefix}-#{$key}";
+
+      #{$class-name} {
+        @if type-of($property) == "list" {
+          @each $prop in $property {
+            #{$prop}: #{$value} !important;
+          }
+        } @else {
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// GENERATE ALL MARGIN UTILITIES
+// =============================================================================
+
+@mixin generate-all-margin-utilities() {
+  @include generate-margin-utilities();
+  @include generate-named-margin-utilities();
+  @include generate-margin-auto-utilities();
+  @include generate-negative-margin-utilities();
+}
+
+// =============================================================================
+// EXAMPLE GENERATED CLASSES
+// =============================================================================
+
+/*
+This will generate classes like:
+
+// Numeric margin
+.dga-m-0     { margin: 0 !important; }
+.dga-m-1     { margin: 0.25rem !important; }      // 4px
+.dga-m-4     { margin: 1rem !important; }         // 16px
+.dga-mt-2    { margin-top: 0.5rem !important; }   // 8px
+.dga-mx-6    { margin-left: 1.5rem !important; margin-right: 1.5rem !important; } // 24px
+.dga-my-8    { margin-top: 2rem !important; margin-bottom: 2rem !important; } // 32px
+
+// Named margin
+.dga-m-none  { margin: 0 !important; }
+.dga-m-xs    { margin: 0.25rem !important; }      // 4px
+.dga-m-md    { margin: 0.5rem !important; }       // 8px
+.dga-mt-lg   { margin-top: 0.75rem !important; }  // 12px
+
+// Auto margin (for centering)
+.dga-m-auto  { margin: auto !important; }
+.dga-mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.dga-my-auto { margin-top: auto !important; margin-bottom: auto !important; }
+
+// Negative margin (for pull effects)
+.dga-m-1     { margin: -0.25rem !important; }     // -4px
+.dga-mt-2    { margin-top: -0.5rem !important; }  // -8px
+.dga-mx-4    { margin-left: -1rem !important; margin-right: -1rem !important; } // -16px
+*/

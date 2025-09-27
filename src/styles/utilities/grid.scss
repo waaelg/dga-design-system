@@ -1,0 +1,586 @@
+// =============================================================================
+// DGA Design System - Grid Utilities
+// File: styles/utilities/grid.scss
+// Based on DGA Grid Layout specifications
+// =============================================================================
+
+// Import grid variables
+@import "../variables/grid";
+
+// =============================================================================
+// RESPONSIVE BREAKPOINT MIXINS
+// =============================================================================
+
+@mixin dga-media-breakpoint-up($name, $breakpoints: $dga-grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @if $min != 0 {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin dga-media-breakpoint-down($name, $breakpoints: $dga-grid-breakpoints) {
+  $max: map-get($breakpoints, $name) - 0.02;
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin dga-media-breakpoint-between(
+  $lower,
+  $upper,
+  $breakpoints: $dga-grid-breakpoints
+) {
+  $min: map-get($breakpoints, $lower);
+  $max: map-get($breakpoints, $upper) - 0.02;
+
+  @if $min != 0 {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC CONTAINER UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-container-utilities($enable: $dga-enable-container-classes) {
+  @if $enable {
+    .dga-container {
+      width: 100%;
+      padding-right: map-get($dga-grid-gutters, xs);
+      padding-left: map-get($dga-grid-gutters, xs);
+      margin-right: auto;
+      margin-left: auto;
+
+      @include dga-media-breakpoint-up(md) {
+        padding-right: map-get($dga-grid-gutters, md);
+        padding-left: map-get($dga-grid-gutters, md);
+      }
+
+      @include dga-media-breakpoint-up(xxl) {
+        max-width: map-get($dga-container-max-widths, xxl);
+      }
+    }
+
+    .dga-container-fluid {
+      width: 100%;
+      padding-right: map-get($dga-grid-gutters, xs);
+      padding-left: map-get($dga-grid-gutters, xs);
+      margin-right: auto;
+      margin-left: auto;
+
+      @include dga-media-breakpoint-up(md) {
+        padding-right: map-get($dga-grid-gutters, md);
+        padding-left: map-get($dga-grid-gutters, md);
+      }
+    }
+
+    // DGA specific containers based on PDF specs
+    .dga-container-desktop {
+      max-width: map-get($dga-desktop-grid, container-width);
+      margin: 0 auto;
+      padding: 0 map-get($dga-desktop-grid, padding);
+    }
+
+    .dga-container-tablet {
+      max-width: map-get($dga-tablet-grid, container-width);
+      margin: 0 auto;
+      padding: 0 map-get($dga-tablet-grid, padding);
+    }
+
+    .dga-container-mobile {
+      max-width: map-get($dga-mobile-grid, container-width);
+      margin: 0 auto;
+      padding: 0 map-get($dga-mobile-grid, padding);
+    }
+
+    // Dynamic responsive containers
+    @each $breakpoint, $container-max-width in $dga-container-max-widths {
+      @include dga-media-breakpoint-up($breakpoint) {
+        .dga-container-#{$breakpoint} {
+          max-width: $container-max-width;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC ROW UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-row-utilities($enable: $dga-enable-row-classes) {
+  @if $enable {
+    .dga-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: calc(#{map-get($dga-grid-gutters, xs)} * -0.5);
+      margin-left: calc(#{map-get($dga-grid-gutters, xs)} * -0.5);
+
+      @include dga-media-breakpoint-up(md) {
+        margin-right: calc(#{map-get($dga-grid-gutters, md)} * -0.5);
+        margin-left: calc(#{map-get($dga-grid-gutters, md)} * -0.5);
+      }
+    }
+
+    .dga-no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+
+      > .dga-col,
+      > [class*="dga-col-"] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    // Dynamic gutter variations
+    @each $gutter-name, $gutter-value in $dga-grid-gaps {
+      .dga-row-gap-#{$gutter-name} {
+        margin-right: calc(#{$gutter-value} * -0.5);
+        margin-left: calc(#{$gutter-value} * -0.5);
+
+        > .dga-col,
+        > [class*="dga-col-"] {
+          padding-right: calc(#{$gutter-value} * 0.5);
+          padding-left: calc(#{$gutter-value} * 0.5);
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC COLUMN UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-column-utilities($enable: $dga-enable-col-classes) {
+  @if $enable {
+    .dga-col {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+      padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+      padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+
+      @include dga-media-breakpoint-up(md) {
+        padding-right: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
+        padding-left: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
+      }
+    }
+
+    .dga-col-auto {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: 100%;
+    }
+
+    // Dynamic flex utilities for columns
+    @for $i from 1 through 12 {
+      .dga-col-flex-#{$i} {
+        flex: #{$i};
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC RESPONSIVE COLUMN UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-responsive-columns(
+  $enable: $dga-enable-responsive-columns,
+  $custom-responsive-columns: $dga-grid-responsive-columns
+) {
+  @if $enable {
+    @each $breakpoint, $max-columns in $custom-responsive-columns {
+      @for $i from 1 through $max-columns {
+        @if $breakpoint == "" {
+          .dga-col-#{$i} {
+            flex: 0 0 percentage($i / $dga-grid-columns);
+            max-width: percentage($i / $dga-grid-columns);
+            padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+            padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+
+            @include dga-media-breakpoint-up(md) {
+              padding-right: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
+              padding-left: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
+            }
+          }
+        } @else {
+          @include dga-media-breakpoint-up($breakpoint) {
+            .dga-col-#{$breakpoint}-#{$i} {
+              flex: 0 0 percentage($i / $max-columns);
+              max-width: percentage($i / $max-columns);
+            }
+
+            .dga-col-#{$breakpoint}-auto {
+              flex: 0 0 auto;
+              width: auto;
+              max-width: 100%;
+            }
+          }
+        }
+      }
+
+      // Generate offset classes dynamically
+      @if $breakpoint == "" {
+        @for $i from 0 through ($dga-grid-columns - 1) {
+          .dga-offset-#{$i} {
+            margin-left: if($i > 0, percentage($i / $dga-grid-columns), 0);
+          }
+        }
+      } @else {
+        @include dga-media-breakpoint-up($breakpoint) {
+          @for $i from 0 through ($max-columns - 1) {
+            .dga-offset-#{$breakpoint}-#{$i} {
+              margin-left: if($i > 0, percentage($i / $max-columns), 0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC FLEXBOX UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-flex-utilities($enable: $dga-enable-flex-utilities) {
+  @if $enable {
+    // Dynamic flex direction
+    @each $name, $value in $dga-flex-directions {
+      .dga-flex-#{$name} {
+        flex-direction: #{$value} !important;
+      }
+
+      // Responsive flex direction
+      @each $breakpoint in map-keys($dga-grid-breakpoints) {
+        @include dga-media-breakpoint-up($breakpoint) {
+          .dga-flex-#{$breakpoint}-#{$name} {
+            flex-direction: #{$value} !important;
+          }
+        }
+      }
+    }
+
+    // Dynamic justify content
+    @each $name, $value in $dga-justify-content {
+      .dga-justify-content-#{$name} {
+        justify-content: #{$value} !important;
+      }
+
+      // Responsive justify content
+      @each $breakpoint in map-keys($dga-grid-breakpoints) {
+        @include dga-media-breakpoint-up($breakpoint) {
+          .dga-justify-content-#{$breakpoint}-#{$name} {
+            justify-content: #{$value} !important;
+          }
+        }
+      }
+    }
+
+    // Dynamic align items
+    @each $name, $value in $dga-align-items {
+      .dga-align-items-#{$name} {
+        align-items: #{$value} !important;
+      }
+
+      // Responsive align items
+      @each $breakpoint in map-keys($dga-grid-breakpoints) {
+        @include dga-media-breakpoint-up($breakpoint) {
+          .dga-align-items-#{$breakpoint}-#{$name} {
+            align-items: #{$value} !important;
+          }
+        }
+      }
+    }
+
+    // Dynamic align content
+    @each $name, $value in $dga-align-content {
+      .dga-align-content-#{$name} {
+        align-content: #{$value} !important;
+      }
+
+      // Responsive align content
+      @each $breakpoint in map-keys($dga-grid-breakpoints) {
+        @include dga-media-breakpoint-up($breakpoint) {
+          .dga-align-content-#{$breakpoint}-#{$name} {
+            align-content: #{$value} !important;
+          }
+        }
+      }
+    }
+
+    // Dynamic flex wrap
+    .dga-flex-wrap {
+      flex-wrap: wrap !important;
+    }
+    .dga-flex-nowrap {
+      flex-wrap: nowrap !important;
+    }
+    .dga-flex-wrap-reverse {
+      flex-wrap: wrap-reverse !important;
+    }
+
+    // Dynamic flex utilities
+    .dga-flex-fill {
+      flex: 1 1 auto !important;
+    }
+    .dga-flex-grow-0 {
+      flex-grow: 0 !important;
+    }
+    .dga-flex-grow-1 {
+      flex-grow: 1 !important;
+    }
+    .dga-flex-shrink-0 {
+      flex-shrink: 0 !important;
+    }
+    .dga-flex-shrink-1 {
+      flex-shrink: 1 !important;
+    }
+
+    // Responsive flex utilities
+    @each $breakpoint in map-keys($dga-grid-breakpoints) {
+      @include dga-media-breakpoint-up($breakpoint) {
+        .dga-flex-#{$breakpoint}-wrap {
+          flex-wrap: wrap !important;
+        }
+        .dga-flex-#{$breakpoint}-nowrap {
+          flex-wrap: nowrap !important;
+        }
+        .dga-flex-#{$breakpoint}-fill {
+          flex: 1 1 auto !important;
+        }
+        .dga-flex-#{$breakpoint}-grow-0 {
+          flex-grow: 0 !important;
+        }
+        .dga-flex-#{$breakpoint}-grow-1 {
+          flex-grow: 1 !important;
+        }
+        .dga-flex-#{$breakpoint}-shrink-0 {
+          flex-shrink: 0 !important;
+        }
+        .dga-flex-#{$breakpoint}-shrink-1 {
+          flex-shrink: 1 !important;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC GAP UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-gap-utilities(
+  $enable: $dga-enable-gap-utilities,
+  $custom-gaps: $dga-grid-gaps
+) {
+  @if $enable {
+    @each $name, $value in $custom-gaps {
+      .dga-gap-#{$name} {
+        gap: #{$value} !important;
+      }
+
+      .dga-gap-x-#{$name} {
+        column-gap: #{$value} !important;
+      }
+
+      .dga-gap-y-#{$name} {
+        row-gap: #{$value} !important;
+      }
+
+      // Responsive gap utilities
+      @each $breakpoint in map-keys($dga-grid-breakpoints) {
+        @include dga-media-breakpoint-up($breakpoint) {
+          .dga-gap-#{$breakpoint}-#{$name} {
+            gap: #{$value} !important;
+          }
+
+          .dga-gap-#{$breakpoint}-x-#{$name} {
+            column-gap: #{$value} !important;
+          }
+
+          .dga-gap-#{$breakpoint}-y-#{$name} {
+            row-gap: #{$value} !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC DISPLAY UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-display-utilities(
+  $enable: $dga-enable-display-utilities,
+  $custom-displays: $dga-displays
+) {
+  @if $enable {
+    @each $name, $value in $custom-displays {
+      .dga-d-#{$name} {
+        display: #{$value} !important;
+      }
+    }
+
+    // Dynamic responsive display utilities
+    @each $breakpoint in map-keys($dga-grid-breakpoints) {
+      @include dga-media-breakpoint-up($breakpoint) {
+        @each $name, $value in $custom-displays {
+          .dga-d-#{$breakpoint}-#{$name} {
+            display: #{$value} !important;
+          }
+        }
+      }
+    }
+
+    // Print display utilities
+    @media print {
+      @each $name, $value in $custom-displays {
+        .dga-d-print-#{$name} {
+          display: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC ASPECT RATIO UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-aspect-ratio-utilities(
+  $enable: true,
+  $custom-ratios: $dga-aspect-ratios
+) {
+  @if $enable {
+    @each $name, $ratio in $custom-ratios {
+      .dga-ratio-#{$name} {
+        position: relative;
+
+        &::before {
+          display: block;
+          padding-top: #{$ratio};
+          content: "";
+        }
+
+        > * {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// DYNAMIC POSITION UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-position-utilities($enable: $dga-enable-position-utilities) {
+  @if $enable {
+    $positions: (
+      "static": static,
+      "relative": relative,
+      "absolute": absolute,
+      "fixed": fixed,
+      "sticky": sticky,
+    );
+
+    @each $name, $value in $positions {
+      .dga-position-#{$name} {
+        position: #{$value} !important;
+      }
+
+      // Responsive position utilities
+      @each $breakpoint in map-keys($dga-grid-breakpoints) {
+        @include dga-media-breakpoint-up($breakpoint) {
+          .dga-position-#{$breakpoint}-#{$name} {
+            position: #{$value} !important;
+          }
+        }
+      }
+    }
+
+    // Dynamic z-index utilities
+    @each $name, $value in $dga-z-index {
+      .dga-z-#{$name} {
+        z-index: #{$value} !important;
+      }
+    }
+
+    // Dynamic top, right, bottom, left utilities
+    $positions-values: (
+      "0": 0,
+      "50": 50%,
+      "100": 100%,
+    );
+
+    @each $prop in (top, right, bottom, left) {
+      @each $name, $value in $positions-values {
+        .dga-#{$prop}-#{$name} {
+          #{$prop}: #{$value} !important;
+        }
+      }
+    }
+
+    // Translate utilities
+    $translate-values: (
+      "middle": translate(-50%, -50%),
+      "middle-x": translateX(-50%),
+      "middle-y": translateY(-50%),
+    );
+
+    @each $name, $value in $translate-values {
+      .dga-translate-#{$name} {
+        transform: #{$value} !important;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// MASTER DYNAMIC GRID GENERATOR
+// =============================================================================
+
+@mixin generate-all-grid-utilities(
+  $enable-containers: $dga-enable-container-classes,
+  $enable-rows: $dga-enable-row-classes,
+  $enable-cols: $dga-enable-col-classes,
+  $enable-responsive: $dga-enable-responsive-columns,
+  $enable-flex: $dga-enable-flex-utilities,
+  $enable-gaps: $dga-enable-gap-utilities,
+  $enable-displays: $dga-enable-display-utilities,
+  $enable-positions: $dga-enable-position-utilities
+) {
+  @include generate-container-utilities($enable-containers);
+  @include generate-row-utilities($enable-rows);
+  @include generate-column-utilities($enable-cols);
+  @include generate-responsive-columns($enable-responsive);
+  @include generate-flex-utilities($enable-flex);
+  @include generate-gap-utilities($enable-gaps);
+  @include generate-display-utilities($enable-displays);
+  @include generate-aspect-ratio-utilities();
+  @include generate-position-utilities($enable-positions);
+}

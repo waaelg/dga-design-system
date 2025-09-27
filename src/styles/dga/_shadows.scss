@@ -1,0 +1,291 @@
+// ================================
+// DGA SHADOW SYSTEM
+// Official Platforms Code Design System - Saudi Arabia Government
+// Based on official documentation specifications
+// ================================
+
+// ================================
+// BASE SHADOW CONFIGURATION
+// ================================
+
+// Official shadow color from Platforms Code documentation
+$dga-shadow-color: #101828; // Official Platforms Code shadow color
+
+// ================================
+// CORE SHADOW SCALE - OFFICIAL SPECIFICATIONS
+// ================================
+// These shadows match the exact specifications from the official
+// Platforms Code documentation with precise blur, spread, and opacity values
+
+// No shadow
+$dga-shadow-none: none;
+
+// Extra Small Shadow
+// Usage: Subtle elements, small buttons, form elements
+// Spec: 0px 1px 2px rgba(#101828, 5%)
+$dga-shadow-xs: 0px 1px 2px rgba($dga-shadow-color, 0.05);
+
+// Small Shadow (Dual Layer)
+// Usage: Cards, buttons, small floating elements
+// Spec: 0px 1px 3px rgba(#101828, 10%) + 0px 1px 2px rgba(#101828, 6%)
+$dga-shadow-sm: 0px 1px 3px rgba($dga-shadow-color, 0.1),
+  0px 1px 2px rgba($dga-shadow-color, 0.06);
+
+// Medium Shadow (Dual Layer) - DEFAULT FOR CARDS
+// Usage: Primary cards, panels, important UI elements
+// Spec: 0px 4px 8px -2px rgba(#101828, 10%) + 0px 2px 4px -2px rgba(#101828, 6%)
+$dga-shadow-md: 0px 4px 8px -2px rgba($dga-shadow-color, 0.1),
+  0px 2px 4px -2px rgba($dga-shadow-color, 0.06);
+
+// Large Shadow (Dual Layer)
+// Usage: Modals, large panels, navigation drawers
+// Spec: 0px 12px 16px -4px rgba(#101828, 8%) + 0px 4px 6px -2px rgba(#101828, 3%)
+$dga-shadow-lg: 0px 12px 16px -4px rgba($dga-shadow-color, 0.08),
+  0px 4px 6px -2px rgba($dga-shadow-color, 0.03);
+
+// Extra Large Shadow (Dual Layer)
+// Usage: Large modals, overlays, dropdown menus
+// Spec: 0px 20px 24px -4px rgba(#101828, 8%) + 0px 8px 8px -4px rgba(#101828, 3%)
+$dga-shadow-xl: 0px 20px 24px -4px rgba($dga-shadow-color, 0.08),
+  0px 8px 8px -4px rgba($dga-shadow-color, 0.03);
+
+// 2X Large Shadow (Single Layer)
+// Usage: Full-screen overlays, major dialogs
+// Spec: 0px 32px 64px -12px rgba(#101828, 18%)
+$dga-shadow-2xl: 0px 32px 64px -12px rgba($dga-shadow-color, 0.18);
+
+// 3X Large Shadow (Single Layer)
+// Usage: Maximum elevation elements, splash screens
+// Spec: 0px 48px 64px -12px rgba(#101828, 14%)
+$dga-shadow-3xl: 0px 48px 64px -12px rgba($dga-shadow-color, 0.14);
+
+// ================================
+// INTERACTIVE SHADOWS
+// ================================
+// Enhanced versions of base shadows for hover and active states
+
+// Small Hover Shadow
+$dga-shadow-hover-sm: 0px 2px 4px rgba($dga-shadow-color, 0.12),
+  0px 1px 3px rgba($dga-shadow-color, 0.08);
+
+// Medium Hover Shadow
+$dga-shadow-hover-md: 0px 6px 12px -2px rgba($dga-shadow-color, 0.12),
+  0px 3px 6px -2px rgba($dga-shadow-color, 0.08);
+
+// Large Hover Shadow
+$dga-shadow-hover-lg: 0px 16px 20px -4px rgba($dga-shadow-color, 0.1),
+  0px 6px 8px -2px rgba($dga-shadow-color, 0.05);
+
+// ================================
+// SEMANTIC COLORED SHADOWS
+// ================================
+// Using semantic colors with official opacity levels for branded elements
+
+// Primary (Saudi Green) Shadow
+// $dga-shadow-primary: 0px 4px 8px -2px rgba($sa-500, 0.1), his broken after we update colors keep internal variables here
+// 0px 2px 4px -2px rgba($sa-500, 0.06);
+
+// Success Shadow
+// $dga-shadow-success: 0px 4px 8px -2px rgba($success-500, 0.1),
+//   0px 2px 4px -2px rgba($success-500, 0.06); his broken after we update colors keep internal variables here
+
+// Warning Shadow
+// $dga-shadow-warning: 0px 4px 8px -2px rgba($warning-500, 0.1),
+//   0px 2px 4px -2px rgba($warning-500, 0.06); his broken after we update colors keep internal variables here
+
+// Error/Danger Shadow
+// $dga-shadow-error: 0px 4px 8px -2px rgba($error-500, 0.1),
+//   0px 2px 4px -2px rgba($error-500, 0.06); his broken after we update colors keep internal variables here
+
+// Info Shadow
+// $dga-shadow-info: 0px 4px 8px -2px rgba($info-500, 0.1),
+//   0px 2px 4px -2px rgba($info-500, 0.06); his broken after we update colors keep internal variables here
+
+// ================================
+// ACCESSIBILITY FOCUS SHADOWS
+// ================================
+// WCAG compliant focus indicators
+
+// Primary Focus (Saudi Green)
+// $dga-shadow-focus: 0 0 0 0.2rem rgba($sa-500, 0.25);his broken after we update colors keep internal variables here
+
+// Semantic Focus Shadows
+// $dga-shadow-focus-success: 0 0 0 0.2rem rgba($success-500, 0.25);
+// $dga-shadow-focus-warning: 0 0 0 0.2rem rgba($warning-500, 0.25);
+// $dga-shadow-focus-error: 0 0 0 0.2rem rgba($error-500, 0.25);
+// $dga-shadow-focus-info: 0 0 0 0.2rem rgba($info-500, 0.25); his broken after we update colors keep internal variables here
+
+// ================================
+// INNER SHADOWS
+// ================================
+// For pressed states, inset elements, and form inputs
+
+// Small Inner Shadow
+$dga-shadow-inner-sm: inset 0 1px 2px 0 rgba($dga-shadow-color, 0.05);
+
+// Medium Inner Shadow
+$dga-shadow-inner: inset 0 2px 4px 0 rgba($dga-shadow-color, 0.06);
+
+// Large Inner Shadow
+$dga-shadow-inner-lg: inset 0 4px 8px 0 rgba($dga-shadow-color, 0.1);
+
+// ================================
+// COMPONENT-SPECIFIC SHADOWS
+// ================================
+// Pre-configured shadows for common components
+
+// Card Shadows
+$dga-shadow-card: $dga-shadow-md;
+$dga-shadow-card-hover: $dga-shadow-hover-md;
+// $dga-shadow-card-selected: $dga-shadow-primary;his broken after we update colors keep internal variables here
+
+// Button Shadows
+$dga-shadow-button: $dga-shadow-sm;
+$dga-shadow-button-hover: $dga-shadow-hover-sm;
+
+// Dropdown Shadows
+$dga-shadow-dropdown: $dga-shadow-lg;
+
+// Modal Shadows
+$dga-shadow-modal: $dga-shadow-xl;
+
+// Tooltip Shadows
+$dga-shadow-tooltip: $dga-shadow-md;
+
+// ================================
+// BACKDROP BLUR SYSTEM
+// ================================
+// Official Platforms Code backdrop blur effects
+
+// Small Backdrop Blur (8px)
+$dga-backdrop-blur-sm: blur(8px);
+
+// Medium Backdrop Blur (16px)
+$dga-backdrop-blur-md: blur(16px);
+
+// Large Backdrop Blur (24px)
+$dga-backdrop-blur-lg: blur(24px);
+
+// Extra Large Backdrop Blur (40px)
+$dga-backdrop-blur-xl: blur(40px);
+
+// ================================
+// UTILITY MIXINS
+// ================================
+
+// Mixin for applying elevation with consistent shadows
+@mixin dga-elevation($level: "md") {
+  @if $level == "xs" {
+    box-shadow: $dga-shadow-xs;
+  } @else if $level == "sm" {
+    box-shadow: $dga-shadow-sm;
+  } @else if $level == "md" {
+    box-shadow: $dga-shadow-md;
+  } @else if $level == "lg" {
+    box-shadow: $dga-shadow-lg;
+  } @else if $level == "xl" {
+    box-shadow: $dga-shadow-xl;
+  } @else if $level == "2xl" {
+    box-shadow: $dga-shadow-2xl;
+  } @else if $level == "3xl" {
+    box-shadow: $dga-shadow-3xl;
+  } @else {
+    box-shadow: $dga-shadow-md;
+  }
+}
+
+// Mixin for hover elevation
+@mixin dga-elevation-hover($level: "md") {
+  @if $level == "sm" {
+    &:hover {
+      box-shadow: $dga-shadow-hover-sm;
+      transform: translateY(-1px);
+    }
+  } @else if $level == "md" {
+    &:hover {
+      box-shadow: $dga-shadow-hover-md;
+      transform: translateY(-2px);
+    }
+  } @else if $level == "lg" {
+    &:hover {
+      box-shadow: $dga-shadow-hover-lg;
+      transform: translateY(-3px);
+    }
+  } @else {
+    &:hover {
+      box-shadow: $dga-shadow-hover-md;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Mixin for focus shadows
+@mixin dga-focus-shadow($color: "primary") {
+  @if $color == "primary" {
+    &:focus {
+      outline: none;
+      box-shadow: $dga-shadow-focus;
+    }
+  } @else if $color == "success" {
+    &:focus {
+      outline: none;
+      box-shadow: $dga-shadow-focus-success;
+    }
+  } @else if $color == "warning" {
+    &:focus {
+      outline: none;
+      box-shadow: $dga-shadow-focus-warning;
+    }
+  } @else if $color == "error" {
+    &:focus {
+      outline: none;
+      box-shadow: $dga-shadow-focus-error;
+    }
+  } @else if $color == "info" {
+    &:focus {
+      outline: none;
+      box-shadow: $dga-shadow-focus-info;
+    }
+  } @else {
+    &:focus {
+      outline: none;
+      box-shadow: $dga-shadow-focus;
+    }
+  }
+}
+
+// ================================
+// USAGE EXAMPLES
+// ================================
+
+/*
+// Basic elevation
+.my-card {
+  @include dga-elevation('md');
+}
+
+// With hover effect
+.my-button {
+  @include dga-elevation('sm');
+  @include dga-elevation-hover('sm');
+  @include dga-focus-shadow('primary');
+}
+
+// Using individual shadows
+.custom-element {
+  box-shadow: $dga-shadow-lg;
+  
+  &:hover {
+    box-shadow: $dga-shadow-hover-lg;
+  }
+  
+  &:focus {
+    box-shadow: $dga-shadow-focus;
+  }
+}
+
+// Backdrop blur modal
+.modal-backdrop {
+  backdrop-filter: $dga-backdrop-blur-md;
+}
+*/

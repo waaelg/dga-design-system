@@ -1,0 +1,432 @@
+// =============================================================================
+// DGA Design System - Grid Variables
+// File: styles/variables/grid.scss
+// Based on DGA Grid Layout specifications
+// =============================================================================
+
+// Import spacing variables for consistency
+@import "spacing";
+
+// =============================================================================
+// DYNAMIC GRID CONFIGURATION
+// =============================================================================
+
+// Enable/disable grid features
+$dga-enable-grid: true !default;
+$dga-enable-container-classes: true !default;
+$dga-enable-row-classes: true !default;
+$dga-enable-col-classes: true !default;
+$dga-enable-responsive-columns: true !default;
+$dga-enable-flex-utilities: true !default;
+$dga-enable-gap-utilities: true !default;
+$dga-enable-display-utilities: true !default;
+$dga-enable-position-utilities: true !default;
+
+// =============================================================================
+// DYNAMIC GRID BREAKPOINTS (Configurable)
+// =============================================================================
+
+$dga-grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  // Tablet
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1280px,
+  // Desktop
+) !default;
+
+// Function to add custom breakpoints
+@function dga-add-breakpoint($breakpoints, $name, $value) {
+  @return map-merge(
+    $breakpoints,
+    (
+      $name: $value,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC GRID CONTAINERS (Configurable)
+// =============================================================================
+
+$dga-container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1280px,
+  // DGA Desktop max-width
+) !default;
+
+// Function to add custom container widths
+@function dga-add-container-width($containers, $breakpoint, $width) {
+  @return map-merge(
+    $containers,
+    (
+      $breakpoint: $width,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC GRID SYSTEM CONFIGURATION
+// =============================================================================
+
+// Grid columns (configurable)
+$dga-grid-columns: 12 !default;
+
+// Grid gutters (dynamic based on DGA spacing system)
+$dga-grid-gutter-width: $dga-spacing-base * 8 !default; // 32px (2rem)
+
+// Dynamic grid gutters for different breakpoints
+$dga-grid-gutters: (
+  xs: $dga-spacing-base * 4,
+  // 16px mobile
+  sm: $dga-spacing-base * 4,
+  // 16px
+  md: $dga-spacing-base * 8,
+  // 32px tablet
+  lg: $dga-spacing-base * 8,
+  // 32px
+  xl: $dga-spacing-base * 8,
+  // 32px
+  xxl: $dga-spacing-base * 8,
+  // 32px desktop
+) !default;
+
+// Function to add custom gutter for specific breakpoint
+@function dga-add-grid-gutter($gutters, $breakpoint, $gutter) {
+  @return map-merge(
+    $gutters,
+    (
+      $breakpoint: $gutter,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC DGA SPECIFIC GRID LAYOUTS (Configurable)
+// =============================================================================
+
+// Desktop grid configuration (customizable)
+$dga-desktop-grid: (
+  container-width: 1280px,
+  content-width: 1216px,
+  // Auto-calculated: 1280px - (32px * 2)
+  columns: 12,
+  gutter: 32px,
+  padding: 32px,
+) !default;
+
+// Tablet grid configuration (customizable)
+$dga-tablet-grid: (
+  container-width: 768px,
+  content-width: 704px,
+  // Auto-calculated: 768px - (32px * 2)
+  columns: 7,
+  gutter: 32px,
+  padding: 32px,
+) !default;
+
+// Mobile grid configuration (customizable)
+$dga-mobile-grid: (
+  container-width: 375px,
+  content-width: 343px,
+  // Auto-calculated: 375px - (16px * 2)
+  columns: 5,
+  gutter: 16px,
+  padding: 16px,
+) !default;
+
+// Function to create custom device grid
+@function dga-create-device-grid(
+  $container,
+  $columns,
+  $gutter,
+  $padding: $gutter
+) {
+  $content: $container - ($padding * 2);
+  @return (
+    container-width: $container,
+    content-width: $content,
+    columns: $columns,
+    gutter: $gutter,
+    padding: $padding
+  );
+}
+
+// =============================================================================
+// DYNAMIC CONTAINER GRID LAYOUTS (Variable column systems)
+// =============================================================================
+
+$dga-container-grids: (
+  "auto-12": (
+    columns: 12,
+    min-width: 1280px,
+  ),
+  "auto-6": (
+    columns: 6,
+    min-width: 768px,
+  ),
+  "auto-5": (
+    columns: 5,
+    min-width: 375px,
+  ),
+  "auto-3": (
+    columns: 3,
+    min-width: 375px,
+  ),
+  "auto-2": (
+    columns: 2,
+    min-width: 375px,
+  ),
+) !default;
+
+// Function to add custom container grid
+@function dga-add-container-grid($grids, $name, $columns, $min-width) {
+  @return map-merge(
+    $grids,
+    (
+      $name: (
+        columns: $columns,
+        min-width: $min-width,
+      ),
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC GRID UTILITY CONFIGURATIONS
+// =============================================================================
+
+// Dynamic responsive grid classes (configurable)
+$dga-grid-responsive-columns: (
+  "": $dga-grid-columns,
+  // .dga-col-1 through .dga-col-{max}
+  "sm": $dga-grid-columns,
+  // .dga-col-sm-1 through .dga-col-sm-{max}
+  "md": map-get($dga-tablet-grid, columns),
+  // .dga-col-md-1 through .dga-col-md-7 (tablet)
+  "lg": $dga-grid-columns,
+  // .dga-col-lg-1 through .dga-col-lg-{max}
+  "xl": $dga-grid-columns,
+  // .dga-col-xl-1 through .dga-col-xl-{max}
+  "xxl": $dga-grid-columns,
+  // .dga-col-xxl-1 through .dga-col-xxl-{max}
+) !default;
+
+// Function to set responsive columns for specific breakpoint
+@function dga-set-responsive-columns($breakpoint, $columns) {
+  @return map-merge(
+    $dga-grid-responsive-columns,
+    (
+      $breakpoint: $columns,
+    )
+  );
+}
+
+// Dynamic flex utilities
+$dga-flex-directions: (
+  "row": row,
+  "row-reverse": row-reverse,
+  "col": column,
+  "col-reverse": column-reverse,
+) !default;
+
+$dga-justify-content: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "between": space-between,
+  "around": space-around,
+  "evenly": space-evenly,
+) !default;
+
+$dga-align-items: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "baseline": baseline,
+  "stretch": stretch,
+) !default;
+
+$dga-align-content: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "between": space-between,
+  "around": space-around,
+  "stretch": stretch,
+) !default;
+
+// Functions to add custom flex utilities
+@function dga-add-flex-direction($directions, $name, $value) {
+  @return map-merge(
+    $directions,
+    (
+      $name: $value,
+    )
+  );
+}
+
+@function dga-add-justify-content($justifies, $name, $value) {
+  @return map-merge(
+    $justifies,
+    (
+      $name: $value,
+    )
+  );
+}
+
+@function dga-add-align-items($aligns, $name, $value) {
+  @return map-merge(
+    $aligns,
+    (
+      $name: $value,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC GRID SPACING (for gap utilities)
+// =============================================================================
+
+// Use existing spacing system for gaps (fully dynamic)
+$dga-grid-gaps: $dga-spacing !default;
+
+// Function to add custom gap
+@function dga-add-grid-gap($gaps, $name, $value) {
+  @return map-merge(
+    $gaps,
+    (
+      $name: $value,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC ASPECT RATIOS (Configurable)
+// =============================================================================
+
+$dga-aspect-ratios: (
+  "1x1": 100%,
+  "4x3": 75%,
+  "3x2": 66.666667%,
+  "5x3": 60%,
+  "16x9": 56.25%,
+  "2x1": 50%,
+  "3x1": 33.333333%,
+) !default;
+
+// Function to add custom aspect ratio
+@function dga-add-aspect-ratio($ratios, $name, $width, $height) {
+  $ratio: percentage($height / $width);
+  @return map-merge(
+    $ratios,
+    (
+      $name: $ratio,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC Z-INDEX LAYERS (Configurable)
+// =============================================================================
+
+$dga-z-index: (
+  "dropdown": 1000,
+  "sticky": 1020,
+  "fixed": 1030,
+  "modal-backdrop": 1040,
+  "modal": 1050,
+  "popover": 1060,
+  "tooltip": 1070,
+  "toast": 1080,
+) !default;
+
+// Function to add custom z-index
+@function dga-add-z-index($z-indexes, $name, $value) {
+  @return map-merge(
+    $z-indexes,
+    (
+      $name: $value,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC RESPONSIVE VISIBILITY UTILITIES
+// =============================================================================
+
+$dga-displays: (
+  "none": none,
+  "inline": inline,
+  "inline-block": inline-block,
+  "block": block,
+  "flex": flex,
+  "inline-flex": inline-flex,
+  "grid": grid,
+  "inline-grid": inline-grid,
+  "table": table,
+  "table-cell": table-cell,
+  "table-row": table-row,
+) !default;
+
+// Function to add custom display value
+@function dga-add-display($displays, $name, $value) {
+  @return map-merge(
+    $displays,
+    (
+      $name: $value,
+    )
+  );
+}
+
+// =============================================================================
+// DYNAMIC GRID CONFIGURATION FUNCTIONS
+// =============================================================================
+
+// Master function to configure entire grid system
+@function dga-configure-grid(
+  $columns: $dga-grid-columns,
+  $breakpoints: $dga-grid-breakpoints,
+  $gutters: $dga-grid-gutters,
+  $containers: $dga-container-max-widths
+) {
+  // Update global variables
+  $dga-grid-columns: $columns !global;
+  $dga-grid-breakpoints: $breakpoints !global;
+  $dga-grid-gutters: $gutters !global;
+  $dga-container-max-widths: $containers !global;
+
+  @return true;
+}
+
+// Function to create completely custom grid system
+@function dga-create-custom-grid(
+  $name,
+  $columns,
+  $breakpoints,
+  $gutters,
+  $containers: null
+) {
+  $custom-grid: (
+    name: $name,
+    columns: $columns,
+    breakpoints: $breakpoints,
+    gutters: $gutters,
+  );
+
+  @if $containers {
+    $custom-grid: map-merge(
+      $custom-grid,
+      (
+        containers: $containers,
+      )
+    );
+  }
+
+  @return $custom-grid;
+}

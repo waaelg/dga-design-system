@@ -1,0 +1,350 @@
+// =============================================================================
+// DGA Design System - Color Variables
+// File: styles/variables/colors.scss
+// Based on Platforms Code Design System - Saudi Arabia Government
+// =============================================================================
+
+// ================================
+// NEUTRAL COLORS (Gray Palette)
+// ================================
+$dga-gray-25: #fcfcfd;
+$dga-gray-50: #f9fafb;
+$dga-gray-100: #f3f4f6;
+$dga-gray-200: #e5e7eb;
+$dga-gray-300: #d2d6db;
+$dga-gray-400: #9da4ae;
+$dga-gray-500: #6c737f;
+$dga-gray-600: #4d5761;
+$dga-gray-700: #384250;
+$dga-gray-800: #1f2a37;
+$dga-gray-900: #111927;
+$dga-gray-950: #0d121c;
+
+// ================================
+// PRIMARY COLORS (Saudi Arabia Green)
+// ================================
+$dga-sa-25: #f7fdf9;
+$dga-sa-50: #f3fcf6;
+$dga-sa-100: #dff6e7;
+$dga-sa-200: #b8eacb;
+$dga-sa-300: #88d8ad;
+$dga-sa-400: #54c08a;
+$dga-sa-500: #25935f; // Main Saudi Green
+$dga-sa-600: #1b8354;
+$dga-sa-700: #166a45;
+$dga-sa-800: #14573a;
+$dga-sa-900: #104631;
+$dga-sa-950: #092a1e;
+
+// ================================
+// SECONDARY COLORS
+// ================================
+
+// Gold Palette
+$dga-gold-25: #fffef7;
+$dga-gold-50: #fffef2;
+$dga-gold-100: #fffce6;
+$dga-gold-200: #fcf3bd;
+$dga-gold-300: #fae996;
+$dga-gold-400: #f7d54d;
+$dga-gold-500: #f5bd02;
+$dga-gold-600: #dba102;
+$dga-gold-700: #b87b02;
+$dga-gold-800: #945c01;
+$dga-gold-900: #6e3c00;
+$dga-gold-950: #472400;
+
+// Lavender Palette
+$dga-lavender-25: #fefcff;
+$dga-lavender-50: #f9f5fa;
+$dga-lavender-100: #f2e9f5;
+$dga-lavender-200: #e1cce8;
+$dga-lavender-300: #ccadd9;
+$dga-lavender-400: #a57bba;
+$dga-lavender-500: #80519f;
+$dga-lavender-600: #6d428f;
+$dga-lavender-700: #532d75;
+$dga-lavender-800: #3d1d5e;
+$dga-lavender-900: #281047;
+$dga-lavender-950: #16072e;
+
+// ================================
+// SEMANTIC COLORS
+// ================================
+
+// Error/Danger (Red)
+$dga-error-25: #fffbfa;
+$dga-error-50: #fef3f2;
+$dga-error-100: #fee4e2;
+$dga-error-200: #fecdca;
+$dga-error-300: #fda29b;
+$dga-error-400: #f97066;
+$dga-error-500: #f04438;
+$dga-error-600: #d92d20;
+$dga-error-700: #b42318;
+$dga-error-800: #912018;
+$dga-error-900: #7a271a;
+$dga-error-950: #55160c;
+
+// Warning (Yellow/Orange)
+$dga-warning-25: #fffcf5;
+$dga-warning-50: #fffaeb;
+$dga-warning-100: #fef0c7;
+$dga-warning-200: #fedf89;
+$dga-warning-300: #fec84b;
+$dga-warning-400: #fdb022;
+$dga-warning-500: #f79009;
+$dga-warning-600: #dc6803;
+$dga-warning-700: #b54708;
+$dga-warning-800: #93370d;
+$dga-warning-900: #7a2e0e;
+$dga-warning-950: #4e1d09;
+
+// Info (Blue)
+$dga-info-25: #f5faff;
+$dga-info-50: #ecfdf3;
+$dga-info-100: #d1e9ff;
+$dga-info-200: #b2ddff;
+$dga-info-300: #84caff;
+$dga-info-400: #53b1fd;
+$dga-info-500: #2e90fa;
+$dga-info-600: #1570ef;
+$dga-info-700: #175cd3;
+$dga-info-800: #1849a9;
+$dga-info-900: #194185;
+$dga-info-950: #102a56;
+
+// Success (Green)
+$dga-success-25: #f6fef9;
+$dga-success-50: #ecfdf3;
+$dga-success-100: #dcfae6;
+$dga-success-200: #abefc6;
+$dga-success-300: #75e0a7;
+$dga-success-400: #47cd89;
+$dga-success-500: #17b26a;
+$dga-success-600: #079455;
+$dga-success-700: #067647;
+$dga-success-800: #085d3a;
+$dga-success-900: #074d31;
+$dga-success-950: #053321;
+
+// ================================
+// DGA COLOR MAPS (for utility generation)
+// ================================
+
+// Neutral gray colors
+$dga-gray: (
+  "25": $dga-gray-25,
+  "50": $dga-gray-50,
+  "100": $dga-gray-100,
+  "200": $dga-gray-200,
+  "300": $dga-gray-300,
+  "400": $dga-gray-400,
+  "500": $dga-gray-500,
+  "600": $dga-gray-600,
+  "700": $dga-gray-700,
+  "800": $dga-gray-800,
+  "900": $dga-gray-900,
+  "950": $dga-gray-950,
+);
+
+// Primary colors (Saudi Arabia Green)
+$dga-primary: (
+  "25": $dga-sa-25,
+  "50": $dga-sa-50,
+  "100": $dga-sa-100,
+  "200": $dga-sa-200,
+  "300": $dga-sa-300,
+  "400": $dga-sa-400,
+  "500": $dga-sa-500,
+  "600": $dga-sa-600,
+  "700": $dga-sa-700,
+  "800": $dga-sa-800,
+  "900": $dga-sa-900,
+  "950": $dga-sa-950,
+);
+
+// Gold colors
+$dga-gold: (
+  "25": $dga-gold-25,
+  "50": $dga-gold-50,
+  "100": $dga-gold-100,
+  "200": $dga-gold-200,
+  "300": $dga-gold-300,
+  "400": $dga-gold-400,
+  "500": $dga-gold-500,
+  "600": $dga-gold-600,
+  "700": $dga-gold-700,
+  "800": $dga-gold-800,
+  "900": $dga-gold-900,
+  "950": $dga-gold-950,
+);
+
+// Lavender colors
+$dga-lavender: (
+  "25": $dga-lavender-25,
+  "50": $dga-lavender-50,
+  "100": $dga-lavender-100,
+  "200": $dga-lavender-200,
+  "300": $dga-lavender-300,
+  "400": $dga-lavender-400,
+  "500": $dga-lavender-500,
+  "600": $dga-lavender-600,
+  "700": $dga-lavender-700,
+  "800": $dga-lavender-800,
+  "900": $dga-lavender-900,
+  "950": $dga-lavender-950,
+);
+
+// Error colors
+$dga-error: (
+  "25": $dga-error-25,
+  "50": $dga-error-50,
+  "100": $dga-error-100,
+  "200": $dga-error-200,
+  "300": $dga-error-300,
+  "400": $dga-error-400,
+  "500": $dga-error-500,
+  "600": $dga-error-600,
+  "700": $dga-error-700,
+  "800": $dga-error-800,
+  "900": $dga-error-900,
+  "950": $dga-error-950,
+);
+
+// Warning colors
+$dga-warning: (
+  "25": $dga-warning-25,
+  "50": $dga-warning-50,
+  "100": $dga-warning-100,
+  "200": $dga-warning-200,
+  "300": $dga-warning-300,
+  "400": $dga-warning-400,
+  "500": $dga-warning-500,
+  "600": $dga-warning-600,
+  "700": $dga-warning-700,
+  "800": $dga-warning-800,
+  "900": $dga-warning-900,
+  "950": $dga-warning-950,
+);
+
+// Info colors
+$dga-info: (
+  "25": $dga-info-25,
+  "50": $dga-info-50,
+  "100": $dga-info-100,
+  "200": $dga-info-200,
+  "300": $dga-info-300,
+  "400": $dga-info-400,
+  "500": $dga-info-500,
+  "600": $dga-info-600,
+  "700": $dga-info-700,
+  "800": $dga-info-800,
+  "900": $dga-info-900,
+  "950": $dga-info-950,
+);
+
+// Success colors
+$dga-success: (
+  "25": $dga-success-25,
+  "50": $dga-success-50,
+  "100": $dga-success-100,
+  "200": $dga-success-200,
+  "300": $dga-success-300,
+  "400": $dga-success-400,
+  "500": $dga-success-500,
+  "600": $dga-success-600,
+  "700": $dga-success-700,
+  "800": $dga-success-800,
+  "900": $dga-success-900,
+  "950": $dga-success-950,
+);
+
+// ================================
+// DGA SEMANTIC COLOR MAPPINGS
+// ================================
+$dga-semantic-primary: $dga-sa-500; // Saudi Green as primary
+$dga-semantic-secondary: $dga-gold-500; // Gold as secondary
+$dga-semantic-success: $dga-success-500;
+$dga-semantic-info: $dga-info-500;
+$dga-semantic-warning: $dga-warning-500;
+$dga-semantic-danger: $dga-error-500;
+$dga-semantic-light: $dga-gray-50;
+$dga-semantic-dark: $dga-gray-900;
+
+// ================================
+// DGA TEXT COLORS
+// ================================
+
+// Dark text on light backgrounds
+$dga-text-primary: $dga-gray-950; // Primary text
+$dga-text-secondary: $dga-gray-700; // Secondary text
+$dga-text-tertiary: $dga-gray-600; // Tertiary text
+
+// Light text on dark backgrounds
+$dga-text-light-primary: rgba(255, 255, 255, 1); // White 100%
+$dga-text-light-secondary: rgba(255, 255, 255, 0.7); // White 70%
+$dga-text-light-tertiary: rgba(255, 255, 255, 0.6); // White 60%
+
+// Platform text colors (Saudi Green variations)
+$dga-text-sa-primary: $dga-sa-800;
+$dga-text-sa-secondary: $dga-sa-600;
+$dga-text-sa-tertiary: $dga-sa-500;
+
+// Semantic text colors
+$dga-text-error: $dga-error-600;
+$dga-text-warning: $dga-warning-600;
+$dga-text-success: $dga-success-600;
+$dga-text-info: $dga-info-600;
+
+// ================================
+// DGA GRADIENT DEFINITIONS
+// ================================
+$dga-gradient-sa-primary: linear-gradient(90deg, $dga-sa-600, $dga-sa-500);
+$dga-gradient-sa-secondary: linear-gradient(45deg, $dga-sa-700, $dga-sa-600);
+$dga-gradient-sa-dark: linear-gradient(45deg, $dga-sa-950, $dga-sa-600);
+$dga-gradient-sa-medium: linear-gradient(90deg, $dga-sa-800, $dga-sa-600);
+$dga-gradient-sa-subtle: linear-gradient(26.5deg, $dga-sa-800, $dga-sa-700);
+$dga-gradient-sa-deep: linear-gradient(45deg, $dga-sa-900, $dga-sa-600);
+
+// ================================
+// DGA COMPONENT DEFAULTS
+// ================================
+
+// Body and background colors
+$dga-body-bg: $dga-gray-25;
+$dga-body-color: $dga-text-primary;
+
+// Link colors
+$dga-link-color: $dga-semantic-primary;
+$dga-link-hover-color: $dga-sa-600;
+
+// Border colors
+$dga-border-color: $dga-gray-200;
+$dga-border-color-light: $dga-gray-100;
+
+// Component backgrounds
+$dga-component-bg: #ffffff;
+$dga-input-bg: #ffffff;
+$dga-card-bg: #ffffff;
+
+// Focus colors
+$dga-focus-ring-color: rgba($dga-semantic-primary, 0.25);
+
+// ================================
+// ACCESSIBILITY HELPERS
+// ================================
+
+// Function to check if color is light or dark
+@function dga-color-contrast($color) {
+  @if (lightness($color) > 50) {
+    @return $dga-text-primary; // Dark text for light backgrounds
+  } @else {
+    @return $dga-text-light-primary; // Light text for dark backgrounds
+  }
+}
+
+// Function to get accessible text color for any DGA color
+@function dga-text-color($bg-color) {
+  @return dga-color-contrast($bg-color);
+}

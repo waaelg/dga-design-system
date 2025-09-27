@@ -1,0 +1,53 @@
+.dga-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 24px;
+  // background: $component-bg;  this broken after we update colors keep internal variables here
+  border-radius: $border-radius-lg;
+  > * {
+    width: 100%;
+  }
+  .dga-card-icon {
+  }
+  .dga-card-content {
+    flex: 1;
+    .dga-card-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: $dga-text-primary;
+      margin: 0;
+    }
+    // Body content
+    .dga-card-body {
+    }
+  }
+  .dga-card-footer {
+    .footer-text {
+      font-size: 0.75rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: $gray-400;
+      margin: 0;
+    }
+    .footer-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+  }
+
+  &[data-variant="default"] {
+    box-shadow: $dga-shadow-md;
+  }
+  &[data-variant="noshadow"] {
+    box-shadow: none;
+  }
+
+  &[data-variant="bordered"] {
+    border: $border-width solid $border-color;
+  }
+}

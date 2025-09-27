@@ -1,0 +1,221 @@
+// ==========================================
+// DGA Design System - Spacing Variables
+// ==========================================
+
+// Base spacing unit (4px = 0.25rem)
+$dga-spacing-base: 0.25rem;
+
+// ==========================================
+// Spacing Primitives
+// ==========================================
+// Numeric scale where each unit equals 0.25rem (4px)
+
+$dga-spacing-0: 0;
+$dga-spacing-0-5: 0.125rem; // 2px
+$dga-spacing-1: 0.25rem; // 4px
+$dga-spacing-2: 0.5rem; // 8px
+$dga-spacing-3: 0.75rem; // 12px
+$dga-spacing-4: 1rem; // 16px
+$dga-spacing-5: 1.25rem; // 20px
+$dga-spacing-6: 1.5rem; // 24px
+$dga-spacing-8: 2rem; // 32px
+$dga-spacing-10: 2.5rem; // 40px
+$dga-spacing-12: 3rem; // 48px
+$dga-spacing-16: 4rem; // 64px
+$dga-spacing-20: 5rem; // 80px
+$dga-spacing-24: 6rem; // 96px
+$dga-spacing-32: 8rem; // 128px
+$dga-spacing-40: 10rem; // 160px
+$dga-spacing-48: 12rem; // 192px
+$dga-spacing-56: 14rem; // 224px
+$dga-spacing-64: 16rem; // 256px
+$dga-spacing-80: 20rem; // 320px
+$dga-spacing-96: 24rem; // 384px
+$dga-spacing-120: 30rem; // 480px
+$dga-spacing-140: 35rem; // 560px
+$dga-spacing-160: 40rem; // 640px
+$dga-spacing-180: 45rem; // 720px
+$dga-spacing-192: 48rem; // 768px
+$dga-spacing-256: 64rem; // 1,024px
+$dga-spacing-320: 80rem; // 1,280px
+$dga-spacing-360: 90rem; // 1,440px
+$dga-spacing-400: 100rem; // 1,600px
+$dga-spacing-480: 120rem; // 1,920px
+
+// ==========================================
+// Semantic Spacing Variables
+// ==========================================
+// Pre-defined spacing values for consistent design
+
+$dga-spacing-none: 0;
+$dga-spacing-xxs: 0.125rem; // 2px
+$dga-spacing-xs: 0.25rem; // 4px
+$dga-spacing-sm: 0.375rem; // 6px
+$dga-spacing-md: 0.5rem; // 8px
+$dga-spacing-lg: 0.75rem; // 12px
+$dga-spacing-xl: 1rem; // 16px
+$dga-spacing-2xl: 1.25rem; // 20px
+$dga-spacing-3xl: 1.5rem; // 24px
+$dga-spacing-4xl: 2rem; // 32px
+$dga-spacing-5xl: 2.5rem; // 40px
+$dga-spacing-6xl: 3rem; // 48px
+$dga-spacing-7xl: 4rem; // 64px
+$dga-spacing-8xl: 5rem; // 80px
+$dga-spacing-9xl: 6rem; // 96px
+$dga-spacing-10xl: 8rem; // 128px
+$dga-spacing-11xl: 10rem; // 160px
+
+// ==========================================
+// Width Variables
+// ==========================================
+// Pre-defined widths for content wrapping
+
+$dga-width-xxs: 20rem; // 320px
+$dga-width-xs: 24rem; // 384px
+$dga-width-sm: 30rem; // 480px
+$dga-width-md: 35rem; // 560px
+$dga-width-lg: 40rem; // 640px
+$dga-width-xl: 48rem; // 768px
+$dga-width-2xl: 64rem; // 1,024px
+$dga-width-3xl: 80rem; // 1,280px
+$dga-width-4xl: 90rem; // 1,440px
+$dga-width-5xl: 100rem; // 1,600px
+$dga-width-6xl: 120rem; // 1,920px
+
+// ==========================================
+// Container Variables
+// ==========================================
+// Container-specific padding and max-widths
+
+$dga-container-padding-mobile: 1rem; // 16px
+$dga-container-padding-desktop: 2rem; // 32px
+$dga-container-max-width-desktop: 80rem; // 1,280px
+
+// ==========================================
+// Paragraph Max-Width
+// ==========================================
+// Optimized for readability
+
+$dga-paragraph-max-width: 45rem; // 720px
+
+// ==========================================
+// Spacing Map for Dynamic Usage
+// ==========================================
+
+$dga-spacing-map: (
+  "none": $dga-spacing-none,
+  "xxs": $dga-spacing-xxs,
+  "xs": $dga-spacing-xs,
+  "sm": $dga-spacing-sm,
+  "md": $dga-spacing-md,
+  "lg": $dga-spacing-lg,
+  "xl": $dga-spacing-xl,
+  "2xl": $dga-spacing-2xl,
+  "3xl": $dga-spacing-3xl,
+  "4xl": $dga-spacing-4xl,
+  "5xl": $dga-spacing-5xl,
+  "6xl": $dga-spacing-6xl,
+  "7xl": $dga-spacing-7xl,
+  "8xl": $dga-spacing-8xl,
+  "9xl": $dga-spacing-9xl,
+  "10xl": $dga-spacing-10xl,
+  "11xl": $dga-spacing-11xl,
+);
+
+// ==========================================
+// Spacing Utility Function
+// ==========================================
+
+@function dga-spacing($size) {
+  @if map-has-key($dga-spacing-map, $size) {
+    @return map-get($dga-spacing-map, $size);
+  }
+
+  @warn "Unknown spacing size `#{$size}` in $dga-spacing-map.";
+  @return null;
+}
+
+// ==========================================
+// Spacing Mixins
+// ==========================================
+
+// Padding mixin
+@mixin dga-padding($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top {
+    padding-top: dga-spacing($top);
+  }
+  @if $right {
+    padding-right: dga-spacing($right);
+  }
+  @if $bottom {
+    padding-bottom: dga-spacing($bottom);
+  }
+  @if $left {
+    padding-left: dga-spacing($left);
+  }
+}
+
+// Margin mixin
+@mixin dga-margin($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top {
+    margin-top: dga-spacing($top);
+  }
+  @if $right {
+    margin-right: dga-spacing($right);
+  }
+  @if $bottom {
+    margin-bottom: dga-spacing($bottom);
+  }
+  @if $left {
+    margin-left: dga-spacing($left);
+  }
+}
+
+// Gap mixin for flexbox/grid
+@mixin dga-gap($size) {
+  gap: dga-spacing($size);
+}
+
+// ==========================================
+// Usage Examples (commented out)
+// ==========================================
+
+/*
+// Direct usage
+.component {
+  padding: $dga-spacing-md;
+  margin-bottom: $dga-spacing-lg;
+  gap: $dga-spacing-sm;
+}
+
+// Using function
+.element {
+  padding: dga-spacing('md');
+  margin: dga-spacing('lg') dga-spacing('md');
+}
+
+// Using mixins
+.card {
+  @include dga-padding('lg', 'xl', 'lg', 'xl');
+  @include dga-margin('md', null, 'lg', null);
+}
+
+// Container usage
+.container {
+  max-width: $dga-container-max-width-desktop;
+  padding: $dga-container-padding-mobile;
+  
+  @media (min-width: 768px) {
+    padding: $dga-container-padding-desktop;
+  }
+}
+
+// Width constraints
+.content {
+  max-width: $dga-width-lg;
+}
+
+.text-content {
+  max-width: $dga-paragraph-max-width;
+}
+*/

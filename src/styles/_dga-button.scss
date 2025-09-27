@@ -1,0 +1,598 @@
+// ================================
+// ACCESSIBILITY ENHANCEMENTS
+// ================================
+// DGA BUTTON COMPONENT
+// Based on Platforms Code Design System - Saudi Arabia Government
+// Integrates with existing DGA variables and Bootstrap
+// ================================
+
+// ================================
+// BUTTON BASE CONFIGURATION
+// ================================
+
+// Button Variables (using existing DGA system)
+$dga-btn-font-family: $dga-font-family-primary;
+$dga-btn-font-weight: $dga-font-weight-medium;
+$dga-btn-transition: all 0.2s ease-in-out;
+$dga-btn-cursor: pointer;
+$dga-btn-border-width: 1px;
+$dga-btn-border-style: solid;
+
+// Button Border Radius (using existing system)
+$dga-btn-border-radius: 4px; // radius-sm from your system
+$dga-btn-border-radius-sm: 2px; // radius-xs
+$dga-btn-border-radius-lg: 8px; // radius-md
+
+// Focus Ring (using existing colors)
+$dga-btn-focus-width: 3px;
+$dga-btn-focus-color: rgba($dga-sa-500, 0.2);
+
+// ================================
+// BUTTON SIZE CONFIGURATIONS
+// ================================
+
+// Size configurations using your existing spacing and typography
+$dga-btn-sizes: (
+  "2xs": (
+    padding-y: 6px,
+    padding-x: 8px,
+    font-size: $dga-text-xs-font-size,
+    line-height: $dga-text-xs-line-height,
+    height: 28px,
+    gap: 2px,
+    border-radius: $dga-btn-border-radius-sm,
+    icon-size: 12px,
+  ),
+  "xs": (
+    padding-y: 6px,
+    padding-x: 10px,
+    font-size: $dga-text-xs-font-size,
+    line-height: $dga-text-xs-line-height,
+    height: 32px,
+    gap: 3px,
+    border-radius: $dga-btn-border-radius-sm,
+    icon-size: 14px,
+  ),
+  "small": (
+    padding-y: 8px,
+    padding-x: 12px,
+    font-size: $dga-text-sm-font-size,
+    line-height: $dga-text-sm-line-height,
+    height: 36px,
+    gap: 4px,
+    border-radius: $dga-btn-border-radius,
+    icon-size: 16px,
+  ),
+  "medium": (
+    padding-y: 10px,
+    padding-x: 16px,
+    font-size: $dga-text-sm-font-size,
+    line-height: $dga-text-sm-line-height,
+    height: 40px,
+    gap: 4px,
+    border-radius: $dga-btn-border-radius,
+    icon-size: 16px,
+  ),
+  "large": (
+    padding-y: 0px,
+    padding-x: 16px,
+    font-size: $dga-text-md-font-size,
+    line-height: $dga-text-md-line-height,
+    height: 40px,
+    gap: 4px,
+    border-radius: 4px,
+    icon-size: 20px,
+  ),
+  "xl": (
+    padding-y: 14px,
+    padding-x: 24px,
+    font-size: $dga-text-md-font-size,
+    line-height: $dga-text-md-line-height,
+    height: 56px,
+    gap: 4px,
+    border-radius: $dga-btn-border-radius-lg,
+    icon-size: 20px,
+  ),
+  "2xl": (
+    padding-y: 16px,
+    padding-x: 28px,
+    font-size: $dga-text-lg-font-size,
+    line-height: $dga-text-lg-line-height,
+    height: 60px,
+    gap: 4px,
+    border-radius: $dga-btn-border-radius-lg,
+    icon-size: 24px,
+  ),
+);
+
+// ================================
+// BUTTON VARIANT CONFIGURATIONS
+// ================================
+
+$dga-btn-variants: (
+  "primary": (
+    color: #ffffff,
+    background: $dga-sa-600,
+    // #1B8354 from Figma
+    border: $dga-sa-600,
+    hover-color: #ffffff,
+    hover-background: $dga-sa-700,
+    hover-border: $dga-sa-700,
+    active-color: #ffffff,
+    active-background: $dga-sa-800,
+    active-border: $dga-sa-800,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "neutral": (
+    color: #ffffff,
+    background: $dga-gray-950,
+    // #0D121C from Figma
+    border: $dga-gray-950,
+    hover-color: #ffffff,
+    hover-background: $dga-gray-900,
+    hover-border: $dga-gray-900,
+    active-color: #ffffff,
+    active-background: $dga-gray-800,
+    active-border: $dga-gray-800,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "secondary-solid": (
+    color: $dga-gray-700,
+    background: $dga-gray-100,
+    // #F3F4F6 from Figma
+    border: $dga-gray-100,
+    hover-color: $dga-gray-700,
+    hover-background: $dga-gray-200,
+    hover-border: $dga-gray-200,
+    active-color: $dga-gray-700,
+    active-background: $dga-gray-300,
+    active-border: $dga-gray-300,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "secondary-outline": (
+    color: $dga-gray-700,
+    background: transparent,
+    border: $dga-gray-300,
+    // #D2D6DB from Figma
+    hover-color: $dga-gray-700,
+    hover-background: $dga-gray-50,
+    hover-border: $dga-gray-400,
+    active-color: $dga-gray-700,
+    active-background: $dga-gray-100,
+    active-border: $dga-gray-500,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "subtle": (
+    color: $dga-gray-700,
+    background: transparent,
+    border: transparent,
+    hover-color: $dga-gray-700,
+    hover-background: $dga-gray-100,
+    hover-border: transparent,
+    active-color: $dga-gray-700,
+    active-background: $dga-gray-200,
+    active-border: transparent,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "transparent": (
+    color: $dga-gray-500,
+    background: transparent,
+    border: transparent,
+    hover-color: $dga-gray-700,
+    hover-background: transparent,
+    hover-border: transparent,
+    active-color: $dga-gray-800,
+    active-background: transparent,
+    active-border: transparent,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "destructive": (
+    color: #ffffff,
+    background: $dga-error-500,
+    border: $dga-error-500,
+    hover-color: #ffffff,
+    hover-background: $dga-error-600,
+    hover-border: $dga-error-600,
+    active-color: #ffffff,
+    active-background: $dga-error-700,
+    active-border: $dga-error-700,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "success": (
+    color: #ffffff,
+    background: $dga-success-500,
+    border: $dga-success-500,
+    hover-color: #ffffff,
+    hover-background: $dga-success-600,
+    hover-border: $dga-success-600,
+    active-color: #ffffff,
+    active-background: $dga-success-700,
+    active-border: $dga-success-700,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "warning": (
+    color: #ffffff,
+    background: $dga-warning-500,
+    border: $dga-warning-500,
+    hover-color: #ffffff,
+    hover-background: $dga-warning-600,
+    hover-border: $dga-warning-600,
+    active-color: #ffffff,
+    active-background: $dga-warning-700,
+    active-border: $dga-warning-700,
+    shadow: none,
+    hover-shadow: none,
+  ),
+  "info": (
+    color: #ffffff,
+    background: $dga-info-500,
+    border: $dga-info-500,
+    hover-color: #ffffff,
+    hover-background: $dga-info-600,
+    hover-border: $dga-info-600,
+    active-color: #ffffff,
+    active-background: $dga-info-700,
+    active-border: $dga-info-700,
+    shadow: none,
+    hover-shadow: none,
+  ),
+);
+
+// ================================
+// MIXINS FOR BUTTON GENERATION
+// ================================
+
+@mixin dga-btn-size($size-name) {
+  $size: map-get($dga-btn-sizes, $size-name);
+
+  padding: map-get($size, padding-y) map-get($size, padding-x);
+  font-size: map-get($size, font-size);
+  line-height: map-get($size, line-height);
+  min-height: map-get($size, height);
+  max-height: map-get($size, height);
+  gap: map-get($size, gap);
+  border-radius: map-get($size, border-radius);
+
+  .dga-btn-icon {
+    width: map-get($size, icon-size);
+    height: map-get($size, icon-size);
+  }
+}
+
+@mixin dga-btn-variant($variant-name, $variant-map) {
+  color: map-get($variant-map, color) !important;
+  background-color: map-get($variant-map, background);
+  border-color: map-get($variant-map, border);
+
+  @if map-get($variant-map, shadow) {
+    box-shadow: map-get($variant-map, shadow);
+  }
+
+  &:hover:not(:disabled):not(.disabled) {
+    color: map-get($variant-map, hover-color) !important;
+    background-color: map-get($variant-map, hover-background) !important;
+    border-color: map-get($variant-map, hover-border) !important;
+    transform: translateY(-1px);
+
+    @if map-get($variant-map, hover-shadow) {
+      box-shadow: map-get($variant-map, hover-shadow) !important;
+    }
+  }
+
+  &:active:not(:disabled):not(.disabled),
+  &.active:not(:disabled):not(.disabled) {
+    color: map-get($variant-map, active-color) !important;
+    background-color: map-get($variant-map, active-background) !important;
+    border-color: map-get($variant-map, active-border) !important;
+    transform: translateY(0);
+
+    @if map-get($variant-map, shadow) {
+      box-shadow: 0
+        2px
+        4px
+        rgba(map-get($variant-map, active-background), 0.2) !important;
+    }
+  }
+
+  &:focus,
+  &:focus-visible {
+    color: map-get($variant-map, color) !important;
+    background-color: map-get($variant-map, background) !important;
+    border-color: map-get($variant-map, border) !important;
+  }
+}
+
+// ================================
+// BASE BUTTON CLASS
+// ================================
+
+.dga-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $dga-btn-font-family;
+  font-weight: $dga-btn-font-weight;
+  text-align: center;
+  text-decoration: none;
+  border: $dga-btn-border-width $dga-btn-border-style;
+  cursor: $dga-btn-cursor;
+  transition: $dga-btn-transition;
+  user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+
+  // Default to medium size
+  @include dga-btn-size("medium");
+
+  // Disabled state
+  &:disabled,
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  // Focus state
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 $dga-btn-focus-width $dga-btn-focus-color !important;
+    z-index: 1;
+  }
+
+  // Icon styles
+  .dga-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &.dga-btn-icon-left {
+      margin-left: 0;
+      margin-right: map-get(map-get($dga-btn-sizes, "medium"), gap);
+    }
+
+    &.dga-btn-icon-right {
+      margin-left: map-get(map-get($dga-btn-sizes, "medium"), gap);
+      margin-right: 0;
+    }
+  }
+
+  // RTL support
+  [dir="rtl"] & {
+    .dga-btn-icon-left {
+      margin-left: map-get(map-get($dga-btn-sizes, "medium"), gap);
+      margin-right: 0;
+    }
+
+    .dga-btn-icon-right {
+      margin-left: 0;
+      margin-right: map-get(map-get($dga-btn-sizes, "medium"), gap);
+    }
+  }
+}
+
+// ================================
+// BUTTON SIZES
+// ================================
+
+@each $size-name, $size-props in $dga-btn-sizes {
+  .dga-btn-#{$size-name} {
+    @include dga-btn-size($size-name);
+
+    // Update icon gaps for each size
+    .dga-btn-icon-left {
+      margin-right: map-get($size-props, gap);
+    }
+
+    .dga-btn-icon-right {
+      margin-left: map-get($size-props, gap);
+    }
+
+    // RTL support for each size
+    [dir="rtl"] & {
+      .dga-btn-icon-left {
+        margin-left: map-get($size-props, gap);
+        margin-right: 0;
+      }
+
+      .dga-btn-icon-right {
+        margin-left: 0;
+        margin-right: map-get($size-props, gap);
+      }
+    }
+  }
+}
+
+// ================================
+// BUTTON VARIANTS
+// ================================
+
+@each $variant-name, $variant-props in $dga-btn-variants {
+  .dga-btn-#{$variant-name} {
+    @include dga-btn-variant($variant-name, $variant-props);
+  }
+}
+
+// ================================
+// BUTTON SPECIAL MODIFIERS
+// ================================
+
+// Icon Only Buttons
+.dga-btn-icon-only {
+  @each $size-name, $size-props in $dga-btn-sizes {
+    &.dga-btn-#{$size-name} {
+      padding: map-get($size-props, padding-y);
+      min-width: map-get($size-props, height);
+      max-width: map-get($size-props, height);
+    }
+  }
+
+  // Default icon-only (medium)
+  &:not([class*="dga-btn-"]):not(.dga-btn-small):not(.dga-btn-large):not(
+      .dga-btn-xl
+    ):not(.dga-btn-2xl):not(.dga-btn-xs):not(.dga-btn-2xs) {
+    $medium-size: map-get($dga-btn-sizes, "medium");
+    padding: map-get($medium-size, padding-y);
+    min-width: map-get($medium-size, height);
+    max-width: map-get($medium-size, height);
+  }
+}
+
+// Full Width Button
+.dga-btn-block {
+  width: 100%;
+  display: flex;
+}
+
+// ================================
+// BUTTON GROUPS
+// ================================
+
+.dga-btn-group {
+  display: inline-flex;
+  vertical-align: middle;
+
+  .dga-btn {
+    position: relative;
+    margin-right: -$dga-btn-border-width;
+
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 1;
+    }
+  }
+
+  // RTL support for button groups
+  [dir="rtl"] & {
+    .dga-btn {
+      margin-left: -$dga-btn-border-width;
+      margin-right: 0;
+
+      &:not(:first-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: $dga-btn-border-radius;
+        border-bottom-left-radius: $dga-btn-border-radius;
+      }
+
+      &:not(:last-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: $dga-btn-border-radius;
+        border-bottom-right-radius: $dga-btn-border-radius;
+      }
+    }
+  }
+}
+
+// ================================
+// LOADING STATE
+// ================================
+
+.dga-btn-loading {
+  position: relative;
+  pointer-events: none;
+  color: transparent !important;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: dga-btn-spin 0.8s linear infinite;
+    color: inherit;
+  }
+
+  .dga-btn-text {
+    opacity: 0;
+  }
+
+  // Adjust spinner size for different button sizes
+  &.dga-btn-2xs::before,
+  &.dga-btn-xs::before {
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border-width: 1.5px;
+  }
+
+  &.dga-btn-large::before,
+  &.dga-btn-xl::before {
+    width: 18px;
+    height: 18px;
+    margin: -9px 0 0 -9px;
+  }
+
+  &.dga-btn-2xl::before {
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+  }
+}
+
+@keyframes dga-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ================================
+// ACCESSIBILITY ENHANCEMENTS
+// ================================
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .dga-btn {
+    border-width: 2px;
+
+    &:focus {
+      outline: 3px solid;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .dga-btn {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .dga-btn-loading::before {
+    animation: none;
+  }
+}

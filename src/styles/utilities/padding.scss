@@ -1,0 +1,210 @@
+// =============================================================================
+// DGA Design System - Padding Utilities
+// File: styles/utilities/padding.scss
+// =============================================================================
+
+// Import spacing variables
+@import "../variables/spacing";
+
+// =============================================================================
+// PADDING UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-padding-utilities: (
+  // All sides padding
+  "padding":
+    (
+      "prefix": "p",
+      "property": "padding",
+      "values": $dga-spacing,
+    ),
+
+  // Individual sides
+  "padding-top":
+    (
+      "prefix": "pt",
+      "property": "padding-top",
+      "values": $dga-spacing,
+    ),
+  "padding-right": (
+    "prefix": "pr",
+    "property": "padding-right",
+    "values": $dga-spacing,
+  ),
+  "padding-bottom": (
+    "prefix": "pb",
+    "property": "padding-bottom",
+    "values": $dga-spacing,
+  ),
+  "padding-left": (
+    "prefix": "pl",
+    "property": "padding-left",
+    "values": $dga-spacing,
+  ),
+
+  // Axis-based padding
+  "padding-x":
+    (
+      "prefix": "px",
+      "property": (
+        "padding-left",
+        "padding-right",
+      ),
+      "values": $dga-spacing,
+    ),
+  "padding-y": (
+    "prefix": "py",
+    "property": (
+      "padding-top",
+      "padding-bottom",
+    ),
+    "values": $dga-spacing,
+  )
+);
+
+// =============================================================================
+// NAMED PADDING UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-named-padding-utilities: (
+  // All sides padding with named values
+  "padding-named":
+    (
+      "prefix": "p",
+      "property": "padding",
+      "values": $dga-named-spacing,
+    ),
+
+  // Individual sides with named values
+  "padding-top-named":
+    (
+      "prefix": "pt",
+      "property": "padding-top",
+      "values": $dga-named-spacing,
+    ),
+  "padding-right-named": (
+    "prefix": "pr",
+    "property": "padding-right",
+    "values": $dga-named-spacing,
+  ),
+  "padding-bottom-named": (
+    "prefix": "pb",
+    "property": "padding-bottom",
+    "values": $dga-named-spacing,
+  ),
+  "padding-left-named": (
+    "prefix": "pl",
+    "property": "padding-left",
+    "values": $dga-named-spacing,
+  ),
+
+  // Axis-based padding with named values
+  "padding-x-named":
+    (
+      "prefix": "px",
+      "property": (
+        "padding-left",
+        "padding-right",
+      ),
+      "values": $dga-named-spacing,
+    ),
+  "padding-y-named": (
+    "prefix": "py",
+    "property": (
+      "padding-top",
+      "padding-bottom",
+    ),
+    "values": $dga-named-spacing,
+  )
+);
+
+// =============================================================================
+// PADDING UTILITIES GENERATOR MIXINS
+// =============================================================================
+
+@mixin generate-padding-utilities($utilities: $dga-padding-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $values: map-get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: if(
+        $key == "0",
+        ".dga-#{$prefix}-0",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        @if type-of($property) == "list" {
+          @each $prop in $property {
+            #{$prop}: #{$value} !important;
+          }
+        } @else {
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-named-padding-utilities(
+  $utilities: $dga-named-padding-utilities
+) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $values: map-get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: if(
+        $key == "none",
+        ".dga-#{$prefix}-none",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        @if type-of($property) == "list" {
+          @each $prop in $property {
+            #{$prop}: #{$value} !important;
+          }
+        } @else {
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// GENERATE ALL PADDING UTILITIES
+// =============================================================================
+
+@mixin generate-all-padding-utilities() {
+  @include generate-padding-utilities();
+  @include generate-named-padding-utilities();
+}
+
+// =============================================================================
+// EXAMPLE GENERATED CLASSES
+// =============================================================================
+
+/*
+This will generate classes like:
+
+// Numeric padding
+.dga-p-0     { padding: 0 !important; }
+.dga-p-1     { padding: 0.25rem !important; }    // 4px
+.dga-p-4     { padding: 1rem !important; }       // 16px
+.dga-pt-2    { padding-top: 0.5rem !important; } // 8px
+.dga-px-6    { padding-left: 1.5rem !important; padding-right: 1.5rem !important; } // 24px
+.dga-py-8    { padding-top: 2rem !important; padding-bottom: 2rem !important; } // 32px
+
+// Named padding
+.dga-p-none  { padding: 0 !important; }
+.dga-p-xs    { padding: 0.25rem !important; }    // 4px
+.dga-p-md    { padding: 0.5rem !important; }     // 8px
+.dga-pt-lg   { padding-top: 0.75rem !important; } // 12px
+.dga-px-xl   { padding-left: 1rem !important; padding-right: 1rem !important; } // 16px
+.dga-py-2xl  { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; } // 20px
+*/

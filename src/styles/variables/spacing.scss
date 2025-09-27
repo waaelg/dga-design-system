@@ -1,0 +1,268 @@
+// =============================================================================
+// DGA Design System - Spacing Variables
+// File: styles/variables/spacing.scss
+// =============================================================================
+
+// Base spacing unit (4px = 0.25rem)
+$dga-spacing-base: 0.25rem; // 4px
+
+// =============================================================================
+// SPACING PRIMITIVES (Based on DGA spacing primitives)
+// =============================================================================
+
+$dga-spacing: (
+  "0": 0,
+  // 0px
+  "px": 1px,
+  // 1px
+  "0_5": $dga-spacing-base * 0.5,
+  // 2px (0.5 -> 0_5)
+  "1": $dga-spacing-base * 1,
+  // 4px
+  "1_5": $dga-spacing-base * 1.5,
+  // 6px (1.5 -> 1_5)
+  "2": $dga-spacing-base * 2,
+  // 8px
+  "2_5": $dga-spacing-base * 2.5,
+  // 10px (2.5 -> 2_5)
+  "3": $dga-spacing-base * 3,
+  // 12px
+  "3_5": $dga-spacing-base * 3.5,
+  // 14px (3.5 -> 3_5)
+  "4": $dga-spacing-base * 4,
+  // 16px
+  "5": $dga-spacing-base * 5,
+  // 20px
+  "6": $dga-spacing-base * 6,
+  // 24px
+  "7": $dga-spacing-base * 7,
+  // 28px
+  "8": $dga-spacing-base * 8,
+  // 32px
+  "9": $dga-spacing-base * 9,
+  // 36px
+  "10": $dga-spacing-base * 10,
+  // 40px
+  "11": $dga-spacing-base * 11,
+  // 44px
+  "12": $dga-spacing-base * 12,
+  // 48px
+  "14": $dga-spacing-base * 14,
+  // 56px
+  "16": $dga-spacing-base * 16,
+  // 64px
+  "20": $dga-spacing-base * 20,
+  // 80px
+  "24": $dga-spacing-base * 24,
+  // 96px
+  "28": $dga-spacing-base * 28,
+  // 112px
+  "32": $dga-spacing-base * 32,
+  // 128px
+  "36": $dga-spacing-base * 36,
+  // 144px
+  "40": $dga-spacing-base * 40,
+  // 160px
+  "44": $dga-spacing-base * 44,
+  // 176px
+  "48": $dga-spacing-base * 48,
+  // 192px
+  "52": $dga-spacing-base * 52,
+  // 208px
+  "56": $dga-spacing-base * 56,
+  // 224px
+  "60": $dga-spacing-base * 60,
+  // 240px
+  "64": $dga-spacing-base * 64,
+  // 256px
+  "72": $dga-spacing-base * 72,
+  // 288px
+  "80": $dga-spacing-base * 80,
+  // 320px
+  "96": $dga-spacing-base * 96,
+  // 384px
+  "120": $dga-spacing-base * 120,
+  // 480px
+  "140": $dga-spacing-base * 140,
+  // 560px
+  "160": $dga-spacing-base * 160,
+  // 640px
+  "180": $dga-spacing-base * 180,
+  // 720px
+  "192": $dga-spacing-base * 192,
+  // 768px
+  "256": $dga-spacing-base * 256,
+  // 1024px
+  "320": $dga-spacing-base * 320,
+  // 1280px
+  "360": $dga-spacing-base * 360,
+  // 1440px
+  "400": $dga-spacing-base * 400,
+  // 1600px
+  "480": $dga-spacing-base * 480,
+  // 1920px
+);
+
+// =============================================================================
+// NAMED SPACING (Based on DGA design system specs using base spacing)
+// =============================================================================
+
+$dga-named-spacing: (
+  "none": 0,
+  "xxs": $dga-spacing-base * 0.5,
+  // 2px
+  "xs": $dga-spacing-base * 1,
+  // 4px
+  "sm": $dga-spacing-base * 1.5,
+  // 6px
+  "md": $dga-spacing-base * 2,
+  // 8px
+  "lg": $dga-spacing-base * 3,
+  // 12px
+  "xl": $dga-spacing-base * 4,
+  // 16px
+  "2xl": $dga-spacing-base * 5,
+  // 20px
+  "3xl": $dga-spacing-base * 6,
+  // 24px
+  "4xl": $dga-spacing-base * 8,
+  // 32px
+  "5xl": $dga-spacing-base * 10,
+  // 40px
+  "6xl": $dga-spacing-base * 12,
+  // 48px
+  "7xl": $dga-spacing-base * 16,
+  // 64px
+  "8xl": $dga-spacing-base * 20,
+  // 80px
+  "9xl": $dga-spacing-base * 24,
+  // 96px
+  "10xl": $dga-spacing-base * 32,
+  // 128px
+  "11xl": $dga-spacing-base * 40,
+  // 160px
+);
+
+// =============================================================================
+// WIDTH VALUES (Based on DGA widths specs using base spacing)
+// =============================================================================
+
+$dga-widths: (
+  "xxs": $dga-spacing-base * 80,
+  // 320px
+  "xs": $dga-spacing-base * 96,
+  // 384px
+  "sm": $dga-spacing-base * 120,
+  // 480px
+  "md": $dga-spacing-base * 140,
+  // 560px
+  "lg": $dga-spacing-base * 160,
+  // 640px
+  "xl": $dga-spacing-base * 192,
+  // 768px
+  "2xl": $dga-spacing-base * 256,
+  // 1024px
+  "3xl": $dga-spacing-base * 320,
+  // 1280px
+  "4xl": $dga-spacing-base * 360,
+  // 1440px
+  "5xl": $dga-spacing-base * 400,
+  // 1600px
+  "6xl": $dga-spacing-base * 480,
+
+  // 1920px
+  // Additional common width values
+  "auto": auto,
+  "full": 100%,
+  "screen": 100vw,
+  "min": min-content,
+  "max": max-content,
+  "fit": fit-content,
+);
+
+// =============================================================================
+// PERCENTAGE-BASED WIDTH VALUES
+// =============================================================================
+
+$dga-percentage-widths: (
+  "1/12": percentage(1/12),
+  // 8.333333%
+  "2/12": percentage(2/12),
+  // 16.666667%
+  "3/12": percentage(3/12),
+  // 25%
+  "4/12": percentage(4/12),
+  // 33.333333%
+  "5/12": percentage(5/12),
+  // 41.666667%
+  "6/12": percentage(6/12),
+  // 50%
+  "7/12": percentage(7/12),
+  // 58.333333%
+  "8/12": percentage(8/12),
+  // 66.666667%
+  "9/12": percentage(9/12),
+  // 75%
+  "10/12": percentage(10/12),
+  // 83.333333%
+  "11/12": percentage(11/12),
+  // 91.666667%
+  "12/12": percentage(12/12),
+  // 100%
+  // Common fractions
+  "1/2": 50%,
+  "1/3": percentage(1/3),
+  // 33.333333%
+  "2/3": percentage(2/3),
+  // 66.666667%
+  "1/4": 25%,
+  "2/4": 50%,
+  "3/4": 75%,
+  "1/5": 20%,
+  "2/5": 40%,
+  "3/5": 60%,
+  "4/5": 80%,
+  "1/6": percentage(1/6),
+  // 16.666667%
+  "5/6": percentage(5/6),
+  // 83.333333%
+  // Percentage values
+  "0": 0%,
+  "10": 10%,
+  "20": 20%,
+  "25": 25%,
+  "30": 30%,
+  "33": percentage(1/3),
+  "40": 40%,
+  "50": 50%,
+  "60": 60%,
+  "66": percentage(2/3),
+  "70": 70%,
+  "75": 75%,
+  "80": 80%,
+  "90": 90%,
+  "95": 95%,
+  "100": 100%,
+);
+
+// =============================================================================
+// CONTAINER VALUES (Based on DGA container specs)
+// =============================================================================
+
+$dga-container: (
+  "padding-mobile": $dga-spacing-base * 4,
+  // 16px
+  "padding-desktop": $dga-spacing-base * 8,
+  // 32px
+  "max-width-desktop": $dga-spacing-base * 320,
+  // 1280px
+);
+
+// =============================================================================
+// PARAGRAPH MAX WIDTHS (Based on DGA specs for optimal readability)
+// =============================================================================
+
+$dga-paragraph-widths: (
+  "max-width": $dga-spacing-base * 180,
+  // 720px - optimal line length for readability
+);

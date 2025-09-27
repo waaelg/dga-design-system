@@ -1,0 +1,13 @@
+@import "utilities/colors";
+@import "utilities/width";
+@import "utilities/padding";
+@import "utilities/margin";
+@import "utilities/grid";
+@import "components/button";
+
+// Generate all utilities
+@include generate-all-width-utilities();
+@include generate-all-padding-utilities();
+@include generate-all-margin-utilities();
+@include generate-all-color-utilities();
+@include generate-all-grid-utilities();

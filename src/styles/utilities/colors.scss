@@ -1,0 +1,328 @@
+// =============================================================================
+// DGA Design System - Color Utilities
+// File: styles/utilities/colors.scss
+// =============================================================================
+
+// Import color variables
+@import "../variables/colors";
+
+// =============================================================================
+// COLOR UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-color-utilities: (
+  // Text colors
+  "text-color":
+    (
+      "prefix": "text",
+      "property": "color",
+      "colors": (
+        "gray": $dga-gray,
+        "primary": $dga-primary,
+        "gold": $dga-gold,
+        "lavender": $dga-lavender,
+        "error": $dga-error,
+        "warning": $dga-warning,
+        "info": $dga-info,
+        "success": $dga-success,
+      ),
+    ),
+
+  // Background colors
+  "background-color":
+    (
+      "prefix": "bg",
+      "property": "background-color",
+      "colors": (
+        "gray": $dga-gray,
+        "primary": $dga-primary,
+        "gold": $dga-gold,
+        "lavender": $dga-lavender,
+        "error": $dga-error,
+        "warning": $dga-warning,
+        "info": $dga-info,
+        "success": $dga-success,
+      ),
+    ),
+
+  // Border colors
+  "border-color":
+    (
+      "prefix": "border",
+      "property": "border-color",
+      "colors": (
+        "gray": $dga-gray,
+        "primary": $dga-primary,
+        "gold": $dga-gold,
+        "lavender": $dga-lavender,
+        "error": $dga-error,
+        "warning": $dga-warning,
+        "info": $dga-info,
+        "success": $dga-success,
+      ),
+    )
+);
+
+// =============================================================================
+// SEMANTIC COLOR UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-semantic-colors: (
+  "primary": $dga-semantic-primary,
+  "secondary": $dga-semantic-secondary,
+  "success": $dga-semantic-success,
+  "info": $dga-semantic-info,
+  "warning": $dga-semantic-warning,
+  "danger": $dga-semantic-danger,
+  "light": $dga-semantic-light,
+  "dark": $dga-semantic-dark,
+);
+
+// =============================================================================
+// TEXT COLOR UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-text-colors: (
+  "primary": $dga-text-primary,
+  "secondary": $dga-text-secondary,
+  "tertiary": $dga-text-tertiary,
+  "light-primary": $dga-text-light-primary,
+  "light-secondary": $dga-text-light-secondary,
+  "light-tertiary": $dga-text-light-tertiary,
+  "error": $dga-text-error,
+  "warning": $dga-text-warning,
+  "success": $dga-text-success,
+  "info": $dga-text-info,
+  "sa-primary": $dga-text-sa-primary,
+  "sa-secondary": $dga-text-sa-secondary,
+  "sa-tertiary": $dga-text-sa-tertiary,
+);
+
+// =============================================================================
+// GRADIENT UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-gradients: (
+  "primary": $dga-gradient-sa-primary,
+  "secondary": $dga-gradient-sa-secondary,
+  "dark": $dga-gradient-sa-dark,
+  "medium": $dga-gradient-sa-medium,
+  "subtle": $dga-gradient-sa-subtle,
+  "deep": $dga-gradient-sa-deep,
+);
+
+// =============================================================================
+// COLOR UTILITIES GENERATOR MIXINS
+// =============================================================================
+
+@mixin generate-color-utilities($utilities: $dga-color-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $color-groups: map-get($utility-config, "colors");
+
+    @each $color-name, $color-shades in $color-groups {
+      @each $shade, $color-value in $color-shades {
+        .dga-#{$prefix}-#{$color-name}-#{$shade} {
+          #{$property}: #{$color-value} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-semantic-color-utilities($colors: $dga-semantic-colors) {
+  @each $name, $color in $colors {
+    // Text colors
+    .dga-text-#{$name} {
+      color: #{$color} !important;
+    }
+
+    // Background colors
+    .dga-bg-#{$name} {
+      background-color: #{$color} !important;
+    }
+
+    // Border colors
+    .dga-border-#{$name} {
+      border-color: #{$color} !important;
+    }
+  }
+}
+
+@mixin generate-text-color-utilities($colors: $dga-text-colors) {
+  @each $name, $color in $colors {
+    .dga-text-#{$name} {
+      color: #{$color} !important;
+    }
+  }
+}
+
+@mixin generate-gradient-utilities($gradients: $dga-gradients) {
+  @each $name, $gradient in $gradients {
+    .dga-bg-gradient-#{$name} {
+      background: #{$gradient} !important;
+    }
+  }
+}
+
+@mixin generate-hover-utilities($utilities: $dga-color-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $color-groups: map-get($utility-config, "colors");
+
+    @each $color-name, $color-shades in $color-groups {
+      @each $shade, $color-value in $color-shades {
+        .dga-#{$prefix}-#{$color-name}-#{$shade}-hover:hover {
+          #{$property}: #{$color-value} !important;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// BORDER UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-border-utilities() {
+  .dga-border {
+    border: 1px solid $dga-border-color !important;
+  }
+
+  .dga-border-light {
+    border: 1px solid $dga-border-color-light !important;
+  }
+
+  .dga-border-top {
+    border-top: 1px solid $dga-border-color !important;
+  }
+
+  .dga-border-right {
+    border-right: 1px solid $dga-border-color !important;
+  }
+
+  .dga-border-bottom {
+    border-bottom: 1px solid $dga-border-color !important;
+  }
+
+  .dga-border-left {
+    border-left: 1px solid $dga-border-color !important;
+  }
+
+  .dga-border-none {
+    border: none !important;
+  }
+}
+
+// =============================================================================
+// FOCUS UTILITIES GENERATOR
+// =============================================================================
+
+@mixin generate-focus-utilities() {
+  .dga-focus-ring:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem $dga-focus-ring-color !important;
+  }
+
+  .dga-focus-ring-primary:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba($dga-semantic-primary, 0.25) !important;
+  }
+
+  .dga-focus-ring-error:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba($dga-error-500, 0.25) !important;
+  }
+
+  .dga-focus-ring-warning:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba($dga-warning-500, 0.25) !important;
+  }
+
+  .dga-focus-ring-success:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba($dga-success-500, 0.25) !important;
+  }
+
+  .dga-focus-ring-info:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba($dga-info-500, 0.25) !important;
+  }
+}
+
+// =============================================================================
+// GENERATE ALL COLOR UTILITIES
+// =============================================================================
+
+@mixin generate-all-color-utilities() {
+  @include generate-color-utilities();
+  @include generate-semantic-color-utilities();
+  @include generate-text-color-utilities();
+  @include generate-gradient-utilities();
+  @include generate-hover-utilities();
+  @include generate-border-utilities();
+  @include generate-focus-utilities();
+}
+
+// =============================================================================
+// EXAMPLE GENERATED CLASSES
+// =============================================================================
+
+/*
+This will generate classes like:
+
+// Color shade utilities
+.dga-text-gray-50     { color: #f9fafb !important; }
+.dga-text-gray-900    { color: #111927 !important; }
+.dga-text-primary-500 { color: #25935f !important; }
+.dga-text-primary-600 { color: #1b8354 !important; }
+
+.dga-bg-gray-50       { background-color: #f9fafb !important; }
+.dga-bg-primary-500   { background-color: #25935f !important; }
+.dga-bg-error-500     { background-color: #f04438 !important; }
+
+.dga-border-gray-200  { border-color: #e5e7eb !important; }
+.dga-border-primary-500 { border-color: #25935f !important; }
+
+// Semantic color utilities
+.dga-text-primary     { color: #25935f !important; }
+.dga-text-danger      { color: #f04438 !important; }
+.dga-bg-success       { background-color: #17b26a !important; }
+.dga-border-warning   { border-color: #f79009 !important; }
+
+// Text color utilities (DGA design system)
+.dga-text-primary     { color: #0d121c !important; }    // Primary text
+.dga-text-secondary   { color: #384250 !important; }    // Secondary text
+.dga-text-tertiary    { color: #4d5761 !important; }    // Tertiary text
+.dga-text-light-primary { color: rgba(255, 255, 255, 1) !important; }
+
+// Platform text colors
+.dga-text-sa-primary  { color: #14573a !important; }    // SA 800
+.dga-text-sa-secondary { color: #1b8354 !important; }   // SA 600
+.dga-text-error       { color: #d92d20 !important; }    // Error 600
+
+// Gradient utilities
+.dga-bg-gradient-primary   { background: linear-gradient(90deg, #1b8354, #25935f) !important; }
+.dga-bg-gradient-secondary { background: linear-gradient(45deg, #166a45, #1b8354) !important; }
+.dga-bg-gradient-dark     { background: linear-gradient(45deg, #092a1e, #1b8354) !important; }
+
+// Hover utilities
+.dga-bg-primary-500-hover:hover { background-color: #25935f !important; }
+.dga-text-primary-600-hover:hover { color: #1b8354 !important; }
+
+// Border utilities
+.dga-border           { border: 1px solid #e5e7eb !important; }
+.dga-border-light     { border: 1px solid #f3f4f6 !important; }
+.dga-border-top       { border-top: 1px solid #e5e7eb !important; }
+
+// Focus utilities
+.dga-focus-ring:focus { 
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(37, 147, 95, 0.25) !important;
+}
+.dga-focus-ring-error:focus {
+  box-shadow: 0 0 0 0.2rem rgba(240, 68, 56, 0.25) !important;
+}
+*/
