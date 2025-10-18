@@ -1,0 +1,139 @@
+// =============================================================================
+// DGA Design System - Radius Variables
+// File: styles/variables/radius.scss
+// =============================================================================
+
+// Base radius unit (based on 16px = 1rem)
+$dga-radius-base: 1rem; // 16px
+
+// =============================================================================
+// RADIUS MAP (Based on DGA design system specs)
+// =============================================================================
+
+$dga-radius: (
+  "none": 0,
+  "xs": 0.125rem,
+  // 2px
+  "sm": 0.25rem,
+  // 4px
+  "md": 0.5rem,
+  // 8px
+  "lg": 1rem,
+  // 16px
+  "xl": 1.5rem,
+  // 24px
+  "full": 9999px,
+  // Fully rounded (pill shape)
+);
+
+// =============================================================================
+// INDIVIDUAL RADIUS VARIABLES (Easy access)
+// =============================================================================
+
+// Now you can use $dga-radius-sm directly!
+$dga-radius-none: 0;
+$dga-radius-xs: 0.125rem; // 2px
+$dga-radius-sm: 0.25rem; // 4px
+$dga-radius-md: 0.5rem; // 8px
+$dga-radius-lg: 1rem; // 16px
+$dga-radius-xl: 1.5rem; // 24px
+$dga-radius-full: 9999px; // Fully rounded (pill/circle)
+
+// =============================================================================
+// ADDITIONAL RADIUS VALUES (Extended options)
+// =============================================================================
+
+// You can add more specific radius values if needed
+$dga-radius-2xl: 2rem; // 32px
+$dga-radius-3xl: 2.5rem; // 40px
+$dga-radius-4xl: 3rem; // 48px
+
+// =============================================================================
+// COMPONENT-SPECIFIC RADIUS (Common UI patterns)
+// =============================================================================
+
+// Buttons
+$dga-radius-button: $dga-radius-md; // 8px
+$dga-radius-button-sm: $dga-radius-sm; // 4px
+$dga-radius-button-lg: $dga-radius-lg; // 16px
+$dga-radius-button-pill: $dga-radius-full; // 9999px
+
+// Cards
+$dga-radius-card: $dga-radius-lg; // 16px
+$dga-radius-card-sm: $dga-radius-md; // 8px
+$dga-radius-card-lg: $dga-radius-xl; // 24px
+
+// Inputs
+$dga-radius-input: $dga-radius-md; // 8px
+$dga-radius-input-sm: $dga-radius-sm; // 4px
+$dga-radius-input-lg: $dga-radius-lg; // 16px
+
+// Modals/Dialogs
+$dga-radius-modal: $dga-radius-xl; // 24px
+$dga-radius-dialog: $dga-radius-lg; // 16px
+
+// Badges/Tags
+$dga-radius-badge: $dga-radius-full; // 9999px
+$dga-radius-tag: $dga-radius-sm; // 4px
+
+// Avatars
+$dga-radius-avatar-rounded: $dga-radius-lg; // 16px
+$dga-radius-avatar-circle: $dga-radius-full; // 9999px
+
+// Dropdowns
+$dga-radius-dropdown: $dga-radius-md; // 8px
+$dga-radius-select: $dga-radius-md; // 8px
+
+// Tooltips
+$dga-radius-tooltip: $dga-radius-sm; // 4px
+
+// Images
+$dga-radius-image: $dga-radius-lg; // 16px
+$dga-radius-thumbnail: $dga-radius-md; // 8px
+
+// =============================================================================
+// HELPER FUNCTION (Optional - for accessing map)
+// =============================================================================
+
+@function radius($key) {
+  @return map-get($dga-radius, $key);
+}
+
+// =============================================================================
+// USAGE EXAMPLES
+// =============================================================================
+
+// Direct variable usage:
+// .button {
+//   border-radius: $dga-radius-md;              // 8px
+// }
+//
+// .card {
+//   border-radius: $dga-radius-lg;              // 16px
+// }
+//
+// .badge {
+//   border-radius: $dga-radius-full;            // 9999px (pill)
+// }
+//
+// Component-specific:
+// .btn {
+//   border-radius: $dga-radius-button;          // 8px
+// }
+//
+// .btn-pill {
+//   border-radius: $dga-radius-button-pill;     // 9999px
+// }
+//
+// Using helper function:
+// .modal {
+//   border-radius: radius("xl");                // 24px
+// }
+//
+// Mixed corners:
+// .card {
+//   border-top-left-radius: $dga-radius-lg;     // 16px
+//   border-top-right-radius: $dga-radius-lg;    // 16px
+//   border-bottom-left-radius: $dga-radius-none; // 0
+//   border-bottom-right-radius: $dga-radius-none; // 0
+// }

@@ -332,7 +332,7 @@ $dga-negative-margin-utilities: (
     $values: map-get($utility-config, "values");
 
     @each $key, $value in $values {
-      $class-name: ".dga#{$prefix}-#{$key}";
+      $class-name: ".dga-#{$prefix}-#{$key}";
 
       #{$class-name} {
         @if type-of($property) == "list" {

@@ -102,7 +102,7 @@ $dga-warning-950: #4e1d09;
 
 // Info (Blue)
 $dga-info-25: #f5faff;
-$dga-info-50: #ecfdf3;
+$dga-info-50: #eff8ff;
 $dga-info-100: #d1e9ff;
 $dga-info-200: #b2ddff;
 $dga-info-300: #84caff;
@@ -273,23 +273,25 @@ $dga-semantic-light: $dga-gray-50;
 $dga-semantic-dark: $dga-gray-900;
 
 // ================================
-// DGA TEXT COLORS
+// DGA TEXT COLORS - SIMPLIFIED
 // ================================
 
-// Dark text on light backgrounds
-$dga-text-primary: $dga-gray-950; // Primary text
+// Basic colors
+$dga-text-white: #ffffff;
+$dga-text-black: #000000;
+
+// Text hierarchy (for light backgrounds)
+$dga-text-primary: $dga-gray-950; // Main text
 $dga-text-secondary: $dga-gray-700; // Secondary text
-$dga-text-tertiary: $dga-gray-600; // Tertiary text
+$dga-text-muted: $dga-gray-600; // Muted/subtle text
 
-// Light text on dark backgrounds
-$dga-text-light-primary: rgba(255, 255, 255, 1); // White 100%
-$dga-text-light-secondary: rgba(255, 255, 255, 0.7); // White 70%
-$dga-text-light-tertiary: rgba(255, 255, 255, 0.6); // White 60%
+// Text for dark backgrounds
+$dga-text-inverse: rgba(255, 255, 255, 1); // White on dark
+$dga-text-inverse-muted: rgba(255, 255, 255, 0.7); // Muted white on dark
 
-// Platform text colors (Saudi Green variations)
-$dga-text-sa-primary: $dga-sa-800;
-$dga-text-sa-secondary: $dga-sa-600;
-$dga-text-sa-tertiary: $dga-sa-500;
+// Brand text colors
+$dga-text-brand: $dga-sa-800;
+$dga-text-brand-secondary: $dga-sa-600;
 
 // Semantic text colors
 $dga-text-error: $dga-error-600;
@@ -340,7 +342,7 @@ $dga-focus-ring-color: rgba($dga-semantic-primary, 0.25);
   @if (lightness($color) > 50) {
     @return $dga-text-primary; // Dark text for light backgrounds
   } @else {
-    @return $dga-text-light-primary; // Light text for dark backgrounds
+    @return $dga-text-inverse; // Light text for dark backgrounds
   }
 }
 

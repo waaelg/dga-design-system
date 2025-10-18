@@ -1,0 +1,47 @@
+@import "../variables/radius.scss";
+@import "../variables/spacing.scss";
+@import "../variables/colors.scss";
+
+// textarea configration
+$dga-textarea-bg-color: #fff;
+$dga-textarea-height: 96px;
+$dga-textarea-width: 100%;
+$dga-textarea-border-radius: $dga-spacing-sm;
+
+// textarea css
+textarea.dga-textarea {
+  border: 0;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  font: inherit;
+  width: $dga-textarea-width;
+  min-height: $dga-textarea-height;
+  padding-inline: $dga-spacing-xl;
+  border-radius: $dga-textarea-border-radius;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $dga-gray-300;
+  background-color: $dga-textarea-bg-color;
+}
+
+textarea.dga-textarea:hover {
+  border-color: $dga-gray-500;
+}
+textarea.dga-textarea:focus {
+  border-bottom: 2px;
+  border-style: solid;
+  border-color: $dga-gray-800;
+  box-shadow: $dga-shadow-md;
+}
+
+// textarea with error
+textarea.dga-textarea.error {
+  border-color: $dga-error-500;
+}
+textarea.dga-textarea.error:hover {
+  border-color: $dga-error-500;
+}
+textarea.dga-textarea.error:focus {
+  border-color: $dga-error-500;
+}

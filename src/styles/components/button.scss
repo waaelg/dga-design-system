@@ -8,34 +8,12 @@
 @import "../variables/spacing";
 
 // ============================================================================
-// SPACING VARIABLES EXTRACTION (Convert map to individual variables)
-// ============================================================================
-
-// Extract commonly used spacing values as individual variables for better reusability
-$dga-space-0_5: map-get($dga-spacing, "0_5"); // 2px
-$dga-space-1: map-get($dga-spacing, "1"); // 4px
-$dga-space-1_5: map-get($dga-spacing, "1_5"); // 6px
-$dga-space-2: map-get($dga-spacing, "2"); // 8px
-$dga-space-2_5: map-get($dga-spacing, "2_5"); // 10px
-$dga-space-3: map-get($dga-spacing, "3"); // 12px
-$dga-space-3_5: map-get($dga-spacing, "3_5"); // 14px
-$dga-space-4: map-get($dga-spacing, "4"); // 16px
-$dga-space-4_5: map-get(
-  $dga-spacing,
-  "4_5"
-); // 18px (need to add to spacing map)
-$dga-space-5: map-get($dga-spacing, "5"); // 20px
-$dga-space-6: map-get($dga-spacing, "6"); // 24px
-$dga-space-7: map-get($dga-spacing, "7"); // 28px
-$dga-space-8: map-get($dga-spacing, "8"); // 32px
-$dga-space-9: map-get($dga-spacing, "9"); // 36px
-$dga-space-10: map-get($dga-spacing, "10"); // 40px
-$dga-space-11: map-get($dga-spacing, "11"); // 44px
-$dga-space-14: map-get($dga-spacing, "14"); // 56px
-
-// ============================================================================
 // BUTTON CONFIGURATION VARIABLES (Global Customizable)
 // ============================================================================
+
+// Colors
+$dga-btn-color-white: $dga-text-white !default;
+$dga-btn-color-transparent: transparent !default;
 
 // Button Base Configuration
 $dga-btn-font-family: "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont,
@@ -43,8 +21,6 @@ $dga-btn-font-family: "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont,
 $dga-btn-font-weight: 500 !default;
 $dga-btn-border-width: 1px !default;
 $dga-btn-border-style: solid !default;
-// $dga-btn-transition: all 0.2s ease-in-out !default;
-$dga-btn-transition: none;
 $dga-btn-cursor: pointer !default;
 
 // Focus Configuration
@@ -56,123 +32,105 @@ $dga-btn-focus-color: $dga-sa-500 !default;
 $dga-btn-disabled-opacity: 0.5 !default;
 $dga-btn-disabled-cursor: not-allowed !default;
 
-// Animation Configuration
-// $dga-btn-hover-transform: translateY(-1px) !default;
-$dga-btn-hover-transform: none;
-$dga-btn-active-transform: translateY(0) !default;
-$dga-btn-loading-animation-duration: 0.8s !default;
-
 // ============================================================================
 // BUTTON SIZE CONFIGURATION MAP (Dynamic & Customizable)
 // ============================================================================
 
 $dga-btn-sizes: (
   "2xs": (
-    height: $dga-space-7,
+    height: map-get($dga-spacing, "7"),
     // 28px
-    padding-y: $dga-space-1_5,
+    padding-y: map-get($dga-spacing, "1_5"),
     // 6px
-    padding-x: $dga-space-2,
+    padding-x: map-get($dga-spacing, "2"),
     // 8px
     font-size: 12px,
     // Text xs
     line-height: 18px,
-    // 18px (using direct value as 4.5 * 4px = 18px)
-    border-radius: $dga-space-0_5,
     // 2px
-    gap: $dga-space-0_5,
+    gap: map-get($dga-spacing, "0_5"),
     // 2px
-    icon-size: $dga-space-3,
+    icon-size: map-get($dga-spacing, "3"),
     // 12px
   ),
   "xs": (
-    height: $dga-space-8,
+    height: map-get($dga-spacing, "8"),
     // 32px
-    padding-y: $dga-space-1_5,
+    padding-y: map-get($dga-spacing, "1_5"),
     // 6px
-    padding-x: $dga-space-2_5,
+    padding-x: map-get($dga-spacing, "2_5"),
     // 10px
     font-size: 12px,
     // Text xs
     line-height: 18px,
-    // 18px
-    border-radius: $dga-space-0_5,
     // 2px
-    gap: $dga-space-1,
+    gap: map-get($dga-spacing, "1"),
     // 4px
-    icon-size: $dga-space-3_5,
+    icon-size: map-get($dga-spacing, "3_5"),
     // 14px
   ),
   "small": (
-    height: $dga-space-9,
+    height: map-get($dga-spacing, "9"),
     // 36px
-    padding-y: $dga-space-2,
+    padding-y: map-get($dga-spacing, "2"),
     // 8px
-    padding-x: $dga-space-3,
+    padding-x: map-get($dga-spacing, "3"),
     // 12px
     font-size: 14px,
     // Text sm
-    line-height: $dga-space-5,
-    // 20px
-    border-radius: $dga-space-1,
+    line-height: map-get($dga-spacing, "5"),
     // 4px
-    gap: $dga-space-1,
+    gap: map-get($dga-spacing, "1"),
     // 4px
-    icon-size: $dga-space-4,
+    icon-size: map-get($dga-spacing, "4"),
     // 16px
   ),
   "medium": (
-    height: $dga-space-10,
+    height: map-get($dga-spacing, "10"),
     // 40px
-    padding-y: $dga-space-2_5,
+    padding-y: map-get($dga-spacing, "2_5"),
     // 10px
-    padding-x: $dga-space-4,
+    padding-x: map-get($dga-spacing, "4"),
     // 16px
     font-size: 14px,
     // Text sm
-    line-height: $dga-space-5,
-    // 20px
-    border-radius: $dga-space-1,
+    line-height: map-get($dga-spacing, "5"),
     // 4px
-    gap: $dga-space-1,
+    gap: map-get($dga-spacing, "1"),
     // 4px
-    icon-size: $dga-space-4,
+    icon-size: map-get($dga-spacing, "4"),
     // 16px
   ),
   "large": (
-    height: $dga-space-11,
+    height: map-get($dga-spacing, "11"),
     // 44px
     padding-y: 0,
     // 0px
-    padding-x: $dga-space-4,
+    padding-x: map-get($dga-spacing, "4"),
     // 16px
     font-size: 16px,
     // Text md
-    line-height: $dga-space-6,
-    // 24px
-    border-radius: $dga-space-1,
+    line-height: map-get($dga-spacing, "6"),
     // 4px
-    gap: $dga-space-1,
+    gap: map-get($dga-spacing, "1"),
     // 4px
-    icon-size: $dga-space-5,
+    icon-size: map-get($dga-spacing, "5"),
     // 20px
   ),
   "xl": (
-    height: $dga-space-14,
+    height: map-get($dga-spacing, "14"),
     // 56px
-    padding-y: $dga-space-3_5,
+    padding-y: map-get($dga-spacing, "3_5"),
     // 14px
-    padding-x: $dga-space-6,
+    padding-x: map-get($dga-spacing, "6"),
     // 24px
     font-size: 16px,
     // Text md
-    line-height: $dga-space-6,
-    // 24px
-    border-radius: $dga-space-2,
+    line-height: map-get($dga-spacing, "6"),
     // 8px
-    gap: $dga-space-1,
+    gap: map-get($dga-spacing, "1"),
     // 4px
-    icon-size: $dga-space-5,
+    icon-size: map-get($dga-spacing, "5"),
     // 20px
   ),
 ) !default;
@@ -186,30 +144,40 @@ $dga-btn-default-size: "medium" !default;
 
 $dga-btn-variants: (
   "primary": (
-    color: #ffffff,
+    color: $dga-btn-color-white,
     background: $dga-sa-600,
     border: $dga-sa-600,
-    hover-color: #ffffff,
+    hover-color: $dga-btn-color-white,
     hover-background: $dga-sa-700,
     hover-border: $dga-sa-700,
-    active-color: #ffffff,
+    active-color: $dga-btn-color-white,
     active-background: $dga-sa-800,
     active-border: $dga-sa-800,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
+    focus-color: rgba($dga-sa-500, 0.25),
+  ),
+  "primary-outline": (
+    color: $dga-sa-600,
+    background: $dga-btn-color-transparent,
+    border: $dga-sa-600,
+    hover-color: $dga-btn-color-white,
+    hover-background: $dga-sa-600,
+    hover-border: $dga-sa-600,
+    active-color: $dga-btn-color-white,
+    active-background: $dga-sa-700,
+    active-border: $dga-sa-700,
+    focus-color: rgba($dga-sa-500, 0.25),
   ),
   "neutral": (
-    color: #ffffff,
+    color: $dga-btn-color-white,
     background: $dga-gray-950,
     border: $dga-gray-950,
-    hover-color: #ffffff,
+    hover-color: $dga-btn-color-white,
     hover-background: $dga-gray-900,
     hover-border: $dga-gray-900,
-    active-color: #ffffff,
+    active-color: $dga-btn-color-white,
     active-background: $dga-gray-800,
     active-border: $dga-gray-800,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
+    focus-color: rgba($dga-gray-950, 0.25),
   ),
   "secondary-solid": (
     color: $dga-gray-700,
@@ -221,12 +189,11 @@ $dga-btn-variants: (
     active-color: $dga-gray-700,
     active-background: $dga-gray-300,
     active-border: $dga-gray-300,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
+    focus-color: rgba($dga-gray-500, 0.25),
   ),
   "secondary-outline": (
     color: $dga-gray-700,
-    background: transparent,
+    background: $dga-btn-color-transparent,
     border: $dga-gray-300,
     hover-color: $dga-gray-700,
     hover-background: $dga-gray-50,
@@ -234,119 +201,120 @@ $dga-btn-variants: (
     active-color: $dga-gray-700,
     active-background: $dga-gray-100,
     active-border: $dga-gray-500,
-    hover-transform: none,
-    active-transform: none,
+    focus-color: rgba($dga-gray-500, 0.25),
   ),
   "subtle": (
     color: $dga-gray-700,
-    background: transparent,
-    border: transparent,
+    background: $dga-btn-color-transparent,
+    border: $dga-btn-color-transparent,
     hover-color: $dga-gray-700,
     hover-background: $dga-gray-100,
-    hover-border: transparent,
+    hover-border: $dga-btn-color-transparent,
     active-color: $dga-gray-700,
     active-background: $dga-gray-200,
-    active-border: transparent,
-    hover-transform: none,
-    active-transform: none,
+    active-border: $dga-btn-color-transparent,
+    focus-color: rgba($dga-gray-500, 0.25),
+  ),
+  "ghost": (
+    color: $dga-sa-600,
+    background: $dga-btn-color-transparent,
+    border: $dga-btn-color-transparent,
+    hover-color: $dga-sa-700,
+    hover-background: $dga-sa-50,
+    hover-border: $dga-btn-color-transparent,
+    active-color: $dga-sa-800,
+    active-background: $dga-sa-100,
+    active-border: $dga-btn-color-transparent,
+    focus-color: rgba($dga-sa-500, 0.25),
+  ),
+  "link": (
+    color: $dga-sa-600,
+    background: $dga-btn-color-transparent,
+    border: $dga-btn-color-transparent,
+    hover-color: $dga-sa-700,
+    hover-background: $dga-btn-color-transparent,
+    hover-border: $dga-btn-color-transparent,
+    active-color: $dga-sa-800,
+    active-background: $dga-btn-color-transparent,
+    active-border: $dga-btn-color-transparent,
+    focus-color: rgba($dga-sa-500, 0.25),
   ),
   "transparent": (
     color: $dga-gray-500,
-    background: transparent,
-    border: transparent,
+    background: $dga-btn-color-transparent,
+    border: $dga-btn-color-transparent,
     hover-color: $dga-gray-700,
-    hover-background: transparent,
-    hover-border: transparent,
+    hover-background: $dga-btn-color-transparent,
+    hover-border: $dga-btn-color-transparent,
     active-color: $dga-gray-800,
-    active-background: transparent,
-    active-border: transparent,
-    hover-transform: none,
-    active-transform: none,
+    active-background: $dga-btn-color-transparent,
+    active-border: $dga-btn-color-transparent,
+    focus-color: rgba($dga-gray-500, 0.25),
   ),
   "destructive": (
-    color: #ffffff,
+    color: $dga-btn-color-white,
     background: $dga-error-500,
     border: $dga-error-500,
-    hover-color: #ffffff,
+    hover-color: $dga-btn-color-white,
     hover-background: $dga-error-600,
     hover-border: $dga-error-600,
-    active-color: #ffffff,
+    active-color: $dga-btn-color-white,
     active-background: $dga-error-700,
     active-border: $dga-error-700,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
+    focus-color: rgba($dga-error-500, 0.25),
+  ),
+  "destructive-outline": (
+    color: $dga-error-600,
+    background: $dga-btn-color-transparent,
+    border: $dga-error-600,
+    hover-color: $dga-btn-color-white,
+    hover-background: $dga-error-600,
+    hover-border: $dga-error-600,
+    active-color: $dga-btn-color-white,
+    active-background: $dga-error-700,
+    active-border: $dga-error-700,
+    focus-color: rgba($dga-error-500, 0.25),
   ),
   "success": (
-    color: #ffffff,
+    color: $dga-btn-color-white,
     background: $dga-success-500,
     border: $dga-success-500,
-    hover-color: #ffffff,
+    hover-color: $dga-btn-color-white,
     hover-background: $dga-success-600,
     hover-border: $dga-success-600,
-    active-color: #ffffff,
+    active-color: $dga-btn-color-white,
     active-background: $dga-success-700,
     active-border: $dga-success-700,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
+    focus-color: rgba($dga-success-500, 0.25),
   ),
   "warning": (
-    color: #ffffff,
+    color: $dga-btn-color-white,
     background: $dga-warning-500,
     border: $dga-warning-500,
-    hover-color: #ffffff,
+    hover-color: $dga-btn-color-white,
     hover-background: $dga-warning-600,
     hover-border: $dga-warning-600,
-    active-color: #ffffff,
+    active-color: $dga-btn-color-white,
     active-background: $dga-warning-700,
     active-border: $dga-warning-700,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
+    focus-color: rgba($dga-warning-500, 0.25),
   ),
   "info": (
-    color: #ffffff,
+    color: $dga-btn-color-white,
     background: $dga-info-500,
     border: $dga-info-500,
-    hover-color: #ffffff,
+    hover-color: $dga-btn-color-white,
     hover-background: $dga-info-600,
     hover-border: $dga-info-600,
-    active-color: #ffffff,
+    active-color: $dga-btn-color-white,
     active-background: $dga-info-700,
     active-border: $dga-info-700,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
+    focus-color: rgba($dga-info-500, 0.25),
   ),
 ) !default;
 
 // Default variant
 $dga-btn-default-variant: "primary" !default;
-
-// ============================================================================
-// LOADING STATE CONFIGURATION
-// ============================================================================
-
-$dga-btn-loading-spinner-sizes: (
-  "2xs": $dga-space-3,
-  // 12px
-  "xs": $dga-space-3,
-  // 12px
-  "small": $dga-space-4,
-  // 16px
-  "medium": $dga-space-4,
-  // 16px
-  "large": 18px,
-  // 18px (not in spacing scale)
-  "xl": 18px,
-  // 18px (not in spacing scale)
-) !default;
-
-$dga-btn-loading-spinner-border-width: (
-  "2xs": 1.5px,
-  "xs": 1.5px,
-  "small": 2px,
-  "medium": 2px,
-  "large": 2px,
-  "xl": 2px,
-) !default;
 
 // ============================================================================
 // DYNAMIC MIXINS
@@ -382,24 +350,23 @@ $dga-btn-loading-spinner-border-width: (
     background-color: map-get($variant-config, background);
     border-color: map-get($variant-config, border);
 
-    &:hover:not(:disabled):not(.dga-btn-disabled) {
+    &:hover:not(:disabled):not(.dga-btn-disabled),
+    &.dga-btn-hover:not(:disabled):not(.dga-btn-disabled) {
       color: map-get($variant-config, hover-color);
       background-color: map-get($variant-config, hover-background);
       border-color: map-get($variant-config, hover-border);
-
-      @if map-get($variant-config, hover-transform) {
-        transform: map-get($variant-config, hover-transform);
-      }
     }
 
-    &:active:not(:disabled):not(.dga-btn-disabled) {
+    &:active:not(:disabled):not(.dga-btn-disabled),
+    &.dga-btn-active:not(:disabled):not(.dga-btn-disabled) {
       color: map-get($variant-config, active-color);
       background-color: map-get($variant-config, active-background);
       border-color: map-get($variant-config, active-border);
+    }
 
-      @if map-get($variant-config, active-transform) {
-        transform: map-get($variant-config, active-transform);
-      }
+    // Variant-specific focus styles
+    &:focus-visible {
+      outline-color: map-get($variant-config, focus-color);
     }
   } @else {
     @warn "Button variant '#{$variant-name}' not found in $dga-btn-variants map.";
@@ -436,22 +403,24 @@ $dga-btn-loading-spinner-border-width: (
   text-decoration: none;
   text-align: center;
   white-space: nowrap;
+  vertical-align: middle;
 
   // Border and interaction
   border: $dga-btn-border-width $dga-btn-border-style transparent;
   cursor: $dga-btn-cursor;
   user-select: none;
-  transition: $dga-btn-transition;
-
-  // Apply default size
+  border-radius: 4px;
+  // Apply default size and variant
   @include dga-btn-size($dga-btn-default-size);
+  @include dga-btn-variant($dga-btn-default-variant);
 
   // Focus styles
-  &:focus {
+  &:focus-visible {
     outline: $dga-btn-focus-width solid $dga-btn-focus-color;
     outline-offset: $dga-btn-focus-offset;
   }
 
+  // Remove outline for non-keyboard focus
   &:focus:not(:focus-visible) {
     outline: none;
   }
@@ -462,6 +431,22 @@ $dga-btn-loading-spinner-border-width: (
     cursor: $dga-btn-disabled-cursor;
     opacity: $dga-btn-disabled-opacity;
     pointer-events: none;
+
+    // Remove focus outline when disabled
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  // Link button specific styles
+  &.dga-btn-link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -486,65 +471,34 @@ $dga-btn-loading-spinner-border-width: (
 }
 
 // ============================================================================
-// DYNAMIC LOADING STATE GENERATOR
-// ============================================================================
-
-.dga-btn-loading {
-  position: relative;
-  pointer-events: none;
-  color: transparent !important;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    border-top-color: transparent;
-    animation: dga-btn-spin $dga-btn-loading-animation-duration linear infinite;
-    color: inherit;
-  }
-
-  .dga-btn__text {
-    opacity: 0;
-  }
-
-  // Generate loading styles for each size
-  @each $size-name, $spinner-size in $dga-btn-loading-spinner-sizes {
-    $border-width: map-get($dga-btn-loading-spinner-border-width, $size-name);
-    $half-size: $spinner-size / 2;
-
-    &.dga-btn-#{$size-name}::before {
-      width: $spinner-size;
-      height: $spinner-size;
-      margin: -$half-size 0 0 -$half-size;
-      border: $border-width solid currentColor;
-      border-top-color: transparent;
-    }
-  }
-}
-
-@keyframes dga-btn-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-// ============================================================================
 // DYNAMIC ICON-ONLY BUTTON GENERATOR
 // ============================================================================
 
 .dga-btn-icon-only {
-  @each $size-name, $size-config in $dga-btn-sizes {
-    &.dga-btn-#{$size-name} {
-      @include dga-btn-icon-only-size($size-name);
-    }
+  // Apply icon-only sizing for each button size variant
+  &.dga-btn-2xs {
+    @include dga-btn-icon-only-size("2xs");
+  }
+  &.dga-btn-xs {
+    @include dga-btn-icon-only-size("xs");
+  }
+  &.dga-btn-small {
+    @include dga-btn-icon-only-size("small");
+  }
+  &.dga-btn-medium {
+    @include dga-btn-icon-only-size("medium");
+  }
+  &.dga-btn-large {
+    @include dga-btn-icon-only-size("large");
+  }
+  &.dga-btn-xl {
+    @include dga-btn-icon-only-size("xl");
   }
 
-  // Default icon-only sizing (medium)
-  &:not([class*="dga-btn-"]):not(.dga-btn-small):not(.dga-btn-large):not(
-      .dga-btn-xl
-    ):not(.dga-btn-xs):not(.dga-btn-2xs) {
+  // Default icon-only sizing (medium) when no size class is specified
+  &:not(.dga-btn-2xs):not(.dga-btn-xs):not(.dga-btn-small):not(
+      .dga-btn-medium
+    ):not(.dga-btn-large):not(.dga-btn-xl) {
     @include dga-btn-icon-only-size($dga-btn-default-size);
   }
 }
@@ -567,6 +521,11 @@ $dga-btn-loading-spinner-border-width: (
   justify-content: center;
 }
 
+// Button text wrapper
+.dga-btn__text {
+  display: inline-block;
+}
+
 // Icon positioning
 .dga-btn-icon-left {
   flex-direction: row;
@@ -576,6 +535,11 @@ $dga-btn-loading-spinner-border-width: (
   flex-direction: row-reverse;
 }
 
+// Pill variant (fully rounded)
+.dga-btn-pill {
+  border-radius: 9999px;
+}
+
 // ============================================================================
 // BUTTON GROUP (Dynamic)
 // ============================================================================
@@ -583,6 +547,7 @@ $dga-btn-loading-spinner-border-width: (
 .dga-btn-group {
   display: inline-flex;
   vertical-align: middle;
+  position: relative;
 
   .dga-btn {
     position: relative;
@@ -600,8 +565,14 @@ $dga-btn-loading-spinner-border-width: (
 
     &:hover,
     &:focus,
-    &:active {
-      z-index: 1;
+    &:active,
+    &.dga-btn-hover,
+    &.dga-btn-active {
+      z-index: 10;
+    }
+
+    &:focus-visible {
+      z-index: 20;
     }
   }
 
@@ -614,34 +585,22 @@ $dga-btn-loading-spinner-border-width: (
       &:not(:first-child) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border-top-left-radius: map-get(
-          map-get($dga-btn-sizes, $dga-btn-default-size),
-          border-radius
-        );
-        border-bottom-left-radius: map-get(
-          map-get($dga-btn-sizes, $dga-btn-default-size),
-          border-radius
-        );
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
       }
 
       &:not(:last-child) {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        border-top-right-radius: map-get(
-          map-get($dga-btn-sizes, $dga-btn-default-size),
-          border-radius
-        );
-        border-bottom-right-radius: map-get(
-          map-get($dga-btn-sizes, $dga-btn-default-size),
-          border-radius
-        );
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
       }
     }
   }
 }
 
 // ============================================================================
-// ACCESSIBILITY & RESPONSIVE FEATURES
+// ACCESSIBILITY FEATURES
 // ============================================================================
 
 // High contrast mode support
@@ -649,25 +608,10 @@ $dga-btn-loading-spinner-border-width: (
   .dga-btn {
     border-width: $dga-btn-border-width * 2;
 
-    &:focus {
-      outline: ($dga-btn-focus-width + 1px) solid;
+    &:focus-visible {
+      outline-width: ($dga-btn-focus-width + 1px);
       outline-offset: $dga-btn-focus-offset;
     }
-  }
-}
-
-// Reduced motion support
-@media (prefers-reduced-motion: reduce) {
-  .dga-btn {
-    transition: none;
-
-    &:hover {
-      transform: none !important;
-    }
-  }
-
-  .dga-btn-loading::before {
-    animation: none;
   }
 }
 
@@ -683,73 +627,70 @@ $dga-btn-loading-spinner-border-width: (
 }
 
 // ============================================================================
-// UTILITY FUNCTIONS FOR CUSTOMIZATION
+// USAGE EXAMPLES (HTML Structure)
 // ============================================================================
 
-// Function to add custom button size
-@function dga-add-btn-size(
-  $sizes,
-  $name,
-  $height,
-  $padding-y,
-  $padding-x,
-  $font-size,
-  $line-height,
-  $border-radius,
-  $gap,
-  $icon-size
-) {
-  $new-size: (
-    height: $height,
-    padding-y: $padding-y,
-    padding-x: $padding-x,
-    font-size: $font-size,
-    line-height: $line-height,
-    border-radius: $border-radius,
-    gap: $gap,
-    icon-size: $icon-size,
-  );
+/*
+HTML Examples:
 
-  @return map-merge(
-    $sizes,
-    (
-      $name: $new-size,
-    )
-  );
-}
+<!-- Basic button -->
+<button class="dga-btn">Button</button>
 
-// Function to add custom button variant
-@function dga-add-btn-variant(
-  $variants,
-  $name,
-  $color,
-  $background,
-  $border,
-  $hover-color,
-  $hover-background,
-  $hover-border,
-  $active-color,
-  $active-background,
-  $active-border
-) {
-  $new-variant: (
-    color: $color,
-    background: $background,
-    border: $border,
-    hover-color: $hover-color,
-    hover-background: $hover-background,
-    hover-border: $hover-border,
-    active-color: $active-color,
-    active-background: $active-background,
-    active-border: $active-border,
-    hover-transform: $dga-btn-hover-transform,
-    active-transform: $dga-btn-active-transform,
-  );
+<!-- Primary button with size -->
+<button class="dga-btn dga-btn-primary dga-btn-large">Large Primary</button>
 
-  @return map-merge(
-    $variants,
-    (
-      $name: $new-variant,
-    )
-  );
-}
+<!-- Button with icon -->
+<button class="dga-btn dga-btn-primary dga-btn-icon-left">
+  <span class="dga-btn__icon">
+    <svg>...</svg>
+  </span>
+  <span class="dga-btn__text">Button Text</span>
+</button>
+
+<!-- Icon-only button -->
+<button class="dga-btn dga-btn-primary dga-btn-icon-only dga-btn-medium">
+  <span class="dga-btn__icon">
+    <svg>...</svg>
+  </span>
+</button>
+
+<!-- Disabled button -->
+<button class="dga-btn dga-btn-primary" disabled>Disabled</button>
+
+<!-- Full width button -->
+<button class="dga-btn dga-btn-primary dga-btn-block">Full Width</button>
+
+<!-- Pill button -->
+<button class="dga-btn dga-btn-primary dga-btn-pill">Pill Button</button>
+
+<!-- Button group -->
+<div class="dga-btn-group">
+  <button class="dga-btn dga-btn-secondary-outline">Left</button>
+  <button class="dga-btn dga-btn-secondary-outline">Middle</button>
+  <button class="dga-btn dga-btn-secondary-outline">Right</button>
+</div>
+
+<!-- All variants -->
+<button class="dga-btn dga-btn-primary">Primary</button>
+<button class="dga-btn dga-btn-primary-outline">Primary Outline</button>
+<button class="dga-btn dga-btn-neutral">Neutral</button>
+<button class="dga-btn dga-btn-secondary-solid">Secondary Solid</button>
+<button class="dga-btn dga-btn-secondary-outline">Secondary Outline</button>
+<button class="dga-btn dga-btn-subtle">Subtle</button>
+<button class="dga-btn dga-btn-ghost">Ghost</button>
+<button class="dga-btn dga-btn-link">Link</button>
+<button class="dga-btn dga-btn-transparent">Transparent</button>
+<button class="dga-btn dga-btn-destructive">Destructive</button>
+<button class="dga-btn dga-btn-destructive-outline">Destructive Outline</button>
+<button class="dga-btn dga-btn-success">Success</button>
+<button class="dga-btn dga-btn-warning">Warning</button>
+<button class="dga-btn dga-btn-info">Info</button>
+
+<!-- All sizes -->
+<button class="dga-btn dga-btn-primary dga-btn-2xs">2XS</button>
+<button class="dga-btn dga-btn-primary dga-btn-xs">XS</button>
+<button class="dga-btn dga-btn-primary dga-btn-small">Small</button>
+<button class="dga-btn dga-btn-primary dga-btn-medium">Medium</button>
+<button class="dga-btn dga-btn-primary dga-btn-large">Large</button>
+<button class="dga-btn dga-btn-primary dga-btn-xl">XL</button>
+*/

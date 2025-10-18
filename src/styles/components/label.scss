@@ -1,0 +1,14 @@
+@import "../variables/radius.scss";
+@import "../variables/spacing.scss";
+@import "../variables/colors.scss";
+
+// label configration
+$dga-label-bg-color: #fff;
+$dga-label-width: 100%;
+
+// label css
+label.dga-label {
+  display: block;
+  margin-bottom: $dga-spacing-sm !important;
+  background-color: $dga-label-bg-color;
+}

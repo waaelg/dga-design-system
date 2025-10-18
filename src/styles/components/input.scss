@@ -1,0 +1,47 @@
+@import "../variables/radius.scss";
+@import "../variables/spacing.scss";
+@import "../variables/colors.scss";
+
+// input configration
+$dga-input-bg-color: #fff;
+$dga-input-height: 40px;
+$dga-input-width: 100%;
+$dga-input-border-radius: $dga-spacing-sm;
+
+// input css
+input.dga-input {
+  border: 0;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  font: inherit;
+  width: $dga-input-width;
+  height: $dga-input-height;
+  padding-inline: $dga-spacing-xl;
+  border-radius: $dga-input-border-radius;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $dga-gray-300;
+  background-color: $dga-input-bg-color;
+}
+
+input.dga-input:hover {
+  border-color: $dga-gray-500;
+}
+input.dga-input:focus {
+  border-bottom: 2px;
+  border-style: solid;
+  border-color: $dga-gray-800;
+  box-shadow: $dga-shadow-md;
+}
+
+// input with error
+input.dga-input.error {
+  border-color: $dga-error-500;
+}
+input.dga-input.error:hover {
+  border-color: $dga-error-500;
+}
+input.dga-input.error:focus {
+  border-color: $dga-error-500;
+}

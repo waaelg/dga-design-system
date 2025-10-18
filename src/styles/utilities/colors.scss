@@ -79,23 +79,32 @@ $dga-semantic-colors: (
 );
 
 // =============================================================================
-// TEXT COLOR UTILITIES CONFIGURATION
+// TEXT COLOR UTILITIES CONFIGURATION - SIMPLIFIED
 // =============================================================================
 
 $dga-text-colors: (
+  // Basic colors
+  "white": $dga-text-white,
+  "black": $dga-text-black,
+
+  // Text hierarchy (for light backgrounds)
   "primary": $dga-text-primary,
   "secondary": $dga-text-secondary,
-  "tertiary": $dga-text-tertiary,
-  "light-primary": $dga-text-light-primary,
-  "light-secondary": $dga-text-light-secondary,
-  "light-tertiary": $dga-text-light-tertiary,
+  "muted": $dga-text-muted,
+
+  // Text for dark backgrounds
+  "inverse": $dga-text-inverse,
+  "inverse-muted": $dga-text-inverse-muted,
+
+  // Brand text colors
+  "brand": $dga-text-brand,
+  "brand-secondary": $dga-text-brand-secondary,
+
+  // Semantic text colors
   "error": $dga-text-error,
   "warning": $dga-text-warning,
   "success": $dga-text-success,
-  "info": $dga-text-info,
-  "sa-primary": $dga-text-sa-primary,
-  "sa-secondary": $dga-text-sa-secondary,
-  "sa-tertiary": $dga-text-sa-tertiary,
+  "info": $dga-text-info
 );
 
 // =============================================================================
@@ -133,19 +142,21 @@ $dga-gradients: (
 
 @mixin generate-semantic-color-utilities($colors: $dga-semantic-colors) {
   @each $name, $color in $colors {
-    // Text colors
-    .dga-text-#{$name} {
-      color: #{$color} !important;
-    }
-
-    // Background colors
+    // Background colors (always generate)
     .dga-bg-#{$name} {
       background-color: #{$color} !important;
     }
 
-    // Border colors
+    // Border colors (always generate)
     .dga-border-#{$name} {
       border-color: #{$color} !important;
+    }
+
+    // Text colors (only if not already defined in $dga-text-colors)
+    @if not map-has-key($dga-text-colors, $name) {
+      .dga-text-#{$name} {
+        color: #{$color} !important;
+      }
     }
   }
 }
@@ -258,13 +269,19 @@ $dga-gradients: (
 
 @mixin generate-all-color-utilities() {
   @include generate-color-utilities();
-  @include generate-semantic-color-utilities();
   @include generate-text-color-utilities();
+  @include generate-semantic-color-utilities();
   @include generate-gradient-utilities();
   @include generate-hover-utilities();
   @include generate-border-utilities();
   @include generate-focus-utilities();
 }
+
+// =============================================================================
+// ACTUALLY GENERATE THE CLASSES
+// =============================================================================
+
+@include generate-all-color-utilities();
 
 // =============================================================================
 // EXAMPLE GENERATED CLASSES
@@ -273,56 +290,67 @@ $dga-gradients: (
 /*
 This will generate classes like:
 
+// Basic text colors
+.dga-text-white       { color: #ffffff !important; }
+.dga-text-black       { color: #000000 !important; }
+
+// Text hierarchy (dga-text-primary is gray-950 for text)
+.dga-text-primary     { color: #0d121c !important; }      // Main text (gray-950)
+.dga-text-secondary   { color: #384250 !important; }      // Secondary text (gray-700)
+.dga-text-muted       { color: #4d5761 !important; }      // Muted text (gray-600)
+
+// Text for dark backgrounds
+.dga-text-inverse     { color: rgba(255, 255, 255, 1) !important; }
+.dga-text-inverse-muted { color: rgba(255, 255, 255, 0.7) !important; }
+
+// Brand colors
+.dga-text-brand       { color: #14573a !important; }      // SA 800
+.dga-text-brand-secondary { color: #1b8354 !important; }  // SA 600
+
+// Semantic text colors
+.dga-text-error       { color: #d92d20 !important; }
+.dga-text-warning     { color: #dc6803 !important; }
+.dga-text-success     { color: #079455 !important; }
+.dga-text-info        { color: #1570ef !important; }
+
+// Background colors (dga-bg-primary is Saudi green #25935f)
+.dga-bg-primary       { background-color: #25935f !important; }  ✅ WORKS NOW!
+.dga-bg-secondary     { background-color: #f5bd02 !important; }
+.dga-bg-success       { background-color: #17b26a !important; }
+.dga-bg-danger        { background-color: #f04438 !important; }
+.dga-bg-light         { background-color: #f9fafb !important; }
+.dga-bg-dark          { background-color: #111927 !important; }
+
+// Border colors
+.dga-border-primary   { border-color: #25935f !important; }  ✅ WORKS NOW!
+.dga-border-secondary { border-color: #f5bd02 !important; }
+.dga-border-success   { border-color: #17b26a !important; }
+
+// Semantic text colors that don't conflict
+.dga-text-danger      { color: #f04438 !important; }  // From semantic colors
+.dga-text-light       { color: #f9fafb !important; }  // From semantic colors
+.dga-text-dark        { color: #111927 !important; }  // From semantic colors
+
 // Color shade utilities
 .dga-text-gray-50     { color: #f9fafb !important; }
-.dga-text-gray-900    { color: #111927 !important; }
-.dga-text-primary-500 { color: #25935f !important; }
-.dga-text-primary-600 { color: #1b8354 !important; }
-
+.dga-text-primary-500 { color: #25935f !important; }  // This gives you Saudi green as text
 .dga-bg-gray-50       { background-color: #f9fafb !important; }
 .dga-bg-primary-500   { background-color: #25935f !important; }
-.dga-bg-error-500     { background-color: #f04438 !important; }
-
 .dga-border-gray-200  { border-color: #e5e7eb !important; }
-.dga-border-primary-500 { border-color: #25935f !important; }
 
-// Semantic color utilities
-.dga-text-primary     { color: #25935f !important; }
-.dga-text-danger      { color: #f04438 !important; }
-.dga-bg-success       { background-color: #17b26a !important; }
-.dga-border-warning   { border-color: #f79009 !important; }
-
-// Text color utilities (DGA design system)
-.dga-text-primary     { color: #0d121c !important; }    // Primary text
-.dga-text-secondary   { color: #384250 !important; }    // Secondary text
-.dga-text-tertiary    { color: #4d5761 !important; }    // Tertiary text
-.dga-text-light-primary { color: rgba(255, 255, 255, 1) !important; }
-
-// Platform text colors
-.dga-text-sa-primary  { color: #14573a !important; }    // SA 800
-.dga-text-sa-secondary { color: #1b8354 !important; }   // SA 600
-.dga-text-error       { color: #d92d20 !important; }    // Error 600
-
-// Gradient utilities
-.dga-bg-gradient-primary   { background: linear-gradient(90deg, #1b8354, #25935f) !important; }
-.dga-bg-gradient-secondary { background: linear-gradient(45deg, #166a45, #1b8354) !important; }
-.dga-bg-gradient-dark     { background: linear-gradient(45deg, #092a1e, #1b8354) !important; }
+// Gradients
+.dga-bg-gradient-primary { background: linear-gradient(90deg, #1b8354, #25935f) !important; }
 
 // Hover utilities
 .dga-bg-primary-500-hover:hover { background-color: #25935f !important; }
-.dga-text-primary-600-hover:hover { color: #1b8354 !important; }
 
 // Border utilities
 .dga-border           { border: 1px solid #e5e7eb !important; }
-.dga-border-light     { border: 1px solid #f3f4f6 !important; }
 .dga-border-top       { border-top: 1px solid #e5e7eb !important; }
 
 // Focus utilities
 .dga-focus-ring:focus { 
   outline: 0 !important;
   box-shadow: 0 0 0 0.2rem rgba(37, 147, 95, 0.25) !important;
-}
-.dga-focus-ring-error:focus {
-  box-shadow: 0 0 0 0.2rem rgba(240, 68, 56, 0.25) !important;
 }
 */

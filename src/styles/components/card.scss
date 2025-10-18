@@ -1,0 +1,103 @@
+// Import design tokens
+@import "../variables/colors";
+@import "../variables/spacing";
+@import "../variables/shadow";
+
+// Card settings
+$dga-card-border-radius: 16px;
+$dga-card-border-width: 1px;
+$dga-card-border-color: $dga-gray-300;
+$dga-card-bg: #ffffff;
+$dga-card-gap: 24px;
+$dga-card-padding: 16px;
+
+// Typography
+$dga-card-title-font-size: 1.125rem;
+$dga-card-title-font-weight: 600;
+$dga-card-title-line-height: 1.4;
+$dga-card-title-color: $dga-text-primary;
+
+$dga-card-body-font-size: 0.875rem;
+$dga-card-body-font-weight: 400;
+$dga-card-body-line-height: 1.6;
+$dga-card-body-color: $dga-text-secondary;
+
+$dga-card-footer-font-size: 0.75rem;
+$dga-card-footer-font-weight: 400;
+$dga-card-footer-line-height: 1.4;
+$dga-card-footer-color: $dga-gray-400;
+
+$dga-card-footer-actions-gap: 0.75rem;
+$dga-card-footer-actions-margin-top: 1rem;
+
+// Card CSS
+.dga-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: $dga-card-padding;
+  gap: $dga-card-gap;
+  background: $dga-card-bg;
+  border-radius: $dga-card-border-radius;
+  box-shadow: $dga-shadow-md;
+
+  > * {
+    width: 100%;
+  }
+
+  .dga-card-icon {
+  }
+
+  .dga-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .dga-card-title {
+      font-size: $dga-card-title-font-size;
+      font-weight: $dga-card-title-font-weight;
+      line-height: $dga-card-title-line-height;
+      color: $dga-card-title-color;
+      margin: 0;
+    }
+
+    .dga-card-body {
+      font-size: $dga-card-body-font-size;
+      font-weight: $dga-card-body-font-weight;
+      line-height: $dga-card-body-line-height;
+      color: $dga-card-body-color;
+    }
+  }
+
+  .dga-card-footer {
+    .footer-text {
+      font-size: $dga-card-footer-font-size;
+      font-weight: $dga-card-footer-font-weight;
+      line-height: $dga-card-footer-line-height;
+      color: $dga-card-footer-color;
+      margin: 0;
+    }
+
+    .footer-actions {
+      display: flex;
+      gap: $dga-card-footer-actions-gap;
+      justify-content: flex-start;
+      margin-top: $dga-card-footer-actions-margin-top;
+    }
+  }
+
+  // Variants
+  &[data-variant="default"] {
+    box-shadow: $dga-shadow-md;
+  }
+
+  &[data-variant="noshadow"] {
+    box-shadow: none;
+  }
+
+  &[data-variant="stroke"] {
+    box-shadow: none;
+    border: $dga-card-border-width solid $dga-card-border-color;
+  }
+}

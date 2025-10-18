@@ -1,119 +1,682 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>personal_fe_dga-with-bootstrap</title>
+    <title>DGA Design System - Demo</title>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
+    />
   </head>
-  <body>
-    <div class="container">
-      <div class="dga-bg-primary p-4 rounded mb-4">
-        <h3 class="text-white">Wael</h3>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Sapiente quasi sit ipsum consectetur quos ea? Aspernatur est
-                eveniet voluptatem nisi in nihil id ex, aliquid aperiam
-                voluptatibus enim, a eos?
-              </p>
-            </div>
+  <body class="dga-bg-gray-25">
+    <!-- Header -->
+    <header class="dga-bg-gradient-primary dga-py-6 dga-mb-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="dga-text-white dga-mb-2">نظام التصميم الحكومي الرقمي</h1>
+            <p class="dga-text-inverse-muted">
+              DGA Design System - Saudi Arabia Government
+            </p>
           </div>
         </div>
-        <div class="col-md-6">
-          <!-- Basic DGA Card -->
-          <div class="dga-card" data-variant="bordered">
-            <div class="dga-card-icon">
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
-                  fill="#F3FCF6"
-                />
-                <path
-                  d="M28.5529 21.5068C28.8328 21.2015 28.8121 20.727 28.5068 20.4471C28.2015 20.1672 27.727 20.1879 27.4471 20.4932L22.4764 25.9158L20.5303 23.9697C20.2374 23.6768 19.7626 23.6768 19.4697 23.9697C19.1768 24.2626 19.1768 24.7374 19.4697 25.0303L21.9697 27.5303C22.1143 27.675 22.3118 27.7543 22.5163 27.7498C22.7208 27.7454 22.9146 27.6576 23.0529 27.5068L28.5529 21.5068Z"
-                  fill="#067647"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M24 34.75C18.0629 34.75 13.25 29.9371 13.25 24C13.25 18.0629 18.0629 13.25 24 13.25C29.9371 13.25 34.75 18.0629 34.75 24C34.75 29.9371 29.9371 34.75 24 34.75ZM14.75 24C14.75 29.1086 18.8914 33.25 24 33.25C29.1086 33.25 33.25 29.1086 33.25 24C33.25 18.8914 29.1086 14.75 24 14.75C18.8914 14.75 14.75 18.8914 14.75 24Z"
-                  fill="#067647"
-                />
-              </svg>
-            </div>
+      </div>
+    </header>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-12 dga-mb-xl">
+          <label for="dga-select" class="dga-label">قائمة منسدلة</label>
+          <select id="dga-select" class="dga-select">
+            <option value="">select ...</option>
+            <option value="option_1">option 1</option>
+            <option value="option_2">option 2</option>
+            <option value="option_3">option 3</option>
+          </select>
+        </div>
+        <div class="col-12 dga-mb-xl">
+          <label for="dga-input" class="dga-label">حقل نص عادي</label>
+          <input type="text" id="dga-input" class="dga-input" />
+        </div>
+        <div class="col-12 dga-mb-xl">
+          <label for="dga-textarea" class="dga-label">رسالة</label>
+          <textarea id="dga-textarea" class="dga-textarea"></textarea>
+        </div>
+        <div class="col-12 dga-mb-xl">
+          <a href="#" class="dga-link">Link </a>
+        </div>
+        <div class="col-12 dga-mb-xl">
+          <div class="dga-card" data-variant="stroke">
             <div class="dga-card-content">
-              <h5 class="dga-card-title">Card Title</h5>
+              <div class="dga-card-title">تاقات!</div>
               <div class="dga-card-body">
-                <p>
-                  This card uses exact Figma specifications with 16px padding
-                  and 24px gaps between sections.
-                </p>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    gap: 12px;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <span class="dga-tag" data-outline="true">تاق بحدود</span>
+                  <span class="dga-tag" data-outline="true" data-rounded="true"
+                    >تاق مدور بحدود</span
+                  >
+                  <span class="dga-tag">تاق افتراضي</span>
+                  <span class="dga-tag" data-variant="success">تاق نجاح</span>
+                  <span class="dga-tag" data-variant="info">تاق معلومة</span>
+                  <span class="dga-tag" data-variant="info" data-outline="true"
+                    >تاق معلومة</span
+                  >
+                  <span class="dga-tag" data-variant="info" data-rounded="true"
+                    >تاق معلومة</span
+                  >
+                  <span
+                    class="dga-tag"
+                    data-variant="warning"
+                    data-rounded="true"
+                    >تاق معلومة</span
+                  >
+                  <span
+                    class="dga-tag"
+                    data-variant="warning"
+                    data-rounded="true"
+                    data-icononly="true"
+                  ></span>
+                </div>
               </div>
             </div>
-
-            <div class="dga-card-footer">
-              <button class="dga-btn dga-btn-primary">Primary Action</button>
-              <button class="dga-btn dga-btn-secondary">Secondary</button>
-            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="row dga-pb-2">
-        <div class="col-12 dga-pb-2">
-          <button class="dga-btn dga-btn-primary">Primary</button>
-          <button class="dga-btn dga-btn-neutral">Neutral</button>
-          <button class="dga-btn dga-btn-secondary-solid">
-            Secondary Solid
-          </button>
-          <button class="dga-btn dga-btn-secondary-outline">
-            Secondary Outline
-          </button>
-          <button class="dga-btn dga-btn-subtle">Subtle</button>
-          <button class="dga-btn dga-btn-transparent">Transparent</button>
-        </div>
-      </div>
-      <div class="row dga-pb-2">
-        <div class="col-md-6">
-          <div class="dga-bg-gradient-primary dga-p-5">Primary gradient</div>
-          <div class="dga-bg-gradient-primary-dark">Dark primary gradient</div>
-          <div class="dga-bg-gradient-primary-subtle">
-            Subtle primary gradient
-          </div>
-          <div class="dga-bg-gradient-primary-deep">Deep primary gradient</div>
-        </div>
-      </div>
-      <div class="row dga-m-3">
-        <div class="col-12">
-          <div class="dga-bg-gold-500 text-neutral-800">Gold</div>
-          <div class="dga-bg-primary-500">Saudi Green 500 background</div>
-          <div class="dga-bg-primary-600">Saudi Green 600 background</div>
-          <div class="dga-bg-primary-700">Saudi Green 700 background</div>
-          <!-- All shades available -->
-          <div class="dga-bg-primary-25">Lightest primary</div>
-          <div class="dga-bg-primary-950 dga-text-gray-25">Darkest primary</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 dga-p-6">
-          <p class="dga-text-primary-500">Saudi Green text</p>
-          <p class="dga-text-primary-600">Darker Saudi Green text</p>
-          <p class="dga-text-primary-800">Platform primary text</p>
         </div>
       </div>
     </div>
+
+    <div class="container">
+      <!-- Button Variants Section -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">أنواع الأزرار</h2>
+            <p class="dga-text-secondary">
+              جميع أشكال الأزرار المتاحة في النظام
+            </p>
+          </div>
+        </div>
+
+        <div class="row dga-g-3">
+          <!-- Primary Buttons -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card dga-p-4" data-variant="stroke">
+              <h5 class="dga-text-primary dga-mb-3">الأزرار الأساسية</h5>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <button class="dga-btn dga-btn-primary">زر أساسي</button>
+                <button class="dga-btn dga-btn-primary-outline">
+                  أساسي مفرغ
+                </button>
+                <button class="dga-btn dga-btn-primary" disabled>معطل</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Buttons -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card dga-p-4" data-variant="stroke">
+              <h5 class="dga-text-primary dga-mb-3">الأزرار الثانوية</h5>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <button class="dga-btn dga-btn-secondary-solid">
+                  ثانوي مصمت
+                </button>
+                <button class="dga-btn dga-btn-secondary-outline">
+                  ثانوي مفرغ
+                </button>
+                <button class="dga-btn dga-btn-neutral">محايد</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Variants -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card dga-p-4" data-variant="stroke">
+              <h5 class="dga-text-primary dga-mb-3">أنواع أخرى</h5>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <button class="dga-btn dga-btn-subtle">دقيق</button>
+                <button class="dga-btn dga-btn-ghost">شبح</button>
+                <button class="dga-btn dga-btn-link">رابط</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Semantic Buttons -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card dga-p-4" data-variant="stroke">
+              <h5 class="dga-text-primary dga-mb-3">الأزرار الدلالية</h5>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <button class="dga-btn dga-btn-success">نجاح</button>
+                <button class="dga-btn dga-btn-warning">تحذير</button>
+                <button class="dga-btn dga-btn-info">معلومات</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destructive Buttons -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card dga-p-4" data-variant="stroke">
+              <h5 class="dga-text-primary dga-mb-3">أزرار الحذف</h5>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  align-items: flex-start;
+                "
+              >
+                <button class="dga-btn dga-btn-destructive">حذف</button>
+                <button class="dga-btn dga-btn-destructive-outline">
+                  حذف مفرغ
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Button Sizes Section -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">أحجام الأزرار</h2>
+            <p class="dga-text-secondary">
+              ستة أحجام مختلفة للأزرار من 2XS إلى XL
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="dga-card dga-p-4" data-variant="default">
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  align-items: center;
+                  flex-wrap: wrap;
+                "
+              >
+                <button class="dga-btn dga-btn-primary dga-btn-2xs">2XS</button>
+                <button class="dga-btn dga-btn-primary dga-btn-xs">XS</button>
+                <button class="dga-btn dga-btn-primary dga-btn-small">
+                  صغير
+                </button>
+                <button class="dga-btn dga-btn-primary dga-btn-medium">
+                  متوسط
+                </button>
+                <button class="dga-btn dga-btn-primary dga-btn-large">
+                  كبير
+                </button>
+                <button class="dga-btn dga-btn-primary dga-btn-xl">XL</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Button with Icons -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">الأزرار مع الأيقونات</h2>
+            <p class="dga-text-secondary">أزرار مع أيقونات في اتجاهات مختلفة</p>
+          </div>
+        </div>
+
+        <div class="row dga-g-3">
+          <div class="col-md-4">
+            <div class="dga-card dga-p-4" data-variant="default">
+              <h6 class="dga-text-primary dga-mb-3">أيقونة يسار</h6>
+              <button class="dga-btn dga-btn-primary dga-btn-icon-left">
+                <span class="dga-btn__icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M8 2L14 8L8 14"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span class="dga-btn__text">مع أيقونة</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="dga-card dga-p-4" data-variant="default">
+              <h6 class="dga-text-primary dga-mb-3">أيقونة يمين</h6>
+              <button class="dga-btn dga-btn-primary dga-btn-icon-right">
+                <span class="dga-btn__text">مع أيقونة</span>
+                <span class="dga-btn__icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M8 2L14 8L8 14"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="dga-card dga-p-4" data-variant="default">
+              <h6 class="dga-text-primary dga-mb-3">أيقونة فقط</h6>
+              <button
+                class="dga-btn dga-btn-primary dga-btn-icon-only dga-btn-medium"
+              >
+                <span class="dga-btn__icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M8 2V14M2 8H14"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Button Group -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">مجموعة الأزرار</h2>
+            <p class="dga-text-secondary">أزرار متصلة ببعضها</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="dga-card dga-p-4" data-variant="default">
+              <div class="dga-btn-group">
+                <button class="dga-btn dga-btn-secondary-outline">يسار</button>
+                <button class="dga-btn dga-btn-secondary-outline">وسط</button>
+                <button class="dga-btn dga-btn-secondary-outline">يمين</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card Variants Section -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">أنواع الكروت</h2>
+            <p class="dga-text-secondary">كروت مع أشكال وأنماط مختلفة</p>
+          </div>
+        </div>
+
+        <div class="row dga-g-4">
+          <!-- Default Card with Shadow -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card" data-variant="default">
+              <div class="dga-card-icon">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z"
+                    fill="#F3FCF6"
+                  />
+                  <path
+                    d="M28.5529 21.5068C28.8328 21.2015 28.8121 20.727 28.5068 20.4471C28.2015 20.1672 27.727 20.1879 27.4471 20.4932L22.4764 25.9158L20.5303 23.9697C20.2374 23.6768 19.7626 23.6768 19.4697 23.9697C19.1768 24.2626 19.1768 24.7374 19.4697 25.0303L21.9697 27.5303C22.1143 27.675 22.3118 27.7543 22.5163 27.7498C22.7208 27.7454 22.9146 27.6576 23.0529 27.5068L28.5529 21.5068Z"
+                    fill="#067647"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M24 34.75C18.0629 34.75 13.25 29.9371 13.25 24C13.25 18.0629 18.0629 13.25 24 13.25C29.9371 13.25 34.75 18.0629 34.75 24C34.75 29.9371 29.9371 34.75 24 34.75ZM14.75 24C14.75 29.1086 18.8914 33.25 24 33.25C29.1086 33.25 33.25 29.1086 33.25 24C33.25 18.8914 29.1086 14.75 24 14.75C18.8914 14.75 14.75 18.8914 14.75 24Z"
+                    fill="#067647"
+                  />
+                </svg>
+              </div>
+
+              <div class="dga-card-content">
+                <h5 class="dga-card-title">كرت افتراضي</h5>
+                <div class="dga-card-body">
+                  <p>كرت مع ظل افتراضي وأيقونة. مناسب للمحتوى المهم.</p>
+                </div>
+              </div>
+
+              <div class="dga-card-footer">
+                <div class="footer-actions">
+                  <button class="dga-btn dga-btn-primary dga-btn-small">
+                    إجراء
+                  </button>
+                  <button
+                    class="dga-btn dga-btn-secondary-outline dga-btn-small"
+                  >
+                    إلغاء
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bordered Card -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card" data-variant="stroke">
+              <div class="dga-card-content">
+                <h5 class="dga-card-title">كرت محدد</h5>
+                <div class="dga-card-body">
+                  <p>كرت بحدود فقط بدون ظل. مناسب للواجهات النظيفة والبسيطة.</p>
+                </div>
+              </div>
+
+              <div class="dga-card-footer">
+                <div class="footer-actions">
+                  <button class="dga-btn dga-btn-ghost dga-btn-small">
+                    عرض المزيد
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- No Shadow Card -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dga-card" data-variant="noshadow">
+              <div class="dga-card-content">
+                <h5 class="dga-card-title">كرت بدون ظل</h5>
+                <div class="dga-card-body">
+                  <p>كرت بسيط بدون ظل أو حدود. للمحتوى الثانوي.</p>
+                </div>
+              </div>
+
+              <div class="dga-card-footer">
+                <p class="footer-text">نص تذييل إضافي</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Complete Card Example -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">كرت كامل</h2>
+            <p class="dga-text-secondary">مثال على كرت مع جميع العناصر</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="dga-card" data-variant="default">
+              <div class="dga-card-icon">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="24" cy="24" r="24" fill="#F3FCF6" />
+                  <path
+                    d="M24 14V24L30 28"
+                    stroke="#067647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="10"
+                    stroke="#067647"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+
+              <div class="dga-card-content">
+                <h5 class="dga-card-title">عنوان الكرت الأساسي</h5>
+                <div class="dga-card-body">
+                  <p>
+                    هذا مثال على كرت كامل يحتوي على أيقونة، عنوان، محتوى، وتذييل
+                    مع أزرار الإجراءات. يمكن استخدام هذا النمط للعروض الترويجية
+                    أو البطاقات التفاعلية.
+                  </p>
+                </div>
+              </div>
+
+              <div class="dga-card-footer">
+                <p class="footer-text">آخر تحديث: منذ ساعتين</p>
+                <div class="footer-actions">
+                  <button class="dga-btn dga-btn-primary dga-btn-small">
+                    تحرير
+                  </button>
+                  <button
+                    class="dga-btn dga-btn-secondary-outline dga-btn-small"
+                  >
+                    مشاركة
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="dga-card" data-variant="stroke">
+              <div class="dga-card-content">
+                <h5 class="dga-card-title">نموذج تسجيل الدخول</h5>
+                <div class="dga-card-body">
+                  <div class="dga-mb-3">
+                    <label class="dga-text-secondary dga-mb-1"
+                      >البريد الإلكتروني</label
+                    >
+                    <input
+                      type="email"
+                      class="dga-p-2 dga-border"
+                      style="width: 100%; border-radius: 4px"
+                      placeholder="example@email.com"
+                    />
+                  </div>
+
+                  <div class="dga-mb-3">
+                    <label class="dga-text-secondary dga-mb-1"
+                      >كلمة المرور</label
+                    >
+                    <input
+                      type="password"
+                      class="dga-p-2 dga-border"
+                      style="width: 100%; border-radius: 4px"
+                      placeholder="••••••••"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="dga-card-footer">
+                <div class="footer-actions" style="width: 100%">
+                  <button
+                    class="dga-btn dga-btn-primary dga-btn-block dga-mb-2"
+                  >
+                    تسجيل الدخول
+                  </button>
+                  <button class="dga-btn dga-btn-link">
+                    نسيت كلمة المرور؟
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Color Palette Section -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">لوحة الألوان</h2>
+            <p class="dga-text-secondary">الألوان الأساسية في نظام التصميم</p>
+          </div>
+        </div>
+
+        <div class="row dga-g-3">
+          <div class="col-md-3">
+            <div class="dga-card dga-p-3" data-variant="stroke">
+              <div
+                class="dga-bg-primary-500 dga-mb-2"
+                style="height: 80px; border-radius: 8px"
+              ></div>
+              <h6 class="dga-text-primary">اللون الأساسي</h6>
+              <p class="dga-text-muted" style="font-size: 12px">#25935F</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="dga-card dga-p-3" data-variant="stroke">
+              <div
+                class="dga-bg-gray-700 dga-mb-2"
+                style="height: 80px; border-radius: 8px"
+              ></div>
+              <h6 class="dga-text-primary">الرمادي</h6>
+              <p class="dga-text-muted" style="font-size: 12px">#384250</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="dga-card dga-p-3" data-variant="stroke">
+              <div
+                class="dga-bg-error-500 dga-mb-2"
+                style="height: 80px; border-radius: 8px"
+              ></div>
+              <h6 class="dga-text-primary">خطأ</h6>
+              <p class="dga-text-muted" style="font-size: 12px">#F04438</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="dga-card dga-p-3" data-variant="stroke">
+              <div
+                class="dga-bg-success-500 dga-mb-2"
+                style="height: 80px; border-radius: 8px"
+              ></div>
+              <h6 class="dga-text-primary">نجاح</h6>
+              <p class="dga-text-muted" style="font-size: 12px">#17B26A</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gradients Section -->
+      <section class="dga-mb-6">
+        <div class="row dga-mb-4">
+          <div class="col-12">
+            <h2 class="dga-text-primary dga-mb-2">التدرجات</h2>
+            <p class="dga-text-secondary">التدرجات اللونية المتاحة</p>
+          </div>
+        </div>
+
+        <div class="row dga-g-3">
+          <div class="col-md-6">
+            <div
+              class="dga-bg-gradient-primary dga-p-4 dga-text-white"
+              style="border-radius: 8px"
+            >
+              <h5>التدرج الأساسي</h5>
+              <p class="dga-text-inverse-muted">Primary Gradient</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="dga-bg-gradient-dark dga-p-4 dga-text-white"
+              style="border-radius: 8px"
+            >
+              <h5>التدرج الداكن</h5>
+              <p class="dga-text-inverse-muted">Dark Gradient</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="dga-bg-gradient-subtle dga-p-4 dga-text-white"
+              style="border-radius: 8px"
+            >
+              <h5>التدرج الدقيق</h5>
+              <p class="dga-text-inverse-muted">Subtle Gradient</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="dga-bg-gradient-deep dga-p-4 dga-text-white"
+              style="border-radius: 8px"
+            >
+              <h5>التدرج العميق</h5>
+              <p class="dga-text-inverse-muted">Deep Gradient</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="dga-bg-gray-900 dga-py-6 dga-mt-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="dga-text-inverse" style="text-align: center">
+              © 2024 نظام التصميم الحكومي الرقمي - المملكة العربية السعودية
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

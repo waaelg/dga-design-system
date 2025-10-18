@@ -1,13 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap");
+
+@import "reset";
+// =============================================================================
+// UTILITIES
+// =============================================================================
 @import "utilities/colors";
 @import "utilities/width";
 @import "utilities/padding";
 @import "utilities/margin";
 @import "utilities/grid";
-@import "components/button";
+@import "utilities/radius";
 
-// Generate all utilities
+// =============================================================================
+// COMPONENTS
+// =============================================================================
+@import "components/button";
+@import "components/card";
+@import "components/label";
+@import "components/input";
+@import "components/select";
+@import "components/textarea";
+@import "components/link";
+@import "components/tag";
+
+// =============================================================================
+// GENERATE ALL UTILITIES
+// =============================================================================
 @include generate-all-width-utilities();
 @include generate-all-padding-utilities();
 @include generate-all-margin-utilities();
 @include generate-all-color-utilities();
 @include generate-all-grid-utilities();
+@include generate-all-radius-utilities();
+
+// =============================================================================
+// BASE STYLES
+// =============================================================================
+
+body {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}

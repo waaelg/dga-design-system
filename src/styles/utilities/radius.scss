@@ -1,0 +1,240 @@
+// =============================================================================
+// DGA Design System - Border Radius Utilities
+// File: styles/utilities/radius.scss
+// =============================================================================
+
+// Import radius variables
+@import "../variables/radius";
+
+// =============================================================================
+// BORDER RADIUS UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-radius-utilities: (
+  // All corners
+  "border-radius":
+    (
+      "prefix": "rounded",
+      "property": "border-radius",
+      "values": $dga-radius,
+    ),
+
+  // Top corners (both)
+  "border-radius-top":
+    (
+      "prefix": "rounded-t",
+      "property": (
+        "border-top-left-radius",
+        "border-top-right-radius",
+      ),
+      "values": $dga-radius,
+    ),
+
+  // Bottom corners (both)
+  "border-radius-bottom":
+    (
+      "prefix": "rounded-b",
+      "property": (
+        "border-bottom-left-radius",
+        "border-bottom-right-radius",
+      ),
+      "values": $dga-radius,
+    ),
+
+  // Left corners (both)
+  "border-radius-left":
+    (
+      "prefix": "rounded-l",
+      "property": (
+        "border-top-left-radius",
+        "border-bottom-left-radius",
+      ),
+      "values": $dga-radius,
+    ),
+
+  // Right corners (both)
+  "border-radius-right":
+    (
+      "prefix": "rounded-r",
+      "property": (
+        "border-top-right-radius",
+        "border-bottom-right-radius",
+      ),
+      "values": $dga-radius,
+    ),
+
+  // Individual corners
+  "border-radius-top-left":
+    (
+      "prefix": "rounded-tl",
+      "property": "border-top-left-radius",
+      "values": $dga-radius,
+    ),
+
+  "border-radius-top-right": (
+    "prefix": "rounded-tr",
+    "property": "border-top-right-radius",
+    "values": $dga-radius,
+  ),
+
+  "border-radius-bottom-left": (
+    "prefix": "rounded-bl",
+    "property": "border-bottom-left-radius",
+    "values": $dga-radius,
+  ),
+
+  "border-radius-bottom-right": (
+    "prefix": "rounded-br",
+    "property": "border-bottom-right-radius",
+    "values": $dga-radius,
+  )
+);
+
+// =============================================================================
+// BORDER RADIUS UTILITIES GENERATOR MIXIN
+// =============================================================================
+
+@mixin generate-radius-utilities($utilities: $dga-radius-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map-get($utility-config, "prefix");
+    $property: map-get($utility-config, "property");
+    $values: map-get($utility-config, "values");
+
+    @each $key, $value in $values {
+      // Handle special case for "none" key
+      $class-name: if(
+        $key == "none",
+        ".dga-#{$prefix}-none",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        @if type-of($property) == "list" {
+          // Apply to multiple properties (e.g., top corners)
+          @each $prop in $property {
+            #{$prop}: #{$value} !important;
+          }
+        } @else {
+          // Apply to single property
+          #{$property}: #{$value} !important;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// GENERATE ALL BORDER RADIUS UTILITIES
+// =============================================================================
+
+@mixin generate-all-radius-utilities() {
+  @include generate-radius-utilities();
+}
+
+// =============================================================================
+// ADDITIONAL HELPER MIXINS (Optional)
+// =============================================================================
+
+// Mixin to apply specific radius to element
+@mixin border-radius($size: "md") {
+  border-radius: map-get($dga-radius, $size);
+}
+
+// Mixin to apply radius to specific corners
+@mixin border-radius-top($size: "md") {
+  border-top-left-radius: map-get($dga-radius, $size);
+  border-top-right-radius: map-get($dga-radius, $size);
+}
+
+@mixin border-radius-bottom($size: "md") {
+  border-bottom-left-radius: map-get($dga-radius, $size);
+  border-bottom-right-radius: map-get($dga-radius, $size);
+}
+
+@mixin border-radius-left($size: "md") {
+  border-top-left-radius: map-get($dga-radius, $size);
+  border-bottom-left-radius: map-get($dga-radius, $size);
+}
+
+@mixin border-radius-right($size: "md") {
+  border-top-right-radius: map-get($dga-radius, $size);
+  border-bottom-right-radius: map-get($dga-radius, $size);
+}
+
+// =============================================================================
+// EXAMPLE GENERATED CLASSES
+// =============================================================================
+
+/*
+This will generate classes like:
+
+// All corners
+.dga-rounded-none  { border-radius: 0 !important; }
+.dga-rounded-xs    { border-radius: 0.125rem !important; }  // 2px
+.dga-rounded-sm    { border-radius: 0.25rem !important; }   // 4px
+.dga-rounded-md    { border-radius: 0.5rem !important; }    // 8px
+.dga-rounded-lg    { border-radius: 1rem !important; }      // 16px
+.dga-rounded-xl    { border-radius: 1.5rem !important; }    // 24px
+.dga-rounded-full  { border-radius: 9999px !important; }    // Fully rounded
+
+// Top corners
+.dga-rounded-t-none { 
+  border-top-left-radius: 0 !important; 
+  border-top-right-radius: 0 !important; 
+}
+.dga-rounded-t-md { 
+  border-top-left-radius: 0.5rem !important; 
+  border-top-right-radius: 0.5rem !important; 
+}
+.dga-rounded-t-lg { 
+  border-top-left-radius: 1rem !important; 
+  border-top-right-radius: 1rem !important; 
+}
+
+// Bottom corners
+.dga-rounded-b-none { 
+  border-bottom-left-radius: 0 !important; 
+  border-bottom-right-radius: 0 !important; 
+}
+.dga-rounded-b-md { 
+  border-bottom-left-radius: 0.5rem !important; 
+  border-bottom-right-radius: 0.5rem !important; 
+}
+
+// Left corners
+.dga-rounded-l-lg { 
+  border-top-left-radius: 1rem !important; 
+  border-bottom-left-radius: 1rem !important; 
+}
+
+// Right corners
+.dga-rounded-r-lg { 
+  border-top-right-radius: 1rem !important; 
+  border-bottom-right-radius: 1rem !important; 
+}
+
+// Individual corners
+.dga-rounded-tl-md { border-top-left-radius: 0.5rem !important; }
+.dga-rounded-tr-md { border-top-right-radius: 0.5rem !important; }
+.dga-rounded-bl-md { border-bottom-left-radius: 0.5rem !important; }
+.dga-rounded-br-md { border-bottom-right-radius: 0.5rem !important; }
+
+// Usage examples in HTML:
+<div class="dga-rounded-lg">Rounded card</div>
+<div class="dga-rounded-t-md">Rounded top only</div>
+<div class="dga-rounded-full">Pill button</div>
+<div class="dga-rounded-tl-lg dga-rounded-br-lg">Diagonal corners</div>
+
+// Usage with SCSS mixins:
+.my-card {
+  @include border-radius("lg");     // All corners
+}
+
+.my-modal {
+  @include border-radius-top("xl"); // Top corners only
+}
+
+.my-button {
+  @include border-radius("full");   // Pill shape
+}
+*/

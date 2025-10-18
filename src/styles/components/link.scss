@@ -1,0 +1,34 @@
+@import "../variables/radius.scss";
+@import "../variables/spacing.scss";
+@import "../variables/colors.scss";
+
+// link configration
+$dga-link-color: $dga-sa-600;
+$dga-link-border-radius: $dga-spacing-sm;
+
+// link css
+a.dga-link {
+  color: $dga-link-color;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.dga-link:hover {
+  color: $dga-sa-500;
+  text-decoration: underline;
+}
+
+a.dga-link:active {
+  color: $dga-sa-400;
+  text-decoration: underline;
+}
+a.dga-link:focus {
+  border-bottom: 2px;
+  border-style: solid;
+  border-color: $dga-gray-800;
+}
+
+// link variants
+a.dga-link[data-variant="inline"] {
+  text-decoration: underline;
+}
