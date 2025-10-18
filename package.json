@@ -1,8 +1,19 @@
 {
-  "name": "personal_fe_dga-with-bootstrap",
+  "name": "dga-design-on-sass",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "./dist/assets/index.css",
+  "style": "./dist/assets/index.css",
+  "exports": {
+    ".": "./dist/assets/index.css",
+    "./style.css": "./dist/assets/index.css",
+    "./assets/*": "./dist/assets/*"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
