@@ -1,27 +1,21 @@
 {
   "name": "dga-design-on-sass",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "main": "./dist/assets/index.css",
-  "style": "./dist/assets/index.css",
   "exports": {
-    ".": "./dist/assets/index.css",
-    "./style.css": "./dist/assets/index.css",
-    "./assets/*": "./dist/assets/*"
+    ".": "./dist/index.js",
+    "./style.css": "./dist/style.css"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "sass": "^1.93.2",
-    "typescript": "~5.8.3",
     "url": "^0.11.4",
     "vite": "^7.1.7"
   },

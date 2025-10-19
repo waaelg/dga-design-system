@@ -1,12 +1,16 @@
 import { defineConfig } from "vite";
+import { resolve } from "path";
 
 export default defineConfig({
   build: {
+    lib: {
+      entry: resolve(__dirname, "src/main.js"),
+      formats: ["es"], // Only ES modules
+      fileName: () => "index.js", // Simple filename
+    },
     rollupOptions: {
       output: {
-        entryFileNames: "assets/[name].js", // Remove hash from JS
-        chunkFileNames: "assets/[name].js", // Remove hash from chunks
-        assetFileNames: "assets/[name].[ext]", // Remove hash from CSS/assets
+        assetFileNames: "style.css", // Simple CSS name
       },
     },
   },
