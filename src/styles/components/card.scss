@@ -10,6 +10,9 @@ $dga-card-border-color: $dga-gray-300;
 $dga-card-bg: #ffffff;
 $dga-card-gap: 24px;
 $dga-card-padding: 16px;
+// Icon
+$dga-card-icon-bg: $dga-sa-50;
+$dga-card-icon-size: 48px;
 
 // Typography
 $dga-card-title-font-size: 1.125rem;
@@ -46,8 +49,15 @@ $dga-card-footer-actions-margin-top: 1rem;
   }
 
   .dga-card-icon {
+    width: auto;
+    border-radius: 50%;
+    height: $dga-card-icon-size;
+    width: $dga-card-icon-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dga-card-icon-bg;
   }
-
   .dga-card-content {
     flex: 1;
     display: flex;
@@ -101,3 +111,31 @@ $dga-card-footer-actions-margin-top: 1rem;
     border: $dga-card-border-width solid $dga-card-border-color;
   }
 }
+
+/* How to use:
+<div class="dga-card">
+  <div class="dga-card-icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="none"
+        stroke="#067647"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m20 19.5l-5.5 1.2m0-16.7v11.22a1 1 0 0 0 1.242.97L20 15.2M2.978 19.351l5.549-1.363A2 2 0 0 0 10 16V2m10 8L4 13.5"
+      />
+    </svg>
+  </div>
+  <div class="dga-card-content">
+    <h3 class="dga-card-title">عنوان</h3>
+    <div class="dga-card-body">
+      <p>نص المحتوى الخاص بالكارد</p>
+    </div>
+  </div>
+</div>
+*/
