@@ -25,6 +25,67 @@
       </div>
     </header>
 
+    <div class="container dga-mb-6">
+      <div class="row">
+        <div class="col">
+          <div class="dga-acc" id="myAccordion">
+            <div class="dga-acc-item">
+              <button class="dga-acc-header" aria-expanded="false">
+                <span>What is an accordion component?</span>
+              </button>
+              <div class="dga-acc-content">
+                <div class="dga-acc-body">
+                  An accordion is a UI component that allows users to expand and
+                  collapse sections of content. It's useful for organizing
+                  information and saving space on the page.
+                </div>
+              </div>
+            </div>
+
+            <div class="dga-acc-item">
+              <button class="dga-acc-header" aria-expanded="false">
+                <span>How does it work?</span>
+              </button>
+              <div class="dga-acc-content">
+                <div class="dga-acc-body">
+                  When you click on a header, JavaScript adds or removes a class
+                  that triggers CSS transitions. The content smoothly expands or
+                  collapses using max-height transitions.
+                </div>
+              </div>
+            </div>
+
+            <div class="dga-acc-item">
+              <button class="dga-acc-header" aria-expanded="false">
+                <span>Why use SASS?</span>
+              </button>
+              <div class="dga-acc-content">
+                <div class="dga-acc-body">
+                  SASS provides variables, nesting, and mixins that make CSS
+                  more maintainable. For this example, we're using CSS custom
+                  properties to demonstrate the concept, but SASS would make
+                  this even more powerful.
+                </div>
+              </div>
+            </div>
+
+            <div class="dga-acc-item">
+              <button class="dga-acc-header" aria-expanded="false">
+                <span>Is it accessible?</span>
+              </button>
+              <div class="dga-acc-content">
+                <div class="dga-acc-body">
+                  Yes! This accordion uses proper ARIA attributes
+                  (aria-expanded) and semantic button elements. It's fully
+                  keyboard accessible and screen reader friendly.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -708,6 +769,6 @@
       </div>
     </footer>
 
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
