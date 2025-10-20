@@ -1,5 +1,5 @@
 {
-  "name": "dga-design-on-sass",
+  "name": "@waaelg/dga-design-on-sass",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -9,6 +9,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waaelg/personal_fe_dga-sass.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -21,7 +25,14 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.8",
     "path": "^0.12.7"
-  }
+  },
+  "keywords": [
+    "dga",
+    "saudi",
+    "design-system",
+    "sass"
+  ],
+  "author": "Wael Alghamdi",
+  "license": "MIT"
 }
