@@ -8,6 +8,7 @@ export default defineConfig({
       formats: ["es"], // Only ES modules
       fileName: () => "index.js", // Simple filename
     },
+    sourcemap: true,
     rollupOptions: {
       output: {
         assetFileNames: "style.css", // Simple CSS name

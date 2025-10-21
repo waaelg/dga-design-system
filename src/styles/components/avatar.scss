@@ -1,0 +1,61 @@
+// Avatar Component Variables
+$dga-avatar-xs: 24px;
+$dga-avatar-sm: 32px;
+$dga-avatar-md: 40px;
+$dga-avatar-lg: 48px;
+$dga-avatar-xl: 64px;
+$dga-avatar-2xl: 80px;
+$dga-avatar-3xl: 120px;
+
+$dga-avatar-square-border-radius: 4px;
+$dga-avatar-border-size: 2px;
+$dga-avatar-border-color: white;
+
+// Avatar Component Styles
+.dga-avatar {
+  display: inline-block;
+  border-width: $dga-avatar-border-size;
+  border-style: solid;
+  border-color: $dga-avatar-border-color;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &,
+  [data-square="false"] {
+    border-radius: 50%;
+  }
+  &[data-square="true"] {
+    border-radius: $dga-avatar-square-border-radius;
+  }
+  s &[data-size="xs"] {
+    width: $dga-avatar-xs;
+    height: $dga-avatar-xs;
+  }
+  &[data-size="sm"] {
+    width: $dga-avatar-sm;
+    height: $dga-avatar-sm;
+  }
+  &[data-size="md"] {
+    width: $dga-avatar-md;
+    height: $dga-avatar-md;
+  }
+  &[data-size="lg"] {
+    width: $dga-avatar-lg;
+    height: $dga-avatar-lg;
+  }
+  &[data-size="xl"] {
+    width: $dga-avatar-xl;
+    height: $dga-avatar-xl;
+  }
+  &[data-size="2xl"] {
+    width: $dga-avatar-2xl;
+    height: $dga-avatar-2xl;
+  }
+  &[data-size="3xl"] {
+    width: $dga-avatar-3xl;
+    height: $dga-avatar-3xl;
+  }
+}
