@@ -1,0 +1,50 @@
+@import "../variables/colors.scss";
+
+$dga-breadcrumb-gap: 0px;
+$dga-breadcrumb-item-icon-size: 16px;
+$dga-breadcrumb-item-icon-padding: 4px;
+$dga-breadcrumb-item-padding: $dga-breadcrumb-item-icon-padding +
+  $dga-breadcrumb-item-icon-size + 4px;
+
+$dga-icon-rtl: 'data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,0,0,1,0,0)"><path d="M5.70469 11.5976C5.81228 11.5163 6.13344 11.2737 6.31858 11.1292C6.68939 10.8398 7.18211 10.4444 7.67338 10.0179C8.16712 9.58921 8.64798 9.13886 9.00148 8.73879C9.17873 8.53818 9.31342 8.36196 9.40108 8.21654C9.48353 8.07977 9.50068 7.99898 9.50068 7.99898C9.50068 7.99898 9.48353 7.92056 9.40109 7.7838C9.31342 7.63838 9.17874 7.46216 9.00148 7.26155C8.64798 6.86148 8.16712 6.41114 7.67337 5.98244C7.1821 5.5559 6.68937 5.1605 6.31856 4.87112C6.13341 4.72663 5.8127 4.48436 5.70512 4.40311C5.48277 4.23935 5.43481 3.92601 5.59857 3.70367C5.76233 3.48132 6.07532 3.43382 6.29767 3.59757L6.29937 3.59885C6.4122 3.68408 6.74488 3.93535 6.93378 4.08277C7.31297 4.37868 7.82024 4.78564 8.32898 5.22734C8.83523 5.66689 9.35436 6.15067 9.75086 6.59941C9.94861 6.82321 10.1264 7.05007 10.2575 7.26752C10.3803 7.47124 10.5012 7.72917 10.5012 8.00017C10.5012 8.27118 10.3803 8.52911 10.2575 8.73282C10.1264 8.95026 9.94861 9.17712 9.75086 9.40093C9.35436 9.84967 8.83523 10.3335 8.32899 10.773C7.82026 11.2147 7.31299 11.6217 6.93381 11.9176C6.74478 12.0651 6.41209 12.3164 6.29948 12.4014L6.29802 12.4025C6.07568 12.5663 5.76236 12.519 5.5986 12.2967C5.43485 12.0743 5.48236 11.7613 5.70469 11.5976Z" fill="%239DA4AE"></path></svg>';
+$dga-icon-ltr: 'data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M5.70469 11.5976C5.81228 11.5163 6.13344 11.2737 6.31858 11.1292C6.68939 10.8398 7.18211 10.4444 7.67338 10.0179C8.16712 9.58921 8.64798 9.13886 9.00148 8.73879C9.17873 8.53818 9.31342 8.36196 9.40108 8.21654C9.48353 8.07977 9.50068 7.99898 9.50068 7.99898C9.50068 7.99898 9.48353 7.92056 9.40109 7.7838C9.31342 7.63838 9.17874 7.46216 9.00148 7.26155C8.64798 6.86148 8.16712 6.41114 7.67337 5.98244C7.1821 5.5559 6.68937 5.1605 6.31856 4.87112C6.13341 4.72663 5.8127 4.48436 5.70512 4.40311C5.48277 4.23935 5.43481 3.92601 5.59857 3.70367C5.76233 3.48132 6.07532 3.43382 6.29767 3.59757L6.29937 3.59885C6.4122 3.68408 6.74488 3.93535 6.93378 4.08277C7.31297 4.37868 7.82024 4.78564 8.32898 5.22734C8.83523 5.66689 9.35436 6.15067 9.75086 6.59941C9.94861 6.82321 10.1264 7.05007 10.2575 7.26752C10.3803 7.47124 10.5012 7.72917 10.5012 8.00017C10.5012 8.27118 10.3803 8.52911 10.2575 8.73282C10.1264 8.95026 9.94861 9.17712 9.75086 9.40093C9.35436 9.84967 8.83523 10.3335 8.32899 10.773C7.82026 11.2147 7.31299 11.6217 6.93381 11.9176C6.74478 12.0651 6.41209 12.3164 6.29948 12.4014L6.29802 12.4025C6.07568 12.5663 5.76236 12.519 5.5986 12.2967C5.43485 12.0743 5.48236 11.7613 5.70469 11.5976Z" fill="%239DA4AE"></path></svg>';
+$dga-breadcrumb-item-color: $dga-gray-700;
+$dga-breadcrumb-current-item-color: $dga-gray-400;
+
+.dga-breadcrumb {
+  display: flex;
+  gap: $dga-breadcrumb-gap;
+
+  .dga-breadcrumb-item {
+    color: $dga-breadcrumb-item-color;
+    padding-left: $dga-breadcrumb-item-padding;
+    padding-right: 0;
+    background-image: url($dga-icon-ltr);
+    background-position: left $dga-breadcrumb-item-icon-padding center;
+    background-size: $dga-breadcrumb-item-icon-size
+      $dga-breadcrumb-item-icon-size;
+    background-repeat: no-repeat;
+
+    &[data-current="true"] {
+      color: $dga-breadcrumb-current-item-color;
+    }
+  }
+}
+
+// RTL support
+[dir="rtl"] .dga-breadcrumb-item {
+  padding-right: $dga-breadcrumb-item-padding;
+  padding-left: 0;
+  background-image: url($dga-icon-rtl);
+  background-position: right $dga-breadcrumb-item-icon-padding center;
+}
+
+/*
+how to use :
+
+<div class="dga-breadcrumb">
+    <a class="dga-breadcrumb-item">Home</a>
+    <a class="dga-breadcrumb-item">About</a>
+    <a class="dga-breadcrumb-item" data-current="true">Our vision</a>
+</div>
+*/
