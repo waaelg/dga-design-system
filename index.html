@@ -5,10 +5,6 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DGA Design System - Demo</title>
-    <link
-      rel="stylesheet"
-      href="/node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
-    />
   </head>
   <body class="dga-bg-gray-25">
     <!-- Header -->
@@ -25,6 +21,16 @@
       </div>
     </header>
 
+    <div class="dga-container dga-my-10">
+      <div class="dga-row">
+        <div class="dga-col">
+          <div id="DGAPieChart1" class="dga-pie-chart" data-hole="false"></div>
+        </div>
+        <div class="dga-col">
+          <div id="DGAPieChart2" class="dga-pie-chart" data-hole="true"></div>
+        </div>
+      </div>
+    </div>
     <div class="container dga-my-10">
       <div class="row">
         <div class="col">
@@ -786,9 +792,69 @@
     <script type="module" src="/src/main.js"></script>
 
     <script type="module">
-      import { Accordion } from "/src/main.js";
+      import { DGAAccordion } from "/src/main.js";
+      import { DGAChart } from "/src/main.js";
+
       const waelAccordion = document.getElementById("waelAccordion");
-      const waelAccordionInstance = new Accordion(waelAccordion);
+      const waelAccordionInstance = new DGAAccordion(waelAccordion);
+
+      const pieChart1 = document.getElementById("DGAPieChart1");
+      const pieChartData1 = [
+        {
+          label: "البند الأول",
+          from: "0%",
+          to: "40%",
+          color: "var(--dga-primary-100)",
+        },
+        {
+          label: "البند الثاني",
+          from: "40%",
+          to: "70%",
+          color: "var(--dga-gray-200)",
+        },
+        {
+          label: "البند الثالث",
+          from: "70%",
+          to: "90%",
+          color: "var(--dga-primary-700)",
+        },
+        {
+          label: "البند الرابع",
+          from: "90%",
+          to: "100%",
+          color: "var(--dga-primary-700)",
+        },
+      ];
+      const pieChartInstance1 = new DGAChart(pieChart1, pieChartData1);
+
+      const pieChart2 = document.getElementById("DGAPieChart2");
+      const pieChartData2 = [
+        {
+          label: "البند الأول",
+          from: "0%",
+          to: "40%",
+          color: "var(--dga-primary-100)",
+        },
+        {
+          label: "البند الثاني",
+          from: "40%",
+          to: "70%",
+          color: "var(--dga-gray-200)",
+        },
+        {
+          label: "البند الثالث",
+          from: "70%",
+          to: "90%",
+          color: "var(--dga-primary-700)",
+        },
+        {
+          label: "البند الرابع",
+          from: "90%",
+          to: "100%",
+          color: "var(--dga-primary-700)",
+        },
+      ];
+      const pieChartInstance2 = new DGAChart(pieChart2, pieChartData2);
     </script>
   </body>
 </html>

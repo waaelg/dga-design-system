@@ -1,5 +1,7 @@
 import "./styles/main.scss";
-import Accordion from "./scripts/accordion.js";
+import DGAAccordion from "./scripts/accordion.js";
+import DGAChart from "./scripts/chart.js";
 
 // Export components
-export { Accordion };
+export { DGAAccordion };
+export { DGAChart };

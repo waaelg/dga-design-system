@@ -1,4 +1,4 @@
-export default class Accordion {
+export default class DGAAccordion {
   constructor(element) {
     this.accordion = element;
     this.headers = this.accordion.querySelectorAll(".dga-acc-header");

@@ -1,0 +1,82 @@
+$dga-pie-chart-size: 150px;
+
+.dga-pie-chart {
+  width: $dga-pie-chart-size;
+  height: $dga-pie-chart-size;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  // by js we will apply this background
+  // background: conic-gradient(#2d7a5a 0% 40%, #52b788 40% 70%, #95d5b2 70% 100%);
+
+  &::before,
+  [data-hole="true"] {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &[data-hole="false"] {
+    &::before {
+      display: none;
+    }
+  }
+
+  .dga-pie-chart__labels {
+    position: absolute;
+    top: $dga-pie-chart-size + 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    .dga-pie-chart__label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+
+      .dga-pie-chart__circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+/*
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #2d7a5a 0% 40%,
+                #52b788 40% 70%,
+                #95d5b2 70% 100%
+            );
+            position: relative;
+        }
+
+        .donut-chart-1::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        */

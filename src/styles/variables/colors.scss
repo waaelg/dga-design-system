@@ -350,3 +350,120 @@ $dga-focus-ring-color: rgba($dga-semantic-primary, 0.25);
 @function dga-text-color($bg-color) {
   @return dga-color-contrast($bg-color);
 }
+
+// ================================
+// CSS CUSTOM PROPERTIES (for JS access)
+// ================================
+:root {
+  // Gray palette
+  --dga-gray-25: #{$dga-gray-25};
+  --dga-gray-50: #{$dga-gray-50};
+  --dga-gray-100: #{$dga-gray-100};
+  --dga-gray-200: #{$dga-gray-200};
+  --dga-gray-300: #{$dga-gray-300};
+  --dga-gray-400: #{$dga-gray-400};
+  --dga-gray-500: #{$dga-gray-500};
+  --dga-gray-600: #{$dga-gray-600};
+  --dga-gray-700: #{$dga-gray-700};
+  --dga-gray-800: #{$dga-gray-800};
+  --dga-gray-900: #{$dga-gray-900};
+  --dga-gray-950: #{$dga-gray-950};
+
+  // Primary/SA palette
+  --dga-primary-25: #{$dga-sa-25};
+  --dga-primary-50: #{$dga-sa-50};
+  --dga-primary-100: #{$dga-sa-100};
+  --dga-primary-200: #{$dga-sa-200};
+  --dga-primary-300: #{$dga-sa-300};
+  --dga-primary-400: #{$dga-sa-400};
+  --dga-primary-500: #{$dga-sa-500};
+  --dga-primary-600: #{$dga-sa-600};
+  --dga-primary-700: #{$dga-sa-700};
+  --dga-primary-800: #{$dga-sa-800};
+  --dga-primary-900: #{$dga-sa-900};
+  --dga-primary-950: #{$dga-sa-950};
+
+  // Gold palette
+  --dga-gold-25: #{$dga-gold-25};
+  --dga-gold-50: #{$dga-gold-50};
+  --dga-gold-100: #{$dga-gold-100};
+  --dga-gold-200: #{$dga-gold-200};
+  --dga-gold-300: #{$dga-gold-300};
+  --dga-gold-400: #{$dga-gold-400};
+  --dga-gold-500: #{$dga-gold-500};
+  --dga-gold-600: #{$dga-gold-600};
+  --dga-gold-700: #{$dga-gold-700};
+  --dga-gold-800: #{$dga-gold-800};
+  --dga-gold-900: #{$dga-gold-900};
+  --dga-gold-950: #{$dga-gold-950};
+
+  // Lavender palette
+  --dga-lavender-25: #{$dga-lavender-25};
+  --dga-lavender-50: #{$dga-lavender-50};
+  --dga-lavender-100: #{$dga-lavender-100};
+  --dga-lavender-200: #{$dga-lavender-200};
+  --dga-lavender-300: #{$dga-lavender-300};
+  --dga-lavender-400: #{$dga-lavender-400};
+  --dga-lavender-500: #{$dga-lavender-500};
+  --dga-lavender-600: #{$dga-lavender-600};
+  --dga-lavender-700: #{$dga-lavender-700};
+  --dga-lavender-800: #{$dga-lavender-800};
+  --dga-lavender-900: #{$dga-lavender-900};
+  --dga-lavender-950: #{$dga-lavender-950};
+
+  // Error palette
+  --dga-error-25: #{$dga-error-25};
+  --dga-error-50: #{$dga-error-50};
+  --dga-error-100: #{$dga-error-100};
+  --dga-error-200: #{$dga-error-200};
+  --dga-error-300: #{$dga-error-300};
+  --dga-error-400: #{$dga-error-400};
+  --dga-error-500: #{$dga-error-500};
+  --dga-error-600: #{$dga-error-600};
+  --dga-error-700: #{$dga-error-700};
+  --dga-error-800: #{$dga-error-800};
+  --dga-error-900: #{$dga-error-900};
+  --dga-error-950: #{$dga-error-950};
+
+  // Warning palette
+  --dga-warning-25: #{$dga-warning-25};
+  --dga-warning-50: #{$dga-warning-50};
+  --dga-warning-100: #{$dga-warning-100};
+  --dga-warning-200: #{$dga-warning-200};
+  --dga-warning-300: #{$dga-warning-300};
+  --dga-warning-400: #{$dga-warning-400};
+  --dga-warning-500: #{$dga-warning-500};
+  --dga-warning-600: #{$dga-warning-600};
+  --dga-warning-700: #{$dga-warning-700};
+  --dga-warning-800: #{$dga-warning-800};
+  --dga-warning-900: #{$dga-warning-900};
+  --dga-warning-950: #{$dga-warning-950};
+
+  // Info palette
+  --dga-info-25: #{$dga-info-25};
+  --dga-info-50: #{$dga-info-50};
+  --dga-info-100: #{$dga-info-100};
+  --dga-info-200: #{$dga-info-200};
+  --dga-info-300: #{$dga-info-300};
+  --dga-info-400: #{$dga-info-400};
+  --dga-info-500: #{$dga-info-500};
+  --dga-info-600: #{$dga-info-600};
+  --dga-info-700: #{$dga-info-700};
+  --dga-info-800: #{$dga-info-800};
+  --dga-info-900: #{$dga-info-900};
+  --dga-info-950: #{$dga-info-950};
+
+  // Success palette
+  --dga-success-25: #{$dga-success-25};
+  --dga-success-50: #{$dga-success-50};
+  --dga-success-100: #{$dga-success-100};
+  --dga-success-200: #{$dga-success-200};
+  --dga-success-300: #{$dga-success-300};
+  --dga-success-400: #{$dga-success-400};
+  --dga-success-500: #{$dga-success-500};
+  --dga-success-600: #{$dga-success-600};
+  --dga-success-700: #{$dga-success-700};
+  --dga-success-800: #{$dga-success-800};
+  --dga-success-900: #{$dga-success-900};
+  --dga-success-950: #{$dga-success-950};
+}
