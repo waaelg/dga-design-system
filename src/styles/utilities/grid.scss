@@ -221,12 +221,25 @@
             .dga-col-#{$breakpoint}-#{$i} {
               flex: 0 0 percentage($i / $max-columns);
               max-width: percentage($i / $max-columns);
+              padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+              padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
             }
 
             .dga-col-#{$breakpoint}-auto {
               flex: 0 0 auto;
               width: auto;
               max-width: 100%;
+              padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+              padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+            }
+          }
+
+          // Update padding for md+ breakpoints
+          @include dga-media-breakpoint-up(md) {
+            .dga-col-#{$breakpoint}-#{$i},
+            .dga-col-#{$breakpoint}-auto {
+              padding-right: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
+              padding-left: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
             }
           }
         }
