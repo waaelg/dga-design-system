@@ -32,111 +32,48 @@ $dga-btn-focus-color: $dga-sa-500 !default;
 $dga-btn-disabled-opacity: 0.5 !default;
 $dga-btn-disabled-cursor: not-allowed !default;
 
+$dga-btn-size-sm-padding: 16px;
+$dga-btn-size-sm-gap: 4px;
+$dga-btn-size-sm-height: 40px;
+$dga-btn-size-sm-icon-size: 24px;
+
+$dga-btn-size-md-padding: 12px;
+$dga-btn-size-md-gap: 4px;
+$dga-btn-size-md-height: 32px;
+$dga-btn-size-md-icon-size: 20px;
+
+$dga-btn-size-lg-padding: 8px;
+$dga-btn-size-lg-gap: 4px;
+$dga-btn-size-lg-height: 24px;
+$dga-btn-size-lg-icon-size: 16px;
+
 // ============================================================================
 // BUTTON SIZE CONFIGURATION MAP (Dynamic & Customizable)
 // ============================================================================
 
 $dga-btn-sizes: (
-  "2xs": (
-    height: map-get($dga-spacing, "7"),
-    // 28px
-    padding-y: map-get($dga-spacing, "1_5"),
-    // 6px
-    padding-x: map-get($dga-spacing, "2"),
-    // 8px
-    font-size: 12px,
-    // Text xs
-    line-height: 18px,
-    // 2px
-    gap: map-get($dga-spacing, "0_5"),
-    // 2px
-    icon-size: map-get($dga-spacing, "3"),
-    // 12px
+  "sm": (
+    height: $dga-btn-size-sm-height,
+    padding-y: $dga-btn-size-sm-padding,
+    gap: $dga-btn-size-sm-gap,
+    icon-size: $dga-btn-size-sm-icon-size,
   ),
-  "xs": (
-    height: map-get($dga-spacing, "8"),
-    // 32px
-    padding-y: map-get($dga-spacing, "1_5"),
-    // 6px
-    padding-x: map-get($dga-spacing, "2_5"),
-    // 10px
-    font-size: 12px,
-    // Text xs
-    line-height: 18px,
-    // 2px
-    gap: map-get($dga-spacing, "1"),
-    // 4px
-    icon-size: map-get($dga-spacing, "3_5"),
-    // 14px
+  "md": (
+    height: $dga-btn-size-md-height,
+    padding-y: $dga-btn-size-md-padding,
+    gap: $dga-btn-size-md-gap,
+    icon-size: $dga-btn-size-md-icon-size,
   ),
-  "small": (
-    height: map-get($dga-spacing, "9"),
-    // 36px
-    padding-y: map-get($dga-spacing, "2"),
-    // 8px
-    padding-x: map-get($dga-spacing, "3"),
-    // 12px
-    font-size: 14px,
-    // Text sm
-    line-height: map-get($dga-spacing, "5"),
-    // 4px
-    gap: map-get($dga-spacing, "1"),
-    // 4px
-    icon-size: map-get($dga-spacing, "4"),
-    // 16px
-  ),
-  "medium": (
-    height: map-get($dga-spacing, "10"),
-    // 40px
-    padding-y: map-get($dga-spacing, "2_5"),
-    // 10px
-    padding-x: map-get($dga-spacing, "4"),
-    // 16px
-    font-size: 14px,
-    // Text sm
-    line-height: map-get($dga-spacing, "5"),
-    // 4px
-    gap: map-get($dga-spacing, "1"),
-    // 4px
-    icon-size: map-get($dga-spacing, "4"),
-    // 16px
-  ),
-  "large": (
-    height: map-get($dga-spacing, "11"),
-    // 44px
-    padding-y: 0,
-    // 0px
-    padding-x: map-get($dga-spacing, "4"),
-    // 16px
-    font-size: 16px,
-    // Text md
-    line-height: map-get($dga-spacing, "6"),
-    // 4px
-    gap: map-get($dga-spacing, "1"),
-    // 4px
-    icon-size: map-get($dga-spacing, "5"),
-    // 20px
-  ),
-  "xl": (
-    height: map-get($dga-spacing, "14"),
-    // 56px
-    padding-y: map-get($dga-spacing, "3_5"),
-    // 14px
-    padding-x: map-get($dga-spacing, "6"),
-    // 24px
-    font-size: 16px,
-    // Text md
-    line-height: map-get($dga-spacing, "6"),
-    // 8px
-    gap: map-get($dga-spacing, "1"),
-    // 4px
-    icon-size: map-get($dga-spacing, "5"),
-    // 20px
+  "lg": (
+    height: $dga-btn-size-lg-height,
+    padding-y: $dga-btn-size-lg-padding,
+    gap: $dga-btn-size-lg-gap,
+    icon-size: $dga-btn-size-lg-icon-size,
   ),
 ) !default;
 
 // Default size
-$dga-btn-default-size: "medium" !default;
+$dga-btn-default-size: "md" !default;
 
 // ============================================================================
 // BUTTON VARIANT CONFIGURATION MAP (Dynamic & Customizable)
@@ -379,11 +316,11 @@ $dga-btn-default-variant: "primary" !default;
 
   @if $size-config {
     $height: map-get($size-config, height);
-    $padding: map-get($size-config, padding-y);
+    $width: map-get($size-config, height);
 
-    padding: $padding;
-    min-width: $height;
-    max-width: $height;
+    // padding: $padding;
+    width: $width;
+    height: $height;
   }
 }
 
@@ -476,29 +413,18 @@ $dga-btn-default-variant: "primary" !default;
 
 .dga-btn-icon-only {
   // Apply icon-only sizing for each button size variant
-  &.dga-btn-2xs {
-    @include dga-btn-icon-only-size("2xs");
+  &.dga-btn-sm {
+    @include dga-btn-icon-only-size("sm");
   }
-  &.dga-btn-xs {
-    @include dga-btn-icon-only-size("xs");
+  &.dga-btn-md {
+    @include dga-btn-icon-only-size("md");
   }
-  &.dga-btn-small {
-    @include dga-btn-icon-only-size("small");
-  }
-  &.dga-btn-medium {
-    @include dga-btn-icon-only-size("medium");
-  }
-  &.dga-btn-large {
-    @include dga-btn-icon-only-size("large");
-  }
-  &.dga-btn-xl {
-    @include dga-btn-icon-only-size("xl");
+  &.dga-btn-lg {
+    @include dga-btn-icon-only-size("lg");
   }
 
   // Default icon-only sizing (medium) when no size class is specified
-  &:not(.dga-btn-2xs):not(.dga-btn-xs):not(.dga-btn-small):not(
-      .dga-btn-medium
-    ):not(.dga-btn-large):not(.dga-btn-xl) {
+  &:not(.dga-btn-sm):not(.dga-btn-lg) {
     @include dga-btn-icon-only-size($dga-btn-default-size);
   }
 }
@@ -625,6 +551,8 @@ $dga-btn-default-variant: "primary" !default;
     flex-direction: row;
   }
 }
+
+//
 
 // ============================================================================
 // USAGE EXAMPLES (HTML Structure)

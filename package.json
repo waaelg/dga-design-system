@@ -19,13 +19,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^24.9.1",
     "sass": "^1.93.2",
-    "url": "^0.11.4",
     "vite": "^7.1.7"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "path": "^0.12.7"
+    "@popperjs/core": "^2.11.8"
   },
   "keywords": [
     "dga",
