@@ -1,5 +1,5 @@
 // =============================================================================
-// DGA Design System - Grid Variables
+// DGA Design System - Grid Variables (FIXED VERSION)
 // File: styles/variables/grid.scss
 // Based on DGA Grid Layout specifications
 // =============================================================================
@@ -201,20 +201,22 @@ $dga-container-grids: (
 // DYNAMIC GRID UTILITY CONFIGURATIONS
 // =============================================================================
 
-// Dynamic responsive grid classes (configurable)
+// ✅ FIXED: Dynamic responsive grid classes (configurable)
+// Changed line 210 to use $dga-grid-columns (12) instead of tablet columns (7)
 $dga-grid-responsive-columns: (
   "": $dga-grid-columns,
-  // .dga-col-1 through .dga-col-{max}
+  // .dga-col-1 through .dga-col-12
   "sm": $dga-grid-columns,
-  // .dga-col-sm-1 through .dga-col-sm-{max}
-  "md": map-get($dga-tablet-grid, columns),
-  // .dga-col-md-1 through .dga-col-md-7 (tablet)
+  // .dga-col-sm-1 through .dga-col-sm-12
+  "md": $dga-grid-columns,
+  // ✅ FIXED: Changed from map-get($dga-tablet-grid, columns) to $dga-grid-columns
+  // .dga-col-md-1 through .dga-col-md-12
   "lg": $dga-grid-columns,
-  // .dga-col-lg-1 through .dga-col-lg-{max}
+  // .dga-col-lg-1 through .dga-col-lg-12
   "xl": $dga-grid-columns,
-  // .dga-col-xl-1 through .dga-col-xl-{max}
+  // .dga-col-xl-1 through .dga-col-xl-12
   "xxl": $dga-grid-columns,
-  // .dga-col-xxl-1 through .dga-col-xxl-{max}
+  // .dga-col-xxl-1 through .dga-col-xxl-12
 ) !default;
 
 // Function to set responsive columns for specific breakpoint
