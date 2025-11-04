@@ -1,0 +1,201 @@
+// Font size: 72px / 4.5rem | Line height: 90px / 5.625rem | Tracking: -2%
+.dga-display-2xl {
+  font-size: 72px;
+  line-height: 90px;
+}
+// Font size: 60px / 3.75rem | Line height: 72px / 4.5rem | Tracking: -2%
+.dga-display-xl {
+  font-size: 60px;
+  line-height: 72px;
+}
+// Font size: 48px / 3rem | Line height: 60px / 3.75rem | Tracking: -2%
+.dga-display-lg {
+  font-size: 48px;
+  line-height: 60px;
+}
+// Font size: 36px / 2.25rem | Line height: 44px / 2.75rem | Tracking: -2%
+.dga-display-md {
+  font-size: 36px;
+  line-height: 44px;
+}
+// Font size: 30px / 1.875rem | Line height: 38px / 2.375rem
+.dga-display-sm {
+  font-size: 30px;
+  line-height: 38px;
+}
+
+// Font size: 24px / 1.5rem | Line height: 32px / 2rem
+.dga-display-xs {
+  font-size: 24px;
+  line-height: 32px;
+}
+// Font size: 20px / 1.25rem | Line height: 30px / 1.875rem
+
+.dga-text-xl {
+  font-size: 20px;
+  line-height: 30px;
+}
+// Font size: 18px / 1.125rem | Line height: 28px / 1.75rem
+.dga-text-lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+// Font size: 16px / 1rem | Line height: 24px / 1.5rem
+.dga-text-md {
+  font-size: 16px;
+  line-height: 24px;
+}
+// Font size: 14px / 0.875rem | Line height: 20px / 1.25rem
+.dga-text-sm {
+  font-size: 14px;
+  line-height: 20px;
+}
+// Font size: 12px / 0.75rem | Line height: 18px / 1.125rem
+.dga-text-xs {
+  font-size: 12px;
+  line-height: 18px;
+}
+// Font size: 12px / 0.75rem | Line height: 18px / 1.125rem
+.dga-text-2xs {
+  font-size: 10px;
+  line-height: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  // Font size: 72px / 4.5rem | Line height: 90px / 5.625rem | Tracking: -2%
+  .dga-display-2xl {
+    font-size: 56px;
+    line-height: 72px;
+  }
+  // Font size: 60px / 3.75rem | Line height: 72px / 4.5rem | Tracking: -2%
+  .dga-display-xl {
+    font-size: 48px;
+    line-height: 64px;
+  }
+  // Font size: 48px / 3rem | Line height: 60px / 3.75rem | Tracking: -2%
+  .dga-display-lg {
+    font-size: 36px;
+    line-height: 48px;
+  }
+  // Font size: 36px / 2.25rem | Line height: 44px / 2.75rem | Tracking: -2%
+  .dga-display-md {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  // Font size: 30px / 1.875rem | Line height: 38px / 2.375rem
+  .dga-display-sm {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  //Font size: 24px / 1.5rem | Line height: 32px / 2rem
+  .dga-display-xs {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  // Font size: 20px / 1.25rem | Line height: 30px / 1.875rem
+  .dga-text-xl {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  // Font size: 18px / 1.125rem | Line height: 28px / 1.75rem
+  .dga-text-lg {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  // Font size: 16px / 1rem | Line height: 24px / 1.5rem
+  .dga-text-md {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  // Font size: 14px / 0.875rem | Line height: 20px / 1.25rem
+  .dga-text-sm {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  // Font size: 12px / 0.75rem | Line height: 18px / 1.125rem
+  .dga-text-xs {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  // Font size: 12px / 0.75rem | Line height: 18px / 1.125rem
+  .dga-text-2xs {
+    font-size: 8px;
+    line-height: 12px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  // Font size: 72px / 4.5rem | Line height: 90px / 5.625rem | Tracking: -2%
+  .dga-display-2xl {
+    font-size: 48px;
+    line-height: 64px;
+  }
+  // Font size: 60px / 3.75rem | Line height: 72px / 4.5rem | Tracking: -2%
+  .dga-display-xl {
+    font-size: 40px;
+    line-height: 56px;
+  }
+  // Font size: 48px / 3rem | Line height: 60px / 3.75rem | Tracking: -2%
+  .dga-display-lg {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  // Font size: 36px / 2.25rem | Line height: 44px / 2.75rem | Tracking: -2%
+  .dga-display-md {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  // Font size: 30px / 1.875rem | Line height: 38px / 2.375rem
+  .dga-display-sm {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  // Font size: 24px / 1.5rem | Line height: 32px / 2rem
+  .dga-display-xs {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  // Font size: 20px / 1.25rem | Line height: 30px / 1.875rem
+  .dga-text-xl {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  // Font size: 18px / 1.125rem | Line height: 28px / 1.75rem
+  .dga-text-lg {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  // Font size: 16px / 1rem | Line height: 24px / 1.5rem
+  .dga-text-md {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  // Font size: 14px / 0.875rem | Line height: 20px / 1.25rem
+  .dga-text-sm {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  // Font size: 12px / 0.75rem | Line height: 18px / 1.125rem
+  .dga-text-xs {
+    font-size: 8px;
+    line-height: 12px;
+  }
+  // Font size: 12px / 0.75rem | Line height: 18px / 1.125rem
+  .dga-text-2xs {
+    font-size: 8px;
+    line-height: 10px;
+  }
+}
+
+.dga-fw-regular {
+  font-weight: 400;
+}
+.dga-fw-medium {
+  font-weight: 500;
+}
+.dga-fw-semibold {
+  font-weight: 600;
+}
+.dga-fw-bold {
+  font-weight: 700;
+}
