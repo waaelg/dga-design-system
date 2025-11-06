@@ -13,28 +13,101 @@
           <h1>LOGO</h1>
         </a>
         <ul class="dga-menu dga-d-flex dga-gap-2">
-          <a class="dga-menu-item dga-menu-item-selected" href="#">Link</a>
-          <a class="dga-menu-item dga-dropdown" href="#">Link</a>
-          <a class="dga-menu-item dga-menu-item-with-icon dga-dropdown" href="#"
-            ><div class="dga-menu-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="#067647"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M16 12H8m0 0l3.5 3.5M8 12l3.5-3.5M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10"
-                />
-              </svg>
+          <li>
+            <a class="dga-menu-item dga-menu-item-selected" href="#">Link</a>
+          </li>
+          <li><a class="dga-menu-item dga-has-dropdown" href="#">Link</a></li>
+          <li>
+            <a
+              class="dga-menu-item dga-menu-item-with-icon dga-has-dropdown"
+              href="#"
+              ><div class="dga-menu-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="#067647"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M16 12H8m0 0l3.5 3.5M8 12l3.5-3.5M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10"
+                  />
+                </svg>
+              </div>
+              الرئيسية</a
+            >
+            <div class="dga-dropdown">
+              <div class="dga-dropdown-content">
+                <ul>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+
+                <ul>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+              </div>
             </div>
-            الرئيسية</a
-          >
+          </li>
+          <li>
+            <a
+              class="dga-menu-item dga-menu-item-with-icon dga-has-dropdown"
+              href="#"
+              ><div class="dga-menu-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="#067647"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M16 12H8m0 0l3.5 3.5M8 12l3.5-3.5M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10"
+                  />
+                </svg>
+              </div>
+              قائمة أخرى</a
+            >
+            <div class="dga-dropdown">
+              <div class="dga-dropdown-content">
+                <ul>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
         <span class="dga-navbar-toggler-icon"></span>
       </div>
@@ -1161,10 +1234,12 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
     <script type="module">
       import { DGAAccordion } from "/src/main.js";
       import { DGAChart } from "/src/main.js";
+      import { DGAMenuDropDown } from "/src/main.js";
 
       const waelAccordion = document.getElementById("waelAccordion");
       const waelAccordionInstance = new DGAAccordion(waelAccordion);
@@ -1226,6 +1301,8 @@
         },
       ];
       const pieChartInstance2 = new DGAChart(pieChart2, pieChartData2);
+
+      new DGAMenuDropDown();
     </script>
   </body>
 </html>
