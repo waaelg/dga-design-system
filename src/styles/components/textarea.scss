@@ -23,25 +23,35 @@ textarea.dga-textarea {
   border-style: solid;
   border-color: $dga-gray-300;
   background-color: $dga-textarea-bg-color;
+
+  // bottom line
+  background-image: linear-gradient(black, black);
+  background-size: 0% 2px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+
+  &:hover {
+    border-color: black;
+  }
+
+  &:focus {
+    background-size: 100% 2px;
+    border-color: $dga-gray-800;
+    box-shadow: $dga-shadow-md;
+  }
+  &:active {
+    background-size: 35% 2px;
+    background-color: $dga-gray-100;
+  }
 }
 
-textarea.dga-textarea:hover {
-  border-color: $dga-gray-500;
-}
-textarea.dga-textarea:focus {
-  border-bottom: 2px;
-  border-style: solid;
-  border-color: $dga-gray-800;
-  box-shadow: $dga-shadow-md;
-}
-
-// textarea with error
-textarea.dga-textarea.error {
+// // textarea with error
+textarea.dga-textarea.dga-textarea-error {
   border-color: $dga-error-500;
-}
-textarea.dga-textarea.error:hover {
-  border-color: $dga-error-500;
-}
-textarea.dga-textarea.error:focus {
-  border-color: $dga-error-500;
+  background-image: linear-gradient($dga-error-500, $dga-error-500);
+  &:active {
+    border-color: $dga-gray-400;
+    background-color: $dga-gray-100;
+  }
 }

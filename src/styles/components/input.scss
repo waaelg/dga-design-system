@@ -21,27 +21,36 @@ input.dga-input {
   border-radius: $dga-input-border-radius;
   border-width: 1px;
   border-style: solid;
-  border-color: $dga-gray-300;
+  border-color: $dga-gray-400;
   background-color: $dga-input-bg-color;
+  // bottom line
+  background-image: linear-gradient(black, black);
+  background-size: 0% 2px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+
+  &:hover {
+    border-color: black;
+  }
+
+  &:focus {
+    background-size: 100% 2px;
+    border-color: $dga-gray-800;
+    box-shadow: $dga-shadow-md;
+  }
+  &:active {
+    background-size: 35% 2px;
+    background-color: $dga-gray-100;
+  }
 }
 
-input.dga-input:hover {
-  border-color: $dga-gray-500;
-}
-input.dga-input:focus {
-  border-bottom: 2px;
-  border-style: solid;
-  border-color: $dga-gray-800;
-  box-shadow: $dga-shadow-md;
-}
-
-// input with error
-input.dga-input.error {
+// // input with error
+input.dga-input.dga-input-error {
   border-color: $dga-error-500;
-}
-input.dga-input.error:hover {
-  border-color: $dga-error-500;
-}
-input.dga-input.error:focus {
-  border-color: $dga-error-500;
+  background-image: linear-gradient($dga-error-500, $dga-error-500);
+  &:active {
+    border-color: $dga-gray-400;
+    background-color: $dga-gray-100;
+  }
 }
