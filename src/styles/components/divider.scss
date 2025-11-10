@@ -1,0 +1,28 @@
+@import "../variables/colors";
+
+.dga-divider {
+  height: 1px;
+  width: 192px;
+  max-width: 90%;
+  background-color: $dga-gray-300;
+
+  &[data-variant="secondary"] {
+    background-color: $dga-gray-300;
+  }
+
+  &[data-variant="primary"] {
+    background-color: $dga-sa-600;
+  }
+
+  &[data-direction="h"] {
+    height: 1px;
+    width: 192px;
+    max-width: 90%;
+  }
+
+  &[data-direction="v"] {
+    width: 1px;
+    height: 192px;
+    max-height: 90%;
+  }
+}
