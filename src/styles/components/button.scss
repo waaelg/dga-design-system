@@ -329,14 +329,25 @@ $dga-btn-default-variant: "primary" !default;
 // ============================================================================
 
 .dga-btn {
+  all: unset;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit !important;
+  appearance: button;
+
   // Reset and base styles
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   // Typography
-  font-family: $dga-btn-font-family;
-  font-weight: $dga-btn-font-weight;
+  font-family: $dga-btn-font-family !important;
+  font-weight: normal !important;
+  font-size: 16px !important;
   text-decoration: none;
   text-align: center;
   white-space: nowrap;

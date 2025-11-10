@@ -1,4 +1,11 @@
 html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; // Prevent horizontal scroll from 100vw
+}
+html,
 body,
 div,
 span,

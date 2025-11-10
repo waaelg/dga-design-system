@@ -8,7 +8,7 @@
   </head>
   <body class="dga-bg-gray-25">
     <header>
-      <div class="dga-navbar">
+      <div class="dga-navbar dga-px-3">
         <a class="dga-navbar-brand" href="#">
           <h1>LOGO</h1>
         </a>
@@ -18,28 +18,7 @@
           </li>
           <li><a class="dga-menu-item dga-has-dropdown" href="#">Link</a></li>
           <li>
-            <a
-              class="dga-menu-item dga-menu-item-with-icon dga-has-dropdown"
-              href="#"
-              ><div class="dga-menu-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="none"
-                    stroke="#067647"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M16 12H8m0 0l3.5 3.5M8 12l3.5-3.5M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10"
-                  />
-                </svg>
-              </div>
-              الرئيسية</a
-            >
+            <a class="dga-menu-item dga-has-dropdown" href="#"> الرئيسية</a>
             <div class="dga-dropdown">
               <div class="dga-dropdown-content">
                 <ul>
@@ -128,7 +107,19 @@
             </div>
           </li>
         </ul>
-        <span class="dga-navbar-toggler-icon"></span>
+        <button class="dga-navbar-toggler">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="#2f0000"
+              d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"
+            />
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -1290,7 +1281,7 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <script type="module">
       import { DGAAccordion } from "/src/main.js";

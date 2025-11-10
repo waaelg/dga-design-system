@@ -1,5 +1,6 @@
 class DGAMenuDropDown {
   constructor() {
+    this.getPageSize();
     this.init();
   }
   init() {
@@ -29,6 +30,39 @@ class DGAMenuDropDown {
       $("body").removeClass("no-scroll");
       $(".dga-menu li a.dga-menu-item").removeClass("dga-menu-item-selected");
     });
+
+    $(".dga-navbar-toggler").click(function (e) {
+      e.stopPropagation();
+      // $(".dga-menu").slideToggle();
+      $(".dga-menu").toggleClass("dga-menu-open");
+      $("body").toggleClass("no-scroll");
+    });
+  }
+
+  getPageSize() {
+    getSize();
+    $(window).resize(function () {
+      getSize();
+    });
+
+    function getSize() {
+      if ($(window).width() > 769) {
+        $("body").addClass("size_desktop");
+        $("body").removeClass("size_tablet");
+        $("body").removeClass("size_mobile");
+      }
+
+      if ($(window).width() <= 769) {
+        $("body").addClass("size_tablet");
+        $("body").removeClass("size_mobile");
+        $("body").removeClass("size_desktop");
+      }
+      if ($(window).width() <= 375) {
+        $("body").addClass("size_mobile");
+        $("body").removeClass("size_tablet");
+        $("body").removeClass("size_desktop");
+      }
+    }
   }
 }
 
