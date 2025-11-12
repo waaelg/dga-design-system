@@ -7,41 +7,101 @@
     <title>DGA Design System - Demo</title>
   </head>
   <body class="dga-bg-gray-25">
+    <div class="dga-verify-bar dga-bg-gray-100">
+      <div class="dga-container dga-py-2">
+        <div class="dga-row">
+          <div class="dga-col">
+            <div class="dga-d-flex dga-align-items-center dga-gap-2">
+              <span><img src="./saudiFlag.svg" alt="" /></span>
+              <span>موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
+              <span
+                ><button
+                  class="dga-btn dga-btn-subtle dga-btn-sm dga-text-primary-500"
+                >
+                  كيف تتحقق
+                </button></span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="dga-row dga-pt-10 dga-pb-8">
+          <div class="dga-col-md-6 dga-pb-8">
+            <div class="dga-d-flex dga-gap-4">
+              <div><img src="./link-icon.svg" alt="" /></div>
+              <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
+                <h3 class="dga-text-xl dga-fw-bold">
+                  روابط المواقع الالكترونية الرسمية السعودية تنتهي بـ
+                  <span class="dga-text-primary-500">.edu.sa</span>
+                </h3>
+                <p>
+                  جميع روابط المواقع الرسمية التابعة للجهات الحكومية في المملكة
+                  العربية السعودية تنتهي بـ .edu.sa
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="dga-col-md-6 dga-pb-8">
+            <div class="dga-d-flex dga-gap-4">
+              <div><img src="./square-lock-password.svg" alt="" /></div>
+              <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
+                <h3 class="dga-text-xl dga-fw-bold">
+                  المواقع الالكترونية الحكومية تستخدم بروتوكول
+                  <span class="dga-text-primary-500">HTTPS</span> للتشفير و
+                  الأمان.
+                </h3>
+                <p>
+                  المواقع الالكترونية الآمنة في المملكة العربية السعودية تستخدم
+                  بروتوكول HTTPS للتشفير.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="dga-col-md-12">
+            <div
+              class="dga-bg-white dga-text-md dga-rounded-md dga-py-2 dga-px-7"
+            >
+              مسجل لدى هيئة الحكومة الرقمية برقم :
+              <a
+                href="https://raqmi.dga.gov.sa/platforms/platforms/9ebc5e60-9081-4653-bfb9-08dd2a2f8633/platform-license"
+                class="dga-link"
+                >20250105758</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <header>
-      <div class="dga-navbar dga-px-3">
+      <nav
+        class="dga-navbar dga-px-3"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <a class="dga-navbar-brand" href="#">
-          <h1>LOGO</h1>
+          <img src="./vite.svg" alt="" />
         </a>
         <ul class="dga-menu">
           <li>
-            <a class="dga-menu-item dga-menu-item-selected" href="#">Link</a>
+            <a class="dga-menu-item" href="#">Link</a>
           </li>
-          <li><a class="dga-menu-item dga-has-dropdown" href="#">Link</a></li>
           <li>
-            <a class="dga-menu-item dga-has-dropdown" href="#"> الرئيسية</a>
+            <a
+              class="dga-menu-item dga-has-dropdown"
+              href="#"
+              role="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              الرئيسية
+            </a>
             <div class="dga-dropdown">
               <div class="dga-dropdown-content">
                 <ul>
                   <li><a href="#">Link</a></li>
                   <li><a href="#">Link</a></li>
                   <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
                 </ul>
                 <ul>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-
-                <ul>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
                   <li><a href="#">Link</a></li>
                   <li><a href="#">Link</a></li>
                   <li><a href="#">Link</a></li>
@@ -50,12 +110,19 @@
             </div>
           </li>
           <li>
-            <a class="dga-menu-item dga-has-dropdown" href="#"> قائمة أخرى</a>
+            <a
+              class="dga-menu-item dga-has-dropdown"
+              href="#"
+              role="button"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              قائمة أخرى
+            </a>
             <div class="dga-dropdown">
               <div class="dga-dropdown-content">
                 <ul>
                   <li class="dga-dropdwon-title">عنوان</li>
-                  <li><a href="#">Link</a></li>
                   <li><a href="#">Link</a></li>
                   <li><a href="#">Link</a></li>
                 </ul>
@@ -63,51 +130,19 @@
                   <li class="dga-dropdwon-title">عنوان</li>
                   <li><a href="#">مؤشر قياس التحول الرقمي</a></li>
                   <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li>
-            <a class="dga-menu-item dga-has-dropdown" href="#"> قائمة أخرى</a>
-            <div class="dga-dropdown">
-              <div class="dga-dropdown-content">
-                <ul>
-                  <li class="dga-dropdwon-title">عنوان</li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-                <ul>
-                  <li class="dga-dropdwon-title">عنوان</li>
-                  <li><a href="#">مؤشر قياس التحول الرقمي</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li>
-            <a class="dga-menu-item dga-has-dropdown" href="#"> قائمة أخرى</a>
-            <div class="dga-dropdown">
-              <div class="dga-dropdown-content">
-                <ul>
-                  <li class="dga-dropdwon-title">عنوان</li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-                <ul>
-                  <li class="dga-dropdwon-title">عنوان</li>
-                  <li><a href="#">مؤشر قياس التحول الرقمي</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-              </div>
-            </div>
+          <li class="dga-mr-auto">
+            <a href="#" class="dga-menu-item">LINK</a>
           </li>
         </ul>
-        <button class="dga-navbar-toggler">
+        <button
+          class="dga-navbar-toggler"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -120,7 +155,7 @@
             />
           </svg>
         </button>
-      </div>
+      </nav>
     </header>
 
     <section class="dga-py-20 dga-bg-primary-800">

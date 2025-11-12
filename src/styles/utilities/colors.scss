@@ -283,6 +283,14 @@ $dga-gradients: (
 
 @include generate-all-color-utilities();
 
+.dga-bg-white {
+  background-color: $dga-text-white !important;
+}
+
+.dga-bg-black {
+  background-color: $dga-text-black !important;
+}
+
 // =============================================================================
 // EXAMPLE GENERATED CLASSES
 // =============================================================================

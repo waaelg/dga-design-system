@@ -1,19 +1,33 @@
 @import "../variables/colors";
 
+$dga-navbar-height: 72px;
+
 .dga-navbar {
   background-color: white;
-  height: 72px;
+  height: $dga-navbar-height;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
   position: relative;
+  .dga-navbar-brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    img {
+      height: calc($dga-navbar-height - 8px);
+      width: auto;
+    }
+  }
 }
 .dga-menu {
   list-style: none;
-  height: 72px;
+  height: $dga-navbar-height;
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 0;
   li {
@@ -21,7 +35,7 @@
       padding: 1rem;
       list-style: none;
       position: absolute;
-      top: 72px;
+      top: $dga-navbar-height;
       left: 0;
       width: 100%;
       background-color: white;
@@ -39,7 +53,7 @@
 }
 
 .dga-menu-item {
-  height: 72px;
+  height: $dga-navbar-height;
   padding-block: 16px;
   padding-inline: 8px;
   border-radius: 4px;
@@ -153,7 +167,7 @@ a.dga-menu-item {
     list-style: none;
     display: block;
     position: absolute;
-    top: 72px;
+    top: $dga-navbar-height;
     left: 0;
     width: 100%;
     background-color: white;
@@ -212,12 +226,12 @@ body.size_tablet {
       justify-content: flex-start;
       align-items: stretch;
       width: 100vw;
-      height: calc(100vh - 72px);
+      height: calc(100vh - $dga-navbar-height);
       padding: 8px;
 
       background-color: $dga-gray-100;
       position: absolute;
-      top: 72px;
+      top: $dga-navbar-height;
       left: 0;
       overflow-y: scroll;
       gap: 8px;
@@ -228,9 +242,12 @@ body.size_tablet {
         }
       }
     }
-    .dga-menu-item {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+    li {
+      margin: unset !important;
+      .dga-menu-item {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
     .dga-dropdown {
       .dga-dropdown-content {
