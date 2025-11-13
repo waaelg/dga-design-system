@@ -7,15 +7,15 @@
     <title>DGA Design System - Demo</title>
   </head>
   <body class="dga-bg-gray-25">
-    <div class="dga-verify-bar dga-bg-gray-100">
+    <div id="dga-verify-bar" class="dga-bg-gray-100 closed">
       <div class="dga-container dga-py-2">
-        <div class="dga-row">
+        <div id="dga-verify-bar_bar" class="dga-row">
           <div class="dga-col">
             <div class="dga-d-flex dga-align-items-center dga-gap-2">
               <span><img src="./saudiFlag.svg" alt="" /></span>
               <span>موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
               <span
-                ><button
+                ><button id="dga-verifyBtn"
                   class="dga-btn dga-btn-subtle dga-btn-sm dga-text-primary-500"
                 >
                   كيف تتحقق
@@ -24,7 +24,7 @@
             </p>
           </div>
         </div>
-        <div class="dga-row dga-pt-10 dga-pb-8">
+        <div id="dga-verify-bar_content" class="dga-row dga-pt-10 dga-pb-8">
           <div class="dga-col-md-6 dga-pb-8">
             <div class="dga-d-flex dga-gap-4">
               <div><img src="./link-icon.svg" alt="" /></div>
@@ -1319,9 +1319,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <script type="module">
-      import { DGAAccordion } from "/src/main.js";
-      import { DGAChart } from "/src/main.js";
-      import { DGAMenuDropDown } from "/src/main.js";
+      import { DGAChart,DGAMenuDropDown, DGAAccordion, DGAVerifyBar } from "/src/main.js";
+
 
       const waelAccordion = document.getElementById("waelAccordion");
       const waelAccordionInstance = new DGAAccordion(waelAccordion);
@@ -1385,6 +1384,7 @@
       const pieChartInstance2 = new DGAChart(pieChart2, pieChartData2);
 
       new DGAMenuDropDown();
+      new DGAVerifyBar();
     </script>
   </body>
 </html>
