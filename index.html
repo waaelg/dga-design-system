@@ -15,13 +15,14 @@
               <span><img src="./saudiFlag.svg" alt="" /></span>
               <span>موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
               <span
-                ><button id="dga-verifyBtn"
+                ><button
+                  id="dga-verifyBtn"
                   class="dga-btn dga-btn-subtle dga-btn-sm dga-text-primary-500"
                 >
                   كيف تتحقق
                 </button></span
               >
-            </p>
+            </div>
           </div>
         </div>
         <div id="dga-verify-bar_content" class="dga-row dga-pt-10 dga-pb-8">
@@ -1319,8 +1320,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <script type="module">
-      import { DGAChart,DGAMenuDropDown, DGAAccordion, DGAVerifyBar } from "/src/main.js";
-
+      import {
+        DGAChart,
+        DGAMenuDropDown,
+        DGAAccordion,
+        DGAVerifyBar,
+      } from "/src/main.js";
 
       const waelAccordion = document.getElementById("waelAccordion");
       const waelAccordionInstance = new DGAAccordion(waelAccordion);
