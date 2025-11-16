@@ -33,16 +33,19 @@ $dga-btn-disabled-opacity: 0.5 !default;
 $dga-btn-disabled-cursor: not-allowed !default;
 
 $dga-btn-size-lg-padding: 16px;
+$dga-btn-size-lg-fontsize: 16px;
 $dga-btn-size-lg-gap: 4px;
 $dga-btn-size-lg-height: 40px;
 $dga-btn-size-lg-icon-size: 24px;
 
 $dga-btn-size-md-padding: 12px;
+$dga-btn-size-md-fontsize: 14px;
 $dga-btn-size-md-gap: 4px;
 $dga-btn-size-md-height: 32px;
 $dga-btn-size-md-icon-size: 20px;
 
 $dga-btn-size-sm-padding: 8px;
+$dga-btn-size-sm-fontsize: 12px;
 $dga-btn-size-sm-gap: 4px;
 $dga-btn-size-sm-height: 24px;
 $dga-btn-size-sm-icon-size: 16px;
@@ -54,19 +57,22 @@ $dga-btn-size-sm-icon-size: 16px;
 $dga-btn-sizes: (
   "sm": (
     height: $dga-btn-size-sm-height,
-    padding-y: $dga-btn-size-sm-padding,
+    font-size: $dga-btn-size-sm-fontsize,
+    padding-x: $dga-btn-size-sm-padding,
     gap: $dga-btn-size-sm-gap,
     icon-size: $dga-btn-size-sm-icon-size,
   ),
   "md": (
     height: $dga-btn-size-md-height,
-    padding-y: $dga-btn-size-md-padding,
+    font-size: $dga-btn-size-md-fontsize,
+    padding-x: $dga-btn-size-md-padding,
     gap: $dga-btn-size-md-gap,
     icon-size: $dga-btn-size-md-icon-size,
   ),
   "lg": (
     height: $dga-btn-size-lg-height,
-    padding-y: $dga-btn-size-lg-padding,
+    font-size: $dga-btn-size-lg-fontsize,
+    padding-x: $dga-btn-size-lg-padding,
     gap: $dga-btn-size-lg-gap,
     icon-size: $dga-btn-size-lg-icon-size,
   ),
@@ -263,9 +269,9 @@ $dga-btn-default-variant: "primary" !default;
 
   @if $size-config {
     height: map-get($size-config, height);
-    padding: map-get($size-config, padding-y) map-get($size-config, padding-x);
+    padding: 0 map-get($size-config, padding-x);
     font-size: map-get($size-config, font-size);
-    line-height: map-get($size-config, line-height);
+    // line-height: map-get($size-config, line-height);
     border-radius: map-get($size-config, border-radius);
     gap: map-get($size-config, gap);
 
@@ -336,7 +342,7 @@ $dga-btn-default-variant: "primary" !default;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font: inherit !important;
+  font: inherit;
   appearance: button;
 
   // Reset and base styles
@@ -345,9 +351,9 @@ $dga-btn-default-variant: "primary" !default;
   justify-content: center;
 
   // Typography
-  font-family: $dga-btn-font-family !important;
-  font-weight: normal !important;
-  font-size: 16px !important;
+  font-family: $dga-btn-font-family;
+  font-weight: 500;
+  font-size: 16px;
   text-decoration: none;
   text-align: center;
   white-space: nowrap;

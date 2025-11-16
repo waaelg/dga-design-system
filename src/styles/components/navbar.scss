@@ -211,6 +211,12 @@ a.dga-menu-item {
 .dga-navbar-toggler {
   display: none;
   cursor: pointer;
+
+  display: block;
+  appearance: none;
+  border: 0;
+  outline: none;
+  background-color: transparent;
 }
 
 body.size_tablet {
