@@ -1,18 +1,16 @@
 // =============================================================================
-// DGA Design System - Grid Utilities
-// File: styles/utilities/grid.scss
-// Based on DGA Grid Layout specifications
+// DGA Design System - Grid Utilities (Simplified)
 // =============================================================================
 
-// Import grid variables
 @import "../variables/grid";
 
 // =============================================================================
-// RESPONSIVE BREAKPOINT MIXINS
+// CORE MIXINS
 // =============================================================================
 
-@mixin dga-media-breakpoint-up($name, $breakpoints: $dga-grid-breakpoints) {
-  $min: map-get($breakpoints, $name);
+// Responsive breakpoint mixins
+@mixin breakpoint-up($name) {
+  $min: map-get($dga-grid-breakpoints, $name);
   @if $min != 0 {
     @media (min-width: $min) {
       @content;
@@ -22,20 +20,16 @@
   }
 }
 
-@mixin dga-media-breakpoint-down($name, $breakpoints: $dga-grid-breakpoints) {
-  $max: map-get($breakpoints, $name) - 0.02;
+@mixin breakpoint-down($name) {
+  $max: map-get($dga-grid-breakpoints, $name) - 0.02;
   @media (max-width: $max) {
     @content;
   }
 }
 
-@mixin dga-media-breakpoint-between(
-  $lower,
-  $upper,
-  $breakpoints: $dga-grid-breakpoints
-) {
-  $min: map-get($breakpoints, $lower);
-  $max: map-get($breakpoints, $upper) - 0.02;
+@mixin breakpoint-between($lower, $upper) {
+  $min: map-get($dga-grid-breakpoints, $lower);
+  $max: map-get($dga-grid-breakpoints, $upper) - 0.02;
 
   @if $min != 0 {
     @media (min-width: $min) and (max-width: $max) {
@@ -48,66 +42,32 @@
   }
 }
 
-// =============================================================================
-// DYNAMIC CONTAINER UTILITIES GENERATOR
-// =============================================================================
+// Helper: Apply responsive gutter padding
+@mixin responsive-gutters($property: padding) {
+  #{$property}-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+  #{$property}-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
 
-@mixin generate-container-utilities($enable: $dga-enable-container-classes) {
-  @if $enable {
-    .dga-container {
-      width: 100%;
-      padding-right: map-get($dga-grid-gutters, xs);
-      padding-left: map-get($dga-grid-gutters, xs);
-      margin-right: auto;
-      margin-left: auto;
+  @include breakpoint-up(md) {
+    #{$property}-right: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
+    #{$property}-left: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
+  }
+}
 
-      @include dga-media-breakpoint-up(md) {
-        padding-right: map-get($dga-grid-gutters, md);
-        padding-left: map-get($dga-grid-gutters, md);
-      }
-
-      @include dga-media-breakpoint-up(xxl) {
-        max-width: map-get($dga-container-max-widths, xxl);
-      }
+// Helper: Generate responsive utility classes
+@mixin make-responsive-utilities($base-class, $property, $values) {
+  // Base classes (no breakpoint)
+  @each $name, $value in $values {
+    .#{$base-class}-#{$name} {
+      #{$property}: #{$value} !important;
     }
+  }
 
-    .dga-container-fluid {
-      width: 100%;
-      padding-right: map-get($dga-grid-gutters, xs);
-      padding-left: map-get($dga-grid-gutters, xs);
-      margin-right: auto;
-      margin-left: auto;
-
-      @include dga-media-breakpoint-up(md) {
-        padding-right: map-get($dga-grid-gutters, md);
-        padding-left: map-get($dga-grid-gutters, md);
-      }
-    }
-
-    // DGA specific containers based on PDF specs
-    .dga-container-desktop {
-      max-width: map-get($dga-desktop-grid, container-width);
-      margin: 0 auto;
-      padding: 0 map-get($dga-desktop-grid, padding);
-    }
-
-    .dga-container-tablet {
-      max-width: map-get($dga-tablet-grid, container-width);
-      margin: 0 auto;
-      padding: 0 map-get($dga-tablet-grid, padding);
-    }
-
-    .dga-container-mobile {
-      max-width: map-get($dga-mobile-grid, container-width);
-      margin: 0 auto;
-      padding: 0 map-get($dga-mobile-grid, padding);
-    }
-
-    // Dynamic responsive containers
-    @each $breakpoint, $container-max-width in $dga-container-max-widths {
-      @include dga-media-breakpoint-up($breakpoint) {
-        .dga-container-#{$breakpoint} {
-          max-width: $container-max-width;
+  // Responsive classes
+  @each $breakpoint in map-keys($dga-grid-breakpoints) {
+    @include breakpoint-up($breakpoint) {
+      @each $name, $value in $values {
+        .#{$base-class}-#{$breakpoint}-#{$name} {
+          #{$property}: #{$value} !important;
         }
       }
     }
@@ -115,149 +75,176 @@
 }
 
 // =============================================================================
-// DYNAMIC ROW UTILITIES GENERATOR
+// CONTAINER UTILITIES
+// Usage: <div class="dga-container">...</div>
 // =============================================================================
 
-@mixin generate-row-utilities($enable: $dga-enable-row-classes) {
-  @if $enable {
-    .dga-row {
-      display: flex;
-      flex-wrap: wrap;
-      margin-right: calc(#{map-get($dga-grid-gutters, xs)} * -0.5);
-      margin-left: calc(#{map-get($dga-grid-gutters, xs)} * -0.5);
+@mixin generate-containers {
+  // Standard container
+  .dga-container {
+    width: 100%;
+    margin: 0 auto;
+    @include responsive-gutters(padding);
 
-      @include dga-media-breakpoint-up(md) {
-        margin-right: calc(#{map-get($dga-grid-gutters, md)} * -0.5);
-        margin-left: calc(#{map-get($dga-grid-gutters, md)} * -0.5);
+    @include breakpoint-up(xxl) {
+      max-width: map-get($dga-container-max-widths, xxl);
+    }
+  }
+
+  // Fluid container (no max-width)
+  .dga-container-fluid {
+    width: 100%;
+    margin: 0 auto;
+    @include responsive-gutters(padding);
+  }
+
+  // Device-specific containers
+  .dga-container-desktop {
+    max-width: map-get($dga-desktop-grid, container-width);
+    margin: 0 auto;
+    padding: 0 map-get($dga-desktop-grid, padding);
+  }
+
+  .dga-container-tablet {
+    max-width: map-get($dga-tablet-grid, container-width);
+    margin: 0 auto;
+    padding: 0 map-get($dga-tablet-grid, padding);
+  }
+
+  .dga-container-mobile {
+    max-width: map-get($dga-mobile-grid, container-width);
+    margin: 0 auto;
+    padding: 0 map-get($dga-mobile-grid, padding);
+  }
+
+  // Responsive containers
+  @each $breakpoint, $max-width in $dga-container-max-widths {
+    @include breakpoint-up($breakpoint) {
+      .dga-container-#{$breakpoint} {
+        max-width: $max-width;
       }
     }
+  }
+}
 
-    .dga-no-gutters {
-      margin-right: 0;
-      margin-left: 0;
+// =============================================================================
+// ROW UTILITIES
+// Usage: <div class="dga-row">...</div>
+// =============================================================================
+
+@mixin generate-rows {
+  .dga-row {
+    display: flex;
+    flex-wrap: wrap;
+    @include responsive-gutters(margin);
+    margin-right: calc(#{map-get($dga-grid-gutters, xs)} * -0.5);
+    margin-left: calc(#{map-get($dga-grid-gutters, xs)} * -0.5);
+
+    @include breakpoint-up(md) {
+      margin-right: calc(#{map-get($dga-grid-gutters, md)} * -0.5);
+      margin-left: calc(#{map-get($dga-grid-gutters, md)} * -0.5);
+    }
+  }
+
+  // No gutters
+  .dga-no-gutters {
+    margin: 0;
+
+    > .dga-col,
+    > [class*="dga-col-"] {
+      padding: 0;
+    }
+  }
+
+  // Custom gap variations
+  @each $name, $value in $dga-grid-gaps {
+    .dga-row-gap-#{$name} {
+      margin-right: calc(#{$value} * -0.5);
+      margin-left: calc(#{$value} * -0.5);
 
       > .dga-col,
       > [class*="dga-col-"] {
-        padding-right: 0;
-        padding-left: 0;
-      }
-    }
-
-    // Dynamic gutter variations
-    @each $gutter-name, $gutter-value in $dga-grid-gaps {
-      .dga-row-gap-#{$gutter-name} {
-        margin-right: calc(#{$gutter-value} * -0.5);
-        margin-left: calc(#{$gutter-value} * -0.5);
-
-        > .dga-col,
-        > [class*="dga-col-"] {
-          padding-right: calc(#{$gutter-value} * 0.5);
-          padding-left: calc(#{$gutter-value} * 0.5);
-        }
+        padding-right: calc(#{$value} * 0.5);
+        padding-left: calc(#{$value} * 0.5);
       }
     }
   }
 }
 
 // =============================================================================
-// DYNAMIC COLUMN UTILITIES GENERATOR
+// COLUMN UTILITIES
+// Usage: <div class="dga-col-6 dga-col-md-4">...</div>
 // =============================================================================
 
-@mixin generate-column-utilities($enable: $dga-enable-col-classes) {
-  @if $enable {
-    .dga-col {
-      flex-basis: 0;
-      flex-grow: 1;
-      max-width: 100%;
-      padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
-      padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
+@mixin generate-columns {
+  // Base column (auto width)
+  .dga-col {
+    flex: 1 0 0;
+    max-width: 100%;
+    @include responsive-gutters();
+  }
 
-      @include dga-media-breakpoint-up(md) {
-        padding-right: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
-        padding-left: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
-      }
-    }
+  // Auto-width column
+  .dga-col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+    @include responsive-gutters();
+  }
 
-    .dga-col-auto {
-      flex: 0 0 auto;
-      width: auto;
-      max-width: 100%;
-    }
-
-    // Dynamic flex utilities for columns
-    @for $i from 1 through 12 {
-      .dga-col-flex-#{$i} {
-        flex: #{$i};
-      }
+  // Flex grow utilities
+  @for $i from 1 through 12 {
+    .dga-col-flex-#{$i} {
+      flex: #{$i};
     }
   }
 }
 
 // =============================================================================
-// DYNAMIC RESPONSIVE COLUMN UTILITIES GENERATOR
+// RESPONSIVE COLUMNS
+// Usage: <div class="dga-col-12 dga-col-md-6 dga-col-lg-4">...</div>
 // =============================================================================
 
-@mixin generate-responsive-columns(
-  $enable: $dga-enable-responsive-columns,
-  $custom-responsive-columns: $dga-grid-responsive-columns
-) {
-  @if $enable {
-    @each $breakpoint, $max-columns in $custom-responsive-columns {
+@mixin generate-responsive-columns {
+  @each $breakpoint, $max-columns in $dga-grid-responsive-columns {
+    @if $breakpoint == "" {
+      // Base columns (no breakpoint prefix)
       @for $i from 1 through $max-columns {
-        @if $breakpoint == "" {
-          .dga-col-#{$i} {
-            flex: 0 0 percentage($i / $dga-grid-columns);
-            max-width: percentage($i / $dga-grid-columns);
-            padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
-            padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
-
-            @include dga-media-breakpoint-up(md) {
-              padding-right: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
-              padding-left: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
-            }
-          }
-        } @else {
-          @include dga-media-breakpoint-up($breakpoint) {
-            .dga-col-#{$breakpoint}-#{$i} {
-              flex: 0 0 percentage($i / $max-columns);
-              max-width: percentage($i / $max-columns);
-              padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
-              padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
-            }
-
-            .dga-col-#{$breakpoint}-auto {
-              flex: 0 0 auto;
-              width: auto;
-              max-width: 100%;
-              padding-right: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
-              padding-left: calc(#{map-get($dga-grid-gutters, xs)} * 0.5);
-            }
-          }
-
-          // Update padding for md+ breakpoints
-          @include dga-media-breakpoint-up(md) {
-            .dga-col-#{$breakpoint}-#{$i},
-            .dga-col-#{$breakpoint}-auto {
-              padding-right: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
-              padding-left: calc(#{map-get($dga-grid-gutters, md)} * 0.5);
-            }
-          }
+        .dga-col-#{$i} {
+          flex: 0 0 percentage($i / $dga-grid-columns);
+          max-width: percentage($i / $dga-grid-columns);
+          @include responsive-gutters();
         }
       }
 
-      // Generate offset classes dynamically
-      @if $breakpoint == "" {
-        @for $i from 0 through ($dga-grid-columns - 1) {
-          .dga-offset-#{$i} {
-            margin-left: if($i > 0, percentage($i / $dga-grid-columns), 0);
+      // Base offsets
+      @for $i from 0 through ($dga-grid-columns - 1) {
+        .dga-offset-#{$i} {
+          margin-left: if($i > 0, percentage($i / $dga-grid-columns), 0);
+        }
+      }
+    } @else {
+      // Responsive columns
+      @include breakpoint-up($breakpoint) {
+        @for $i from 1 through $max-columns {
+          .dga-col-#{$breakpoint}-#{$i} {
+            flex: 0 0 percentage($i / $max-columns);
+            max-width: percentage($i / $max-columns);
+            @include responsive-gutters();
           }
         }
-      } @else {
-        @include dga-media-breakpoint-up($breakpoint) {
-          @for $i from 0 through ($max-columns - 1) {
-            .dga-offset-#{$breakpoint}-#{$i} {
-              margin-left: if($i > 0, percentage($i / $max-columns), 0);
-            }
+
+        .dga-col-#{$breakpoint}-auto {
+          flex: 0 0 auto;
+          width: auto;
+          max-width: 100%;
+          @include responsive-gutters();
+        }
+
+        // Responsive offsets
+        @for $i from 0 through ($max-columns - 1) {
+          .dga-offset-#{$breakpoint}-#{$i} {
+            margin-left: if($i > 0, percentage($i / $max-columns), 0);
           }
         }
       }
@@ -266,126 +253,123 @@
 }
 
 // =============================================================================
-// DYNAMIC FLEXBOX UTILITIES GENERATOR
+// FLEXBOX UTILITIES
+// Usage: <div class="dga-flex-row dga-flex-md-column dga-justify-content-center">
 // =============================================================================
 
-@mixin generate-flex-utilities($enable: $dga-enable-flex-utilities) {
-  @if $enable {
-    // Dynamic flex direction
-    @each $name, $value in $dga-flex-directions {
-      .dga-flex-#{$name} {
-        flex-direction: #{$value} !important;
+@mixin generate-flex-utilities {
+  // Flex direction
+  @include make-responsive-utilities(
+    "dga-flex",
+    flex-direction,
+    $dga-flex-directions
+  );
+
+  // Justify content
+  @include make-responsive-utilities(
+    "dga-justify-content",
+    justify-content,
+    $dga-justify-content
+  );
+
+  // Align items
+  @include make-responsive-utilities(
+    "dga-align-items",
+    align-items,
+    $dga-align-items
+  );
+
+  // Align content
+  @include make-responsive-utilities(
+    "dga-align-content",
+    align-content,
+    $dga-align-content
+  );
+
+  // Flex wrap (simple utilities)
+  .dga-flex-wrap {
+    flex-wrap: wrap !important;
+  }
+  .dga-flex-nowrap {
+    flex-wrap: nowrap !important;
+  }
+  .dga-flex-wrap-reverse {
+    flex-wrap: wrap-reverse !important;
+  }
+
+  // Flex grow/shrink
+  .dga-flex-fill {
+    flex: 1 1 auto !important;
+  }
+  .dga-flex-grow-0 {
+    flex-grow: 0 !important;
+  }
+  .dga-flex-grow-1 {
+    flex-grow: 1 !important;
+  }
+  .dga-flex-shrink-0 {
+    flex-shrink: 0 !important;
+  }
+  .dga-flex-shrink-1 {
+    flex-shrink: 1 !important;
+  }
+
+  // Responsive flex utilities
+  @each $breakpoint in map-keys($dga-grid-breakpoints) {
+    @include breakpoint-up($breakpoint) {
+      .dga-flex-#{$breakpoint}-wrap {
+        flex-wrap: wrap !important;
       }
-
-      // Responsive flex direction
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-flex-#{$breakpoint}-#{$name} {
-            flex-direction: #{$value} !important;
-          }
-        }
+      .dga-flex-#{$breakpoint}-nowrap {
+        flex-wrap: nowrap !important;
+      }
+      .dga-flex-#{$breakpoint}-fill {
+        flex: 1 1 auto !important;
+      }
+      .dga-flex-#{$breakpoint}-grow-0 {
+        flex-grow: 0 !important;
+      }
+      .dga-flex-#{$breakpoint}-grow-1 {
+        flex-grow: 1 !important;
+      }
+      .dga-flex-#{$breakpoint}-shrink-0 {
+        flex-shrink: 0 !important;
+      }
+      .dga-flex-#{$breakpoint}-shrink-1 {
+        flex-shrink: 1 !important;
       }
     }
+  }
+}
 
-    // Dynamic justify content
-    @each $name, $value in $dga-justify-content {
-      .dga-justify-content-#{$name} {
-        justify-content: #{$value} !important;
-      }
+// =============================================================================
+// GAP UTILITIES
+// Usage: <div class="dga-gap-md dga-gap-lg-xl">
+// =============================================================================
 
-      // Responsive justify content
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-justify-content-#{$breakpoint}-#{$name} {
-            justify-content: #{$value} !important;
-          }
-        }
-      }
+@mixin generate-gap-utilities {
+  @each $name, $value in $dga-grid-gaps {
+    .dga-gap-#{$name} {
+      gap: #{$value} !important;
     }
-
-    // Dynamic align items
-    @each $name, $value in $dga-align-items {
-      .dga-align-items-#{$name} {
-        align-items: #{$value} !important;
-      }
-
-      // Responsive align items
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-align-items-#{$breakpoint}-#{$name} {
-            align-items: #{$value} !important;
-          }
-        }
-      }
+    .dga-gap-x-#{$name} {
+      column-gap: #{$value} !important;
+    }
+    .dga-gap-y-#{$name} {
+      row-gap: #{$value} !important;
     }
 
-    // Dynamic align content
-    @each $name, $value in $dga-align-content {
-      .dga-align-content-#{$name} {
-        align-content: #{$value} !important;
-      }
-
-      // Responsive align content
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-align-content-#{$breakpoint}-#{$name} {
-            align-content: #{$value} !important;
-          }
-        }
-      }
-    }
-
-    // Dynamic flex wrap
-    .dga-flex-wrap {
-      flex-wrap: wrap !important;
-    }
-    .dga-flex-nowrap {
-      flex-wrap: nowrap !important;
-    }
-    .dga-flex-wrap-reverse {
-      flex-wrap: wrap-reverse !important;
-    }
-
-    // Dynamic flex utilities
-    .dga-flex-fill {
-      flex: 1 1 auto !important;
-    }
-    .dga-flex-grow-0 {
-      flex-grow: 0 !important;
-    }
-    .dga-flex-grow-1 {
-      flex-grow: 1 !important;
-    }
-    .dga-flex-shrink-0 {
-      flex-shrink: 0 !important;
-    }
-    .dga-flex-shrink-1 {
-      flex-shrink: 1 !important;
-    }
-
-    // Responsive flex utilities
+    // Responsive gaps
     @each $breakpoint in map-keys($dga-grid-breakpoints) {
-      @include dga-media-breakpoint-up($breakpoint) {
-        .dga-flex-#{$breakpoint}-wrap {
-          flex-wrap: wrap !important;
+      @include breakpoint-up($breakpoint) {
+        .dga-gap-#{$breakpoint}-#{$name} {
+          gap: #{$value} !important;
         }
-        .dga-flex-#{$breakpoint}-nowrap {
-          flex-wrap: nowrap !important;
+        .dga-gap-#{$breakpoint}-x-#{$name} {
+          column-gap: #{$value} !important;
         }
-        .dga-flex-#{$breakpoint}-fill {
-          flex: 1 1 auto !important;
-        }
-        .dga-flex-#{$breakpoint}-grow-0 {
-          flex-grow: 0 !important;
-        }
-        .dga-flex-#{$breakpoint}-grow-1 {
-          flex-grow: 1 !important;
-        }
-        .dga-flex-#{$breakpoint}-shrink-0 {
-          flex-shrink: 0 !important;
-        }
-        .dga-flex-#{$breakpoint}-shrink-1 {
-          flex-shrink: 1 !important;
+        .dga-gap-#{$breakpoint}-y-#{$name} {
+          row-gap: #{$value} !important;
         }
       }
     }
@@ -393,207 +377,142 @@
 }
 
 // =============================================================================
-// DYNAMIC GAP UTILITIES GENERATOR
+// DISPLAY UTILITIES
+// Usage: <div class="dga-d-none dga-d-md-block">
 // =============================================================================
 
-@mixin generate-gap-utilities(
-  $enable: $dga-enable-gap-utilities,
-  $custom-gaps: $dga-grid-gaps
-) {
-  @if $enable {
-    @each $name, $value in $custom-gaps {
-      .dga-gap-#{$name} {
-        gap: #{$value} !important;
-      }
+@mixin generate-display-utilities {
+  @include make-responsive-utilities("dga-d", display, $dga-displays);
 
-      .dga-gap-x-#{$name} {
-        column-gap: #{$value} !important;
-      }
-
-      .dga-gap-y-#{$name} {
-        row-gap: #{$value} !important;
-      }
-
-      // Responsive gap utilities
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-gap-#{$breakpoint}-#{$name} {
-            gap: #{$value} !important;
-          }
-
-          .dga-gap-#{$breakpoint}-x-#{$name} {
-            column-gap: #{$value} !important;
-          }
-
-          .dga-gap-#{$breakpoint}-y-#{$name} {
-            row-gap: #{$value} !important;
-          }
-        }
-      }
-    }
-  }
-}
-
-// =============================================================================
-// DYNAMIC DISPLAY UTILITIES GENERATOR
-// =============================================================================
-
-@mixin generate-display-utilities(
-  $enable: $dga-enable-display-utilities,
-  $custom-displays: $dga-displays
-) {
-  @if $enable {
-    @each $name, $value in $custom-displays {
-      .dga-d-#{$name} {
+  // Print utilities
+  @media print {
+    @each $name, $value in $dga-displays {
+      .dga-d-print-#{$name} {
         display: #{$value} !important;
       }
     }
+  }
+}
 
-    // Dynamic responsive display utilities
-    @each $breakpoint in map-keys($dga-grid-breakpoints) {
-      @include dga-media-breakpoint-up($breakpoint) {
-        @each $name, $value in $custom-displays {
-          .dga-d-#{$breakpoint}-#{$name} {
-            display: #{$value} !important;
-          }
-        }
+// =============================================================================
+// POSITION UTILITIES
+// Usage: <div class="dga-position-relative dga-top-0">
+// =============================================================================
+
+@mixin generate-position-utilities {
+  $positions: (
+    "static": static,
+    "relative": relative,
+    "absolute": absolute,
+    "fixed": fixed,
+    "sticky": sticky,
+  );
+
+  @include make-responsive-utilities("dga-position", position, $positions);
+
+  // Z-index utilities
+  @each $name, $value in $dga-z-index {
+    .dga-z-#{$name} {
+      z-index: #{$value} !important;
+    }
+  }
+
+  // Position values (top, right, bottom, left)
+  $position-values: (
+    "0": 0,
+    "50": 50%,
+    "100": 100%,
+  );
+
+  @each $prop in (top, right, bottom, left) {
+    @each $name, $value in $position-values {
+      .dga-#{$prop}-#{$name} {
+        #{$prop}: #{$value} !important;
       }
     }
+  }
 
-    // Print display utilities
-    @media print {
-      @each $name, $value in $custom-displays {
-        .dga-d-print-#{$name} {
-          display: #{$value} !important;
-        }
+  // Transform utilities for centering
+  .dga-translate-middle {
+    transform: translate(-50%, -50%) !important;
+  }
+  .dga-translate-middle-x {
+    transform: translateX(-50%) !important;
+  }
+  .dga-translate-middle-y {
+    transform: translateY(-50%) !important;
+  }
+}
+
+// =============================================================================
+// ASPECT RATIO UTILITIES
+// Usage: <div class="dga-ratio-16x9">
+// =============================================================================
+
+@mixin generate-aspect-ratios {
+  @each $name, $ratio in $dga-aspect-ratios {
+    .dga-ratio-#{$name} {
+      position: relative;
+
+      &::before {
+        display: block;
+        padding-top: #{$ratio};
+        content: "";
+      }
+
+      > * {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
       }
     }
   }
 }
 
 // =============================================================================
-// DYNAMIC ASPECT RATIO UTILITIES GENERATOR
+// GENERATE ALL UTILITIES
 // =============================================================================
 
-@mixin generate-aspect-ratio-utilities(
-  $enable: true,
-  $custom-ratios: $dga-aspect-ratios
+@mixin generate-grid-system(
+  $containers: $dga-enable-container-classes,
+  $rows: $dga-enable-row-classes,
+  $cols: $dga-enable-col-classes,
+  $responsive: $dga-enable-responsive-columns,
+  $flex: $dga-enable-flex-utilities,
+  $gaps: $dga-enable-gap-utilities,
+  $displays: $dga-enable-display-utilities,
+  $positions: $dga-enable-position-utilities
 ) {
-  @if $enable {
-    @each $name, $ratio in $custom-ratios {
-      .dga-ratio-#{$name} {
-        position: relative;
-
-        &::before {
-          display: block;
-          padding-top: #{$ratio};
-          content: "";
-        }
-
-        > * {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
+  @if $containers {
+    @include generate-containers;
   }
-}
-
-// =============================================================================
-// DYNAMIC POSITION UTILITIES GENERATOR
-// =============================================================================
-
-@mixin generate-position-utilities($enable: $dga-enable-position-utilities) {
-  @if $enable {
-    $positions: (
-      "static": static,
-      "relative": relative,
-      "absolute": absolute,
-      "fixed": fixed,
-      "sticky": sticky,
-    );
-
-    @each $name, $value in $positions {
-      .dga-position-#{$name} {
-        position: #{$value} !important;
-      }
-
-      // Responsive position utilities
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-position-#{$breakpoint}-#{$name} {
-            position: #{$value} !important;
-          }
-        }
-      }
-    }
-
-    // Dynamic z-index utilities
-    @each $name, $value in $dga-z-index {
-      .dga-z-#{$name} {
-        z-index: #{$value} !important;
-      }
-    }
-
-    // Dynamic top, right, bottom, left utilities
-    $positions-values: (
-      "0": 0,
-      "50": 50%,
-      "100": 100%,
-    );
-
-    @each $prop in (top, right, bottom, left) {
-      @each $name, $value in $positions-values {
-        .dga-#{$prop}-#{$name} {
-          #{$prop}: #{$value} !important;
-        }
-      }
-    }
-
-    // Translate utilities
-    $translate-values: (
-      "middle": translate(-50%, -50%),
-      "middle-x": translateX(-50%),
-      "middle-y": translateY(-50%),
-    );
-
-    @each $name, $value in $translate-values {
-      .dga-translate-#{$name} {
-        transform: #{$value} !important;
-      }
-    }
+  @if $rows {
+    @include generate-rows;
   }
+  @if $cols {
+    @include generate-columns;
+  }
+  @if $responsive {
+    @include generate-responsive-columns;
+  }
+  @if $flex {
+    @include generate-flex-utilities;
+  }
+  @if $gaps {
+    @include generate-gap-utilities;
+  }
+  @if $displays {
+    @include generate-display-utilities;
+  }
+  @if $positions {
+    @include generate-position-utilities;
+  }
+  @include generate-aspect-ratios;
 }
 
-// =============================================================================
-// MASTER DYNAMIC GRID GENERATOR
-// =============================================================================
-
-@mixin generate-all-grid-utilities(
-  $enable-containers: $dga-enable-container-classes,
-  $enable-rows: $dga-enable-row-classes,
-  $enable-cols: $dga-enable-col-classes,
-  $enable-responsive: $dga-enable-responsive-columns,
-  $enable-flex: $dga-enable-flex-utilities,
-  $enable-gaps: $dga-enable-gap-utilities,
-  $enable-displays: $dga-enable-display-utilities,
-  $enable-positions: $dga-enable-position-utilities
-) {
-  @include generate-container-utilities($enable-containers);
-  @include generate-row-utilities($enable-rows);
-  @include generate-column-utilities($enable-cols);
-  @include generate-responsive-columns($enable-responsive);
-  @include generate-flex-utilities($enable-flex);
-  @include generate-gap-utilities($enable-gaps);
-  @include generate-display-utilities($enable-displays);
-  @include generate-aspect-ratio-utilities();
-  @include generate-position-utilities($enable-positions);
-}
+// Generate all utilities by default
+@include generate-grid-system;
