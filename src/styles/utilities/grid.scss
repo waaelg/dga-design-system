@@ -1,5 +1,5 @@
 // =============================================================================
-// DGA Design System - Grid Utilities
+// DGA Design System - Grid Utilities (FIXED)
 // File: styles/utilities/grid.scss
 // Based on DGA Grid Layout specifications
 // =============================================================================
@@ -266,76 +266,88 @@
 }
 
 // =============================================================================
-// DYNAMIC FLEXBOX UTILITIES GENERATOR
+// DYNAMIC FLEXBOX UTILITIES GENERATOR (FIXED VERSION)
 // =============================================================================
 
 @mixin generate-flex-utilities($enable: $dga-enable-flex-utilities) {
   @if $enable {
-    // Dynamic flex direction
+    $breakpoint-list: map-keys($dga-grid-breakpoints);
+    $first-breakpoint: nth($breakpoint-list, 1);
+
+    // ==================================================
+    // STEP 1: Generate ALL base classes FIRST
+    // ==================================================
+
+    // Base flex direction
     @each $name, $value in $dga-flex-directions {
       .dga-flex-#{$name} {
         flex-direction: #{$value} !important;
       }
-
-      // Responsive flex direction
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-flex-#{$breakpoint}-#{$name} {
-            flex-direction: #{$value} !important;
-          }
-        }
-      }
     }
 
-    // Dynamic justify content
+    // Base justify content
     @each $name, $value in $dga-justify-content {
       .dga-justify-content-#{$name} {
         justify-content: #{$value} !important;
       }
-
-      // Responsive justify content
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-justify-content-#{$breakpoint}-#{$name} {
-            justify-content: #{$value} !important;
-          }
-        }
-      }
     }
 
-    // Dynamic align items
+    // Base align items
     @each $name, $value in $dga-align-items {
       .dga-align-items-#{$name} {
         align-items: #{$value} !important;
       }
-
-      // Responsive align items
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
-        @include dga-media-breakpoint-up($breakpoint) {
-          .dga-align-items-#{$breakpoint}-#{$name} {
-            align-items: #{$value} !important;
-          }
-        }
-      }
     }
 
-    // Dynamic align content
+    // Base align content
     @each $name, $value in $dga-align-content {
       .dga-align-content-#{$name} {
         align-content: #{$value} !important;
       }
+    }
 
-      // Responsive align content
-      @each $breakpoint in map-keys($dga-grid-breakpoints) {
+    // ==================================================
+    // STEP 2: Generate ALL responsive classes AFTER
+    // ==================================================
+
+    @each $breakpoint in $breakpoint-list {
+      @if $breakpoint != $first-breakpoint {
         @include dga-media-breakpoint-up($breakpoint) {
-          .dga-align-content-#{$breakpoint}-#{$name} {
-            align-content: #{$value} !important;
+          // Responsive flex direction
+          @each $name, $value in $dga-flex-directions {
+            .dga-flex-#{$breakpoint}-#{$name} {
+              flex-direction: #{$value} !important;
+            }
+          }
+
+          // Responsive justify content
+          @each $name, $value in $dga-justify-content {
+            .dga-justify-content-#{$breakpoint}-#{$name} {
+              justify-content: #{$value} !important;
+            }
+          }
+
+          // Responsive align items
+          @each $name, $value in $dga-align-items {
+            .dga-align-items-#{$breakpoint}-#{$name} {
+              align-items: #{$value} !important;
+            }
+          }
+
+          // Responsive align content
+          @each $name, $value in $dga-align-content {
+            .dga-align-content-#{$breakpoint}-#{$name} {
+              align-content: #{$value} !important;
+            }
           }
         }
       }
     }
 
-    // Dynamic flex wrap
+    // ==================================================
+    // STEP 3: Static flex utilities
+    // ==================================================
+
     .dga-flex-wrap {
       flex-wrap: wrap !important;
     }
@@ -346,7 +358,6 @@
       flex-wrap: wrap-reverse !important;
     }
 
-    // Dynamic flex utilities
     .dga-flex-fill {
       flex: 1 1 auto !important;
     }
@@ -363,29 +374,34 @@
       flex-shrink: 1 !important;
     }
 
-    // Responsive flex utilities
-    @each $breakpoint in map-keys($dga-grid-breakpoints) {
-      @include dga-media-breakpoint-up($breakpoint) {
-        .dga-flex-#{$breakpoint}-wrap {
-          flex-wrap: wrap !important;
-        }
-        .dga-flex-#{$breakpoint}-nowrap {
-          flex-wrap: nowrap !important;
-        }
-        .dga-flex-#{$breakpoint}-fill {
-          flex: 1 1 auto !important;
-        }
-        .dga-flex-#{$breakpoint}-grow-0 {
-          flex-grow: 0 !important;
-        }
-        .dga-flex-#{$breakpoint}-grow-1 {
-          flex-grow: 1 !important;
-        }
-        .dga-flex-#{$breakpoint}-shrink-0 {
-          flex-shrink: 0 !important;
-        }
-        .dga-flex-#{$breakpoint}-shrink-1 {
-          flex-shrink: 1 !important;
+    // ==================================================
+    // STEP 4: Responsive flex utilities
+    // ==================================================
+
+    @each $breakpoint in $breakpoint-list {
+      @if $breakpoint != $first-breakpoint {
+        @include dga-media-breakpoint-up($breakpoint) {
+          .dga-flex-#{$breakpoint}-wrap {
+            flex-wrap: wrap !important;
+          }
+          .dga-flex-#{$breakpoint}-nowrap {
+            flex-wrap: nowrap !important;
+          }
+          .dga-flex-#{$breakpoint}-fill {
+            flex: 1 1 auto !important;
+          }
+          .dga-flex-#{$breakpoint}-grow-0 {
+            flex-grow: 0 !important;
+          }
+          .dga-flex-#{$breakpoint}-grow-1 {
+            flex-grow: 1 !important;
+          }
+          .dga-flex-#{$breakpoint}-shrink-0 {
+            flex-shrink: 0 !important;
+          }
+          .dga-flex-#{$breakpoint}-shrink-1 {
+            flex-shrink: 1 !important;
+          }
         }
       }
     }

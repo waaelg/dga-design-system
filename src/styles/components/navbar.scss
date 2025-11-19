@@ -9,7 +9,7 @@ $dga-navbar-height: 72px;
   justify-content: flex-start;
   align-items: center;
   gap: 12px;
-  position: relative;
+  // position: relative;
   .dga-navbar-brand {
     display: flex;
     justify-content: flex-start;
@@ -210,16 +210,15 @@ a.dga-menu-item {
 }
 .dga-navbar-toggler {
   display: none;
-  cursor: pointer;
-
-  display: block;
   appearance: none;
   border: 0;
   outline: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
-body.size_tablet {
+body.size_tablet,
+body.size_mobile {
   .dga-navbar-toggler {
     display: block;
   }
@@ -234,7 +233,7 @@ body.size_tablet {
       flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
-      width: 100vw;
+      width: 100%;
       height: calc(100vh - $dga-navbar-height);
       padding: 8px;
 
@@ -242,8 +241,9 @@ body.size_tablet {
       position: absolute;
       top: $dga-navbar-height;
       left: 0;
-      overflow-y: scroll;
+      overflow-y: auto;
       gap: 8px;
+      z-index: 9999999;
 
       li.active {
         .dga-dropdown {

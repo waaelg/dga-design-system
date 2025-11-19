@@ -5,7 +5,6 @@ export default class DGAChart {
     this.init();
   }
   init() {
-    console.log(this.data);
     this.chart.style.background = this.generateGradient();
     this.chart.innerHTML += this.generateLabels();
   }

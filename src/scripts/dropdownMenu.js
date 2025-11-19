@@ -1,6 +1,8 @@
 class DGAMenuDropdown {
   constructor(options = {}) {
     this.navbar = options.navbar || document.querySelector(".dga-navbar");
+    this.navbarTop = this.navbar.getBoundingClientRect().top + window.scrollY;
+    this.navbarHeight = this.navbar.getBoundingClientRect().height;
     this.menu = this.navbar?.querySelector(".dga-menu");
     this.toggler = this.navbar?.querySelector(".dga-navbar-toggler");
     this.menuItems = this.navbar?.querySelectorAll(
@@ -57,11 +59,6 @@ class DGAMenuDropdown {
       listItem.classList.add("active");
       menuItem.classList.add("dga-menu-item-selected");
       menuItem.setAttribute("aria-expanded", "true");
-
-      // Prevent body scroll on mobile
-      if (window.innerWidth <= 769) {
-        document.body.classList.add("no-scroll");
-      }
     }
   }
 
@@ -69,7 +66,14 @@ class DGAMenuDropdown {
     e.stopPropagation();
 
     this.menu.classList.toggle("dga-menu-open");
-    document.body.classList.toggle("no-scroll");
+    if (this.menu.classList.contains("dga-menu-open")) {
+      document.body.classList.add("no-scroll");
+      this.menu.style.height = `calc(100vh - ${this.navbarHeight}px - ${this.navbarTop}px)`;
+    } else {
+      document.body.classList.remove("no-scroll");
+      this.menu.style.height = `0px`;
+    }
+    this.menu.style.top = `${this.navbarTop + this.navbarHeight}px`;
 
     const isOpen = this.menu.classList.contains("dga-menu-open");
     this.toggler.setAttribute("aria-expanded", isOpen);
@@ -92,8 +96,6 @@ class DGAMenuDropdown {
       menuItem?.classList.remove("dga-menu-item-selected");
       menuItem?.setAttribute("aria-expanded", "false");
     });
-
-    document.body.classList.remove("no-scroll");
   }
 
   handleKeyboard(e) {

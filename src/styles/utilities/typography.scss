@@ -187,6 +187,7 @@
   }
 }
 
+// font weight
 .dga-fw-regular {
   font-weight: 400;
 }
@@ -198,4 +199,58 @@
 }
 .dga-fw-bold {
   font-weight: 700;
+}
+
+// text align
+// Base text alignment classes
+.dga-text-center {
+  text-align: center;
+}
+.dga-text-right {
+  text-align: right;
+}
+.dga-text-left {
+  text-align: left;
+}
+.dga-text-start {
+  text-align: start;
+}
+.dga-text-end {
+  text-align: end;
+}
+
+@media (max-width: 375px) {
+  .dga-text-sm-center {
+    text-align: center;
+  }
+  .dga-text-sm-right {
+    text-align: right;
+  }
+  .dga-text-sm-left {
+    text-align: left;
+  }
+  .dga-text-sm-start {
+    text-align: start;
+  }
+  .dga-text-sm-end {
+    text-align: end;
+  }
+}
+
+@media (min-width: 768px) {
+  .dga-text-md-center {
+    text-align: center;
+  }
+  .dga-text-md-right {
+    text-align: right;
+  }
+  .dga-text-md-left {
+    text-align: left;
+  }
+  .dga-text-md-start {
+    text-align: start;
+  }
+  .dga-text-md-end {
+    text-align: end;
+  }
 }
