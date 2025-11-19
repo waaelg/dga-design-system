@@ -1,6 +1,7 @@
 class DGAMenuDropdown {
   constructor(options = {}) {
     this.navbar = options.navbar || document.querySelector(".dga-navbar");
+    this.verifyBar = options.verifyBar || null;
     this.navbarTop = this.navbar.getBoundingClientRect().top + window.scrollY;
     this.navbarHeight = this.navbar.getBoundingClientRect().height;
     this.menu = this.navbar?.querySelector(".dga-menu");
@@ -15,6 +16,10 @@ class DGAMenuDropdown {
     }
 
     this.init();
+  }
+
+  get isActive() {
+    return this.isMobileMenuOpen() || this.isNormalDropdownOpen();
   }
 
   init() {
@@ -47,6 +52,11 @@ class DGAMenuDropdown {
     e.preventDefault();
     e.stopPropagation();
 
+    // Close verify bar when opening menu
+    if (this.verifyBar && this.verifyBar.isOpen) {
+      this.verifyBar.closePanel();
+    }
+
     const menuItem = e.currentTarget;
     const listItem = menuItem.parentElement;
     const isActive = listItem.classList.contains("active");
@@ -59,11 +69,20 @@ class DGAMenuDropdown {
       listItem.classList.add("active");
       menuItem.classList.add("dga-menu-item-selected");
       menuItem.setAttribute("aria-expanded", "true");
+
+      listItem.querySelector(".dga-dropdown").style.top = `${
+        this.navbarHeight + this.navbarTop
+      }px`;
     }
   }
 
   toggleMobileMenu(e) {
     e.stopPropagation();
+
+    // Close verify bar when opening menu
+    if (this.verifyBar && this.verifyBar.isOpen) {
+      this.verifyBar.closePanel();
+    }
 
     this.menu.classList.toggle("dga-menu-open");
     if (this.menu.classList.contains("dga-menu-open")) {
@@ -81,6 +100,21 @@ class DGAMenuDropdown {
       "aria-label",
       isOpen ? "Close menu" : "Open menu"
     );
+  }
+
+  // Public method to close menu programmatically (without event)
+  closeMenu() {
+    // Close all dropdowns
+    this.closeAllDropdowns();
+
+    // Close mobile menu if open
+    if (this.isMobileMenuOpen()) {
+      this.menu.classList.remove("dga-menu-open");
+      document.body.classList.remove("no-scroll");
+      this.menu.style.height = `0px`;
+      this.toggler.setAttribute("aria-expanded", "false");
+      this.toggler.setAttribute("aria-label", "Open menu");
+    }
   }
 
   closeAllDropdowns(e) {
@@ -145,6 +179,14 @@ class DGAMenuDropdown {
     this.toggler?.removeEventListener("click", this.toggleMobileMenu);
     document.removeEventListener("click", this.closeAllDropdowns);
     window.removeEventListener("resize", this.handleResize);
+  }
+
+  isMobileMenuOpen() {
+    return this.menu?.classList.contains("dga-menu-open");
+  }
+
+  isNormalDropdownOpen() {
+    return this.navbar.querySelectorAll(".dga-menu > li.active").length > 0;
   }
 }
 

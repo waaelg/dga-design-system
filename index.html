@@ -1390,8 +1390,10 @@
       ];
       const pieChartInstance2 = new DGAChart(pieChart2, pieChartData2);
 
-      new DGAMenuDropDown();
-      new DGAVerifyBar();
+      const verifyBar = new DGAVerifyBar();
+      const menuDropdown = new DGAMenuDropDown();
+      verifyBar.menu = menuDropdown;
+      menuDropdown.verifyBar = verifyBar;
     </script>
   </body>
 </html>
