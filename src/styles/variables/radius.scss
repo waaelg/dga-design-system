@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // =============================================================================
 // DGA Design System - Radius Variables
 // File: styles/variables/radius.scss
@@ -96,7 +98,7 @@ $dga-radius-thumbnail: $dga-radius-md; // 8px
 // =============================================================================
 
 @function radius($key) {
-  @return map-get($dga-radius, $key);
+  @return map.get($dga-radius, $key);
 }
 
 // =============================================================================

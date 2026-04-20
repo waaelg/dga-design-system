@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // ============================================================================
 // DGA Design System - Dynamic Button Component
 // Based on Platforms Code Design System - Saudi Arabia Government
@@ -265,19 +267,19 @@ $dga-btn-default-variant: "primary" !default;
 
 // Mixin to apply button size
 @mixin dga-btn-size($size-name) {
-  $size-config: map-get($dga-btn-sizes, $size-name);
+  $size-config: map.get($dga-btn-sizes, $size-name);
 
   @if $size-config {
-    height: map-get($size-config, height);
-    padding: 0 map-get($size-config, padding-x);
-    font-size: map-get($size-config, font-size);
+    height: map.get($size-config, height);
+    padding: 0 map.get($size-config, padding-x);
+    font-size: map.get($size-config, font-size);
     // line-height: map-get($size-config, line-height);
-    border-radius: map-get($size-config, border-radius);
-    gap: map-get($size-config, gap);
+    border-radius: map.get($size-config, border-radius);
+    gap: map.get($size-config, gap);
 
     .dga-btn__icon {
-      width: map-get($size-config, icon-size);
-      height: map-get($size-config, icon-size);
+      width: map.get($size-config, icon-size);
+      height: map.get($size-config, icon-size);
     }
   } @else {
     @warn "Button size '#{$size-name}' not found in $dga-btn-sizes map.";
@@ -286,30 +288,30 @@ $dga-btn-default-variant: "primary" !default;
 
 // Mixin to apply button variant
 @mixin dga-btn-variant($variant-name) {
-  $variant-config: map-get($dga-btn-variants, $variant-name);
+  $variant-config: map.get($dga-btn-variants, $variant-name);
 
   @if $variant-config {
-    color: map-get($variant-config, color);
-    background-color: map-get($variant-config, background);
-    border-color: map-get($variant-config, border);
+    color: map.get($variant-config, color);
+    background-color: map.get($variant-config, background);
+    border-color: map.get($variant-config, border);
 
     &:hover:not(:disabled):not(.dga-btn-disabled),
     &.dga-btn-hover:not(:disabled):not(.dga-btn-disabled) {
-      color: map-get($variant-config, hover-color);
-      background-color: map-get($variant-config, hover-background);
-      border-color: map-get($variant-config, hover-border);
+      color: map.get($variant-config, hover-color);
+      background-color: map.get($variant-config, hover-background);
+      border-color: map.get($variant-config, hover-border);
     }
 
     &:active:not(:disabled):not(.dga-btn-disabled),
     &.dga-btn-active:not(:disabled):not(.dga-btn-disabled) {
-      color: map-get($variant-config, active-color);
-      background-color: map-get($variant-config, active-background);
-      border-color: map-get($variant-config, active-border);
+      color: map.get($variant-config, active-color);
+      background-color: map.get($variant-config, active-background);
+      border-color: map.get($variant-config, active-border);
     }
 
     // Variant-specific focus styles
     &:focus-visible {
-      outline-color: map-get($variant-config, focus-color);
+      outline-color: map.get($variant-config, focus-color);
     }
   } @else {
     @warn "Button variant '#{$variant-name}' not found in $dga-btn-variants map.";
@@ -318,11 +320,11 @@ $dga-btn-default-variant: "primary" !default;
 
 // Mixin for icon-only button sizing
 @mixin dga-btn-icon-only-size($size-name) {
-  $size-config: map-get($dga-btn-sizes, $size-name);
+  $size-config: map.get($dga-btn-sizes, $size-name);
 
   @if $size-config {
-    $height: map-get($size-config, height);
-    $width: map-get($size-config, height);
+    $height: map.get($size-config, height);
+    $width: map.get($size-config, height);
 
     // padding: $padding;
     width: $width;

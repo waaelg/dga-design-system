@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DGA Alert Showcase</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f6f8fb;
+      color: #0d121c;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    .hero {
+      border-radius: 16px;
+      padding: 28px;
+      color: #fff;
+      background: linear-gradient(120deg, #14573a, #25935f);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .hero p {
+      margin: 0;
+      line-height: 1.7;
+      opacity: 0.95;
+    }
+
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .quick-nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-size: 14px;
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .panel .desc {
+      margin: 0 0 14px;
+      color: #4d5761;
+      line-height: 1.7;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .matrix {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .demo-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .demo-title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #384250;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      color: #4d5761;
+      margin-top: 10px;
+      direction: ltr;
+      text-align: left;
+      unicode-bidi: plaintext;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>DGA Alert Guide</h1>
+      <p>
+        A dedicated page to preview all `dga-alert` variants, theme modes, and direction behavior.
+        Use this page to validate layout, readability, and close interaction.
+      </p>
+      <nav class="quick-nav">
+        <a href="#matrix">Variant Matrix</a>
+        <a href="#mobile">Mobile Layout</a>
+        <a href="#usage">Usage Snippet</a>
+      </nav>
+    </section>
+
+    <section id="matrix" class="panel">
+      <h2>Variant Matrix</h2>
+      <p class="desc">
+        The same five statuses are shown in both themes (`color` and `white`) and in both directions.
+      </p>
+
+      <div class="matrix">
+        <article class="demo-block">
+          <h3 class="demo-title">LTR - Color</h3>
+          <div class="stack">
+            <div class="dga-alert" data-variant="success-color">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Success title</h4>
+                <div class="dga-alert-body">When successful actions need direct feedback, show it here.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="warning-color">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Warning title</h4>
+                <div class="dga-alert-body">Use warning to clarify risks before user confirmation.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="destructive-color">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Destructive title</h4>
+                <div class="dga-alert-body">This action cannot be undone once submitted.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="info-color">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Info title</h4>
+                <div class="dga-alert-body">Informational messages can provide context and next steps.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="neutral-color">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Neutral title</h4>
+                <div class="dga-alert-body">Use neutral for generic notices that are not status-critical.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-block">
+          <h3 class="demo-title">LTR - White</h3>
+          <div class="stack">
+            <div class="dga-alert" data-variant="success-white">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Success title</h4>
+                <div class="dga-alert-body">White theme can be used on dense pages to reduce visual weight.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="warning-white">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Warning title</h4>
+                <div class="dga-alert-body">Use with supporting text and optional actions.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="destructive-white">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Destructive title</h4>
+                <div class="dga-alert-body">You can combine this with action buttons below.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="info-white">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Info title</h4>
+                <div class="dga-alert-body">Use info for guidance and non-blocking updates.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+
+            <div class="dga-alert" data-variant="neutral-white">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">Neutral title</h4>
+                <div class="dga-alert-body">Neutral white is useful for generic inline announcements.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-block" dir="rtl">
+          <h3 class="demo-title">RTL - Color</h3>
+          <div class="stack">
+            <div class="dga-alert" data-variant="info-color">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">عنوان التنبيه</h4>
+                <div class="dga-alert-body">يدعم النظام الاتجاه من اليمين إلى اليسار بشكل كامل.</div>
+                <div class="dga-alert-actions">
+                  <button class="dga-btn dga-btn-primary dga-btn-sm">إجراء</button>
+                  <button class="dga-btn dga-btn-secondary-outline dga-btn-sm">إغلاق</button>
+                </div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-block" dir="rtl">
+          <h3 class="demo-title">RTL - White</h3>
+          <div class="stack">
+            <div class="dga-alert" data-variant="neutral-white">
+              <span class="dga-alert-icon" aria-hidden="true"></span>
+              <div class="dga-alert-content">
+                <h4 class="dga-alert-title">عنوان التنبيه</h4>
+                <div class="dga-alert-body">يمكن استخدام نسخة White للتنبيهات العامة داخل الصفحات الطويلة.</div>
+              </div>
+              <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="mobile" class="panel">
+      <h2>Mobile Behavior</h2>
+      <p class="desc">
+        Resize your viewport to validate spacing and wrapping behavior on smaller screens.
+      </p>
+      <div style="max-width: 520px;">
+        <div class="dga-alert" data-variant="success-color">
+          <span class="dga-alert-icon" aria-hidden="true"></span>
+          <div class="dga-alert-content">
+            <h4 class="dga-alert-title">Notification/Alert message title</h4>
+            <div class="dga-alert-body">
+              When a Notification/Alert needs a further detailed explanation, it goes here.
+            </div>
+            <div class="dga-alert-actions">
+              <button class="dga-btn dga-btn-primary dga-btn-sm">Button</button>
+              <button class="dga-btn dga-btn-secondary-outline dga-btn-sm">Button</button>
+            </div>
+          </div>
+          <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="usage" class="panel">
+      <h2>Usage Snippet</h2>
+      <p class="desc">Use this minimal structure in your pages.</p>
+      <pre class="code"><code>&lt;div class="dga-alert" data-variant="info-white"&gt;
+  &lt;span class="dga-alert-icon" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;div class="dga-alert-content"&gt;
+    &lt;h4 class="dga-alert-title"&gt;Notification/Alert message title&lt;/h4&gt;
+    &lt;div class="dga-alert-body"&gt;
+      When a Notification/Alert needs a further detailed explanation, it goes here.
+    &lt;/div&gt;
+    &lt;div class="dga-alert-actions"&gt;
+      &lt;button class="dga-btn dga-btn-primary dga-btn-sm"&gt;Button&lt;/button&gt;
+      &lt;button class="dga-btn dga-btn-secondary-outline dga-btn-sm"&gt;Button&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert"&gt;×&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+  </main>
+
+  <script type="module">
+    import "./src/styles/main.scss";
+    import { DGAAlert } from "/src/main.js";
+
+    const dgaAlert = new DGAAlert();
+  </script>
+</body>
+
+</html>

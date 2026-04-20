@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:meta";
+
 // =============================================================================
 // DGA Design System - Border Radius Utilities
 // File: styles/utilities/radius.scss
@@ -96,9 +99,9 @@ $dga-radius-utilities: (
 
 @mixin generate-radius-utilities($utilities: $dga-radius-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       // Handle special case for "none" key
@@ -109,7 +112,7 @@ $dga-radius-utilities: (
       );
 
       #{$class-name} {
-        @if type-of($property) == "list" {
+        @if meta.type-of($property) == "list" {
           // Apply to multiple properties (e.g., top corners)
           @each $prop in $property {
             #{$prop}: #{$value} !important;
@@ -137,28 +140,28 @@ $dga-radius-utilities: (
 
 // Mixin to apply specific radius to element
 @mixin border-radius($size: "md") {
-  border-radius: map-get($dga-radius, $size);
+  border-radius: map.get($dga-radius, $size);
 }
 
 // Mixin to apply radius to specific corners
 @mixin border-radius-top($size: "md") {
-  border-top-left-radius: map-get($dga-radius, $size);
-  border-top-right-radius: map-get($dga-radius, $size);
+  border-top-left-radius: map.get($dga-radius, $size);
+  border-top-right-radius: map.get($dga-radius, $size);
 }
 
 @mixin border-radius-bottom($size: "md") {
-  border-bottom-left-radius: map-get($dga-radius, $size);
-  border-bottom-right-radius: map-get($dga-radius, $size);
+  border-bottom-left-radius: map.get($dga-radius, $size);
+  border-bottom-right-radius: map.get($dga-radius, $size);
 }
 
 @mixin border-radius-left($size: "md") {
-  border-top-left-radius: map-get($dga-radius, $size);
-  border-bottom-left-radius: map-get($dga-radius, $size);
+  border-top-left-radius: map.get($dga-radius, $size);
+  border-bottom-left-radius: map.get($dga-radius, $size);
 }
 
 @mixin border-radius-right($size: "md") {
-  border-top-right-radius: map-get($dga-radius, $size);
-  border-bottom-right-radius: map-get($dga-radius, $size);
+  border-top-right-radius: map.get($dga-radius, $size);
+  border-bottom-right-radius: map.get($dga-radius, $size);
 }
 
 // =============================================================================

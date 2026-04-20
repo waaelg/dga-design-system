@@ -6,17 +6,24 @@ export default class DGAVerifyBar {
 
     this.btn = document.getElementById("dga-verifyBtn");
     this.content = document.getElementById("dga-verify-bar_content");
-    this.init();
-  }
-
-  init() {
-    this.btn.addEventListener("click", () => {
+    this.boundToggle = () => {
       if (this.isOpen) {
         this.closePanel();
       } else {
         this.openPanel();
       }
-    });
+    };
+
+    if (!this.verifyBar || !this.btn || !this.content) {
+      console.warn("DGA Verify Bar elements not found");
+      return;
+    }
+
+    this.init();
+  }
+
+  init() {
+    this.btn.addEventListener("click", this.boundToggle);
   }
 
   openPanel() {
@@ -36,5 +43,9 @@ export default class DGAVerifyBar {
     this.isOpen = false;
     this.verifyBar.classList.add("closed");
     this.verifyBar.classList.remove("opend");
+  }
+
+  destroy() {
+    this.btn?.removeEventListener("click", this.boundToggle);
   }
 }

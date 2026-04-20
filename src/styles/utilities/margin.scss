@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:meta";
+
 // =============================================================================
 // DGA Design System - Margin Utilities
 // File: styles/utilities/margin.scss
@@ -188,7 +191,7 @@ $dga-margin-auto-utilities: (
 $dga-negative-spacing: ();
 @each $key, $value in $dga-spacing {
   @if $key != "0" {
-    $dga-negative-spacing: map-merge(
+    $dga-negative-spacing: map.merge(
       $dga-negative-spacing,
       (
         "#{$key}": -#{$value},
@@ -249,9 +252,9 @@ $dga-negative-margin-utilities: (
 
 @mixin generate-margin-utilities($utilities: $dga-margin-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if(
@@ -261,7 +264,7 @@ $dga-negative-margin-utilities: (
       );
 
       #{$class-name} {
-        @if type-of($property) == "list" {
+        @if meta.type-of($property) == "list" {
           @each $prop in $property {
             #{$prop}: #{$value} !important;
           }
@@ -277,9 +280,9 @@ $dga-negative-margin-utilities: (
   $utilities: $dga-named-margin-utilities
 ) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if(
@@ -289,7 +292,7 @@ $dga-negative-margin-utilities: (
       );
 
       #{$class-name} {
-        @if type-of($property) == "list" {
+        @if meta.type-of($property) == "list" {
           @each $prop in $property {
             #{$prop}: #{$value} !important;
           }
@@ -303,15 +306,15 @@ $dga-negative-margin-utilities: (
 
 @mixin generate-margin-auto-utilities($utilities: $dga-margin-auto-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: ".dga-#{$prefix}-#{$key}";
 
       #{$class-name} {
-        @if type-of($property) == "list" {
+        @if meta.type-of($property) == "list" {
           @each $prop in $property {
             #{$prop}: #{$value} !important;
           }
@@ -327,15 +330,15 @@ $dga-negative-margin-utilities: (
   $utilities: $dga-negative-margin-utilities
 ) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: ".dga-#{$prefix}-#{$key}";
 
       #{$class-name} {
-        @if type-of($property) == "list" {
+        @if meta.type-of($property) == "list" {
           @each $prop in $property {
             #{$prop}: #{$value} !important;
           }

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // =============================================================================
 // DGA Design System - Color Utilities
 // File: styles/utilities/colors.scss
@@ -126,9 +128,9 @@ $dga-gradients: (
 
 @mixin generate-color-utilities($utilities: $dga-color-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $color-groups: map-get($utility-config, "colors");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $color-groups: map.get($utility-config, "colors");
 
     @each $color-name, $color-shades in $color-groups {
       @each $shade, $color-value in $color-shades {
@@ -153,7 +155,7 @@ $dga-gradients: (
     }
 
     // Text colors (only if not already defined in $dga-text-colors)
-    @if not map-has-key($dga-text-colors, $name) {
+    @if not map.has-key($dga-text-colors, $name) {
       .dga-text-#{$name} {
         color: #{$color} !important;
       }
@@ -179,9 +181,9 @@ $dga-gradients: (
 
 @mixin generate-hover-utilities($utilities: $dga-color-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $color-groups: map-get($utility-config, "colors");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $color-groups: map.get($utility-config, "colors");
 
     @each $color-name, $color-shades in $color-groups {
       @each $shade, $color-value in $color-shades {
@@ -276,12 +278,6 @@ $dga-gradients: (
   @include generate-border-utilities();
   @include generate-focus-utilities();
 }
-
-// =============================================================================
-// ACTUALLY GENERATE THE CLASSES
-// =============================================================================
-
-@include generate-all-color-utilities();
 
 .dga-bg-white {
   background-color: $dga-text-white !important;

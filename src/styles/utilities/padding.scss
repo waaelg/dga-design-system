@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:meta";
+
 // =============================================================================
 // DGA Design System - Padding Utilities
 // File: styles/utilities/padding.scss
@@ -124,9 +127,9 @@ $dga-named-padding-utilities: (
 
 @mixin generate-padding-utilities($utilities: $dga-padding-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if(
@@ -136,7 +139,7 @@ $dga-named-padding-utilities: (
       );
 
       #{$class-name} {
-        @if type-of($property) == "list" {
+        @if meta.type-of($property) == "list" {
           @each $prop in $property {
             #{$prop}: #{$value} !important;
           }
@@ -152,9 +155,9 @@ $dga-named-padding-utilities: (
   $utilities: $dga-named-padding-utilities
 ) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if(
@@ -164,7 +167,7 @@ $dga-named-padding-utilities: (
       );
 
       #{$class-name} {
-        @if type-of($property) == "list" {
+        @if meta.type-of($property) == "list" {
           @each $prop in $property {
             #{$prop}: #{$value} !important;
           }

@@ -2,18 +2,28 @@ class DGAMenuDropdown {
   constructor(options = {}) {
     this.navbar = options.navbar || document.querySelector(".dga-navbar");
     this.verifyBar = options.verifyBar || null;
-    this.navbarTop = this.navbar.getBoundingClientRect().top + window.scrollY;
-    this.navbarHeight = this.navbar.getBoundingClientRect().height;
-    this.menu = this.navbar?.querySelector(".dga-menu");
-    this.toggler = this.navbar?.querySelector(".dga-navbar-toggler");
-    this.menuItems = this.navbar?.querySelectorAll(
-      ".dga-menu-item.dga-has-dropdown"
-    );
 
-    if (!this.navbar || !this.menu) {
+    if (!this.navbar) {
       console.warn("DGA Navbar elements not found");
       return;
     }
+
+    this.navbarTop = this.navbar.getBoundingClientRect().top + window.scrollY;
+    this.navbarHeight = this.navbar.getBoundingClientRect().height;
+    this.menu = this.navbar.querySelector(".dga-menu");
+    this.toggler = this.navbar.querySelector(".dga-navbar-toggler");
+    this.menuItems = this.navbar.querySelectorAll(".dga-menu-item.dga-has-dropdown");
+
+    if (!this.menu) {
+      console.warn("DGA Menu element not found");
+      return;
+    }
+
+    this.boundToggleDropdown = (e) => this.toggleDropdown(e);
+    this.boundToggleMobileMenu = (e) => this.toggleMobileMenu(e);
+    this.boundCloseAllDropdowns = (e) => this.closeAllDropdowns(e);
+    this.boundHandleResize = () => this.handleResize();
+    this.boundHandleKeyboard = (e) => this.handleKeyboard(e);
 
     this.init();
   }
@@ -30,21 +40,21 @@ class DGAMenuDropdown {
   bindEvents() {
     // Dropdown menu items
     this.menuItems.forEach((item) => {
-      item.addEventListener("click", (e) => this.toggleDropdown(e));
+      item.addEventListener("click", this.boundToggleDropdown);
     });
 
     // Mobile menu toggler
-    this.toggler?.addEventListener("click", (e) => this.toggleMobileMenu(e));
+    this.toggler?.addEventListener("click", this.boundToggleMobileMenu);
 
     // Close dropdowns when clicking outside
-    document.addEventListener("click", (e) => this.closeAllDropdowns(e));
+    document.addEventListener("click", this.boundCloseAllDropdowns);
 
     // Handle window resize
-    window.addEventListener("resize", () => this.handleResize());
+    window.addEventListener("resize", this.boundHandleResize);
 
     // Keyboard accessibility
     this.menuItems.forEach((item) => {
-      item.addEventListener("keydown", (e) => this.handleKeyboard(e));
+      item.addEventListener("keydown", this.boundHandleKeyboard);
     });
   }
 
@@ -70,9 +80,8 @@ class DGAMenuDropdown {
       menuItem.classList.add("dga-menu-item-selected");
       menuItem.setAttribute("aria-expanded", "true");
 
-      listItem.querySelector(".dga-dropdown").style.top = `${
-        this.navbarHeight + this.navbarTop
-      }px`;
+      listItem.querySelector(".dga-dropdown").style.top = `${this.navbarHeight + this.navbarTop
+        }px`;
     }
   }
 
@@ -172,13 +181,13 @@ class DGAMenuDropdown {
   // Public method to destroy the component
   destroy() {
     this.menuItems.forEach((item) => {
-      item.removeEventListener("click", this.toggleDropdown);
-      item.removeEventListener("keydown", this.handleKeyboard);
+      item.removeEventListener("click", this.boundToggleDropdown);
+      item.removeEventListener("keydown", this.boundHandleKeyboard);
     });
 
-    this.toggler?.removeEventListener("click", this.toggleMobileMenu);
-    document.removeEventListener("click", this.closeAllDropdowns);
-    window.removeEventListener("resize", this.handleResize);
+    this.toggler?.removeEventListener("click", this.boundToggleMobileMenu);
+    document.removeEventListener("click", this.boundCloseAllDropdowns);
+    window.removeEventListener("resize", this.boundHandleResize);
   }
 
   isMobileMenuOpen() {

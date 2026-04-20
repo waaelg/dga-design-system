@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:math";
+
 // =============================================================================
 // DGA Design System - Grid Variables (FIXED VERSION)
 // File: styles/variables/grid.scss
@@ -39,7 +42,7 @@ $dga-grid-breakpoints: (
 
 // Function to add custom breakpoints
 @function dga-add-breakpoint($breakpoints, $name, $value) {
-  @return map-merge(
+  @return map.merge(
     $breakpoints,
     (
       $name: $value,
@@ -62,7 +65,7 @@ $dga-container-max-widths: (
 
 // Function to add custom container widths
 @function dga-add-container-width($containers, $breakpoint, $width) {
-  @return map-merge(
+  @return map.merge(
     $containers,
     (
       $breakpoint: $width,
@@ -98,7 +101,7 @@ $dga-grid-gutters: (
 
 // Function to add custom gutter for specific breakpoint
 @function dga-add-grid-gutter($gutters, $breakpoint, $gutter) {
-  @return map-merge(
+  @return map.merge(
     $gutters,
     (
       $breakpoint: $gutter,
@@ -186,7 +189,7 @@ $dga-container-grids: (
 
 // Function to add custom container grid
 @function dga-add-container-grid($grids, $name, $columns, $min-width) {
-  @return map-merge(
+  @return map.merge(
     $grids,
     (
       $name: (
@@ -221,7 +224,7 @@ $dga-grid-responsive-columns: (
 
 // Function to set responsive columns for specific breakpoint
 @function dga-set-responsive-columns($breakpoint, $columns) {
-  @return map-merge(
+  @return map.merge(
     $dga-grid-responsive-columns,
     (
       $breakpoint: $columns,
@@ -265,7 +268,7 @@ $dga-align-content: (
 
 // Functions to add custom flex utilities
 @function dga-add-flex-direction($directions, $name, $value) {
-  @return map-merge(
+  @return map.merge(
     $directions,
     (
       $name: $value,
@@ -274,7 +277,7 @@ $dga-align-content: (
 }
 
 @function dga-add-justify-content($justifies, $name, $value) {
-  @return map-merge(
+  @return map.merge(
     $justifies,
     (
       $name: $value,
@@ -283,7 +286,7 @@ $dga-align-content: (
 }
 
 @function dga-add-align-items($aligns, $name, $value) {
-  @return map-merge(
+  @return map.merge(
     $aligns,
     (
       $name: $value,
@@ -300,7 +303,7 @@ $dga-grid-gaps: $dga-spacing !default;
 
 // Function to add custom gap
 @function dga-add-grid-gap($gaps, $name, $value) {
-  @return map-merge(
+  @return map.merge(
     $gaps,
     (
       $name: $value,
@@ -324,8 +327,8 @@ $dga-aspect-ratios: (
 
 // Function to add custom aspect ratio
 @function dga-add-aspect-ratio($ratios, $name, $width, $height) {
-  $ratio: percentage($height / $width);
-  @return map-merge(
+  $ratio: math.percentage(math.div($height, $width));
+  @return map.merge(
     $ratios,
     (
       $name: $ratio,
@@ -350,7 +353,7 @@ $dga-z-index: (
 
 // Function to add custom z-index
 @function dga-add-z-index($z-indexes, $name, $value) {
-  @return map-merge(
+  @return map.merge(
     $z-indexes,
     (
       $name: $value,
@@ -378,7 +381,7 @@ $dga-displays: (
 
 // Function to add custom display value
 @function dga-add-display($displays, $name, $value) {
-  @return map-merge(
+  @return map.merge(
     $displays,
     (
       $name: $value,
@@ -422,7 +425,7 @@ $dga-displays: (
   );
 
   @if $containers {
-    $custom-grid: map-merge(
+    $custom-grid: map.merge(
       $custom-grid,
       (
         containers: $containers,

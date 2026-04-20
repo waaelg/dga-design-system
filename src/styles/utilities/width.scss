@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:math";
+
 // =============================================================================
 // DGA Design System - Width Utilities
 // File: styles/utilities/width.scss
@@ -11,35 +14,35 @@
 // =============================================================================
 
 $dga-percentage-widths: (
-  "1-12": percentage(1/12),
+  "1-12": math.percentage(math.div(1, 12)),
   // 8.333333%
-  "2-12": percentage(2/12),
+  "2-12": math.percentage(math.div(2, 12)),
   // 16.666667%
-  "3-12": percentage(3/12),
+  "3-12": math.percentage(math.div(3, 12)),
   // 25%
-  "4-12": percentage(4/12),
+  "4-12": math.percentage(math.div(4, 12)),
   // 33.333333%
-  "5-12": percentage(5/12),
+  "5-12": math.percentage(math.div(5, 12)),
   // 41.666667%
-  "6-12": percentage(6/12),
+  "6-12": math.percentage(math.div(6, 12)),
   // 50%
-  "7-12": percentage(7/12),
+  "7-12": math.percentage(math.div(7, 12)),
   // 58.333333%
-  "8-12": percentage(8/12),
+  "8-12": math.percentage(math.div(8, 12)),
   // 66.666667%
-  "9-12": percentage(9/12),
+  "9-12": math.percentage(math.div(9, 12)),
   // 75%
-  "10-12": percentage(10/12),
+  "10-12": math.percentage(math.div(10, 12)),
   // 83.333333%
-  "11-12": percentage(11/12),
+  "11-12": math.percentage(math.div(11, 12)),
   // 91.666667%
-  "12-12": percentage(12/12),
+  "12-12": math.percentage(math.div(12, 12)),
   // 100%
   // Common fractions
   "1-2": 50%,
-  "1-3": percentage(1/3),
+  "1-3": math.percentage(math.div(1, 3)),
   // 33.333333%
-  "2-3": percentage(2/3),
+  "2-3": math.percentage(math.div(2, 3)),
   // 66.666667%
   "1-4": 25%,
   "2-4": 50%,
@@ -48,9 +51,9 @@ $dga-percentage-widths: (
   "2-5": 40%,
   "3-5": 60%,
   "4-5": 80%,
-  "1-6": percentage(1/6),
+  "1-6": math.percentage(math.div(1, 6)),
   // 16.666667%
-  "5-6": percentage(5/6),
+  "5-6": math.percentage(math.div(5, 6)),
   // 83.333333%
   // Percentage values
   "0": 0%,
@@ -58,11 +61,11 @@ $dga-percentage-widths: (
   "20": 20%,
   "25": 25%,
   "30": 30%,
-  "33": percentage(1/3),
+  "33": math.percentage(math.div(1, 3)),
   "40": 40%,
   "50": 50%,
   "60": 60%,
-  "66": percentage(2/3),
+  "66": math.percentage(math.div(2, 3)),
   "70": 70%,
   "75": 75%,
   "80": 80%,
@@ -170,7 +173,7 @@ $dga-container-width-utilities: (
     "prefix": "container",
     "property": "max-width",
     "values": (
-      "": map-get($dga-container, "max-width-desktop"),
+      "": map.get($dga-container, "max-width-desktop"),
       // 1280px
     ),
   ),
@@ -182,9 +185,9 @@ $dga-container-width-utilities: (
 
 @mixin generate-width-utilities($utilities: $dga-width-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if(
@@ -202,9 +205,9 @@ $dga-container-width-utilities: (
 
 @mixin generate-max-width-utilities($utilities: $dga-max-width-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if(
@@ -222,9 +225,9 @@ $dga-container-width-utilities: (
 
 @mixin generate-min-width-utilities($utilities: $dga-min-width-utilities) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if(
@@ -244,9 +247,9 @@ $dga-container-width-utilities: (
   $utilities: $dga-container-width-utilities
 ) {
   @each $utility-name, $utility-config in $utilities {
-    $prefix: map-get($utility-config, "prefix");
-    $property: map-get($utility-config, "property");
-    $values: map-get($utility-config, "values");
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
       $class-name: if($key == "", ".dga-#{$prefix}", ".dga-#{$prefix}-#{$key}");
@@ -256,12 +259,12 @@ $dga-container-width-utilities: (
         #{$property}: #{$value} !important;
         margin-left: auto !important;
         margin-right: auto !important;
-        padding-left: map-get($dga-container, "padding-mobile") !important;
-        padding-right: map-get($dga-container, "padding-mobile") !important;
+        padding-left: map.get($dga-container, "padding-mobile") !important;
+        padding-right: map.get($dga-container, "padding-mobile") !important;
 
         @media (min-width: 768px) {
-          padding-left: map-get($dga-container, "padding-desktop") !important;
-          padding-right: map-get($dga-container, "padding-desktop") !important;
+          padding-left: map.get($dga-container, "padding-desktop") !important;
+          padding-right: map.get($dga-container, "padding-desktop") !important;
         }
       }
     }
