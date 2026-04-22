@@ -5,6 +5,7 @@ import DGAChart from "./scripts/chart.js";
 import DGACodeSnippet from "./scripts/codeSnippet.js";
 import DGAMenuDropDown from "./scripts/dropdownMenu.js";
 import DGAVerifyBar from "./scripts/verifyBar.js";
+import "./scripts/dga-verify-bar.js";
 
 // Export components
 export { DGAAccordion };

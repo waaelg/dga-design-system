@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DGA Verify Bar - Web Component</title>
+</head>
+
+<body class="dga-bg-gray-25">
+
+  <!-- Default usage -->
+  <dga-verify-bar></dga-verify-bar>
+
+  <!-- Custom attributes usage -->
+  <!--
+  <dga-verify-bar
+    domain=".edu.sa"
+    registration-number="20250105758"
+    registration-link="https://raqmi.dga.gov.sa/...">
+  </dga-verify-bar>
+  -->
+
+  <div class="dga-container dga-my-10">
+    <div class="dga-row">
+      <div class="dga-col">
+        <h2 class="dga-display-md dga-fw-bold">dga-verify-bar Web Component</h2>
+        <p class="dga-text-lg dga-mt-4">Usage:</p>
+        <pre style="background:#f4f4f4;padding:16px;border-radius:8px;direction:ltr"><code>&lt;!-- Default --&gt;
+&lt;dga-verify-bar&gt;&lt;/dga-verify-bar&gt;
+
+&lt;!-- With custom attributes --&gt;
+&lt;dga-verify-bar
+  domain=".edu.sa"
+  registration-number="20250105758"
+  registration-link="https://raqmi.dga.gov.sa/..."&gt;
+&lt;/dga-verify-bar&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/scripts/dga-verify-bar.js"></script>
+</body>
+
+</html>
