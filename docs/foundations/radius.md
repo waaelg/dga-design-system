@@ -1,6 +1,31 @@
-# DGA Border Radius Documentation
+# Border Radius
 
-Complete documentation for the DGA Design System border radius utilities and variables.
+Radius utilities and component rounding patterns.
+
+**Source:** `src/styles/utilities/radius.scss`
+
+---
+
+## Quick start (npm)
+
+```js
+import '@waaelg/dga-design-on-sass/style.css'
+```
+
+```html
+<button class="dga-btn dga-btn-primary dga-rounded-md">Button</button>
+<div class="dga-card dga-rounded-lg">Card</div>
+<img class="dga-rounded-full" src="avatar.jpg" alt="" />
+```
+
+| Class | Radius |
+|-------|--------|
+| `dga-rounded-sm` | 4px |
+| `dga-rounded-md` | 8px (default for inputs/buttons) |
+| `dga-rounded-lg` | 16px (cards) |
+| `dga-rounded-full` | Pill / circle |
+
+SCSS variables and mixins: [below](#scss-variables) (repo contributors).
 
 ---
 

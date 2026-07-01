@@ -1,29 +1,32 @@
-# DGA Grid System Documentation
+# Grid & Flex
 
-Complete documentation for the DGA Design System responsive grid framework.
+Responsive 12-column grid, flexbox utilities, display, gap, and layout helpers.
+
+**Source:** `src/styles/utilities/grid.scss`, `src/styles/variables/grid.scss`
 
 ---
 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Installation](#installation)
-3. [Getting Started](#getting-started)
-4. [Grid Basics](#grid-basics)
-5. [Containers](#containers)
-6. [Rows](#rows)
-7. [Columns](#columns)
-8. [Responsive Design](#responsive-design)
-9. [Flexbox Utilities](#flexbox-utilities)
-10. [Width & Height Utilities](#width--height-utilities)
-11. [Spacing & Gaps](#spacing--gaps)
-12. [Display Utilities](#display-utilities)
-13. [Position Utilities](#position-utilities)
-14. [Aspect Ratios](#aspect-ratios)
-15. [Configuration](#configuration)
-16. [Examples](#examples)
-17. [Best Practices](#best-practices)
-18. [Troubleshooting](#troubleshooting)
+2. [Quick start (npm)](#quick-start-npm)
+3. [For contributors (SCSS)](#for-contributors-scss)
+4. [Getting Started](#getting-started)
+5. [Grid Basics](#grid-basics)
+6. [Containers](#containers)
+7. [Rows](#rows)
+8. [Columns](#columns)
+9. [Responsive Design](#responsive-design)
+10. [Flexbox Utilities](#flexbox-utilities)
+11. [Width & Height Utilities](#width--height-utilities)
+12. [Spacing & Gaps](#spacing--gaps)
+13. [Display Utilities](#display-utilities)
+14. [Position Utilities](#position-utilities)
+15. [Aspect Ratios](#aspect-ratios)
+16. [Configuration](#configuration)
+17. [Examples](#examples)
+18. [Best Practices](#best-practices)
+19. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -51,7 +54,36 @@ The DGA Grid System is a powerful, flexible, mobile-first grid framework built w
 
 ---
 
-## Installation
+## Quick start (npm)
+
+Import the stylesheet once, then use layout classes in HTML:
+
+```js
+import '@waaelg/dga-design-on-sass/style.css'
+```
+
+```html
+<div class="dga-container">
+  <div class="dga-row">
+    <div class="dga-col-12 dga-col-md-6">Column A</div>
+    <div class="dga-col-12 dga-col-md-6">Column B</div>
+  </div>
+</div>
+
+<div class="dga-d-flex dga-flex-column dga-gap-4">
+  <button class="dga-btn dga-btn-primary">Action</button>
+</div>
+```
+
+| Related | Doc |
+|---------|-----|
+| Spacing & padding | [spacing.md](./spacing.md) |
+| Width & height | [width-height.md](./width-height.md) |
+| SCSS customization | [Configuration](#configuration) (repo contributors) |
+
+---
+
+## For contributors (SCSS)
 
 ### 1. Include the SCSS Files
 
@@ -572,7 +604,7 @@ Fixed, percentage, and viewport sizing utilities complement the grid and flexbox
 <div class="dga-w-full dga-h-48 dga-bg-gray-100"></div>
 ```
 
-See **[DGA Width & Height Documentation](./DGA-Width-Height-Documentation.md)** for the complete class list, named sizes, fractions, and troubleshooting.
+See **[Width & Height](./width-height.md)** for the complete class list, named sizes, fractions, and troubleshooting.
 
 ---
 
@@ -1270,7 +1302,7 @@ Only remove gutters when you have a specific design need:
 **Solution:**
 1. Ensure parent has `.dga-d-flex`
 2. Check for `flex-direction` conflicts
-3. Verify sufficient height for vertical alignment — use `dga-min-h-screen` or `dga-h-full` on the flex container (see [Width & Height docs](./DGA-Width-Height-Documentation.md))
+3. Verify sufficient height for vertical alignment — use `dga-min-h-screen` or `dga-h-full` on the flex container (see [Width & Height](./width-height.md))
 
 ### Grid Not Compiling
 
@@ -1354,7 +1386,7 @@ For IE 11 support, use margin-based spacing instead of gap:
 
 ## Resources
 
-- **Width & Height:** [DGA-Width-Height-Documentation.md](./DGA-Width-Height-Documentation.md)
+- **Width & Height:** [width-height.md](./width-height.md)
 - **npm Usage:** [README.md](../README.md)
 - **Source Code:** [GitHub Repository](https://github.com/waaelg/personal_fe_dga-sass)
 - **Design System:** [DGA Design Guidelines](#)

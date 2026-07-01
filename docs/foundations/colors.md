@@ -1,6 +1,30 @@
-# DGA Color System Documentation
+# Colors
 
-Complete documentation for the DGA Design System color palette and utilities - Based on the Saudi Arabia Government Platforms Code Design System.
+Color palettes, semantic utilities, and CSS classes for the DGA design system. Based on the Saudi Arabia Government Platforms Code Design System.
+
+**Source:** `src/styles/utilities/colors.scss`
+
+---
+
+## Quick start (npm)
+
+Import the stylesheet once — all color utilities are included:
+
+```js
+import '@waaelg/dga-design-on-sass/style.css'
+```
+
+```html
+<button class="dga-btn dga-btn-primary">Primary</button>
+<p class="dga-text-gray-700">Muted text</p>
+<div class="dga-bg-primary-50 dga-p-4">Tinted panel</div>
+```
+
+| More | Doc |
+|------|-----|
+| Cheatsheet | [colors-cheatsheet.md](./colors-cheatsheet.md) |
+| Hex swatches | [colors-swatches.md](./colors-swatches.md) |
+| SCSS customization | [SCSS Variables](#scss-variables) (repo contributors) |
 
 ---
 

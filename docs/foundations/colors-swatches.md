@@ -1,6 +1,6 @@
-# DGA Color Palette - Visual Reference
+# Colors — Swatches
 
-Complete visual reference of all DGA color palettes with hex values.
+Visual hex reference for all DGA palettes. Full guide: [colors.md](./colors.md) · Cheatsheet: [colors-cheatsheet.md](./colors-cheatsheet.md)
 
 ---
 

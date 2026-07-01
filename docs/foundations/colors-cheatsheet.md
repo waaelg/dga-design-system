@@ -1,6 +1,8 @@
-# DGA Color System - Quick Reference
+# Colors — Quick Reference
 
-Quick cheatsheet for DGA color utilities and palettes.
+Cheatsheet for common DGA color utilities. Full guide: [colors.md](./colors.md) · Swatches: [colors-swatches.md](./colors-swatches.md)
+
+**Source:** `src/styles/utilities/colors.scss`
 
 ---
 
@@ -580,7 +582,7 @@ Dark      → #111927 (Gray 900)
 
 ## 📖 Resources
 
-- **Full Documentation:** DGA-Color-System-Documentation.md
+- **Full documentation:** [colors.md](./colors.md)
 - **Primary Brand:** Saudi Green (#25935f)
 - **Total Colors:** 96 shades across 8 palettes
 - **Utility Classes:** 1000+ generated

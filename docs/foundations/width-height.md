@@ -1,6 +1,25 @@
-# DGA Width & Height Utilities
+# Width & Height
 
-Complete documentation for fixed, percentage, and viewport sizing utilities in the DGA Design System.
+Fixed, percentage, and viewport sizing utilities (`dga-w-*`, `dga-h-*`).
+
+**Source:** `src/styles/utilities/width.scss`, `src/styles/utilities/height.scss`
+
+---
+
+## Quick start (npm)
+
+```js
+import '@waaelg/dga-design-on-sass/style.css'
+```
+
+```html
+<div class="dga-w-full dga-h-screen dga-d-flex dga-flex-column">
+  <header class="dga-h-16">Header</header>
+  <main class="dga-flex-1 dga-min-h-0">Content</main>
+</div>
+```
+
+Common classes: `dga-w-full`, `dga-w-50`, `dga-h-full`, `dga-h-screen`, `dga-min-h-screen`, `dga-max-w-lg`.
 
 ---
 
@@ -282,5 +301,5 @@ $dga-heights: map.merge(
 
 ## Related Documentation
 
-- [DGA Grid System](./DGA-Grid-System-Documentation.md) — layout, flexbox, containers
+- [Grid & Flex](./grid.md) — layout, flexbox, containers
 - [README](../README.md) — npm install and usage

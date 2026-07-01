@@ -52,13 +52,23 @@ import '@waaelg/dga-design-on-sass/style.css';
 
 ### 3. Initialize JavaScript (only when needed)
 
-Static components work with CSS alone. Interactive components need a one-time JS setup:
+Static components work with CSS alone. For **legacy HTML markup**, interactive components need a one-time JS setup. **Web components** (`<dga-*>`) handle behavior automatically.
 
 ```js
 import '@waaelg/dga-design-on-sass/style.css';
-import { DGAAlert } from '@waaelg/dga-design-on-sass';
+import '@waaelg/dga-design-on-sass'; // registers <dga-*> elements
 
+// Legacy only:
+import { DGAAlert } from '@waaelg/dga-design-on-sass';
 new DGAAlert();
+```
+
+**Web component (no init):**
+
+```html
+<dga-alert variant="success-color" title="Success" dismissible>
+  Operation completed successfully.
+</dga-alert>
 ```
 
 ---
@@ -202,9 +212,15 @@ These work with markup and classes only (no JS required):
 - Tables — `dga-table`
 - Breadcrumb, divider, avatar
 
-For the full grid reference, see [docs/DGA-Grid-System-Documentation.md](./docs/DGA-Grid-System-Documentation.md).
+For the full documentation index, see **[docs/README.md](./docs/README.md)**.
 
-For width and height utilities, see [docs/DGA-Width-Height-Documentation.md](./docs/DGA-Width-Height-Documentation.md).
+Quick links:
+- [Documentation index](./docs/README.md)
+- [Installation](./docs/getting-started/installation.md)
+- [JavaScript API](./docs/getting-started/javascript-api.md)
+- [Web Components](./docs/getting-started/web-components.md)
+- [Components](./docs/README.md#components)
+- [Grid](./docs/foundations/grid.md) · [Colors](./docs/foundations/colors.md)
 
 ---
 
@@ -223,7 +239,19 @@ import {
 } from '@waaelg/dga-design-on-sass';
 ```
 
-### DGAAccordion
+Importing the package also registers **web components** — prefer these in Vue/React:
+
+| Web component | Legacy class |
+|---------------|--------------|
+| `<dga-alert>` | `DGAAlert` |
+| `<dga-accordion>` + `<dga-accordion-item>` | `DGAAccordion` |
+| `<dga-code-snippet>` | `DGACodeSnippet` |
+| `<dga-pie-chart>` | `DGAChart` |
+| `<dga-verify-bar>` | `DGAVerifyBar` |
+
+See [Web Components](./docs/getting-started/web-components.md) for framework setup.
+
+### DGAAccordion (legacy)
 
 Expands and collapses accordion panels. Supports click and keyboard (Enter / Space).
 
@@ -244,7 +272,7 @@ Expands and collapses accordion panels. Supports click and keyboard (Enter / Spa
 new DGAAccordion(document.getElementById('myAccordion'));
 ```
 
-### DGAAlert
+### DGAAlert (legacy)
 
 Handles dismiss buttons on alerts. Requires `[data-alert-close]` on the close button.
 
@@ -265,7 +293,7 @@ new DGAAlert(); // listens on document by default
 
 **Variants:** `success-color`, `warning-color`, `destructive-color`, `info-color`, `neutral-color`, `success-white`, `warning-white`, `destructive-white`, `info-white`, `neutral-white`
 
-### DGAChart
+### DGAChart (legacy)
 
 Renders a pie chart using a `conic-gradient` background.
 
@@ -282,7 +310,7 @@ new DGAChart(document.getElementById('myChart'), [
 
 Set `data-hole="true"` on the element for a donut-style chart.
 
-### DGACodeSnippet
+### DGACodeSnippet (legacy)
 
 Enables copy-to-clipboard on code snippet blocks.
 
@@ -323,7 +351,23 @@ const menu = new DGAMenuDropDown({
 });
 ```
 
-### DGAVerifyBar
+### Web components
+
+```html
+<dga-alert variant="success-color" title="Success" dismissible>Message</dga-alert>
+
+<dga-accordion>
+  <dga-accordion-item title="Question">Answer</dga-accordion-item>
+</dga-accordion>
+
+<dga-code-snippet code="npm install @waaelg/dga-design-on-sass"></dga-code-snippet>
+
+<dga-pie-chart data='[{"label":"A","from":"0%","to":"100%","color":"primary-100"}]'></dga-pie-chart>
+
+<dga-verify-bar domain=".edu.sa"></dga-verify-bar>
+```
+
+### DGAVerifyBar (legacy)
 
 Controls the Saudi government verification bar (legacy markup with fixed element IDs).
 
@@ -338,24 +382,8 @@ verifyBar.menu = menu;
 menu.verifyBar = verifyBar;
 ```
 
-### `<dga-verify-bar>` web component
-
-Importing the main package also registers the `<dga-verify-bar>` custom element — a self-contained alternative to `DGAVerifyBar`.
-
-```html
-<!-- Default -->
-<dga-verify-bar></dga-verify-bar>
-
-<!-- With custom attributes -->
-<dga-verify-bar
-  domain=".edu.sa"
-  registration-number="20250105758"
-  registration-link="https://raqmi.dga.gov.sa/...">
-</dga-verify-bar>
-```
-
-| Attribute | Default | Description |
-|-----------|---------|-------------|
+| `<dga-verify-bar>` attribute | Default | Description |
+|------------------------------|---------|-------------|
 | `domain` | `.edu.sa` | Official domain suffix shown in the verify panel |
 | `registration-number` | `20250105758` | DGA registration number |
 | `registration-link` | DGA Raqmi URL | Link to the platform license page |
@@ -408,10 +436,10 @@ Documentation:
 
 | File | Contents |
 |------|----------|
-| `docs/DGA-Grid-System-Documentation.md` | Grid, flexbox, layout |
-| `docs/DGA-Width-Height-Documentation.md` | Width & height utilities |
-| `docs/DGA-Color-System-Documentation.md` | Color tokens and utilities |
-| `docs/DGA-Border-Radius-Documentation.md` | Border radius utilities |
+| `docs/foundations/grid.md` | Grid, flexbox, layout |
+| `docs/foundations/width-height.md` | Width & height utilities |
+| `docs/foundations/colors.md` | Color tokens and utilities |
+| `docs/foundations/radius.md` | Border radius utilities |
 
 ---
 

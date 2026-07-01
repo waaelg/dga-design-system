@@ -1,3 +1,5 @@
+import { copyText, markCopyButtonCopied } from "./shared/copy-text.js";
+
 export default class DGACodeSnippet {
   constructor(root = document) {
     this.root = root;
@@ -20,48 +22,23 @@ export default class DGACodeSnippet {
 
     let textToCopy = "";
     if (inlineSnippet) {
-      const codeElement = inlineSnippet.querySelector(".dga-code-snippet-inline__content");
+      const codeElement = inlineSnippet.querySelector(
+        ".dga-code-snippet-inline__content"
+      );
       textToCopy = codeElement?.textContent?.trim() || "";
     } else if (multilineSnippet) {
-      const codeElement = multilineSnippet.querySelector(".dga-code-snippet-multiline__code code");
+      const codeElement = multilineSnippet.querySelector(
+        ".dga-code-snippet-multiline__code code"
+      );
       textToCopy = codeElement?.textContent || "";
     }
 
     if (!textToCopy) return;
 
-    const copied = await this.copyText(textToCopy);
+    const copied = await copyText(textToCopy);
     if (!copied) return;
 
-    const previousLabel = copyButton.getAttribute("aria-label") || "Copy code";
-    copyButton.setAttribute("aria-label", "Copied");
-    copyButton.setAttribute("data-copied", "true");
-
-    window.setTimeout(() => {
-      copyButton.setAttribute("aria-label", previousLabel);
-      copyButton.setAttribute("data-copied", "false");
-    }, 1200);
-  }
-
-  async copyText(text) {
-    try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(text);
-        return true;
-      }
-    } catch (_error) {
-      // Fallback below for restricted clipboard environments.
-    }
-
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "absolute";
-    textarea.style.left = "-9999px";
-    document.body.appendChild(textarea);
-    textarea.select();
-    const success = document.execCommand("copy");
-    document.body.removeChild(textarea);
-    return success;
+    await markCopyButtonCopied(copyButton);
   }
 
   destroy() {

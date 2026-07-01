@@ -30,7 +30,7 @@ $dga-avatar-border-color: white;
   &[data-square="true"] {
     border-radius: $dga-avatar-square-border-radius;
   }
-  s &[data-size="xs"] {
+  &[data-size="xs"] {
     width: $dga-avatar-xs;
     height: $dga-avatar-xs;
   }
