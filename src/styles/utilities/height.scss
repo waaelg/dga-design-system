@@ -1,0 +1,184 @@
+@use "sass:map";
+@use "sass:math";
+
+// =============================================================================
+// DGA Design System - Height Utilities
+// File: styles/utilities/height.scss
+// =============================================================================
+
+@import "../variables/spacing";
+
+// =============================================================================
+// PERCENTAGE-BASED HEIGHT VALUES
+// =============================================================================
+
+$dga-percentage-heights: (
+  "1-12": math.percentage(math.div(1, 12)),
+  "2-12": math.percentage(math.div(2, 12)),
+  "3-12": math.percentage(math.div(3, 12)),
+  "4-12": math.percentage(math.div(4, 12)),
+  "5-12": math.percentage(math.div(5, 12)),
+  "6-12": math.percentage(math.div(6, 12)),
+  "7-12": math.percentage(math.div(7, 12)),
+  "8-12": math.percentage(math.div(8, 12)),
+  "9-12": math.percentage(math.div(9, 12)),
+  "10-12": math.percentage(math.div(10, 12)),
+  "11-12": math.percentage(math.div(11, 12)),
+  "12-12": math.percentage(math.div(12, 12)),
+  "1-2": 50%,
+  "1-3": math.percentage(math.div(1, 3)),
+  "2-3": math.percentage(math.div(2, 3)),
+  "1-4": 25%,
+  "2-4": 50%,
+  "3-4": 75%,
+  "1-5": 20%,
+  "2-5": 40%,
+  "3-5": 60%,
+  "4-5": 80%,
+  "1-6": math.percentage(math.div(1, 6)),
+  "5-6": math.percentage(math.div(5, 6)),
+  "0": 0%,
+  "10": 10%,
+  "20": 20%,
+  "25": 25%,
+  "30": 30%,
+  "33": math.percentage(math.div(1, 3)),
+  "40": 40%,
+  "50": 50%,
+  "60": 60%,
+  "66": math.percentage(math.div(2, 3)),
+  "70": 70%,
+  "75": 75%,
+  "80": 80%,
+  "90": 90%,
+  "95": 95%,
+  "100": 100%,
+);
+
+// =============================================================================
+// HEIGHT UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-height-utilities: (
+  "height-named": (
+    "prefix": "h",
+    "property": "height",
+    "values": $dga-heights,
+  ),
+  "height-spacing": (
+    "prefix": "h",
+    "property": "height",
+    "values": $dga-spacing,
+  ),
+  "height-percentage": (
+    "prefix": "h",
+    "property": "height",
+    "values": $dga-percentage-heights,
+  ),
+);
+
+$dga-max-height-utilities: (
+  "max-height-named": (
+    "prefix": "max-h",
+    "property": "max-height",
+    "values": $dga-heights,
+  ),
+  "max-height-spacing": (
+    "prefix": "max-h",
+    "property": "max-height",
+    "values": $dga-spacing,
+  ),
+  "max-height-percentage": (
+    "prefix": "max-h",
+    "property": "max-height",
+    "values": $dga-percentage-heights,
+  ),
+);
+
+$dga-min-height-utilities: (
+  "min-height-named": (
+    "prefix": "min-h",
+    "property": "min-height",
+    "values": $dga-heights,
+  ),
+  "min-height-spacing": (
+    "prefix": "min-h",
+    "property": "min-height",
+    "values": $dga-spacing,
+  ),
+  "min-height-percentage": (
+    "prefix": "min-h",
+    "property": "min-height",
+    "values": $dga-percentage-heights,
+  ),
+);
+
+// =============================================================================
+// HEIGHT UTILITIES GENERATOR MIXINS
+// =============================================================================
+
+@mixin generate-height-utilities($utilities: $dga-height-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: if(
+        $key == "0",
+        ".dga-#{$prefix}-0",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        #{$property}: #{$value} !important;
+      }
+    }
+  }
+}
+
+@mixin generate-max-height-utilities($utilities: $dga-max-height-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: if(
+        $key == "0",
+        ".dga-#{$prefix}-0",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        #{$property}: #{$value} !important;
+      }
+    }
+  }
+}
+
+@mixin generate-min-height-utilities($utilities: $dga-min-height-utilities) {
+  @each $utility-name, $utility-config in $utilities {
+    $prefix: map.get($utility-config, "prefix");
+    $property: map.get($utility-config, "property");
+    $values: map.get($utility-config, "values");
+
+    @each $key, $value in $values {
+      $class-name: if(
+        $key == "0",
+        ".dga-#{$prefix}-0",
+        ".dga-#{$prefix}-#{$key}"
+      );
+
+      #{$class-name} {
+        #{$property}: #{$value} !important;
+      }
+    }
+  }
+}
+
+@mixin generate-all-height-utilities() {
+  @include generate-height-utilities();
+  @include generate-max-height-utilities();
+  @include generate-min-height-utilities();
+}

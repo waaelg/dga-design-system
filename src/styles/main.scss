@@ -8,6 +8,7 @@
 // =============================================================================
 @import "utilities/colors";
 @import "utilities/width";
+@import "utilities/height";
 @import "utilities/padding";
 @import "utilities/margin";
 @import "utilities/grid";
@@ -39,6 +40,7 @@
 // GENERATE ALL UTILITIES
 // =============================================================================
 @include generate-all-width-utilities();
+@include generate-all-height-utilities();
 @include generate-all-padding-utilities();
 @include generate-all-margin-utilities();
 @include generate-all-color-utilities();

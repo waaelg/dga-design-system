@@ -159,6 +159,14 @@ $dga-widths: (
   "fit": fit-content,
 );
 
+// Height tokens mirror width scale; viewport unit uses vh instead of vw
+$dga-heights: map.merge(
+  $dga-widths,
+  (
+    "screen": 100vh,
+  )
+);
+
 // Individual width variables
 $dga-width-xxs: $dga-spacing-base * 80; // 320px
 $dga-width-xs: $dga-spacing-base * 96; // 384px
@@ -261,6 +269,10 @@ $dga-paragraph-max-width: $dga-spacing-base * 180; // 720px
 
 @function width($key) {
   @return map.get($dga-widths, $key);
+}
+
+@function height($key) {
+  @return map.get($dga-heights, $key);
 }
 
 // Usage examples:

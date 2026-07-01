@@ -6,13 +6,13 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/main.js"),
-      formats: ["es"], // Only ES modules
-      fileName: () => "index.js", // Simple filename
+      formats: ["es"],
+      fileName: () => "index.js",
     },
     sourcemap: true,
     rollupOptions: {
       output: {
-        assetFileNames: "style.css", // Simple CSS name
+        assetFileNames: "style.css",
       },
     },
   },
@@ -24,7 +24,5 @@ export default defineConfig({
       },
     },
   },
-  server: {
-    port: 3005,
-  },
+
 });

@@ -15,14 +15,15 @@ Complete documentation for the DGA Design System responsive grid framework.
 7. [Columns](#columns)
 8. [Responsive Design](#responsive-design)
 9. [Flexbox Utilities](#flexbox-utilities)
-10. [Spacing & Gaps](#spacing--gaps)
-11. [Display Utilities](#display-utilities)
-12. [Position Utilities](#position-utilities)
-13. [Aspect Ratios](#aspect-ratios)
-14. [Configuration](#configuration)
-15. [Examples](#examples)
-16. [Best Practices](#best-practices)
-17. [Troubleshooting](#troubleshooting)
+10. [Width & Height Utilities](#width--height-utilities)
+11. [Spacing & Gaps](#spacing--gaps)
+12. [Display Utilities](#display-utilities)
+13. [Position Utilities](#position-utilities)
+14. [Aspect Ratios](#aspect-ratios)
+15. [Configuration](#configuration)
+16. [Examples](#examples)
+17. [Best Practices](#best-practices)
+18. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -33,7 +34,7 @@ The DGA Grid System is a powerful, flexible, mobile-first grid framework built w
 - **12-column responsive grid** based on flexbox
 - **6 responsive breakpoints** (xs, sm, md, lg, xl, xxl)
 - **Configurable gutters** that adapt to screen size
-- **Comprehensive utilities** for layout, spacing, and alignment
+- **Comprehensive utilities** for layout, spacing, sizing, and alignment
 - **Dynamic generation** - easily customizable through SCSS variables
 
 ### Key Features
@@ -43,6 +44,7 @@ The DGA Grid System is a powerful, flexible, mobile-first grid framework built w
 ✅ Consistent 12-column system across all breakpoints  
 ✅ Dynamic gutter system (16px mobile, 32px desktop)  
 ✅ Extensive flexbox utilities  
+✅ Width and height utility classes (`dga-w-*`, `dga-h-*`, `dga-min-h-screen`, etc.)  
 ✅ Modern gap properties support  
 ✅ Aspect ratio utilities  
 ✅ Position and z-index utilities  
@@ -59,9 +61,13 @@ The DGA Grid System is a powerful, flexible, mobile-first grid framework built w
 @import 'path/to/variables/grid';
 
 // Then import utilities
+@import 'path/to/utilities/width';
+@import 'path/to/utilities/height';
 @import 'path/to/utilities/grid';
 
-// Generate all grid utilities
+// Generate utilities
+@include generate-all-width-utilities();
+@include generate-all-height-utilities();
 @include generate-all-grid-utilities();
 ```
 
@@ -74,6 +80,8 @@ The DGA Grid System is a powerful, flexible, mobile-first grid framework built w
 @include generate-column-utilities();
 @include generate-responsive-columns();
 @include generate-flex-utilities();
+@include generate-all-width-utilities();
+@include generate-all-height-utilities();
 ```
 
 ---
@@ -388,6 +396,13 @@ Powerful utilities for controlling flex layouts.
 
 ### Flex Direction
 
+| Class | CSS |
+|-------|-----|
+| `dga-flex-row` | `flex-direction: row` |
+| `dga-flex-row-reverse` | `flex-direction: row-reverse` |
+| `dga-flex-col` or `dga-flex-column` | `flex-direction: column` |
+| `dga-flex-col-reverse` or `dga-flex-column-reverse` | `flex-direction: column-reverse` |
+
 ```html
 <!-- Row (horizontal) -->
 <div class="dga-d-flex dga-flex-row">
@@ -417,6 +432,17 @@ Powerful utilities for controlling flex layouts.
 ```
 
 ### Justify Content (Horizontal Alignment)
+
+| Class | CSS value |
+|-------|-----------|
+| `dga-justify-content-start` | `flex-start` |
+| `dga-justify-content-end` | `flex-end` |
+| `dga-justify-content-center` | `center` |
+| `dga-justify-content-between` | `space-between` |
+| `dga-justify-content-around` | `space-around` |
+| `dga-justify-content-evenly` | `space-evenly` |
+
+> `stretch` is **not** valid for `justify-content`. Use `dga-align-items-stretch` for cross-axis stretching.
 
 ```html
 <!-- Start (default) -->
@@ -513,10 +539,40 @@ Powerful utilities for controlling flex layouts.
 
 ```html
 <!-- Horizontally and vertically centered -->
-<div class="dga-d-flex dga-justify-content-center dga-align-items-center" style="min-height: 100vh;">
+<div class="dga-d-flex dga-justify-content-center dga-align-items-center dga-min-h-screen">
   <div>Perfectly centered content</div>
 </div>
 ```
+
+---
+
+## Width & Height Utilities
+
+Fixed, percentage, and viewport sizing utilities complement the grid and flexbox system.
+
+### Quick reference
+
+| Goal | Class |
+|------|-------|
+| Full width | `dga-w-full` or `dga-w-100` |
+| Full height | `dga-h-full` or `dga-h-100` |
+| Viewport width | `dga-w-screen` (`100vw`) |
+| Viewport height | `dga-h-screen` or `dga-min-h-screen` (`100vh`) |
+| Named size | `dga-w-lg`, `dga-h-md`, etc. |
+| Spacing scale | `dga-w-4`, `dga-h-16` (4px base) |
+| Max / min | `dga-max-w-3xl`, `dga-min-h-screen` |
+
+```html
+<!-- Full viewport hero -->
+<section class="dga-d-flex dga-align-items-center dga-justify-content-center dga-min-h-screen">
+  <h1>Welcome</h1>
+</section>
+
+<!-- Card with fixed image height -->
+<div class="dga-w-full dga-h-48 dga-bg-gray-100"></div>
+```
+
+See **[DGA Width & Height Documentation](./DGA-Width-Height-Documentation.md)** for the complete class list, named sizes, fractions, and troubleshooting.
 
 ---
 
@@ -933,8 +989,8 @@ $dga-container-max-widths: dga-add-container-width(
 ### Example 3: Hero Section
 
 ```html
-<section class="dga-d-flex dga-align-items-center dga-justify-content-center" 
-         style="min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+<section class="dga-d-flex dga-align-items-center dga-justify-content-center dga-min-h-screen"
+         style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
   <div class="dga-container">
     <div class="dga-row dga-justify-content-center">
       <div class="dga-col-12 dga-col-md-8 dga-col-lg-6">
@@ -1214,7 +1270,7 @@ Only remove gutters when you have a specific design need:
 **Solution:**
 1. Ensure parent has `.dga-d-flex`
 2. Check for `flex-direction` conflicts
-3. Verify sufficient height for vertical alignment
+3. Verify sufficient height for vertical alignment — use `dga-min-h-screen` or `dga-h-full` on the flex container (see [Width & Height docs](./DGA-Width-Height-Documentation.md))
 
 ### Grid Not Compiling
 
@@ -1279,6 +1335,10 @@ For IE 11 support, use margin-based spacing instead of gap:
 | `.col-6` | `.dga-col-6` | Same behavior |
 | `.col-md-4` | `.dga-col-md-4` | Same behavior |
 | `.d-flex` | `.dga-d-flex` | Same behavior |
+| `.flex-column` | `.dga-flex-col` or `.dga-flex-column` | Both column class names work |
+| `.w-100` | `.dga-w-full` or `.dga-w-100` | Same behavior |
+| `.h-100` | `.dga-h-full` or `.dga-h-100` | Same behavior |
+| `.min-vh-100` | `.dga-min-h-screen` | Viewport height |
 | `.justify-content-center` | `.dga-justify-content-center` | Same behavior |
 | `.g-3` | `.dga-gap-3` | Uses different scale |
 | `.offset-2` | `.dga-offset-2` | Same behavior |
@@ -1294,7 +1354,9 @@ For IE 11 support, use margin-based spacing instead of gap:
 
 ## Resources
 
-- **Source Code:** [GitHub Repository](#)
+- **Width & Height:** [DGA-Width-Height-Documentation.md](./DGA-Width-Height-Documentation.md)
+- **npm Usage:** [README.md](../README.md)
+- **Source Code:** [GitHub Repository](https://github.com/waaelg/personal_fe_dga-sass)
 - **Design System:** [DGA Design Guidelines](#)
 - **Support:** [Issues & Questions](#)
 - **Changelog:** [Version History](#)
@@ -1307,6 +1369,6 @@ For IE 11 support, use margin-based spacing instead of gap:
 
 ---
 
-**Version:** 1.0.0  
-**Last Updated:** December 2024  
+**Version:** 1.1.0  
+**Last Updated:** June 2025  
 **Maintained by:** DGA Design Team
