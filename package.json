@@ -1,5 +1,5 @@
 {
-  "name": "@waaelg/dga-design-on-sass",
+  "name": "@waaelg/dga-design-system",
   "version": "0.4.1",
   "type": "module",
   "exports": {
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/waaelg/personal_fe_dga-sass.git"
+    "url": "https://github.com/waaelg/dga-design-system.git"
   },
   "scripts": {
     "dev": "vite",
