@@ -1,8 +1,8 @@
-# Web Components
+﻿# Web Components
 
 Web components are **standard HTML** — they work anywhere you can write markup and load a script: static HTML, **ASP.NET Core (`.cshtml`)**, PHP, Blazor (with script import), Vue, React, etc.
 
-Importing `@waaelg/dga-design-on-sass` registers these custom elements:
+Importing `@waaelg/dga-design-system` registers these custom elements:
 
 | Element | Legacy alternative |
 |---------|-------------------|
@@ -22,7 +22,7 @@ No manual `customElements.define` or `new ClassName()` is required.
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-on-sass/dist/style.css" />
+  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-system/dist/style.css" />
 </head>
 <body>
   <dga-alert variant="success-color" title="نجاح" dismissible>
@@ -30,7 +30,7 @@ No manual `customElements.define` or `new ClassName()` is required.
   </dga-alert>
 
   <script type="module">
-    import './node_modules/@waaelg/dga-design-on-sass/dist/index.js'
+    import './node_modules/@waaelg/dga-design-system/dist/index.js'
   </script>
 </body>
 </html>
@@ -72,8 +72,8 @@ For `dga-pie-chart`, pass JSON in the `data` attribute (escape quotes in Razor o
 ## Bundlers (Vite, webpack, etc.)
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css'
-import '@waaelg/dga-design-on-sass'
+import '@waaelg/dga-design-system/style.css'
+import '@waaelg/dga-design-system'
 ```
 
 Then use `<dga-alert>`, `<dga-accordion>`, etc. in your templates.

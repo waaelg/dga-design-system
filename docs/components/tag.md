@@ -11,8 +11,14 @@ Compact labels for status, categories, and metadata.
 ## Basic tag
 
 ```html
-<span class="dga-tag">تاق افتراضي</span>
+<span class="dga-tag">Default tag</span>
 ```
+
+<Demo title="Preview">
+
+<span class="dga-tag">Default tag</span>
+
+</Demo>
 
 Use `<span class="dga-tag">` — includes a default info icon on the left (LTR) or right (RTL).
 
@@ -28,10 +34,21 @@ Use `<span class="dga-tag">` — includes a default info icon on the left (LTR) 
 | `warning` | Orange |
 
 ```html
-<span class="dga-tag" data-variant="success">تاق نجاح</span>
-<span class="dga-tag" data-variant="info">تاق معلومة</span>
-<span class="dga-tag" data-variant="warning">تاق تحذير</span>
+<span class="dga-tag" data-variant="success">Success tag</span>
+<span class="dga-tag" data-variant="info">Info tag</span>
+<span class="dga-tag" data-variant="warning">Warning tag</span>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-wrap dga-gap-2 dga-align-items-center">
+  <span class="dga-tag">Default tag</span>
+  <span class="dga-tag" data-variant="success">Success tag</span>
+  <span class="dga-tag" data-variant="info">Info tag</span>
+  <span class="dga-tag" data-variant="warning">Warning tag</span>
+</div>
+
+</Demo>
 
 ---
 
@@ -44,10 +61,20 @@ Use `<span class="dga-tag">` — includes a default info icon on the left (LTR) 
 | `data-icononly="true"` | Circle icon only (no text) |
 
 ```html
-<span class="dga-tag" data-outline="true">تاق بحدود</span>
-<span class="dga-tag" data-outline="true" data-rounded="true">تاق مدور بحدود</span>
+<span class="dga-tag" data-outline="true">Outlined tag</span>
+<span class="dga-tag" data-outline="true" data-rounded="true">Rounded outlined</span>
 <span class="dga-tag" data-variant="warning" data-rounded="true" data-icononly="true"></span>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-wrap dga-gap-2 dga-align-items-center">
+  <span class="dga-tag" data-outline="true">Outlined tag</span>
+  <span class="dga-tag" data-outline="true" data-rounded="true">Rounded outlined</span>
+  <span class="dga-tag" data-variant="warning" data-rounded="true" data-icononly="true"></span>
+</div>
+
+</Demo>
 
 ---
 
@@ -55,13 +82,25 @@ Use `<span class="dga-tag">` — includes a default info icon on the left (LTR) 
 
 ```html
 <div class="dga-d-flex dga-flex-wrap dga-gap-2 dga-align-items-center">
-  <span class="dga-tag" data-outline="true">تاق بحدود</span>
-  <span class="dga-tag">تاق افتراضي</span>
-  <span class="dga-tag" data-variant="success">تاق نجاح</span>
+  <span class="dga-tag" data-outline="true">Outlined tag</span>
+  <span class="dga-tag">Default tag</span>
+  <span class="dga-tag" data-variant="success">Success tag</span>
   <div class="dga-divider" data-variant="primary" data-direction="v"></div>
-  <span class="dga-tag" data-variant="info" data-rounded="true">تاق معلومة</span>
+  <span class="dga-tag" data-variant="info" data-rounded="true">Info tag</span>
 </div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-wrap dga-gap-2 dga-align-items-center">
+  <span class="dga-tag" data-outline="true">Outlined tag</span>
+  <span class="dga-tag">Default tag</span>
+  <span class="dga-tag" data-variant="success">Success tag</span>
+  <div class="dga-divider" data-variant="primary" data-direction="v"></div>
+  <span class="dga-tag" data-variant="info" data-rounded="true">Info tag</span>
+</div>
+
+</Demo>
 
 ---
 

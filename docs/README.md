@@ -1,8 +1,8 @@
-# DGA Design System — Documentation
+﻿# DGA Design System — Documentation
 
-Documentation for **@waaelg/dga-design-on-sass**: Saudi DGA design system utilities, components, and optional JavaScript.
+Documentation for **@waaelg/dga-design-system**: Saudi DGA design system utilities, components, and optional JavaScript.
 
-**Package:** [npm](https://www.npmjs.com/package/@waaelg/dga-design-on-sass) · **Demo:** run `npm run dev` in the repo root
+**Package:** [npm](https://www.npmjs.com/package/@waaelg/dga-design-system) · **Demo:** run `npm run dev` in the repo root
 
 ---
 

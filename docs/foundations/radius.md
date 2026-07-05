@@ -1,4 +1,4 @@
-# Border Radius
+﻿# Border Radius
 
 Radius utilities and component rounding patterns.
 
@@ -9,7 +9,7 @@ Radius utilities and component rounding patterns.
 ## Quick start (npm)
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css'
+import '@waaelg/dga-design-system/style.css'
 ```
 
 ```html

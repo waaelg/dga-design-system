@@ -1,6 +1,6 @@
-# Changelog
+﻿# Changelog
 
-All notable changes to **@waaelg/dga-design-on-sass**.
+All notable changes to **@waaelg/dga-design-system**.
 
 ---
 

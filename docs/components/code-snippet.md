@@ -1,4 +1,4 @@
-# Code Snippet
+﻿# Code Snippet
 
 Inline and multi-line code blocks with copy button.
 
@@ -13,13 +13,19 @@ Inline and multi-line code blocks with copy button.
 ### Inline
 
 ```html
-<dga-code-snippet code="npm install @waaelg/dga-design-on-sass"></dga-code-snippet>
+<dga-code-snippet code="npm install @waaelg/dga-design-system"></dga-code-snippet>
 ```
+
+<Demo title="Preview" client>
+
+<dga-code-snippet code="npm install @waaelg/dga-design-system"></dga-code-snippet>
+
+</Demo>
 
 Or with text content:
 
 ```html
-<dga-code-snippet>npm install @waaelg/dga-design-on-sass</dga-code-snippet>
+<dga-code-snippet>npm install @waaelg/dga-design-system</dga-code-snippet>
 ```
 
 ### Multiline
@@ -28,6 +34,13 @@ Or with text content:
 <dga-code-snippet multiline code="const app = createApp(App)
 app.mount('#app')"></dga-code-snippet>
 ```
+
+<Demo title="Preview" client>
+
+<dga-code-snippet multiline code="const app = createApp(App)
+app.mount('#app')"></dga-code-snippet>
+
+</Demo>
 
 ### Attributes
 
@@ -48,7 +61,7 @@ Copy fires `dga-code-copy` on success. No `new DGACodeSnippet()` required.
 
 ```html
 <div class="dga-code-snippet-inline">
-  <div class="dga-code-snippet-inline__content">npm install @waaelg/dga-design-on-sass</div>
+  <div class="dga-code-snippet-inline__content">npm install @waaelg/dga-design-system</div>
   <button type="button" class="dga-code-snippet-inline__copy"
           aria-label="Copy code" data-copied="false">
     <!-- copy icon SVG -->
@@ -56,8 +69,22 @@ Copy fires `dga-code-copy` on success. No `new DGACodeSnippet()` required.
 </div>
 ```
 
+<Demo title="Preview">
+
+<div class="dga-code-snippet-inline">
+  <div class="dga-code-snippet-inline__content">npm install @waaelg/dga-design-system</div>
+  <button type="button" class="dga-code-snippet-inline__copy" aria-label="Copy code" data-copied="false">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.75"></rect>
+      <path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"></path>
+    </svg>
+  </button>
+</div>
+
+</Demo>
+
 ```js
-import { DGACodeSnippet } from '@waaelg/dga-design-on-sass'
+import { DGACodeSnippet } from '@waaelg/dga-design-system'
 new DGACodeSnippet()
 ```
 

@@ -18,6 +18,16 @@ Navigation trail showing the current page hierarchy.
 </div>
 ```
 
+<Demo title="Preview">
+
+<div class="dga-breadcrumb">
+  <a class="dga-breadcrumb-item" href="#">Home</a>
+  <a class="dga-breadcrumb-item" href="#">About</a>
+  <a class="dga-breadcrumb-item" href="#" data-current="true">Our vision</a>
+</div>
+
+</Demo>
+
 ---
 
 ## Classes
@@ -35,11 +45,22 @@ Navigation trail showing the current page hierarchy.
 Separator chevron flips automatically when `dir="rtl"` is on a parent:
 
 ```html
-<div class="dga-breadcrumb" dir="rtl">
-  <a class="dga-breadcrumb-item" href="#">الرئيسية</a>
-  <a class="dga-breadcrumb-item" data-current="true">رؤيتنا</a>
+<div class="dga-breadcrumb">
+  <a class="dga-breadcrumb-item" href="#">Home</a>
+  <a class="dga-breadcrumb-item" href="#">About</a>
+  <a class="dga-breadcrumb-item" data-current="true">Contact</a>
 </div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-breadcrumb">
+  <a class="dga-breadcrumb-item" href="#">Home</a>
+  <a class="dga-breadcrumb-item" href="#">About</a>
+  <a class="dga-breadcrumb-item" data-current="true">Contact</a>
+</div>
+
+</Demo>
 
 ---
 

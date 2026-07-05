@@ -13,8 +13,14 @@ Primary action component for the DGA design system.
 Buttons use the base class `dga-btn` plus a variant and optional size modifier.
 
 ```html
-<button class="dga-btn dga-btn-primary dga-btn-md">الاجراء الرئيسي</button>
+<button class="dga-btn dga-btn-primary dga-btn-md">Primary action</button>
 ```
+
+<Demo title="Preview">
+
+<button class="dga-btn dga-btn-primary dga-btn-md">Primary action</button>
+
+</Demo>
 
 ---
 
@@ -47,10 +53,40 @@ Always use a `<button>` element (or `<a>` styled as button for navigation).
 | `dga-btn-info` | Info action |
 
 ```html
-<button class="dga-btn dga-btn-primary">Primary</button>
-<button class="dga-btn dga-btn-secondary-outline">Secondary outline</button>
-<button class="dga-btn dga-btn-destructive">Delete</button>
+<div class="dga-d-flex dga-flex-wrap dga-gap-3 dga-align-items-center">
+  <button class="dga-btn dga-btn-primary dga-btn-md">Primary</button>
+  <button class="dga-btn dga-btn-primary-outline dga-btn-md">Primary outline</button>
+  <button class="dga-btn dga-btn-neutral dga-btn-md">Neutral</button>
+  <button class="dga-btn dga-btn-secondary-solid dga-btn-md">Secondary solid</button>
+  <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Secondary outline</button>
+  <button class="dga-btn dga-btn-subtle dga-btn-md">Subtle</button>
+  <button class="dga-btn dga-btn-ghost dga-btn-md">Ghost</button>
+  <button class="dga-btn dga-btn-destructive dga-btn-md">Destructive</button>
+  <button class="dga-btn dga-btn-destructive-outline dga-btn-md">Destructive outline</button>
+  <button class="dga-btn dga-btn-success dga-btn-md">Success</button>
+  <button class="dga-btn dga-btn-warning dga-btn-md">Warning</button>
+  <button class="dga-btn dga-btn-info dga-btn-md">Info</button>
+</div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-wrap dga-gap-3 dga-align-items-center">
+  <button class="dga-btn dga-btn-primary dga-btn-md">Primary</button>
+  <button class="dga-btn dga-btn-primary-outline dga-btn-md">Primary outline</button>
+  <button class="dga-btn dga-btn-neutral dga-btn-md">Neutral</button>
+  <button class="dga-btn dga-btn-secondary-solid dga-btn-md">Secondary solid</button>
+  <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Secondary outline</button>
+  <button class="dga-btn dga-btn-subtle dga-btn-md">Subtle</button>
+  <button class="dga-btn dga-btn-ghost dga-btn-md">Ghost</button>
+  <button class="dga-btn dga-btn-destructive dga-btn-md">Destructive</button>
+  <button class="dga-btn dga-btn-destructive-outline dga-btn-md">Destructive outline</button>
+  <button class="dga-btn dga-btn-success dga-btn-md">Success</button>
+  <button class="dga-btn dga-btn-warning dga-btn-md">Warning</button>
+  <button class="dga-btn dga-btn-info dga-btn-md">Info</button>
+</div>
+
+</Demo>
 
 ---
 
@@ -65,9 +101,22 @@ Always use a `<button>` element (or `<a>` styled as button for navigation).
 If no size class is set, **medium** (`md`) applies.
 
 ```html
-<button class="dga-btn dga-btn-primary dga-btn-sm">Small</button>
-<button class="dga-btn dga-btn-primary dga-btn-lg">Large</button>
+<div class="dga-d-flex dga-gap-3 dga-align-items-center">
+  <button class="dga-btn dga-btn-primary dga-btn-sm">Small</button>
+  <button class="dga-btn dga-btn-primary dga-btn-md">Medium</button>
+  <button class="dga-btn dga-btn-primary dga-btn-lg">Large</button>
+</div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-gap-3 dga-align-items-center">
+  <button class="dga-btn dga-btn-primary dga-btn-sm">Small</button>
+  <button class="dga-btn dga-btn-primary dga-btn-md">Medium</button>
+  <button class="dga-btn dga-btn-primary dga-btn-lg">Large</button>
+</div>
+
+</Demo>
 
 ---
 
@@ -83,7 +132,7 @@ If no size class is set, **medium** (`md`) applies.
 ```html
 <!-- Text + icon -->
 <button class="dga-btn dga-btn-primary dga-btn-md">
-  الاجراء الرئيسي
+  Primary action
   <img class="dga-btn__icon" src="arrow.svg" alt="" />
 </button>
 
@@ -107,8 +156,22 @@ Always provide `aria-label` on icon-only buttons.
 | `disabled` attribute | Native disabled state |
 
 ```html
-<button class="dga-btn dga-btn-primary dga-btn-block" disabled>Full width</button>
+<div class="dga-d-flex dga-flex-col dga-gap-3">
+  <button class="dga-btn dga-btn-primary dga-btn-md dga-btn-block">Full width</button>
+  <button class="dga-btn dga-btn-primary dga-btn-md dga-btn-pill">Pill button</button>
+  <button class="dga-btn dga-btn-primary dga-btn-md" disabled>Disabled</button>
+</div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-col dga-gap-3">
+  <button class="dga-btn dga-btn-primary dga-btn-md dga-btn-block">Full width</button>
+  <button class="dga-btn dga-btn-primary dga-btn-md dga-btn-pill">Pill button</button>
+  <button class="dga-btn dga-btn-primary dga-btn-md" disabled>Disabled</button>
+</div>
+
+</Demo>
 
 ---
 
@@ -116,10 +179,19 @@ Always provide `aria-label` on icon-only buttons.
 
 ```html
 <div class="dga-btn-group">
-  <button class="dga-btn dga-btn-secondary-outline">Left</button>
-  <button class="dga-btn dga-btn-secondary-outline">Right</button>
+  <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Left</button>
+  <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Right</button>
 </div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-btn-group">
+  <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Left</button>
+  <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Right</button>
+</div>
+
+</Demo>
 
 ---
 
@@ -127,14 +199,21 @@ Always provide `aria-label` on icon-only buttons.
 
 ```html
 <div class="dga-d-flex dga-flex-col dga-gap-3 dga-align-items-start">
-  <button class="dga-btn dga-btn-primary dga-btn-md">
-    الاجراء الرئيسي
-    <img class="dga-btn__icon" src="arrow_left.svg" alt="" />
-  </button>
+  <button class="dga-btn dga-btn-primary dga-btn-md">Primary action</button>
   <button class="dga-btn dga-btn-neutral dga-btn-md">Neutral</button>
-  <button class="dga-btn dga-btn-subtle dga-btn-md">اجراء دقيق</button>
+  <button class="dga-btn dga-btn-subtle dga-btn-md">Subtle action</button>
 </div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-col dga-gap-3 dga-align-items-start">
+  <button class="dga-btn dga-btn-primary dga-btn-md">Primary action</button>
+  <button class="dga-btn dga-btn-neutral dga-btn-md">Neutral</button>
+  <button class="dga-btn dga-btn-subtle dga-btn-md">Subtle action</button>
+</div>
+
+</Demo>
 
 ---
 

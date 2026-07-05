@@ -14,25 +14,61 @@ Data tables with optional contained and striped styles.
 <table class="dga-table" data-contained="true" data-striped="true">
   <thead>
     <tr>
-      <th>الاسم</th>
-      <th>العمر</th>
-      <th>المدينة</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>أحمد</td>
+      <td>Ahmed</td>
       <td>30</td>
-      <td>الرياض</td>
+      <td>Riyadh</td>
     </tr>
     <tr>
-      <td>سارة</td>
+      <td>Sara</td>
       <td>25</td>
-      <td>جدة</td>
+      <td>Jeddah</td>
+    </tr>
+    <tr>
+      <td>Mohammed</td>
+      <td>28</td>
+      <td>Dammam</td>
     </tr>
   </tbody>
 </table>
 ```
+
+<Demo title="Preview">
+
+<table class="dga-table" data-contained="true" data-striped="true">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ahmed</td>
+      <td>30</td>
+      <td>Riyadh</td>
+    </tr>
+    <tr>
+      <td>Sara</td>
+      <td>25</td>
+      <td>Jeddah</td>
+    </tr>
+    <tr>
+      <td>Mohammed</td>
+      <td>28</td>
+      <td>Dammam</td>
+    </tr>
+  </tbody>
+</table>
+
+</Demo>
 
 ---
 

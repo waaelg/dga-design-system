@@ -1,4 +1,4 @@
-# JavaScript API
+﻿# JavaScript API
 
 The package exports **plain JavaScript classes**, not Vue/React components.
 
@@ -10,7 +10,7 @@ import {
   DGACodeSnippet,
   DGAMenuDropDown,
   DGAVerifyBar,
-} from '@waaelg/dga-design-on-sass'
+} from '@waaelg/dga-design-system'
 ```
 
 Importing the main entry also registers these custom elements:
@@ -145,7 +145,7 @@ menu.verifyBar = verifyBar
   <dga-accordion-item title="Question">Answer</dga-accordion-item>
 </dga-accordion>
 
-<dga-code-snippet code="npm install @waaelg/dga-design-on-sass"></dga-code-snippet>
+<dga-code-snippet code="npm install @waaelg/dga-design-system"></dga-code-snippet>
 
 <dga-pie-chart data='[{"label":"A","from":"0%","to":"50%","color":"primary-100"}]'></dga-pie-chart>
 
@@ -161,7 +161,7 @@ Full guide: [Web Components](./web-components.md).
 ```vue
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
-import { DGAAlert } from '@waaelg/dga-design-on-sass'
+import { DGAAlert } from '@waaelg/dga-design-system'
 
 let alertInstance
 

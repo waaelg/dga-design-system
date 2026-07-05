@@ -1,17 +1,17 @@
-# Installation
+﻿# Installation
 
 ## npm
 
 ```bash
-npm install @waaelg/dga-design-on-sass
+npm install @waaelg/dga-design-system
 ```
 
 ## Package exports
 
 | Import | Purpose |
 |--------|---------|
-| `@waaelg/dga-design-on-sass/style.css` | All compiled styles |
-| `@waaelg/dga-design-on-sass` | JavaScript classes + `<dga-*>` web components |
+| `@waaelg/dga-design-system/style.css` | All compiled styles |
+| `@waaelg/dga-design-system` | JavaScript classes + `<dga-*>` web components |
 
 Importing the main entry registers web components automatically. See [Web Components](./web-components.md).
 
@@ -25,7 +25,7 @@ Works with static HTML, **ASP.NET Core `.cshtml`**, PHP, etc. Load CSS + JS once
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-on-sass/dist/style.css" />
+  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-system/dist/style.css" />
 </head>
 <body>
   <dga-alert variant="success-color" title="نجاح" dismissible>
@@ -33,7 +33,7 @@ Works with static HTML, **ASP.NET Core `.cshtml`**, PHP, etc. Load CSS + JS once
   </dga-alert>
 
   <script type="module">
-    import './node_modules/@waaelg/dga-design-on-sass/dist/index.js'
+    import './node_modules/@waaelg/dga-design-system/dist/index.js'
   </script>
 </body>
 </html>
@@ -66,8 +66,8 @@ In any view:
 
 ```js
 import { createApp } from 'vue'
-import '@waaelg/dga-design-on-sass/style.css'
-import '@waaelg/dga-design-on-sass'
+import '@waaelg/dga-design-system/style.css'
+import '@waaelg/dga-design-system'
 import App from './App.vue'
 
 createApp(App).mount('#app')
@@ -88,7 +88,7 @@ createApp(App).mount('#app')
 ```js
 export default defineConfig({
   optimizeDeps: {
-    exclude: ['@waaelg/dga-design-on-sass'],
+    exclude: ['@waaelg/dga-design-system'],
   },
 })
 ```
@@ -99,8 +99,8 @@ export default defineConfig({
 
 ```jsx
 // main.jsx
-import '@waaelg/dga-design-on-sass/style.css'
-import '@waaelg/dga-design-on-sass'
+import '@waaelg/dga-design-system/style.css'
+import '@waaelg/dga-design-system'
 ```
 
 ```jsx
@@ -124,7 +124,7 @@ For legacy HTML markup, use `useEffect` with `new DGAAlert()` instead. See [Web 
 
 ```tsx
 // app/layout.tsx
-import '@waaelg/dga-design-on-sass/style.css'
+import '@waaelg/dga-design-system/style.css'
 
 export default function RootLayout({ children }) {
   return (
@@ -146,7 +146,7 @@ dist/index.js    → JS components
 dist/style.css   → compiled CSS
 ```
 
-SCSS source is not included. Clone the [GitHub repo](https://github.com/waaelg/personal_fe_dga-sass) to customize variables.
+SCSS source is not included. Clone the [GitHub repo](https://github.com/waaelg/dga-design-system) to customize variables.
 
 ---
 

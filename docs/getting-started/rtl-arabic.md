@@ -1,4 +1,4 @@
-# RTL & Arabic
+﻿# RTL & Arabic
 
 The DGA design system targets Saudi government websites. Arabic and RTL are first-class.
 
@@ -35,7 +35,7 @@ body {
 }
 ```
 
-No extra font import is required when using `@waaelg/dga-design-on-sass/style.css`.
+No extra font import is required when using `@waaelg/dga-design-system/style.css`.
 
 ---
 

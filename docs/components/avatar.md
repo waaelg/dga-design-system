@@ -18,6 +18,19 @@ User profile images in circular or square shapes.
 </div>
 ```
 
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-gap-3 dga-align-items-center">
+  <div class="dga-avatar" data-size="md">
+    <img src="/avatar-placeholder.svg" alt="User name" />
+  </div>
+  <div class="dga-avatar" data-size="lg">
+    <img src="/avatar-placeholder.svg" alt="User name" />
+  </div>
+</div>
+
+</Demo>
+
 ---
 
 ## Sizes
@@ -38,6 +51,18 @@ User profile images in circular or square shapes.
 </div>
 ```
 
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-gap-3 dga-align-items-end">
+  <div class="dga-avatar" data-size="xs"><img src="/avatar-placeholder.svg" alt="" /></div>
+  <div class="dga-avatar" data-size="sm"><img src="/avatar-placeholder.svg" alt="" /></div>
+  <div class="dga-avatar" data-size="md"><img src="/avatar-placeholder.svg" alt="" /></div>
+  <div class="dga-avatar" data-size="lg"><img src="/avatar-placeholder.svg" alt="" /></div>
+  <div class="dga-avatar" data-size="xl"><img src="/avatar-placeholder.svg" alt="" /></div>
+</div>
+
+</Demo>
+
 ---
 
 ## Shape
@@ -52,6 +77,19 @@ User profile images in circular or square shapes.
   <img src="logo.png" alt="Organization" />
 </div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-gap-3 dga-align-items-center">
+  <div class="dga-avatar" data-size="md">
+    <img src="/avatar-placeholder.svg" alt="Circle avatar" />
+  </div>
+  <div class="dga-avatar" data-size="md" data-square="true">
+    <img src="/DGA-logo-icon.svg" alt="Square avatar" />
+  </div>
+</div>
+
+</Demo>
 
 ---
 

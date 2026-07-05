@@ -1,4 +1,4 @@
-# Accordion
+﻿# Accordion
 
 Expandable sections for FAQs and grouped content.
 
@@ -21,6 +21,19 @@ Expandable sections for FAQs and grouped content.
 </dga-accordion>
 ```
 
+<Demo title="Preview" client>
+
+<dga-accordion>
+  <dga-accordion-item title="What is an accordion?">
+    An accordion lets users expand and collapse sections of content.
+  </dga-accordion-item>
+  <dga-accordion-item title="How do I use it?" size="lg" open>
+    Import the package once — no manual JS init required.
+  </dga-accordion-item>
+</dga-accordion>
+
+</Demo>
+
 ### `dga-accordion-item` attributes
 
 | Attribute | Default | Description |
@@ -36,7 +49,7 @@ Expandable sections for FAQs and grouped content.
 ```html
 <div class="dga-acc" id="myAccordion">
   <div class="dga-acc-item">
-    <button class="dga-acc-header" aria-expanded="false">
+    <button type="button" class="dga-acc-header" aria-expanded="false">
       <span>What is an accordion?</span>
     </button>
     <div class="dga-acc-content">
@@ -45,11 +58,27 @@ Expandable sections for FAQs and grouped content.
       </div>
     </div>
   </div>
+  <div class="dga-acc-item">
+    <button type="button" class="dga-acc-header" aria-expanded="false">
+      <span>How do I use it?</span>
+    </button>
+    <div class="dga-acc-content">
+      <div class="dga-acc-body">
+        Import the package once — no manual JS init required.
+      </div>
+    </div>
+  </div>
 </div>
 ```
 
+<Demo title="Preview" client>
+
+<LegacyAccordionDemo />
+
+</Demo>
+
 ```js
-import { DGAAccordion } from '@waaelg/dga-design-on-sass'
+import { DGAAccordion } from '@waaelg/dga-design-system'
 new DGAAccordion(document.getElementById('myAccordion'))
 ```
 
@@ -80,6 +109,12 @@ Open state: `dga-acc-item--active` on the item (added by JS).
 ```html
 <button class="dga-acc-header" data-size="lg" aria-expanded="false">Large header</button>
 ```
+
+<Demo title="Preview" client>
+
+<LegacyAccordionDemo variant="sizes" />
+
+</Demo>
 
 Web component: `size="lg"` on `<dga-accordion-item>`.
 

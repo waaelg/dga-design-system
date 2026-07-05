@@ -102,8 +102,8 @@ Prefer gap over margin for spacing between flex children:
 
 ```html
 <div class="dga-d-flex dga-flex-col dga-gap-3">
-  <button class="dga-btn dga-btn-primary">زر 1</button>
-  <button class="dga-btn dga-btn-neutral">زر 2</button>
+  <button class="dga-btn dga-btn-primary">Button 1</button>
+  <button class="dga-btn dga-btn-neutral">Button 2</button>
 </div>
 ```
 

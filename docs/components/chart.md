@@ -1,4 +1,4 @@
-# Pie Chart
+﻿# Pie Chart
 
 CSS conic-gradient pie / donut chart with labels.
 
@@ -13,19 +13,30 @@ CSS conic-gradient pie / donut chart with labels.
 ```html
 <dga-pie-chart
   data='[
-    {"label":"البند الأول","from":"0%","to":"40%","color":"var(--dga-primary-100)"},
-    {"label":"البند الثاني","from":"40%","to":"70%","color":"var(--dga-gray-200)"},
-    {"label":"البند الثالث","from":"70%","to":"90%","color":"var(--dga-primary-700)"},
-    {"label":"البند الرابع","from":"90%","to":"100%","color":"var(--dga-primary-700)"}
+    {"label":"Item 1","from":"0%","to":"40%","color":"var(--dga-primary-100)"},
+    {"label":"Item 2","from":"40%","to":"70%","color":"var(--dga-gray-200)"},
+    {"label":"Item 3","from":"70%","to":"100%","color":"var(--dga-primary-700)"}
   ]'>
 </dga-pie-chart>
 ```
 
+<Demo title="Preview" client>
+
+<DgaPieChart variant="pie" />
+
+</Demo>
+
 ### Donut
 
 ```html
-<dga-pie-chart hole data='[...]'></dga-pie-chart>
+<dga-pie-chart hole data='[{"label":"A","from":"0%","to":"35%","color":"var(--dga-primary-100)"},{"label":"B","from":"35%","to":"65%","color":"var(--dga-gray-200)"},{"label":"C","from":"65%","to":"100%","color":"var(--dga-primary-700)"}]'></dga-pie-chart>
 ```
+
+<Demo title="Preview" client>
+
+<DgaPieChart variant="donut" />
+
+</Demo>
 
 ### Attributes
 
@@ -49,13 +60,12 @@ No `new DGAChart()` required. Update the `data` attribute to re-render.
 ```
 
 ```js
-import { DGAChart } from '@waaelg/dga-design-on-sass'
+import { DGAChart } from '@waaelg/dga-design-system'
 
 const data = [
-  { label: 'البند الأول', from: '0%', to: '40%', color: 'var(--dga-primary-100)' },
-  { label: 'البند الثاني', from: '40%', to: '70%', color: 'var(--dga-gray-200)' },
-  { label: 'البند الثالث', from: '70%', to: '90%', color: 'var(--dga-primary-700)' },
-  { label: 'البند الرابع', from: '90%', to: '100%', color: 'var(--dga-primary-700)' },
+  { label: 'Item 1', from: '0%', to: '40%', color: 'var(--dga-primary-100)' },
+  { label: 'Item 2', from: '40%', to: '70%', color: 'var(--dga-gray-200)' },
+  { label: 'Item 3', from: '70%', to: '100%', color: 'var(--dga-primary-700)' },
 ]
 
 new DGAChart(document.getElementById('chart1'), data)

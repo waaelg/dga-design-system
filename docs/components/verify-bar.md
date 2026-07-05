@@ -1,4 +1,4 @@
-# Verify Bar
+﻿# Verify Bar
 
 Saudi government official site verification banner.
 
@@ -15,6 +15,12 @@ Import the package once — registers `<dga-verify-bar>` automatically:
 ```html
 <dga-verify-bar></dga-verify-bar>
 ```
+
+<Demo title="Preview" client>
+
+<DgaVerifyBar />
+
+</Demo>
 
 ### Custom attributes
 
@@ -45,7 +51,7 @@ Requires fixed element IDs:
 - `#dga-verify-bar_content`
 
 ```js
-import { DGAVerifyBar, DGAMenuDropDown } from '@waaelg/dga-design-on-sass'
+import { DGAVerifyBar, DGAMenuDropDown } from '@waaelg/dga-design-system'
 
 const verifyBar = new DGAVerifyBar()
 const menu = new DGAMenuDropDown()

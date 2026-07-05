@@ -1,4 +1,4 @@
-# Navbar
+﻿# Navbar
 
 Responsive navigation with dropdown menus and mobile toggle.
 
@@ -11,34 +11,47 @@ Responsive navigation with dropdown menus and mobile toggle.
 ## HTML structure
 
 ```html
-<nav class="dga-navbar dga-px-3" role="navigation" aria-label="Main navigation">
-  <a class="dga-navbar-brand" href="#">
-    <img src="logo.svg" alt="Site name" />
-  </a>
+<div dir="rtl">
+  <nav class="dga-navbar dga-px-3" role="navigation" aria-label="Main navigation">
+    <a class="dga-navbar-brand" href="#">
+      <img src="/logo.svg" alt="Site name" />
+    </a>
 
-  <ul class="dga-menu">
-    <li>
-      <a class="dga-menu-item" href="#">Link</a>
-    </li>
-    <li>
-      <a class="dga-menu-item dga-has-dropdown" href="#" role="button"
-         aria-expanded="false" aria-haspopup="true">
-        الرئيسية
-      </a>
-      <div class="dga-dropdown">
-        <div class="dga-dropdown-content">
-          <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
+    <ul class="dga-menu">
+      <li>
+        <a class="dga-menu-item" href="#">Link</a>
+      </li>
+      <li>
+        <a class="dga-menu-item dga-has-dropdown" href="#" role="button"
+           aria-expanded="false" aria-haspopup="true">
+          Home
+        </a>
+        <div class="dga-dropdown">
+          <div class="dga-dropdown-content">
+            <ul>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
 
-  <button class="dga-navbar-toggler" aria-label="Open menu" aria-expanded="false"></button>
-</nav>
+    <button class="dga-navbar-toggler" type="button" aria-label="Open menu" aria-expanded="false">
+      <!-- hamburger icon -->
+    </button>
+  </nav>
+</div>
 ```
+
+<Demo title="Preview" client>
+
+<NavbarDemo />
+
+</Demo>
+
+> **Note:** The navbar is designed for **`dir="rtl"`** (Saudi government sites). Dropdown chevrons and menu layout follow RTL. Initialize `DGAMenuDropDown` for interactive dropdowns.
 
 ---
 
@@ -63,7 +76,7 @@ Responsive navigation with dropdown menus and mobile toggle.
 ## JavaScript
 
 ```js
-import { DGAMenuDropDown, DGAVerifyBar } from '@waaelg/dga-design-on-sass'
+import { DGAMenuDropDown, DGAVerifyBar } from '@waaelg/dga-design-system'
 
 const menu = new DGAMenuDropDown({
   navbar: document.querySelector('.dga-navbar'),

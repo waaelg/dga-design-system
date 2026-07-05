@@ -14,6 +14,12 @@ Styled anchor links for inline navigation.
 <a href="#" class="dga-link">Link</a>
 ```
 
+<Demo title="Preview">
+
+<a href="#" class="dga-link" onclick="return false;">Link</a>
+
+</Demo>
+
 Saudi green color (`$dga-sa-600`), underline on hover.
 
 ---
@@ -28,6 +34,15 @@ Saudi green color (`$dga-sa-600`), underline on hover.
 ```html
 <a href="#" class="dga-link" data-variant="inline">Inline link</a>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-col dga-gap-2 dga-align-items-start">
+  <a href="#" class="dga-link" onclick="return false;">Default link</a>
+  <a href="#" class="dga-link" data-variant="inline" onclick="return false;">Inline link</a>
+</div>
+
+</Demo>
 
 ---
 

@@ -1,4 +1,4 @@
-# @waaelg/dga-design-on-sass
+﻿# @waaelg/dga-design-system
 
 Saudi **DGA (Digital Government Authority)** design system — compiled CSS utilities, components, and optional JavaScript for interactive behavior.
 
@@ -14,15 +14,15 @@ Saudi **DGA (Digital Government Authority)** design system — compiled CSS util
 ## Installation
 
 ```bash
-npm install @waaelg/dga-design-on-sass
+npm install @waaelg/dga-design-system
 ```
 
 The published package includes compiled assets from the `dist` folder:
 
 | Import path | Description |
 |-------------|-------------|
-| `@waaelg/dga-design-on-sass/style.css` | All compiled styles |
-| `@waaelg/dga-design-on-sass` | JavaScript component classes |
+| `@waaelg/dga-design-system/style.css` | All compiled styles |
+| `@waaelg/dga-design-system` | JavaScript component classes |
 
 ---
 
@@ -31,7 +31,7 @@ The published package includes compiled assets from the `dist` folder:
 ### 1. Import the stylesheet
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css';
+import '@waaelg/dga-design-system/style.css';
 ```
 
 ### 2. Use `dga-*` classes in your HTML
@@ -55,11 +55,11 @@ import '@waaelg/dga-design-on-sass/style.css';
 Static components work with CSS alone. For **legacy HTML markup**, interactive components need a one-time JS setup. **Web components** (`<dga-*>`) handle behavior automatically.
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css';
-import '@waaelg/dga-design-on-sass'; // registers <dga-*> elements
+import '@waaelg/dga-design-system/style.css';
+import '@waaelg/dga-design-system'; // registers <dga-*> elements
 
 // Legacy only:
-import { DGAAlert } from '@waaelg/dga-design-on-sass';
+import { DGAAlert } from '@waaelg/dga-design-system';
 new DGAAlert();
 ```
 
@@ -80,15 +80,15 @@ new DGAAlert();
 Add the CSS import once in your entry file (`main.js`, `main.tsx`, `App.vue`, etc.):
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css';
+import '@waaelg/dga-design-system/style.css';
 ```
 
 **React example**
 
 ```jsx
 import { useEffect } from 'react';
-import '@waaelg/dga-design-on-sass/style.css';
-import { DGAAccordion, DGAAlert } from '@waaelg/dga-design-on-sass';
+import '@waaelg/dga-design-system/style.css';
+import { DGAAccordion, DGAAlert } from '@waaelg/dga-design-system';
 
 export function App() {
   useEffect(() => {
@@ -119,7 +119,7 @@ export function App() {
 Import styles in `app/layout.tsx`:
 
 ```tsx
-import '@waaelg/dga-design-on-sass/style.css';
+import '@waaelg/dga-design-system/style.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -136,7 +136,7 @@ Use a client component for JS initialization:
 'use client';
 
 import { useEffect } from 'react';
-import { DGAAlert } from '@waaelg/dga-design-on-sass';
+import { DGAAlert } from '@waaelg/dga-design-system';
 
 export function DGAInit() {
   useEffect(() => {
@@ -155,13 +155,13 @@ export function DGAInit() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-on-sass/dist/style.css" />
+  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-system/dist/style.css" />
 </head>
 <body>
   <button class="dga-btn dga-btn-primary">زر</button>
 
   <script type="module">
-    import { DGAAlert } from './node_modules/@waaelg/dga-design-on-sass/dist/index.js';
+    import { DGAAlert } from './node_modules/@waaelg/dga-design-system/dist/index.js';
     new DGAAlert();
   </script>
 </body>
@@ -236,7 +236,7 @@ import {
   DGACodeSnippet,
   DGAMenuDropDown,
   DGAVerifyBar,
-} from '@waaelg/dga-design-on-sass';
+} from '@waaelg/dga-design-system';
 ```
 
 Importing the package also registers **web components** — prefer these in Vue/React:
@@ -360,7 +360,7 @@ const menu = new DGAMenuDropDown({
   <dga-accordion-item title="Question">Answer</dga-accordion-item>
 </dga-accordion>
 
-<dga-code-snippet code="npm install @waaelg/dga-design-on-sass"></dga-code-snippet>
+<dga-code-snippet code="npm install @waaelg/dga-design-system"></dga-code-snippet>
 
 <dga-pie-chart data='[{"label":"A","from":"0%","to":"100%","color":"primary-100"}]'></dga-pie-chart>
 
@@ -401,7 +401,7 @@ The design system targets Arabic government websites. Set `dir="rtl"` and `lang=
 Only compiled files are published:
 
 ```
-node_modules/@waaelg/dga-design-on-sass/
+node_modules/@waaelg/dga-design-system/
 ├── dist/
 │   ├── index.js      # JavaScript components
 │   ├── index.js.map
@@ -409,15 +409,15 @@ node_modules/@waaelg/dga-design-on-sass/
 └── package.json
 ```
 
-SCSS source files are **not** included in the npm package. To customize variables or mixins, clone the [repository](https://github.com/waaelg/personal_fe_dga-sass) and build locally.
+SCSS source files are **not** included in the npm package. To customize variables or mixins, clone the [repository](https://github.com/waaelg/dga-design-system) and build locally.
 
 ---
 
 ## Local development (contributors)
 
 ```bash
-git clone https://github.com/waaelg/personal_fe_dga-sass.git
-cd personal_fe_dga-sass
+git clone https://github.com/waaelg/dga-design-system.git
+cd dga-design-system
 npm install
 npm run dev      # demo pages at http://localhost:5173
 npm run build    # outputs dist/index.js and dist/style.css
@@ -446,7 +446,7 @@ Documentation:
 ## Troubleshooting
 
 **Styles not applied**
-- Confirm `import '@waaelg/dga-design-on-sass/style.css'` runs before your app renders.
+- Confirm `import '@waaelg/dga-design-system/style.css'` runs before your app renders.
 - In plain HTML, verify the `<link>` path points to `dist/style.css`.
 
 **Interactive component not working**
@@ -468,7 +468,7 @@ Documentation:
   ```js
   export default defineConfig({
     optimizeDeps: {
-      exclude: ['@waaelg/dga-design-on-sass'],
+      exclude: ['@waaelg/dga-design-system'],
     },
   })
   ```

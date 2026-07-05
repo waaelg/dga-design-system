@@ -8,8 +8,7 @@
   },
   "files": [
     "dist",
-    "README.md",
-    "docs"
+    "README.md"
   ],
   "repository": {
     "type": "git",
@@ -18,12 +17,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@types/node": "^24.9.1",
     "sass": "^1.93.2",
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "vitepress": "^1.6.4"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

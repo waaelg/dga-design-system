@@ -12,20 +12,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Gray (Neutral Palette)
 
-```
-█ 25   #fcfcfd  │ Body background, subtle tint
-█ 50   #f9fafb  │ Light background, cards
-█ 100  #f3f4f6  │ Hover states, disabled backgrounds
-█ 200  #e5e7eb  │ Borders, dividers ⭐
-█ 300  #d2d6db  │ Strong dividers
-█ 400  #9da4ae  │ Placeholder text, icons
-█ 500  #6c737f  │ Secondary icons
-█ 600  #4d5761  │ Muted text ⭐
-█ 700  #384250  │ Secondary text ⭐
-█ 800  #1f2a37  │ Emphasis, headings
-█ 900  #111927  │ Dark backgrounds
-█ 950  #0d121c  │ Primary text, maximum contrast ⭐
-```
+<ColorPalette palette="gray" />
 
 **Primary Uses:** Text hierarchy, backgrounds, borders
 
@@ -33,20 +20,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Primary - Saudi Green 🇸🇦 (Brand Palette)
 
-```
-█ 25   #f7fdf9  │ Subtle green tint
-█ 50   #f3fcf6  │ Light green background
-█ 100  #dff6e7  │ Success message backgrounds
-█ 200  #b8eacb  │ Hover states, light accent
-█ 300  #88d8ad  │ Active states, decorative
-█ 400  #54c08a  │ Vibrant decorative
-█ 500  #25935f  │ MAIN SAUDI GREEN ⭐⭐⭐
-█ 600  #1b8354  │ Primary hover ⭐
-█ 700  #166a45  │ Primary active ⭐
-█ 800  #14573a  │ Brand text ⭐
-█ 900  #104631  │ Dark brand accent
-█ 950  #092a1e  │ Maximum contrast
-```
+<ColorPalette palette="primary" />
 
 **Main Color:** `#25935f` (500 shade)  
 **Primary Uses:** Buttons, links, brand elements, CTAs
@@ -55,20 +29,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Gold (Secondary Palette)
 
-```
-█ 25   #fffef7  │ Subtle gold tint
-█ 50   #fffef2  │ Light gold background
-█ 100  #fffce6  │ Highlight backgrounds
-█ 200  #fcf3bd  │ Soft accent
-█ 300  #fae996  │ Decorative elements
-█ 400  #f7d54d  │ Vibrant gold
-█ 500  #f5bd02  │ MAIN GOLD ⭐⭐
-█ 600  #dba102  │ Gold hover
-█ 700  #b87b02  │ Gold active
-█ 800  #945c01  │ Gold text
-█ 900  #6e3c00  │ Dark gold
-█ 950  #472400  │ Maximum contrast
-```
+<ColorPalette palette="gold" />
 
 **Main Color:** `#f5bd02` (500 shade)  
 **Primary Uses:** Secondary buttons, badges, accents, premium features
@@ -77,20 +38,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Lavender (Accent Palette)
 
-```
-█ 25   #fefcff  │ Subtle lavender
-█ 50   #f9f5fa  │ Light lavender background
-█ 100  #f2e9f5  │ Soft accent backgrounds
-█ 200  #e1cce8  │ Decorative
-█ 300  #ccadd9  │ Hover states
-█ 400  #a57bba  │ Active states
-█ 500  #80519f  │ MAIN LAVENDER ⭐
-█ 600  #6d428f  │ Emphasis
-█ 700  #532d75  │ Strong accent
-█ 800  #3d1d5e  │ Lavender text
-█ 900  #281047  │ Dark lavender
-█ 950  #16072e  │ Maximum contrast
-```
+<ColorPalette palette="lavender" />
 
 **Main Color:** `#80519f` (500 shade)  
 **Primary Uses:** Special highlights, tertiary elements, decorative accents
@@ -99,20 +47,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Error/Danger (Red Palette)
 
-```
-█ 25   #fffbfa  │ Subtle error tint
-█ 50   #fef3f2  │ Error backgrounds ⭐
-█ 100  #fee4e2  │ Alert backgrounds
-█ 200  #fecdca  │ Light error ⭐
-█ 300  #fda29b  │ Hover states
-█ 400  #f97066  │ Active states
-█ 500  #f04438  │ MAIN ERROR ⭐⭐
-█ 600  #d92d20  │ Error text ⭐⭐
-█ 700  #b42318  │ Strong error ⭐
-█ 800  #912018  │ Dark error text
-█ 900  #7a271a  │ Maximum error
-█ 950  #55160c  │ Deep contrast
-```
+<ColorPalette palette="error" />
 
 **Main Color:** `#f04438` (500 shade)  
 **Text Color:** `#d92d20` (600 shade)  
@@ -122,20 +57,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Warning (Orange Palette)
 
-```
-█ 25   #fffcf5  │ Subtle warning
-█ 50   #fffaeb  │ Warning backgrounds ⭐
-█ 100  #fef0c7  │ Alert backgrounds
-█ 200  #fedf89  │ Light warning ⭐
-█ 300  #fec84b  │ Hover states
-█ 400  #fdb022  │ Active states
-█ 500  #f79009  │ MAIN WARNING ⭐⭐
-█ 600  #dc6803  │ Warning text ⭐⭐
-█ 700  #b54708  │ Strong warning ⭐
-█ 800  #93370d  │ Dark warning
-█ 900  #7a2e0e  │ Maximum warning
-█ 950  #4e1d09  │ Deep contrast
-```
+<ColorPalette palette="warning" />
 
 **Main Color:** `#f79009` (500 shade)  
 **Text Color:** `#dc6803` (600 shade)  
@@ -145,20 +67,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Info (Blue Palette)
 
-```
-█ 25   #f5faff  │ Subtle info
-█ 50   #eff8ff  │ Info backgrounds ⭐
-█ 100  #d1e9ff  │ Light info backgrounds
-█ 200  #b2ddff  │ Soft info accent ⭐
-█ 300  #84caff  │ Hover states
-█ 400  #53b1fd  │ Active states
-█ 500  #2e90fa  │ MAIN INFO ⭐⭐
-█ 600  #1570ef  │ Info text ⭐⭐
-█ 700  #175cd3  │ Strong info ⭐
-█ 800  #1849a9  │ Dark info
-█ 900  #194185  │ Maximum info
-█ 950  #102a56  │ Deep contrast
-```
+<ColorPalette palette="info" />
 
 **Main Color:** `#2e90fa` (500 shade)  
 **Text Color:** `#1570ef` (600 shade)  
@@ -168,20 +77,7 @@ The DGA Design System includes **8 color palettes** with **12 shades each** (25-
 
 ## Success (Green Palette)
 
-```
-█ 25   #f6fef9  │ Subtle success
-█ 50   #ecfdf3  │ Success backgrounds ⭐
-█ 100  #dcfae6  │ Light success backgrounds
-█ 200  #abefc6  │ Soft success accent ⭐
-█ 300  #75e0a7  │ Hover states
-█ 400  #47cd89  │ Active states
-█ 500  #17b26a  │ MAIN SUCCESS ⭐⭐
-█ 600  #079455  │ Success text ⭐⭐
-█ 700  #067647  │ Strong success ⭐
-█ 800  #085d3a  │ Dark success
-█ 900  #074d31  │ Maximum success
-█ 950  #053321  │ Deep contrast
-```
+<ColorPalette palette="success" />
 
 **Main Color:** `#17b26a` (500 shade)  
 **Text Color:** `#079455` (600 shade)  

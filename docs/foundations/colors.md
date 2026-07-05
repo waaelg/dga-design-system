@@ -1,4 +1,4 @@
-# Colors
+﻿# Colors
 
 Color palettes, semantic utilities, and CSS classes for the DGA design system. Based on the Saudi Arabia Government Platforms Code Design System.
 
@@ -11,7 +11,7 @@ Color palettes, semantic utilities, and CSS classes for the DGA design system. B
 Import the stylesheet once — all color utilities are included:
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css'
+import '@waaelg/dga-design-system/style.css'
 ```
 
 ```html
@@ -100,6 +100,8 @@ The neutral palette for text, backgrounds, and borders.
 | 900 | `#111927` | Dark backgrounds |
 | 950 | `#0d121c` | **Primary text** |
 
+<ColorPalette palette="gray" />
+
 **Classes:**
 ```html
 <div class="dga-text-gray-950">Primary text</div>
@@ -127,6 +129,8 @@ The primary brand color representing Saudi Arabia.
 | 800 | `#14573a` | **Brand text** |
 | 900 | `#104631` | Dark accent |
 | 950 | `#092a1e` | Maximum contrast |
+
+<ColorPalette palette="primary" />
 
 **Classes:**
 ```html
@@ -161,6 +165,8 @@ Complementary color representing Saudi gold and luxury.
 | 900 | `#6e3c00` | Dark accent |
 | 950 | `#472400` | Maximum contrast |
 
+<ColorPalette palette="gold" />
+
 **Classes:**
 ```html
 <div class="dga-bg-gold-500">Gold background</div>
@@ -189,6 +195,8 @@ Elegant accent color for special highlights.
 | 900 | `#281047` | Dark |
 | 950 | `#16072e` | Maximum contrast |
 
+<ColorPalette palette="lavender" />
+
 **Classes:**
 ```html
 <div class="dga-bg-lavender-100">Lavender background</div>
@@ -215,6 +223,8 @@ For errors, alerts, and destructive actions.
 | 800 | `#912018` | Dark error |
 | 900 | `#7a271a` | Maximum error |
 | 950 | `#55160c` | Error text on light |
+
+<ColorPalette palette="error" />
 
 **Classes:**
 ```html
@@ -244,6 +254,8 @@ For warnings and cautionary messages.
 | 900 | `#7a2e0e` | Maximum warning |
 | 950 | `#4e1d09` | Deep contrast |
 
+<ColorPalette palette="warning" />
+
 **Classes:**
 ```html
 <div class="dga-bg-warning-50 dga-text-warning-700">Warning</div>
@@ -271,6 +283,8 @@ For informational messages and neutral highlights.
 | 900 | `#194185` | Maximum info |
 | 950 | `#102a56` | Deep contrast |
 
+<ColorPalette palette="info" />
+
 **Classes:**
 ```html
 <div class="dga-bg-info-50 dga-text-info-700">Info message</div>
@@ -297,6 +311,8 @@ For success messages and positive actions.
 | 800 | `#085d3a` | Dark success |
 | 900 | `#074d31` | Maximum success |
 | 950 | `#053321` | Deep contrast |
+
+<ColorPalette palette="success" />
 
 **Classes:**
 ```html

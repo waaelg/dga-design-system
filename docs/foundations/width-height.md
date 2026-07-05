@@ -1,4 +1,4 @@
-# Width & Height
+﻿# Width & Height
 
 Fixed, percentage, and viewport sizing utilities (`dga-w-*`, `dga-h-*`).
 
@@ -9,7 +9,7 @@ Fixed, percentage, and viewport sizing utilities (`dga-w-*`, `dga-h-*`).
 ## Quick start (npm)
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css'
+import '@waaelg/dga-design-system/style.css'
 ```
 
 ```html
@@ -295,7 +295,7 @@ $dga-heights: map.merge(
 
 **Cause:** Older published package before height utilities were added.
 
-**Fix:** Update `@waaelg/dga-design-on-sass` to the latest version and rebuild.
+**Fix:** Update `@waaelg/dga-design-system` to the latest version and rebuild.
 
 ---
 

@@ -1,4 +1,4 @@
-# Grid & Flex
+﻿# Grid & Flex
 
 Responsive 12-column grid, flexbox utilities, display, gap, and layout helpers.
 
@@ -59,7 +59,7 @@ The DGA Grid System is a powerful, flexible, mobile-first grid framework built w
 Import the stylesheet once, then use layout classes in HTML:
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css'
+import '@waaelg/dga-design-system/style.css'
 ```
 
 ```html
@@ -1388,7 +1388,7 @@ For IE 11 support, use margin-based spacing instead of gap:
 
 - **Width & Height:** [width-height.md](./width-height.md)
 - **npm Usage:** [README.md](../README.md)
-- **Source Code:** [GitHub Repository](https://github.com/waaelg/personal_fe_dga-sass)
+- **Source Code:** [GitHub Repository](https://github.com/waaelg/dga-design-system)
 - **Design System:** [DGA Design Guidelines](#)
 - **Support:** [Issues & Questions](#)
 - **Changelog:** [Version History](#)

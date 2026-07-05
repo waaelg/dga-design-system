@@ -20,7 +20,7 @@ For headings and hero text. Responsive sizes apply below 768px and 375px.
 | `dga-display-xs` | 24px | 32px |
 
 ```html
-<h1 class="dga-display-md dga-fw-bold">عنوان الصفحة</h1>
+<h1 class="dga-display-md dga-fw-bold">Page title</h1>
 ```
 
 ---
@@ -37,8 +37,8 @@ For headings and hero text. Responsive sizes apply below 768px and 375px.
 | `dga-text-2xs` | 10px | 14px |
 
 ```html
-<p class="dga-text-md">نص أساسي</p>
-<p class="dga-text-sm dga-text-gray-600">نص ثانوي</p>
+<p class="dga-text-md">Body text</p>
+<p class="dga-text-sm dga-text-gray-600">Secondary text</p>
 ```
 
 ---
@@ -53,7 +53,7 @@ For headings and hero text. Responsive sizes apply below 768px and 375px.
 | `dga-fw-bold` | 700 |
 
 ```html
-<h2 class="dga-text-xl dga-fw-bold">عنوان فرعي</h2>
+<h2 class="dga-text-xl dga-fw-bold">Subheading</h2>
 ```
 
 ---
@@ -79,8 +79,8 @@ Prefer `start` / `end` for RTL. See [RTL & Arabic](../getting-started/rtl-arabic
 Combine with color utilities:
 
 ```html
-<p class="dga-text-primary-500">نص بلون العلامة</p>
-<p class="dga-text-gray-700">نص محايد</p>
+<p class="dga-text-primary-500">Brand-colored text</p>
+<p class="dga-text-gray-700">Neutral text</p>
 ```
 
 See [Colors](./colors.md).
@@ -91,16 +91,16 @@ See [Colors](./colors.md).
 
 ```html
 <!-- Page title -->
-<h1 class="dga-display-md dga-fw-bold dga-text-gray-950">لوحة التحكم</h1>
+<h1 class="dga-display-md dga-fw-bold dga-text-gray-950">Dashboard</h1>
 
 <!-- Section heading -->
-<h2 class="dga-text-xl dga-fw-semibold">الإعدادات</h2>
+<h2 class="dga-text-xl dga-fw-semibold">Settings</h2>
 
 <!-- Body -->
-<p class="dga-text-md dga-text-gray-700">وصف القسم هنا.</p>
+<p class="dga-text-md dga-text-gray-700">Section description goes here.</p>
 
 <!-- Caption -->
-<span class="dga-text-xs dga-text-gray-500">آخر تحديث: اليوم</span>
+<span class="dga-text-xs dga-text-gray-500">Last updated: today</span>
 ```
 
 ---

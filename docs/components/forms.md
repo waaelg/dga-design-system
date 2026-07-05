@@ -11,8 +11,14 @@ Input, select, textarea, and label components.
 ## Label
 
 ```html
-<label for="field-id" class="dga-label">حقل نص عادي</label>
+<label for="field-id" class="dga-label">Text field</label>
 ```
+
+<Demo title="Preview">
+
+<label class="dga-label">Text field</label>
+
+</Demo>
 
 Always pair `for` with the control `id`.
 
@@ -21,15 +27,30 @@ Always pair `for` with the control `id`.
 ## Text input
 
 ```html
-<label for="dga-input" class="dga-label">حقل نص عادي</label>
-<input type="text" id="dga-input" class="dga-input" />
+<label for="dga-input" class="dga-label">Text field</label>
+<input type="text" id="dga-input" class="dga-input" placeholder="Type here..." />
 ```
+
+<Demo title="Preview">
+
+<div>
+  <label for="demo-input" class="dga-label">Text field</label>
+  <input type="text" id="demo-input" class="dga-input" placeholder="Type here..." />
+</div>
+
+</Demo>
 
 ### Error state
 
 ```html
 <input type="text" class="dga-input dga-input-error" aria-invalid="true" />
 ```
+
+<Demo title="Preview">
+
+<input type="text" class="dga-input dga-input-error" aria-invalid="true" value="Invalid value" />
+
+</Demo>
 
 | Class | Purpose |
 |-------|---------|
@@ -41,12 +62,25 @@ Always pair `for` with the control `id`.
 ## Select
 
 ```html
-<label for="dga-select" class="dga-label">قائمة منسدلة</label>
+<label for="dga-select" class="dga-label">Dropdown</label>
 <select id="dga-select" class="dga-select">
-  <option>خيار 1</option>
-  <option>خيار 2</option>
+  <option>Option 1</option>
+  <option>Option 2</option>
 </select>
 ```
+
+<Demo title="Preview">
+
+<div>
+  <label for="demo-select" class="dga-label">Dropdown</label>
+  <select id="demo-select" class="dga-select">
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+  </select>
+</div>
+
+</Demo>
 
 ### Error state
 
@@ -61,9 +95,18 @@ Always pair `for` with the control `id`.
 ## Textarea
 
 ```html
-<label for="dga-textarea" class="dga-label">رسالة</label>
-<textarea id="dga-textarea" class="dga-textarea"></textarea>
+<label for="dga-textarea" class="dga-label">Message</label>
+<textarea id="dga-textarea" class="dga-textarea" placeholder="Write your message..."></textarea>
 ```
+
+<Demo title="Preview">
+
+<div>
+  <label for="demo-textarea" class="dga-label">Message</label>
+  <textarea id="demo-textarea" class="dga-textarea" placeholder="Write your message..."></textarea>
+</div>
+
+</Demo>
 
 ### Error state
 
@@ -80,22 +123,44 @@ Min height: 96px. Resizable by default.
 ```html
 <div class="dga-d-flex dga-flex-col dga-gap-3">
   <div>
-    <label for="name" class="dga-label">الاسم</label>
+    <label for="name" class="dga-label">Name</label>
     <input type="text" id="name" class="dga-input" />
   </div>
   <div>
-    <label for="role" class="dga-label">الدور</label>
+    <label for="role" class="dga-label">Role</label>
     <select id="role" class="dga-select">
-      <option>مواطن</option>
-      <option>موظف</option>
+      <option>Citizen</option>
+      <option>Employee</option>
     </select>
   </div>
   <div>
-    <label for="message" class="dga-label">الرسالة</label>
+    <label for="message" class="dga-label">Message</label>
     <textarea id="message" class="dga-textarea"></textarea>
   </div>
 </div>
 ```
+
+<Demo title="Preview">
+
+<div class="dga-d-flex dga-flex-col dga-gap-3">
+  <div>
+    <label for="demo-name" class="dga-label">Name</label>
+    <input type="text" id="demo-name" class="dga-input" />
+  </div>
+  <div>
+    <label for="demo-role" class="dga-label">Role</label>
+    <select id="demo-role" class="dga-select">
+      <option>Citizen</option>
+      <option>Employee</option>
+    </select>
+  </div>
+  <div>
+    <label for="demo-message" class="dga-label">Message</label>
+    <textarea id="demo-message" class="dga-textarea"></textarea>
+  </div>
+</div>
+
+</Demo>
 
 ---
 

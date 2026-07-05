@@ -9,36 +9,20 @@ Cheatsheet for common DGA color utilities. Full guide: [colors.md](./colors.md) 
 ## 🎨 Color Palettes
 
 ### Gray (Neutral)
-```
-25  → #fcfcfd  (Body BG)
-50  → #f9fafb  (Light BG)
-200 → #e5e7eb  (Borders)
-600 → #4d5761  (Muted text)
-700 → #384250  (Secondary text)
-950 → #0d121c  (Primary text)
-```
+
+<ColorPalette palette="gray" compact />
 
 ### Primary (Saudi Green 🇸🇦)
-```
-500 → #25935f  ⭐ Main brand color
-600 → #1b8354  (Hover)
-700 → #166a45  (Active)
-800 → #14573a  (Brand text)
-```
+
+<ColorPalette palette="primary" compact />
 
 ### Gold (Secondary)
-```
-500 → #f5bd02  ⭐ Secondary color
-600 → #dba102  (Hover)
-```
+
+<ColorPalette palette="gold" compact />
 
 ### Semantic Colors
-```
-Error   → #f04438  (Red)
-Warning → #f79009  (Orange)
-Info    → #2e90fa  (Blue)
-Success → #17b26a  (Green)
-```
+
+<ColorPalette palette="semantic" />
 
 ---
 

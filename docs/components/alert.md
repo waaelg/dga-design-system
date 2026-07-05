@@ -1,4 +1,4 @@
-# Alert
+﻿# Alert
 
 Feedback messages for success, warning, error, info, and neutral states.
 
@@ -18,6 +18,14 @@ Import the package once — registers `<dga-alert>` automatically:
 </dga-alert>
 ```
 
+<Demo title="Preview" client>
+
+<dga-alert variant="success-color" title="Success" dismissible>
+  When successful actions need direct feedback, show it here.
+</dga-alert>
+
+</Demo>
+
 ### Attributes
 
 | Attribute | Default | Description |
@@ -27,10 +35,24 @@ Import the package once — registers `<dga-alert>` automatically:
 | `dismissible` | — | Present = show close button |
 
 ```html
-<dga-alert variant="info-white">
-  Informational message without dismiss.
-</dga-alert>
+<div class="dga-d-flex dga-flex-col dga-gap-3">
+  <dga-alert variant="success-color" title="Success">Operation completed successfully.</dga-alert>
+  <dga-alert variant="warning-color" title="Warning">Please review before continuing.</dga-alert>
+  <dga-alert variant="destructive-color" title="Error">Something went wrong.</dga-alert>
+  <dga-alert variant="info-white">Informational message without dismiss.</dga-alert>
+</div>
 ```
+
+<Demo title="Preview" client>
+
+<div class="dga-d-flex dga-flex-col dga-gap-3">
+  <dga-alert variant="success-color" title="Success">Operation completed successfully.</dga-alert>
+  <dga-alert variant="warning-color" title="Warning">Please review before continuing.</dga-alert>
+  <dga-alert variant="destructive-color" title="Error">Something went wrong.</dga-alert>
+  <dga-alert variant="info-white">Informational message without dismiss.</dga-alert>
+</div>
+
+</Demo>
 
 Dismiss fires `dga-alert-dismiss` on the element. No `new DGAAlert()` required.
 
@@ -46,15 +68,28 @@ Alerts are **HTML + CSS**. Initialize `DGAAlert` once to handle close buttons.
 <div class="dga-alert" data-variant="success-color">
   <span class="dga-alert-icon" aria-hidden="true"></span>
   <div class="dga-alert-content">
-    <h4 class="dga-alert-title">نجاح</h4>
-    <div class="dga-alert-body">تمت العملية بنجاح!</div>
+    <h4 class="dga-alert-title">Success</h4>
+    <div class="dga-alert-body">Operation completed successfully.</div>
   </div>
-  <button class="dga-alert-close" type="button" data-alert-close aria-label="إغلاق">×</button>
+  <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
 </div>
 ```
 
+<Demo title="Preview">
+
+<div class="dga-alert" data-variant="success-color">
+  <span class="dga-alert-icon" aria-hidden="true"></span>
+  <div class="dga-alert-content">
+    <h4 class="dga-alert-title">Success</h4>
+    <div class="dga-alert-body">Operation completed successfully.</div>
+  </div>
+  <button class="dga-alert-close" type="button" data-alert-close aria-label="Dismiss alert">×</button>
+</div>
+
+</Demo>
+
 ```js
-import { DGAAlert } from '@waaelg/dga-design-on-sass'
+import { DGAAlert } from '@waaelg/dga-design-system'
 new DGAAlert()
 ```
 
@@ -101,8 +136,8 @@ Use **color** variants on light pages; **white** variants on dense or colored ba
 ### Vanilla
 
 ```js
-import '@waaelg/dga-design-on-sass/style.css'
-import { DGAAlert } from '@waaelg/dga-design-on-sass'
+import '@waaelg/dga-design-system/style.css'
+import { DGAAlert } from '@waaelg/dga-design-system'
 
 const alert = new DGAAlert()
 // alert.destroy() when removing listener
