@@ -1,11 +1,24 @@
 {
   "name": "@waaelg/dga-design-system",
-  "version": "0.4.2",
+  "version": "0.4.4",
+  "description": "Saudi DGA design system — compiled CSS utilities, components, and JavaScript for interactive behavior.",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "exports": {
-    ".": "./dist/index.js",
-    "./style.css": "./dist/style.css"
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "default": "./dist/style.css"
+    }
   },
+  "sideEffects": [
+    "./dist/style.css",
+    "./dist/index.js"
+  ],
   "files": [
     "dist",
     "README.md"
@@ -17,6 +30,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prepack": "npm run build",
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",

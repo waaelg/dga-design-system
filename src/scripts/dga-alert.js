@@ -13,10 +13,26 @@ class DGAAlertElement extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this._bodyContent) {
-      this._bodyContent = this.innerHTML.trim();
+    this._scheduleInitialRender();
+  }
+
+  _scheduleInitialRender() {
+    // Frameworks (Vue/React) may inject child content after connect.
+    requestAnimationFrame(() => {
+      this._captureBodyContent();
+      this._render();
+    });
+  }
+
+  _captureBodyContent() {
+    if (this._bodyContent || this.querySelector(".dga-alert-content")) {
+      return;
     }
-    this._render();
+
+    const html = this.innerHTML.trim();
+    if (html) {
+      this._bodyContent = html;
+    }
   }
 
   disconnectedCallback() {
