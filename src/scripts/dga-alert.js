@@ -49,7 +49,7 @@ class DGAAlertElement extends HTMLElement {
     const dismissible = this.hasAttribute("dismissible");
     const body = this._bodyContent || "";
 
-    this.className = "dga-alert";
+    this.classList.add("dga-alert");
     this.setAttribute("data-variant", variant);
 
     const titleHtml = title
