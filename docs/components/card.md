@@ -3,7 +3,7 @@
 Container for grouped content with optional icon and footer.
 
 **Source:** `src/styles/components/card.scss`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** No
 
 ---

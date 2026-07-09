@@ -3,7 +3,7 @@
 Compact labels for status, categories, and metadata.
 
 **Source:** `src/styles/components/tag.scss`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** No
 
 ---

@@ -3,7 +3,7 @@
 Inline and multi-line code blocks with copy button.
 
 **Source:** `src/styles/components/code-snippet.scss`, `src/scripts/codeSnippet.js`, `src/scripts/dga-code-snippet.js`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript:** Optional — web component or `DGACodeSnippet` class
 
 ---

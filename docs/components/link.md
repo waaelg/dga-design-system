@@ -3,7 +3,7 @@
 Styled anchor links for inline navigation.
 
 **Source:** `src/styles/components/link.scss`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** No
 
 ---

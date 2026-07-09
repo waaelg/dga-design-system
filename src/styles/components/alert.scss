@@ -13,6 +13,10 @@ $dga-alert-title-weight: 600;
 $dga-alert-body-size: 0.875rem; // 14px
 $dga-alert-body-weight: 400;
 
+dga-alert {
+  display: block;
+}
+
 .dga-alert {
   display: flex;
   align-items: flex-start;

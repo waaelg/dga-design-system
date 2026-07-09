@@ -3,7 +3,7 @@
 User profile images in circular or square shapes.
 
 **Source:** `src/styles/components/avatar.scss`  
-**Demo:** _not in index.html yet_  
+**Demo:** VitePress live preview (coming soon)  
 **JavaScript required:** No
 
 > **Note:** Avatar is included in the build as of the next release. Rebuild with `npm run build` after pulling latest source.

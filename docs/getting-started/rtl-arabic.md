@@ -78,7 +78,7 @@ Grid and flex utilities are direction-aware when using `start` / `end`:
 
 ## Verify bar
 
-The Saudi government verification bar is Arabic by default. Use `<dga-verify-bar>` or the verify bar markup from `verify-bar.html`.
+The Saudi government verification bar is Arabic by default. Use `<dga-verify-bar>` — see [Verify bar](../components/verify-bar.md).
 
 ---
 

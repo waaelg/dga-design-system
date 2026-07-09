@@ -5,11 +5,10 @@ import DGAChart from "./scripts/chart.js";
 import DGACodeSnippet from "./scripts/codeSnippet.js";
 import DGAMenuDropDown from "./scripts/dropdownMenu.js";
 import DGAVerifyBar from "./scripts/verifyBar.js";
-import "./scripts/dga-verify-bar.js";
-import "./scripts/dga-alert.js";
-import "./scripts/dga-accordion.js";
-import "./scripts/dga-code-snippet.js";
-import "./scripts/dga-pie-chart.js";
+import { DGA_WEB_COMPONENTS_REGISTERED } from "./scripts/register-web-components.js";
+
+// Keep web component registration in the published bundle.
+void DGA_WEB_COMPONENTS_REGISTERED;
 
 // Export components
 export { DGAAccordion };
@@ -18,3 +17,4 @@ export { DGAChart };
 export { DGACodeSnippet };
 export { DGAMenuDropDown };
 export { DGAVerifyBar };
+export { DGA_WEB_COMPONENTS_REGISTERED };

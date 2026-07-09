@@ -3,7 +3,7 @@
 Data tables with optional contained and striped styles.
 
 **Source:** `src/styles/components/table.scss`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** No
 
 ---

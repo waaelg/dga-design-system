@@ -3,7 +3,7 @@
 Horizontal or vertical separator lines.
 
 **Source:** `src/styles/components/divider.scss`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** No
 
 ---

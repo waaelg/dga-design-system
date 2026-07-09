@@ -3,7 +3,7 @@
 Expandable sections for FAQs and grouped content.
 
 **Source:** `src/styles/components/accordion.scss`, `src/scripts/accordion.js`, `src/scripts/dga-accordion.js`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript:** Optional — web component or `DGAAccordion` class
 
 ---

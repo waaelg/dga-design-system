@@ -3,7 +3,7 @@
 Feedback messages for success, warning, error, info, and neutral states.
 
 **Source:** `src/styles/components/alert.scss`, `src/scripts/alert.js`, `src/scripts/dga-alert.js`  
-**Demo:** `alerts.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript:** Optional — web component or `DGAAlert` class
 
 ---

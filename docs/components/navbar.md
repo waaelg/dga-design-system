@@ -3,7 +3,7 @@
 Responsive navigation with dropdown menus and mobile toggle.
 
 **Source:** `src/styles/components/navbar.scss`  
-**Demo:** `index.html` (header)  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** Yes — `DGAMenuDropDown`
 
 ---

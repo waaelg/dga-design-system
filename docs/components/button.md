@@ -3,7 +3,7 @@
 Primary action component for the DGA design system.
 
 **Source:** `src/styles/components/button.scss`  
-**Demo:** `index.html` (Buttons section)  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** No
 
 ---

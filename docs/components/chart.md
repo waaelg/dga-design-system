@@ -3,7 +3,7 @@
 CSS conic-gradient pie / donut chart with labels.
 
 **Source:** `src/styles/components/chart--pie.scss`, `src/scripts/chart.js`, `src/scripts/dga-pie-chart.js`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript:** Optional — web component or `DGAChart` class
 
 ---

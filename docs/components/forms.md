@@ -3,7 +3,7 @@
 Input, select, textarea, and label components.
 
 **Source:** `src/styles/components/input.scss`, `select.scss`, `textarea.scss`, `label.scss`  
-**Demo:** `index.html`  
+**Demo:** VitePress live preview on this page  
 **JavaScript required:** No
 
 ---

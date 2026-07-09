@@ -1,6 +1,24 @@
+import { escapeHtml } from "./shared/escape-html.js";
+
+const DEFAULT_ASSETS = {
+  "flag-src": "saudiFlag.svg",
+  "link-icon-src": "link-icon.svg",
+  "lock-icon-src": "square-lock-password.svg",
+  "logo-src": "DGA-logo-icon.svg",
+};
+
 class DGAVerifyBarElement extends HTMLElement {
   static get observedAttributes() {
-    return ["registration-number", "registration-link", "domain"];
+    return [
+      "registration-number",
+      "registration-link",
+      "domain",
+      "assets-base",
+      "flag-src",
+      "link-icon-src",
+      "lock-icon-src",
+      "logo-src",
+    ];
   }
 
   constructor() {
@@ -25,12 +43,19 @@ class DGAVerifyBarElement extends HTMLElement {
   }
 
   _render() {
-    const regNumber = this.getAttribute("registration-number") || "20250105758";
+    const regNumber = escapeHtml(
+      this.getAttribute("registration-number") || "20250105758",
+    );
     const regLinkRaw =
       this.getAttribute("registration-link") ||
       "https://raqmi.dga.gov.sa/platforms/platforms/9ebc5e60-9081-4653-bfb9-08dd2a2f8633/platform-license";
-    const regLink = this._normalizeLink(regLinkRaw);
-    const domain = this.getAttribute("domain") || ".edu.sa";
+    const regLink = escapeHtml(this._normalizeLink(regLinkRaw));
+    const domain = escapeHtml(this.getAttribute("domain") || ".edu.sa");
+
+    const flagSrc = escapeHtml(this._imageSrc("flag-src"));
+    const linkIconSrc = escapeHtml(this._imageSrc("link-icon-src"));
+    const lockIconSrc = escapeHtml(this._imageSrc("lock-icon-src"));
+    const logoSrc = escapeHtml(this._imageSrc("logo-src"));
 
     this.innerHTML = `
       <div id="dga-verify-bar" class="dga-bg-gray-100 closed">
@@ -38,7 +63,7 @@ class DGAVerifyBarElement extends HTMLElement {
         <div id="dga-verify-bar_bar" class="dga-row">
           <div class="dga-col">
             <div class="dga-d-flex dga-align-items-center dga-gap-2">
-              <span><img src="${this._assetUrl("saudiFlag.svg")}" alt="علم المملكة العربية السعودية" /></span>
+              <span><img src="${flagSrc}" alt="علم المملكة العربية السعودية" /></span>
               <span class="dga-text-sm">موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
               <span>
                 <button id="dga-verifyBtn" class="dga-btn dga-btn-subtle dga-text-primary-500" data-verify-toggle aria-expanded="false">
@@ -52,7 +77,7 @@ class DGAVerifyBarElement extends HTMLElement {
         <div id="dga-verify-bar_content" class="dga-row dga-pt-10 dga-pb-8" data-verify-content style="display: ${this.isOpen ? "flex" : "none"};">
           <div class="dga-col-md-6 dga-pb-8">
             <div class="dga-d-flex dga-gap-4">
-              <div><img src="${this._assetUrl("link-icon.svg")}" alt="" /></div>
+              <div><img src="${linkIconSrc}" alt="" /></div>
               <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
                 <h3 class="dga-text-xl dga-fw-bold">
                   روابط المواقع الالكترونية الرسمية السعودية تنتهي بـ
@@ -68,7 +93,7 @@ class DGAVerifyBarElement extends HTMLElement {
 
           <div class="dga-col-md-6 dga-pb-8">
             <div class="dga-d-flex dga-gap-4">
-              <div><img src="${this._assetUrl("square-lock-password.svg")}" alt="" /></div>
+              <div><img src="${lockIconSrc}" alt="" /></div>
               <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
                 <h3 class="dga-text-xl dga-fw-bold">
                   المواقع الالكترونية الحكومية تستخدم بروتوكول
@@ -84,7 +109,7 @@ class DGAVerifyBarElement extends HTMLElement {
 
           <div class="dga-col-12">
             <div class="dga-d-flex dga-align-items-center dga-gap-3 dga-bg-white dga-text-md dga-rounded-md dga-py-2 dga-px-7">
-              <img src="${this._assetUrl("DGA-logo-icon.svg")}" alt="شعار هيئة الحكومة الرقمية" />
+              <img src="${logoSrc}" alt="شعار هيئة الحكومة الرقمية" />
               مسجل لدى هيئة الحكومة الرقمية برقم :
               <a href="${regLink}" class="dga-link">${regNumber}</a>
             </div>
@@ -101,6 +126,17 @@ class DGAVerifyBarElement extends HTMLElement {
     this._btn?.addEventListener("click", this._boundToggle);
   }
 
+  _imageSrc(attributeName) {
+    const override = this.getAttribute(attributeName);
+    if (override) return override;
+
+    const defaultFile = DEFAULT_ASSETS[attributeName];
+    const base = this.getAttribute("assets-base") || "/";
+    const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+
+    return `${normalizedBase}${defaultFile}`;
+  }
+
   _open() {
     this._content.style.display = "flex";
     this.isOpen = true;
@@ -113,18 +149,6 @@ class DGAVerifyBarElement extends HTMLElement {
     this.isOpen = false;
     this._btn?.setAttribute("aria-expanded", "false");
     this._wrapper?.classList.replace("opend", "closed");
-  }
-
-  _assetUrl(fileName) {
-    const publicAssetMap = {
-      // TODO: replace with the official Saudi flag asset once added to public/.
-      "saudiFlag.svg": "/marker.svg",
-      "link-icon.svg": "/link-icon.svg",
-      "square-lock-password.svg": "/square-lock-password.svg",
-      "DGA-logo-icon.svg": "/DGA-logo-icon.svg",
-    };
-
-    return publicAssetMap[fileName] || `/${fileName}`;
   }
 
   _normalizeLink(value) {

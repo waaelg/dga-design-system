@@ -11,6 +11,7 @@ export default defineConfig({
     },
     sourcemap: true,
     rollupOptions: {
+      treeshake: false,
       output: {
         assetFileNames: "style.css",
       },

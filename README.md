@@ -419,18 +419,16 @@ SCSS source files are **not** included in the npm package. To customize variable
 git clone https://github.com/waaelg/dga-design-system.git
 cd dga-design-system
 npm install
-npm run dev      # demo pages at http://localhost:5173
-npm run build    # outputs dist/index.js and dist/style.css
+npm run docs:dev   # documentation at http://localhost:5173
+npm run build      # outputs dist/index.js and dist/style.css
 ```
 
-Demo pages in the repo:
+Documentation site (VitePress):
 
-| File | Contents |
-|------|----------|
-| `index.html` | Full component showcase |
-| `alerts.html` | Alert variants |
-| `colors.html` | Color palette |
-| `verify-bar.html` | `<dga-verify-bar>` web component |
+```bash
+npm run docs:dev     # local docs
+npm run docs:build   # production build
+```
 
 Documentation:
 
