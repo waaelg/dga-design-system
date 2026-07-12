@@ -9,7 +9,24 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
 
-  head: [["link", { rel: "icon", href: "/favicon.svg" }]],
+  head: [
+    ["link", { rel: "icon", href: "/favicon.svg" }],
+    [
+      "script",
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-CDT8FK2DL2",
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-CDT8FK2DL2');`,
+    ],
+  ],
 
   themeConfig: {
     logo: "/logo.svg",
