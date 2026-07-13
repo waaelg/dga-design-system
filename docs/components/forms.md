@@ -20,11 +20,13 @@ Input, select, textarea, and label components.
 
 </Demo>
 
-Always pair `for` with the control `id`.
+`dga-label` is `display: block` with 6px bottom margin. Always pair `for` with the control `id`.
 
 ---
 
 ## Text input
+
+Use on `<input>` elements only — styles target `input.dga-input`.
 
 ```html
 <label for="dga-input" class="dga-label">Text field</label>
@@ -40,6 +42,23 @@ Always pair `for` with the control `id`.
 
 </Demo>
 
+| Property | Value |
+|----------|-------|
+| Class | `dga-input` on `<input>` |
+| Height | 40px |
+| Width | 100% |
+| Padding | 16px inline (`$dga-spacing-xl`) |
+| Border radius | 6px |
+| Default border | `$dga-gray-400` |
+
+### States
+
+| State | Behavior |
+|-------|----------|
+| **Hover** | Border turns black |
+| **Focus** | Bottom underline animates to full width (2px), border `$dga-gray-800`, `box-shadow` |
+| **Active** | Partial bottom underline (35%), background `$dga-gray-100` |
+
 ### Error state
 
 ```html
@@ -54,12 +73,16 @@ Always pair `for` with the control `id`.
 
 | Class | Purpose |
 |-------|---------|
-| `dga-input` | Base input (40px height, full width) |
-| `dga-input-error` | Red border and error underline |
+| `dga-input` | Base input |
+| `dga-input-error` | Red border + red bottom underline |
+
+On **active**, error fields revert to gray border and light gray background (same as default active state).
 
 ---
 
 ## Select
+
+Use on `<select>` elements — styles target `select.dga-select`. Includes a built-in chevron icon.
 
 ```html
 <label for="dga-select" class="dga-label">Dropdown</label>
@@ -82,17 +105,35 @@ Always pair `for` with the control `id`.
 
 </Demo>
 
+| Property | Value |
+|----------|-------|
+| Height | 40px |
+| Width | 100% |
+| Default border | `$dga-gray-300` |
+| Chevron | Left side at 16px (`background-position: left 1rem center`) |
+
+### States
+
+| State | Behavior |
+|-------|----------|
+| **Hover** | Border `$dga-gray-500` |
+| **Focus** | 2px bottom border `$dga-gray-800`, `box-shadow` |
+
+Select does **not** use the animated bottom underline that text inputs have.
+
 ### Error state
 
 ```html
 <select class="dga-select error" aria-invalid="true">...</select>
 ```
 
-> Note: select uses class `error`, not `dga-select-error`.
+> Note: select uses class `error`, not `dga-select-error`. Error border stays red on hover and focus.
 
 ---
 
 ## Textarea
+
+Use on `<textarea>` elements — styles target `textarea.dga-textarea`.
 
 ```html
 <label for="dga-textarea" class="dga-label">Message</label>
@@ -108,13 +149,23 @@ Always pair `for` with the control `id`.
 
 </Demo>
 
+| Property | Value |
+|----------|-------|
+| Min height | 96px |
+| Width | 100% |
+| Default border | `$dga-gray-300` |
+
+### States
+
+Same animated bottom underline as text input: full width on **focus**, 35% on **active**, gray background on **active**.
+
 ### Error state
 
 ```html
 <textarea class="dga-textarea dga-textarea-error" aria-invalid="true"></textarea>
 ```
 
-Min height: 96px. Resizable by default.
+Resizable by default.
 
 ---
 
@@ -164,14 +215,13 @@ Min height: 96px. Resizable by default.
 
 ---
 
-## States
+## States summary
 
-All form controls support:
-
-- **Hover** — darker border
-- **Focus** — bottom accent line + shadow
-- **Active** — partial underline + gray background
-- **Error** — red border (see classes above)
+| Control | Hover | Focus | Active | Error class |
+|---------|-------|-------|--------|-------------|
+| **Input** | Black border | Full bottom underline + shadow | 35% underline + gray bg | `dga-input-error` |
+| **Select** | Gray-500 border | 2px bottom border + shadow | — | `error` |
+| **Textarea** | Black border | Full bottom underline + shadow | 35% underline + gray bg | `dga-textarea-error` |
 
 ---
 
