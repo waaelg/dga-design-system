@@ -123,16 +123,16 @@ new DGAMenuDropDown({ navbar: document.querySelector('.dga-navbar') })
 
 ## DGAVerifyBar
 
-**Requires:** legacy IDs: `#dga-verify-bar`, `#dga-verifyBtn`, `#dga-verify-bar_content`
+**Requires:** HTML with IDs `#dga-verify-bar`, `#dga-verifyBtn`, `#dga-verify-bar_content` — see [Verify bar](../components/verify-bar.md) for the full markup.
 
 ```js
 const verifyBar = new DGAVerifyBar()
-const menu = new DGAMenuDropDown()
+const menu = new DGAMenuDropDown({ navbar: document.querySelector('.dga-navbar') })
 verifyBar.menu = menu
 menu.verifyBar = verifyBar
 ```
 
-**Alternative:** use `<dga-verify-bar>` web component (no manual init).
+**Recommended:** use `<dga-verify-bar>` web component (no manual init).
 
 ---
 

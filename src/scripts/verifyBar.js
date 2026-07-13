@@ -36,6 +36,7 @@ export default class DGAVerifyBar {
     this.isOpen = true;
     this.verifyBar.classList.add("opend");
     this.verifyBar.classList.remove("closed");
+    this.btn?.setAttribute("aria-expanded", "true");
   }
 
   closePanel() {
@@ -43,6 +44,7 @@ export default class DGAVerifyBar {
     this.isOpen = false;
     this.verifyBar.classList.add("closed");
     this.verifyBar.classList.remove("opend");
+    this.btn?.setAttribute("aria-expanded", "false");
   }
 
   destroy() {

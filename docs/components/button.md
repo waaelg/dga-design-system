@@ -43,14 +43,13 @@ Always use a `<button>` element (or `<a>` styled as button for navigation).
 | `dga-btn-neutral` | Dark neutral action |
 | `dga-btn-secondary-solid` | Secondary filled |
 | `dga-btn-secondary-outline` | Secondary outline |
-| `dga-btn-subtle` | Low emphasis |
-| `dga-btn-transparent` | Minimal, on colored backgrounds |
 | `dga-btn-ghost` | Ghost style (green text) |
+| `dga-btn-link` | Link style (underlined text) |
+| `dga-btn-transparent` | Minimal, on colored backgrounds |
 | `dga-btn-destructive` | Delete / dangerous actions |
 | `dga-btn-destructive-outline` | Destructive outline |
-| `dga-btn-success` | Success action |
-| `dga-btn-warning` | Warning action |
-| `dga-btn-info` | Info action |
+
+There are no `success`, `warning`, or `info` button variants — use [Alert](./alert.md) for semantic feedback messages.
 
 ```html
 <div class="dga-d-flex dga-flex-wrap dga-gap-3 dga-align-items-center">
@@ -61,11 +60,10 @@ Always use a `<button>` element (or `<a>` styled as button for navigation).
   <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Secondary outline</button>
   <button class="dga-btn dga-btn-subtle dga-btn-md">Subtle</button>
   <button class="dga-btn dga-btn-ghost dga-btn-md">Ghost</button>
+  <button class="dga-btn dga-btn-link dga-btn-md">Link</button>
+  <button class="dga-btn dga-btn-transparent dga-btn-md">Transparent</button>
   <button class="dga-btn dga-btn-destructive dga-btn-md">Destructive</button>
   <button class="dga-btn dga-btn-destructive-outline dga-btn-md">Destructive outline</button>
-  <button class="dga-btn dga-btn-success dga-btn-md">Success</button>
-  <button class="dga-btn dga-btn-warning dga-btn-md">Warning</button>
-  <button class="dga-btn dga-btn-info dga-btn-md">Info</button>
 </div>
 ```
 
@@ -79,11 +77,10 @@ Always use a `<button>` element (or `<a>` styled as button for navigation).
   <button class="dga-btn dga-btn-secondary-outline dga-btn-md">Secondary outline</button>
   <button class="dga-btn dga-btn-subtle dga-btn-md">Subtle</button>
   <button class="dga-btn dga-btn-ghost dga-btn-md">Ghost</button>
+  <button class="dga-btn dga-btn-link dga-btn-md">Link</button>
+  <button class="dga-btn dga-btn-transparent dga-btn-md">Transparent</button>
   <button class="dga-btn dga-btn-destructive dga-btn-md">Destructive</button>
   <button class="dga-btn dga-btn-destructive-outline dga-btn-md">Destructive outline</button>
-  <button class="dga-btn dga-btn-success dga-btn-md">Success</button>
-  <button class="dga-btn dga-btn-warning dga-btn-md">Warning</button>
-  <button class="dga-btn dga-btn-info dga-btn-md">Info</button>
 </div>
 
 </Demo>

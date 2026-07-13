@@ -220,42 +220,6 @@ $dga-btn-variants: (
     active-border: $dga-error-700,
     focus-color: rgba($dga-error-500, 0.25),
   ),
-  "success": (
-    color: $dga-btn-color-white,
-    background: $dga-success-500,
-    border: $dga-success-500,
-    hover-color: $dga-btn-color-white,
-    hover-background: $dga-success-600,
-    hover-border: $dga-success-600,
-    active-color: $dga-btn-color-white,
-    active-background: $dga-success-700,
-    active-border: $dga-success-700,
-    focus-color: rgba($dga-success-500, 0.25),
-  ),
-  "warning": (
-    color: $dga-btn-color-white,
-    background: $dga-warning-500,
-    border: $dga-warning-500,
-    hover-color: $dga-btn-color-white,
-    hover-background: $dga-warning-600,
-    hover-border: $dga-warning-600,
-    active-color: $dga-btn-color-white,
-    active-background: $dga-warning-700,
-    active-border: $dga-warning-700,
-    focus-color: rgba($dga-warning-500, 0.25),
-  ),
-  "info": (
-    color: $dga-btn-color-white,
-    background: $dga-info-500,
-    border: $dga-info-500,
-    hover-color: $dga-btn-color-white,
-    hover-background: $dga-info-600,
-    hover-border: $dga-info-600,
-    active-color: $dga-btn-color-white,
-    active-background: $dga-info-700,
-    active-border: $dga-info-700,
-    focus-color: rgba($dga-info-500, 0.25),
-  ),
 ) !default;
 
 // Default variant
@@ -629,9 +593,6 @@ HTML Examples:
 <button class="dga-btn dga-btn-transparent">Transparent</button>
 <button class="dga-btn dga-btn-destructive">Destructive</button>
 <button class="dga-btn dga-btn-destructive-outline">Destructive Outline</button>
-<button class="dga-btn dga-btn-success">Success</button>
-<button class="dga-btn dga-btn-warning">Warning</button>
-<button class="dga-btn dga-btn-info">Info</button>
 
 <!-- All sizes -->
 <button class="dga-btn dga-btn-primary dga-btn-2xs">2XS</button>
