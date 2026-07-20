@@ -26,6 +26,20 @@ The published package includes compiled assets from the `dist` folder:
 
 ---
 
+## Skills for AI coding tools
+
+This repo has three parts: the **package** (`src/`, compiled to `dist/`), the **docs site** (`docs/`, VitePress), and **`skills/`** — Claude Skills that teach an AI coding assistant the actual class names, component patterns, and JS API documented above, grounded in `docs/` rather than guessed.
+
+| Skill | Covers |
+|-------|--------|
+| [`dga-vue-component`](skills/dga-vue-component/SKILL.md) | Generating Vue 3 SFCs styled with DGA |
+| [`dga-web-components`](skills/dga-web-components/SKILL.md) | `<dga-*>` elements and the JS class API outside Vue (plain HTML, Razor, PHP) |
+| [`dga-foundations`](skills/dga-foundations/SKILL.md) | Color/spacing/typography/radius/grid utility reference |
+
+If you clone this repo with **Claude Code**, these are picked up automatically via the `.claude/skills` symlink — no setup needed. Any other AI tool can be pointed directly at the `skills/<name>/SKILL.md` files.
+
+---
+
 ## Quick start
 
 ### 1. Import the stylesheet

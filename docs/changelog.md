@@ -4,6 +4,18 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.4.9] — 2026-07-21
+
+### Fixed
+- `.dga-acc-header` (accordion), `.dga-navbar-toggler` (navbar), and `.dga-alert-close`
+  didn't declare `font-family`, so they fell back to the browser's native `<button>`
+  UA default (Arial) instead of inheriting the page's IBM Plex Sans Arabic — the only
+  interactive elements in the package with this gap (`.dga-btn`, `.dga-input`,
+  `.dga-select`, `.dga-textarea` were already correct). Added `font-family: inherit`
+  to all three.
+
+---
+
 ## [0.4.0] — 2026-06-29
 
 ### Added
