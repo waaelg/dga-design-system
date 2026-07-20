@@ -26,6 +26,9 @@ features:
   - icon: ⚡
     title: Web components
     details: Use interactive `<dga-*>` elements in any framework, or legacy JS classes when needed.
+  - icon: 🤖
+    title: AI coding skills
+    details: Claude Skills for generating DGA-styled Vue components and using the package correctly — ships in the GitHub repo's skills/ folder.
 ---
 
 ## Quick links
@@ -38,6 +41,7 @@ features:
 | Right-to-left setup | [RTL & Arabic](/getting-started/rtl-arabic) |
 | Color system | [Colors](/foundations/colors) |
 | Layout | [Grid & Flex](/foundations/grid) |
+| AI coding skills (Claude Skills) | [GitHub: skills/](https://github.com/waaelg/dga-design-system/tree/main/skills) |
 
 ```bash
 npm install @waaelg/dga-design-system
