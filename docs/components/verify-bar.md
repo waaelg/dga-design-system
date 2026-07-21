@@ -22,11 +22,19 @@ import '@waaelg/dga-design-system'
 <dga-verify-bar></dga-verify-bar>
 ```
 
-<Demo title="Preview" client>
+<Demo title="Preview — Arabic (default, RTL)" client>
 
-<dga-verify-bar></dga-verify-bar>
+<dga-verify-bar assets-base="/assets/dga/"></dga-verify-bar>
 
 </Demo>
+
+<Demo title="Preview — English (lang=&quot;en&quot;, LTR)" client>
+
+<dga-verify-bar assets-base="/assets/dga/" lang="en"></dga-verify-bar>
+
+</Demo>
+
+The component sets its own `dir` (`rtl` for Arabic, `ltr` for English) directly — no wrapper markup needed either way.
 
 ### Custom attributes
 
@@ -34,6 +42,7 @@ Override defaults when your site needs different values:
 
 ```html
 <dga-verify-bar
+  lang="en"
   domain=".edu.sa"
   registration-number="20250105758"
   registration-link="https://raqmi.dga.gov.sa/platforms/platforms/9ebc5e60-9081-4653-bfb9-08dd2a2f8633/platform-license"
@@ -43,6 +52,7 @@ Override defaults when your site needs different values:
 
 | Attribute | Default | Description |
 |-----------|---------|-------------|
+| `lang` | `ar` | `ar` (RTL) or `en` (LTR) — sets both the copy and `dir` |
 | `domain` | `.edu.sa` | Official domain suffix shown in copy |
 | `registration-number` | `20250105758` | DGA registration number |
 | `registration-link` | DGA Raqmi URL | Link to platform license |
@@ -177,9 +187,83 @@ Use this when you need full control over the markup. Paste the HTML into your la
 
 Adjust image `src` paths to where your assets are served from (e.g. `../assets/dga/` in static HTML, `/assets/dga/` from `public/`, or imported URLs in Vue).
 
-<Demo title="Plain HTML preview">
+<Demo title="Plain HTML preview — Arabic (RTL)">
 
 <VerifyBarDemo />
+
+</Demo>
+
+For English, set `dir="ltr"` on the `#dga-verify-bar` root and translate the copy — nothing else in the markup structure changes:
+
+```html
+<div id="dga-verify-bar" dir="ltr" class="dga-bg-gray-100 closed">
+  <div class="dga-container dga-py-2">
+    <div id="dga-verify-bar_bar" class="dga-row">
+      <div class="dga-col">
+        <div class="dga-d-flex dga-align-items-center dga-gap-2">
+          <span><img src="../assets/dga/saudiFlag.svg" alt="" /></span>
+          <span class="dga-text-sm">This is an official government website of the Kingdom of Saudi Arabia</span>
+          <span>
+            <button id="dga-verifyBtn" class="dga-btn dga-btn-subtle dga-text-primary-500">
+              How to verify
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="dga-verify-bar_content" class="dga-row dga-pt-10 dga-pb-8">
+      <div class="dga-col-md-6 dga-pb-8">
+        <div class="dga-d-flex dga-gap-4">
+          <div><img src="../assets/dga/link-icon.svg" alt="" /></div>
+          <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
+            <h3 class="dga-text-xl dga-fw-bold">
+              Official Saudi government website links end with
+              <span class="dga-text-primary-500">.edu.sa</span>
+            </h3>
+            <p>
+              All official website links belonging to government entities in the
+              Kingdom of Saudi Arabia end with .edu.sa
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dga-col-md-6 dga-pb-8">
+        <div class="dga-d-flex dga-gap-4">
+          <div><img src="../assets/dga/square-lock-password.svg" alt="" /></div>
+          <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
+            <h3 class="dga-text-xl dga-fw-bold">
+              Government websites use the
+              <span class="dga-text-primary-500">HTTPS</span> protocol for encryption and security.
+            </h3>
+            <p>
+              Secure websites in the Kingdom of Saudi Arabia use the HTTPS protocol
+              for encryption.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dga-col-12">
+        <div class="dga-d-flex dga-align-items-center dga-gap-3 dga-bg-white dga-text-md dga-rounded-md dga-py-2 dga-px-7">
+          <img src="../assets/dga/DGA-logo-icon.svg" alt="" />
+          Registered with the Digital Government Authority under number:
+          <a
+            href="https://raqmi.dga.gov.sa/platforms/platforms/9ebc5e60-9081-4653-bfb9-08dd2a2f8633/platform-license"
+            class="dga-link">
+            20250105758
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+<Demo title="Plain HTML preview — English (LTR)">
+
+<VerifyBarDemoEn />
 
 </Demo>
 
@@ -233,7 +317,7 @@ Edit the HTML directly to change `.edu.sa`, registration link, registration numb
 - Root: `dga-bg-gray-100` + `closed` (collapsed) or `opend` (expanded)
 - Toggle: `dga-btn dga-btn-subtle dga-text-primary-500` on `#dga-verifyBtn`
 - Panel visibility is controlled by `closed` / `opend` classes in `verifyBar.scss`
-- Arabic copy by default
+- Arabic/RTL by default; the web component supports English/LTR via `lang="en"` — the toggle icon's position flips with `dir` automatically. The Plain HTML path has no language switch built in — translate the copy yourself and set `dir="ltr"` on the root, as shown above.
 
 ---
 

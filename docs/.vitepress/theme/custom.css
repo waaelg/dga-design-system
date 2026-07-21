@@ -29,13 +29,33 @@
 
 .dga-demo-preview {
   padding: 1.25rem 1rem;
-  background: var(--vp-c-bg);
+  /* DGA has no dark theme — use its own tokens, not VitePress's --vp-c-*,
+     so previews render identically regardless of the site's dark mode. */
+  background: var(--dga-gray-25);
+  color: var(--dga-gray-950);
+  color-scheme: light;
   direction: ltr;
-  text-align: left;
+  /* Logical, not "left" — verify-bar's Arabic previews set dir="rtl" on a
+     descendant, which correctly flips `direction` by inheritance, but a
+     physical text-align: left here would never re-flip with it. `start`
+     resolves per the computed direction at each element, so LTR-only demos
+     (unaffected, still resolve to left) and verify-bar's RTL instances
+     (now correctly resolve to right) both work from the same rule. */
+  text-align: start;
 }
 
 .dga-demo-preview .dga-d-flex {
   flex-wrap: wrap;
+}
+
+/* Verify bar's icon + heading/paragraph rows must stay inline (icon beside
+   text, text wrapping internally) — the blanket rule above wraps them onto
+   separate lines instead, because the text block's width:100% preferred
+   size doesn't fit next to the icon. The real package has no such override,
+   so this is docs-preview-only; scoped by #dga-verify-bar + the icon rows'
+   specific gap class so it doesn't affect any other component's demo. */
+#dga-verify-bar .dga-d-flex.dga-gap-4 {
+  flex-wrap: nowrap;
 }
 
 /* Reset VitePress doc styles inside demos */
@@ -62,6 +82,14 @@
   margin: 0 !important;
   overflow-x: visible !important;
   border-collapse: collapse;
+}
+
+/* VitePress's own table row styling (var(--vp-c-bg)/--vp-c-bg-soft, dark in
+   dark mode) otherwise wins on rows DGA's own [data-striped] rule doesn't
+   target — matched specificity so DGA's striping still applies normally. */
+.dga-demo-preview tr,
+.dga-demo-preview tr:nth-child(2n) {
+  background-color: transparent;
 }
 
 .dga-demo-preview .dga-table[data-contained="true"] {
