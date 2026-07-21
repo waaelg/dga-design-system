@@ -1,6 +1,6 @@
 {
   "name": "@waaelg/dga-design-system",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "description": "Saudi DGA design system — compiled CSS utilities, components, and JavaScript for interactive behavior.",
   "type": "module",
   "main": "./dist/index.js",

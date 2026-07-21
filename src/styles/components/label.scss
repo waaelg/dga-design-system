@@ -9,5 +9,6 @@ $dga-label-width: 100%;
 // label css
 label.dga-label {
   display: block;
+  color: $dga-text-primary;
   margin-bottom: $dga-spacing-sm !important;
 }

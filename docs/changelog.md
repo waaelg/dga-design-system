@@ -4,6 +4,30 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.5.0] — 2026-07-22
+
+### Added
+- `<dga-verify-bar>` now supports `lang="en"` for a full English/LTR rendering
+  (banner copy, CTA, both info cards, registration line, image `alt` text).
+  Defaults to Arabic/RTL (`lang="ar"` or omitted) — fully backward compatible.
+  The component now sets its own `dir` attribute directly, so it no longer
+  depends on an ancestor element to provide RTL/LTR context.
+
+### Fixed
+- The toggle button's chevron icon (`#dga-verifyBtn`) was hardcoded to the
+  physical left (`padding-left`, `background-position: 0`), which was wrong
+  for a component that's meant to flip with direction. Now trails the label
+  correctly in both directions (left in RTL, right in LTR) via
+  `[dir="rtl"]`/`[dir="ltr"]` on `#dga-verify-bar`.
+- `.dga-table th`/`td` and `label.dga-label` had no explicit `color`, unlike
+  every other component with text (alert, card, link, tag, breadcrumb) —
+  harmless as long as an ancestor happened to provide a readable inherited
+  color, but broke (invisible text) in any context where it didn't, such as
+  a dark-themed page. Added `color: $dga-text-primary` to both, matching the
+  pattern already used elsewhere.
+
+---
+
 ## [0.4.9] — 2026-07-21
 
 ### Fixed

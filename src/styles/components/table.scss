@@ -17,6 +17,7 @@ $dga-table-header-font-size: 12px !default;
 
   th {
     background-color: $dga-table-header-bg;
+    color: $dga-text-primary;
     font-weight: bold;
     font-size: $dga-table-header-font-size;
     height: $dga-table-header-height;
@@ -30,6 +31,7 @@ $dga-table-header-font-size: 12px !default;
   }
   td {
     border: 1px solid #ddd;
+    color: $dga-text-primary;
     padding: $dga-table-cell-padding-y $dga-table-cell-padding-x;
     height: $dga-table-row-height;
     font-size: $dga-table-cell-font-size;

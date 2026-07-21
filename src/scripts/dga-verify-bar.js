@@ -7,6 +7,37 @@ const DEFAULT_ASSETS = {
   "logo-src": "DGA-logo-icon.svg",
 };
 
+const STRINGS = {
+  ar: {
+    flagAlt: "علم المملكة العربية السعودية",
+    banner: "موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية",
+    cta: "كيف تتحقق",
+    domainHeading: "روابط المواقع الالكترونية الرسمية السعودية تنتهي بـ",
+    domainBody:
+      "جميع روابط المواقع الرسمية التابعة للجهات الحكومية في المملكة العربية السعودية تنتهي بـ",
+    httpsHeading: "المواقع الالكترونية الحكومية تستخدم بروتوكول",
+    httpsHeadingSuffix: "للتشفير و الأمان.",
+    httpsBody:
+      "المواقع الالكترونية الآمنة في المملكة العربية السعودية تستخدم بروتوكول HTTPS للتشفير.",
+    logoAlt: "شعار هيئة الحكومة الرقمية",
+    registeredWith: "مسجل لدى هيئة الحكومة الرقمية برقم :",
+  },
+  en: {
+    flagAlt: "Flag of the Kingdom of Saudi Arabia",
+    banner: "This is an official government website of the Kingdom of Saudi Arabia",
+    cta: "How to verify",
+    domainHeading: "Official Saudi government website links end with",
+    domainBody:
+      "All official website links belonging to government entities in the Kingdom of Saudi Arabia end with",
+    httpsHeading: "Government websites use the",
+    httpsHeadingSuffix: "protocol for encryption and security.",
+    httpsBody:
+      "Secure websites in the Kingdom of Saudi Arabia use the HTTPS protocol for encryption.",
+    logoAlt: "Digital Government Authority logo",
+    registeredWith: "Registered with the Digital Government Authority under number:",
+  },
+};
+
 class DGAVerifyBarElement extends HTMLElement {
   static get observedAttributes() {
     return [
@@ -18,6 +49,7 @@ class DGAVerifyBarElement extends HTMLElement {
       "link-icon-src",
       "lock-icon-src",
       "logo-src",
+      "lang",
     ];
   }
 
@@ -43,6 +75,10 @@ class DGAVerifyBarElement extends HTMLElement {
   }
 
   _render() {
+    const lang = this.getAttribute("lang") === "en" ? "en" : "ar";
+    const dir = lang === "en" ? "ltr" : "rtl";
+    const t = STRINGS[lang];
+
     const regNumber = escapeHtml(
       this.getAttribute("registration-number") || "20250105758",
     );
@@ -58,16 +94,16 @@ class DGAVerifyBarElement extends HTMLElement {
     const logoSrc = escapeHtml(this._imageSrc("logo-src"));
 
     this.innerHTML = `
-      <div id="dga-verify-bar" class="dga-bg-gray-100 closed">
+      <div id="dga-verify-bar" dir="${dir}" class="dga-bg-gray-100 closed">
       <div class="dga-container dga-py-2">
         <div id="dga-verify-bar_bar" class="dga-row">
           <div class="dga-col">
             <div class="dga-d-flex dga-align-items-center dga-gap-2">
-              <span><img src="${flagSrc}" alt="علم المملكة العربية السعودية" /></span>
-              <span class="dga-text-sm">موقع حكومي رسمي تابع لحكومة المملكة العربية السعودية</span>
+              <span><img src="${flagSrc}" alt="${t.flagAlt}" /></span>
+              <span class="dga-text-sm">${t.banner}</span>
               <span>
                 <button id="dga-verifyBtn" class="dga-btn dga-btn-subtle dga-text-primary-500" data-verify-toggle aria-expanded="false">
-                  كيف تتحقق
+                  ${t.cta}
                 </button>
               </span>
             </div>
@@ -80,12 +116,11 @@ class DGAVerifyBarElement extends HTMLElement {
               <div><img src="${linkIconSrc}" alt="" /></div>
               <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
                 <h3 class="dga-text-xl dga-fw-bold">
-                  روابط المواقع الالكترونية الرسمية السعودية تنتهي بـ
+                  ${t.domainHeading}
                   <span class="dga-text-primary-500">${domain}</span>
                 </h3>
                 <p>
-                  جميع روابط المواقع الرسمية التابعة للجهات الحكومية في المملكة
-                  العربية السعودية تنتهي بـ ${domain}
+                  ${t.domainBody} ${domain}
                 </p>
               </div>
             </div>
@@ -96,12 +131,11 @@ class DGAVerifyBarElement extends HTMLElement {
               <div><img src="${lockIconSrc}" alt="" /></div>
               <div class="dga-w-full dga-d-flex dga-flex-col dga-gap-2">
                 <h3 class="dga-text-xl dga-fw-bold">
-                  المواقع الالكترونية الحكومية تستخدم بروتوكول
-                  <span class="dga-text-primary-500">HTTPS</span> للتشفير و الأمان.
+                  ${t.httpsHeading}
+                  <span class="dga-text-primary-500">HTTPS</span> ${t.httpsHeadingSuffix}
                 </h3>
                 <p>
-                  المواقع الالكترونية الآمنة في المملكة العربية السعودية تستخدم
-                  بروتوكول HTTPS للتشفير.
+                  ${t.httpsBody}
                 </p>
               </div>
             </div>
@@ -109,8 +143,8 @@ class DGAVerifyBarElement extends HTMLElement {
 
           <div class="dga-col-12">
             <div class="dga-d-flex dga-align-items-center dga-gap-3 dga-bg-white dga-text-md dga-rounded-md dga-py-2 dga-px-7">
-              <img src="${logoSrc}" alt="شعار هيئة الحكومة الرقمية" />
-              مسجل لدى هيئة الحكومة الرقمية برقم :
+              <img src="${logoSrc}" alt="${t.logoAlt}" />
+              ${t.registeredWith}
               <a href="${regLink}" class="dga-link">${regNumber}</a>
             </div>
           </div>
