@@ -5,6 +5,21 @@
   --vp-c-brand-soft: rgba(27, 131, 84, 0.14);
 }
 
+/* VitePress's base.css sets html,body { height: 100%; overflow-x: hidden }.
+   Per spec, an explicit non-visible overflow-x with no overflow-y forces
+   overflow-y to auto-promote to "auto" — combined with the fixed height,
+   body becomes its own independently-scrolling container clipped to the
+   viewport. window.scrollTo()/native anchor scrolling target html (the
+   spec-defined scrollingElement), which then has nothing left to scroll
+   (scrollHeight === clientHeight), silently breaking every hash/TOC link
+   on the site. min-height instead of height lets body grow past the
+   viewport naturally so html stays the one real scrolling container. */
+html,
+body {
+  height: auto;
+  min-height: 100%;
+}
+
 .VPNavBarTitle .logo {
   height: 28px;
   width: 28px;
