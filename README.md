@@ -75,48 +75,49 @@ new DGAAlert();
 
 ## Usage by project type
 
-### Vite / React / Vue / Svelte
-
-Add the CSS import once in your entry file (`main.js`, `main.tsx`, `App.vue`, etc.):
+Every setup comes down to the **same two imports** — the stylesheet, plus the package entry, which registers the `<dga-*>` web components automatically:
 
 ```js
 import '@waaelg/dga-design-system/style.css';
+import '@waaelg/dga-design-system';
 ```
 
-**React example**
+After that, drop `<dga-*>` elements anywhere in your markup — they handle their own behavior, no initialization needed. The legacy `DGA*` classes stay available for hand-wired markup; see [JavaScript components](#javascript-components).
+
+| Environment | Where the two imports go |
+|-------------|--------------------------|
+| Vite · Vue · React · Svelte | Your entry file (`main.js`, `main.ts`, `main.tsx`) |
+| Next.js (App Router) | CSS in `app/layout.tsx`; register components from a `'use client'` file |
+| Plain HTML · PHP · Razor | `<link>` + `<script type="module">` in the page |
+| No build step | Load from a [CDN](#cdn-no-build-step) |
+
+### Bundler apps (Vite, Vue, React, Svelte)
+
+Add both imports once in your entry file, then use web components in any template:
 
 ```jsx
-import { useEffect } from 'react';
+// main.tsx
 import '@waaelg/dga-design-system/style.css';
-import { DGAAccordion, DGAAlert } from '@waaelg/dga-design-system';
+import '@waaelg/dga-design-system';
+```
 
+```jsx
 export function App() {
-  useEffect(() => {
-    const accordionEl = document.getElementById('faq');
-    if (accordionEl) new DGAAccordion(accordionEl);
-    new DGAAlert();
-  }, []);
-
   return (
     <div className="dga-container">
-      <div className="dga-acc" id="faq">
-        <div className="dga-acc-item">
-          <button className="dga-acc-header" aria-expanded="false">
-            <span>السؤال الأول</span>
-          </button>
-          <div className="dga-acc-content">
-            <div className="dga-acc-body">الإجابة هنا.</div>
-          </div>
-        </div>
-      </div>
+      <dga-alert variant="success-color" title="نجاح" dismissible>
+        تمت العملية بنجاح
+      </dga-alert>
     </div>
   );
 }
 ```
 
+> **Vite tip:** if an import looks stale after upgrading, add `optimizeDeps: { exclude: ['@waaelg/dga-design-system'] }` to `vite.config.js`.
+
 ### Next.js (App Router)
 
-Import styles in `app/layout.tsx`:
+Import the stylesheet in `app/layout.tsx` (a server component):
 
 ```tsx
 import '@waaelg/dga-design-system/style.css';
@@ -130,24 +131,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-Use a client component for JS initialization:
+Web components need the browser, so register them from a client component:
 
 ```tsx
 'use client';
-
 import { useEffect } from 'react';
-import { DGAAlert } from '@waaelg/dga-design-system';
 
-export function DGAInit() {
+export function DGAClient() {
   useEffect(() => {
-    new DGAAlert();
+    import('@waaelg/dga-design-system'); // registers <dga-*> elements
   }, []);
-
   return null;
 }
 ```
 
-### Plain HTML
+Render `<DGAClient />` once in your layout, then use `<dga-*>` tags in any page.
+
+### Plain HTML / server-rendered (PHP, Razor, …)
+
+Load the CSS and JS once, then use `<dga-*>` tags in markup. The JS is ESM-only, so the script tag **must** be `type="module"`:
 
 ```html
 <!DOCTYPE html>
@@ -155,20 +157,19 @@ export function DGAInit() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-system/dist/style.css" />
+  <link rel="stylesheet" href="/assets/dga/style.css" />
 </head>
 <body>
-  <button class="dga-btn dga-btn-primary">زر</button>
+  <dga-alert variant="success-color" title="نجاح" dismissible>
+    تمت العملية بنجاح
+  </dga-alert>
 
-  <script type="module">
-    import { DGAAlert } from './node_modules/@waaelg/dga-design-system/dist/index.js';
-    new DGAAlert();
-  </script>
+  <script type="module" src="/assets/dga/index.js"></script>
 </body>
 </html>
 ```
 
-> **Tip:** For production, copy `dist/style.css` to your `public` folder or let your bundler handle the import.
+Copy `dist/style.css` and `dist/index.js` into your served assets folder (`public/`, `wwwroot/`, …), or skip the copy entirely and [load from a CDN](#cdn-no-build-step).
 
 ### CDN (no build step)
 

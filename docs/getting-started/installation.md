@@ -81,52 +81,30 @@ The JavaScript bundle is ESM-only, so the script tag **must** include `type="mod
 
 ---
 
-## Plain HTML & server-rendered pages
+## Core setup
 
-Works with static HTML, **ASP.NET Core `.cshtml`**, PHP, etc. Load CSS + JS once, then use `<dga-*>` tags in markup.
+Every environment uses the **same two imports** — the stylesheet, plus the package entry, which registers the `<dga-*>` web components automatically:
 
-```html
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <link rel="stylesheet" href="./node_modules/@waaelg/dga-design-system/dist/style.css" />
-</head>
-<body>
-  <dga-alert variant="success-color" title="نجاح" dismissible>
-    تمت العملية بنجاح
-  </dga-alert>
-
-  <script type="module">
-    import './node_modules/@waaelg/dga-design-system/dist/index.js'
-  </script>
-</body>
-</html>
+```js
+import '@waaelg/dga-design-system/style.css'
+import '@waaelg/dga-design-system'
 ```
 
-See [Web Components](./web-components.md) for ASP.NET layout setup and more examples.
+Then use `<dga-*>` elements in your markup — no `new DGAAlert()` needed. Legacy `DGA*` classes remain available for hand-wired markup; see the [JavaScript API](./javascript-api.md).
+
+| Environment | Where the imports go |
+|-------------|----------------------|
+| Vite · Vue · React · Svelte | Your entry file (`main.js`, `main.ts`, `main.tsx`) |
+| Next.js (App Router) | CSS in `app/layout.tsx`; register components from a `'use client'` file |
+| Plain HTML · PHP · Razor | `<link>` + `<script type="module">`, or a [CDN](#cdn-no-build-step) |
 
 ---
 
-## ASP.NET Core (Razor)
+## Bundler apps (Vite, Vue, React, Svelte)
 
-In `_Layout.cshtml`, reference the built files from `wwwroot`:
+Import both once in your entry file, then use web components in any template.
 
-```html
-<link rel="stylesheet" href="~/lib/dga/style.css" />
-<script type="module" src="~/lib/dga/index.js"></script>
-```
-
-In any view:
-
-```html
-<dga-verify-bar domain=".gov.sa"></dga-verify-bar>
-```
-
----
-
-## Vite / Vue
-
-**`main.js`** — import CSS and register web components:
+**Vue** — `main.js`:
 
 ```js
 import { createApp } from 'vue'
@@ -137,9 +115,8 @@ import App from './App.vue'
 createApp(App).mount('#app')
 ```
 
-**`App.vue`** — use `<dga-alert>` etc. (no `new DGAAlert()` needed):
-
 ```vue
+<!-- App.vue -->
 <template>
   <dga-alert variant="success-color" title="نجاح" dismissible>
     تمت العملية بنجاح
@@ -147,22 +124,9 @@ createApp(App).mount('#app')
 </template>
 ```
 
-**`vite.config.js`** — avoid stale dependency cache:
-
-```js
-export default defineConfig({
-  optimizeDeps: {
-    exclude: ['@waaelg/dga-design-system'],
-  },
-})
-```
-
----
-
-## React
+**React** — `main.jsx`:
 
 ```jsx
-// main.jsx
 import '@waaelg/dga-design-system/style.css'
 import '@waaelg/dga-design-system'
 ```
@@ -170,21 +134,29 @@ import '@waaelg/dga-design-system'
 ```jsx
 export function App() {
   return (
-    <>
-      <dga-alert variant="success-color" title="Success" dismissible>
-        Operation completed.
-      </dga-alert>
-      <button className="dga-btn dga-btn-primary">زر</button>
-    </>
+    <dga-alert variant="success-color" title="Success" dismissible>
+      Operation completed.
+    </dga-alert>
   )
 }
 ```
 
-For legacy HTML markup, use `useEffect` with `new DGAAlert()` instead. See [Web Components](./web-components.md).
+::: tip Vite: stale imports
+If an import looks stale after upgrading, tell Vite not to pre-bundle the package:
+
+```js
+// vite.config.js
+export default defineConfig({
+  optimizeDeps: { exclude: ['@waaelg/dga-design-system'] },
+})
+```
+:::
 
 ---
 
-## Next.js
+## Next.js (App Router)
+
+Import the stylesheet in `app/layout.tsx` (a server component):
 
 ```tsx
 // app/layout.tsx
@@ -197,6 +169,61 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+```
+
+Web components need the browser, so register them from a client component:
+
+```tsx
+'use client'
+import { useEffect } from 'react'
+
+export function DGAClient() {
+  useEffect(() => {
+    import('@waaelg/dga-design-system') // registers <dga-*> elements
+  }, [])
+  return null
+}
+```
+
+Render `<DGAClient />` once in the layout, then use `<dga-*>` tags in any page.
+
+---
+
+## Plain HTML & server-rendered (PHP, Razor, …)
+
+Load the CSS and JS once, then use `<dga-*>` tags in markup. The JS is ESM-only, so the script tag **must** be `type="module"`:
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <link rel="stylesheet" href="/assets/dga/style.css" />
+</head>
+<body>
+  <dga-alert variant="success-color" title="نجاح" dismissible>
+    تمت العملية بنجاح
+  </dga-alert>
+
+  <script type="module" src="/assets/dga/index.js"></script>
+</body>
+</html>
+```
+
+Copy `dist/style.css` and `dist/index.js` into your served assets folder, or [load from a CDN](#cdn-no-build-step) with no copy step.
+
+### ASP.NET Core (Razor)
+
+In `_Layout.cshtml`, reference the built files from `wwwroot`:
+
+```html
+<link rel="stylesheet" href="~/lib/dga/style.css" />
+<script type="module" src="~/lib/dga/index.js"></script>
+```
+
+Then in any view:
+
+```html
+<dga-verify-bar domain=".gov.sa"></dga-verify-bar>
 ```
 
 ---
