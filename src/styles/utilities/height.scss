@@ -124,11 +124,10 @@ $dga-min-height-utilities: (
     $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
-      $class-name: if(
-        $key == "0",
-        ".dga-#{$prefix}-0",
-        ".dga-#{$prefix}-#{$key}"
-      );
+      $class-name: ".dga-#{$prefix}-#{$key}";
+      @if $key == "0" {
+        $class-name: ".dga-#{$prefix}-0";
+      }
 
       #{$class-name} {
         #{$property}: #{$value} !important;
@@ -144,11 +143,10 @@ $dga-min-height-utilities: (
     $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
-      $class-name: if(
-        $key == "0",
-        ".dga-#{$prefix}-0",
-        ".dga-#{$prefix}-#{$key}"
-      );
+      $class-name: ".dga-#{$prefix}-#{$key}";
+      @if $key == "0" {
+        $class-name: ".dga-#{$prefix}-0";
+      }
 
       #{$class-name} {
         #{$property}: #{$value} !important;
@@ -164,11 +162,10 @@ $dga-min-height-utilities: (
     $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
-      $class-name: if(
-        $key == "0",
-        ".dga-#{$prefix}-0",
-        ".dga-#{$prefix}-#{$key}"
-      );
+      $class-name: ".dga-#{$prefix}-#{$key}";
+      @if $key == "0" {
+        $class-name: ".dga-#{$prefix}-0";
+      }
 
       #{$class-name} {
         #{$property}: #{$value} !important;

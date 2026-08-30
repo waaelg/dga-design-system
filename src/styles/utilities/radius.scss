@@ -105,11 +105,10 @@ $dga-radius-utilities: (
 
     @each $key, $value in $values {
       // Handle special case for "none" key
-      $class-name: if(
-        $key == "none",
-        ".dga-#{$prefix}-none",
-        ".dga-#{$prefix}-#{$key}"
-      );
+      $class-name: ".dga-#{$prefix}-#{$key}";
+      @if $key == "none" {
+        $class-name: ".dga-#{$prefix}-none";
+      }
 
       #{$class-name} {
         @if meta.type-of($property) == "list" {

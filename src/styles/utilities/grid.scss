@@ -253,14 +253,22 @@
       @if $breakpoint == "" {
         @for $i from 0 through ($dga-grid-columns - 1) {
           .dga-offset-#{$i} {
-            margin-left: if($i > 0, math.percentage(math.div($i, $dga-grid-columns)), 0);
+            $offset: 0;
+            @if $i > 0 {
+              $offset: math.percentage(math.div($i, $dga-grid-columns));
+            }
+            margin-left: $offset;
           }
         }
       } @else {
         @include dga-media-breakpoint-up($breakpoint) {
           @for $i from 0 through ($max-columns - 1) {
             .dga-offset-#{$breakpoint}-#{$i} {
-              margin-left: if($i > 0, math.percentage(math.div($i, $max-columns)), 0);
+              $offset: 0;
+              @if $i > 0 {
+                $offset: math.percentage(math.div($i, $max-columns));
+              }
+              margin-left: $offset;
             }
           }
         }

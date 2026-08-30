@@ -257,11 +257,10 @@ $dga-negative-margin-utilities: (
     $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
-      $class-name: if(
-        $key == "0",
-        ".dga-#{$prefix}-0",
-        ".dga-#{$prefix}-#{$key}"
-      );
+      $class-name: ".dga-#{$prefix}-#{$key}";
+      @if $key == "0" {
+        $class-name: ".dga-#{$prefix}-0";
+      }
 
       #{$class-name} {
         @if meta.type-of($property) == "list" {
@@ -285,11 +284,10 @@ $dga-negative-margin-utilities: (
     $values: map.get($utility-config, "values");
 
     @each $key, $value in $values {
-      $class-name: if(
-        $key == "none",
-        ".dga-#{$prefix}-none",
-        ".dga-#{$prefix}-#{$key}"
-      );
+      $class-name: ".dga-#{$prefix}-#{$key}";
+      @if $key == "none" {
+        $class-name: ".dga-#{$prefix}-none";
+      }
 
       #{$class-name} {
         @if meta.type-of($property) == "list" {
