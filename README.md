@@ -170,6 +170,23 @@ export function DGAInit() {
 
 > **Tip:** For production, copy `dist/style.css` to your `public` folder or let your bundler handle the import.
 
+### CDN (no build step)
+
+Load the package straight from **jsDelivr** or **unpkg** — no install, no bundler. The CSS works with a plain `<link>`; the JS is ESM-only, so its `<script>` **must** be `type="module"`.
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.1/dist/style.css"
+/>
+
+<script type="module">
+  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.1/dist/index.js';
+</script>
+```
+
+Same files are on unpkg (`https://unpkg.com/@waaelg/dga-design-system@0.5.1/dist/…`). Pin a version for reproducible builds, or use `@latest` to always fetch the newest release. See the [installation docs](./docs/getting-started/installation.md#cdn-no-build-step) for a full example.
+
 ---
 
 ## CSS-only usage
