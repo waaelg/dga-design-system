@@ -17,6 +17,70 @@ Importing the main entry registers web components automatically. See [Web Compon
 
 ---
 
+## CDN (no build step)
+
+The published package is served straight from **jsDelivr** and **unpkg** — no npm install, no bundler. Ideal for static pages, prototypes, and server-rendered apps.
+
+Add the CSS with a `<link>`, and load the JS as an ES module:
+
+```html
+<!-- Styles -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.1/dist/style.css"
+/>
+
+<!-- Components + JS (must be type="module") -->
+<script type="module">
+  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.1/dist/index.js'
+</script>
+```
+
+Full page example:
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.1/dist/style.css"
+  />
+</head>
+<body>
+  <dga-alert variant="success-color" title="نجاح" dismissible>
+    تمت العملية بنجاح
+  </dga-alert>
+
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.1/dist/index.js'
+  </script>
+</body>
+</html>
+```
+
+### unpkg
+
+Same files are available from unpkg:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@waaelg/dga-design-system@0.5.1/dist/style.css" />
+<script type="module">
+  import 'https://unpkg.com/@waaelg/dga-design-system@0.5.1/dist/index.js'
+</script>
+```
+
+::: tip Pin the version
+The examples pin `@0.5.1` for reproducible, cacheable builds. Use `@latest` to always fetch the newest release, or a range like `@0.5` to get patch updates automatically.
+:::
+
+::: warning ES module only
+The JavaScript bundle is ESM-only, so the script tag **must** include `type="module"`. A classic `<script src="…index.js"></script>` will not work and won't expose a global. The CSS `<link>` has no such restriction.
+:::
+
+---
+
 ## Plain HTML & server-rendered pages
 
 Works with static HTML, **ASP.NET Core `.cshtml`**, PHP, etc. Load CSS + JS once, then use `<dga-*>` tags in markup.

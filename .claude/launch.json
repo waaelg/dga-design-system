@@ -2,6 +2,12 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "dga-docs-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "docs:dev"],
+      "port": 5173
+    },
+    {
       "name": "dga-docs-preview",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "docs:preview"],
