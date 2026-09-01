@@ -14,6 +14,7 @@
 @import "utilities/grid";
 @import "utilities/radius";
 @import "utilities/typography";
+@import "utilities/effects";
 
 // =============================================================================
 // COMPONENTS
@@ -47,6 +48,7 @@
 @include generate-all-color-utilities();
 @include generate-all-grid-utilities();
 @include generate-all-radius-utilities();
+@include generate-all-effect-utilities();
 
 // =============================================================================
 // BASE STYLES

@@ -178,15 +178,15 @@ Load the package straight from **jsDelivr** or **unpkg** — no install, no bund
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.2/dist/style.css"
+  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.3/dist/style.css"
 />
 
 <script type="module">
-  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.2/dist/index.js';
+  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.3/dist/index.js';
 </script>
 ```
 
-Same files are on unpkg (`https://unpkg.com/@waaelg/dga-design-system@0.5.2/dist/…`). Pin a version for reproducible builds, or use `@latest` to always fetch the newest release. See the [installation docs](./docs/getting-started/installation.md#cdn-no-build-step) for a full example.
+Same files are on unpkg (`https://unpkg.com/@waaelg/dga-design-system@0.5.3/dist/…`). Pin a version for reproducible builds, or use `@latest` to always fetch the newest release. See the [installation docs](./docs/getting-started/installation.md#cdn-no-build-step) for a full example.
 
 ---
 
@@ -217,6 +217,7 @@ Most of the design system works without JavaScript. Apply utility and component 
 | Colors | `dga-bg-primary-500`, `dga-text-gray-700` |
 | Typography | `dga-text-sm`, `dga-text-xl`, `dga-fw-bold`, `dga-display-md` |
 | Radius | `dga-rounded-md`, `dga-rounded-lg` |
+| Effects | `dga-shadow-xs`…`dga-shadow-3xl`, `dga-backdrop-blur-md` |
 | Flex direction | `dga-flex-col` / `dga-flex-column`, `dga-flex-row` |
 
 ### Included CSS components

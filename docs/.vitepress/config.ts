@@ -66,6 +66,7 @@ gtag('config', 'G-CDT8FK2DL2');`,
           { text: "Grid & Flex", link: "/foundations/grid" },
           { text: "Width & Height", link: "/foundations/width-height" },
           { text: "Border radius", link: "/foundations/radius" },
+          { text: "Effects", link: "/foundations/effects" },
         ],
       },
       {

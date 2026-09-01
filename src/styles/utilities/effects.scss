@@ -1,0 +1,82 @@
+@use "sass:map";
+
+// =============================================================================
+// DGA Design System - Effect Utilities (shadows + backdrop blur)
+// File: styles/utilities/effects.scss
+// Based on Platforms Code Design System - Saudi Arabia Government
+// =============================================================================
+
+@import "../variables/shadow";
+
+// =============================================================================
+// SHADOW UTILITIES CONFIGURATION
+// =============================================================================
+// The official Platforms Code elevation scale (7 levels + none).
+
+$dga-shadow-utilities: (
+  "none": $dga-shadow-none,
+  "xs": $dga-shadow-xs,
+  "sm": $dga-shadow-sm,
+  "md": $dga-shadow-md,
+  "lg": $dga-shadow-lg,
+  "xl": $dga-shadow-xl,
+  "2xl": $dga-shadow-2xl,
+  "3xl": $dga-shadow-3xl,
+);
+
+// =============================================================================
+// BACKDROP BLUR UTILITIES CONFIGURATION
+// =============================================================================
+
+$dga-backdrop-blur-utilities: (
+  "sm": $dga-backdrop-blur-sm,
+  "md": $dga-backdrop-blur-md,
+  "lg": $dga-backdrop-blur-lg,
+  "xl": $dga-backdrop-blur-xl,
+);
+
+// =============================================================================
+// EFFECT UTILITIES GENERATOR MIXINS
+// =============================================================================
+
+@mixin generate-shadow-utilities($shadows: $dga-shadow-utilities) {
+  @each $name, $value in $shadows {
+    .dga-shadow-#{$name} {
+      box-shadow: #{$value} !important;
+    }
+  }
+}
+
+@mixin generate-backdrop-blur-utilities($blurs: $dga-backdrop-blur-utilities) {
+  @each $name, $value in $blurs {
+    .dga-backdrop-blur-#{$name} {
+      backdrop-filter: #{$value} !important;
+      -webkit-backdrop-filter: #{$value} !important;
+    }
+  }
+}
+
+// =============================================================================
+// GENERATE ALL EFFECT UTILITIES
+// =============================================================================
+
+@mixin generate-all-effect-utilities() {
+  @include generate-shadow-utilities();
+  @include generate-backdrop-blur-utilities();
+}
+
+// =============================================================================
+// EXAMPLE GENERATED CLASSES
+// =============================================================================
+
+/*
+// Shadow elevation
+.dga-shadow-none  { box-shadow: none !important; }
+.dga-shadow-xs    { box-shadow: 0px 1px 2px rgba(#101828, 0.05) !important; }
+.dga-shadow-md    { box-shadow: 0px 4px 8px -2px rgba(#101828, 0.1), 0px 2px 4px -2px rgba(#101828, 0.06) !important; }
+.dga-shadow-3xl   { box-shadow: 0px 48px 64px -12px rgba(#101828, 0.14) !important; }
+
+// Backdrop blur
+.dga-backdrop-blur-sm { backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
+.dga-backdrop-blur-xl { backdrop-filter: blur(40px) !important; -webkit-backdrop-filter: blur(40px) !important; }
+*/
