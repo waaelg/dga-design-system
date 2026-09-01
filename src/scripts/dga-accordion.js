@@ -6,14 +6,23 @@ class DGAAccordionItemElement extends HTMLElement {
     return ["title", "size", "open"];
   }
 
+  constructor() {
+    super();
+    this._bodyContent = null;
+  }
+
   connectedCallback() {
-    if (!this._bodyContent) {
+    if (this._bodyContent == null) {
       this._bodyContent = this.innerHTML.trim();
     }
     this._render();
   }
 
   attributeChangedCallback() {
+    // On upgrade, attributeChangedCallback can fire before connectedCallback.
+    // Don't render until the original slotted content has been captured,
+    // otherwise _render() would overwrite it with an empty body.
+    if (this._bodyContent == null) return;
     if (this.isConnected) this._render();
   }
 
