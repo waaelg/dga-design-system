@@ -271,7 +271,7 @@ For informational messages and neutral highlights.
 | Shade | Hex | Usage |
 |-------|-----|-------|
 | 25 | `#f5faff` | Subtle info |
-| 50 | `#eff8ff` | Info background |
+| 50 | `#ecfdf3` | Info background |
 | 100 | `#d1e9ff` | Light info |
 | 200 | `#b2ddff` | Soft accent |
 | 300 | `#84caff` | Hover |

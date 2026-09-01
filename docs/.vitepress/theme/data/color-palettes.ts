@@ -102,7 +102,7 @@ export const COLOR_PALETTES: Record<ColorPaletteKey, ColorShade[]> = {
   ],
   info: [
     { shade: 25, hex: "#f5faff" },
-    { shade: 50, hex: "#eff8ff", note: "Info BG" },
+    { shade: 50, hex: "#ecfdf3", note: "Info BG" },
     { shade: 100, hex: "#d1e9ff" },
     { shade: 200, hex: "#b2ddff" },
     { shade: 300, hex: "#84caff" },

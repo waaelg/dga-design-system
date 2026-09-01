@@ -2,21 +2,25 @@
 .dga-display-2xl {
   font-size: 72px;
   line-height: 90px;
+  letter-spacing: -0.02em;
 }
 // Font size: 60px / 3.75rem | Line height: 72px / 4.5rem | Tracking: -2%
 .dga-display-xl {
   font-size: 60px;
   line-height: 72px;
+  letter-spacing: -0.02em;
 }
 // Font size: 48px / 3rem | Line height: 60px / 3.75rem | Tracking: -2%
 .dga-display-lg {
   font-size: 48px;
   line-height: 60px;
+  letter-spacing: -0.02em;
 }
 // Font size: 36px / 2.25rem | Line height: 44px / 2.75rem | Tracking: -2%
 .dga-display-md {
   font-size: 36px;
   line-height: 44px;
+  letter-spacing: -0.02em;
 }
 // Font size: 30px / 1.875rem | Line height: 38px / 2.375rem
 .dga-display-sm {
@@ -57,8 +61,8 @@
 }
 // Font size: 12px / 0.75rem | Line height: 18px / 1.125rem
 .dga-text-2xs {
-  font-size: 10px;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 @media screen and (max-width: 768px) {

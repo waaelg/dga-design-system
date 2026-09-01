@@ -10,14 +10,16 @@ Font utilities for the DGA design system. Default font: **IBM Plex Sans Arabic**
 
 For headings and hero text. Responsive sizes apply below 768px and 375px.
 
-| Class | Desktop size | Line height |
-|-------|--------------|-------------|
-| `dga-display-2xl` | 72px | 90px |
-| `dga-display-xl` | 60px | 72px |
-| `dga-display-lg` | 48px | 60px |
-| `dga-display-md` | 36px | 44px |
-| `dga-display-sm` | 30px | 38px |
-| `dga-display-xs` | 24px | 32px |
+| Class | Desktop size | Line height | Tracking |
+|-------|--------------|-------------|----------|
+| `dga-display-2xl` | 72px | 90px | -2% |
+| `dga-display-xl` | 60px | 72px | -2% |
+| `dga-display-lg` | 48px | 60px | -2% |
+| `dga-display-md` | 36px | 44px | -2% |
+| `dga-display-sm` | 30px | 38px | — |
+| `dga-display-xs` | 24px | 32px | — |
+
+The four largest display styles apply `-2%` letter-spacing (`-0.02em`), per the DGA type scale.
 
 ```html
 <h1 class="dga-display-md dga-fw-bold">Page title</h1>
@@ -34,7 +36,7 @@ For headings and hero text. Responsive sizes apply below 768px and 375px.
 | `dga-text-md` | 16px | 24px |
 | `dga-text-sm` | 14px | 20px |
 | `dga-text-xs` | 12px | 18px |
-| `dga-text-2xs` | 10px | 14px |
+| `dga-text-2xs` | 12px | 18px |
 
 ```html
 <p class="dga-text-md">Body text</p>

@@ -185,7 +185,7 @@ Info Text      → Info 600     #1570ef  ⭐⭐
 11. **Success 600** (`#079455`) - Success text
 12. **Warning 50** (`#fffaeb`) - Warning backgrounds
 13. **Warning 600** (`#dc6803`) - Warning text
-14. **Info 50** (`#eff8ff`) - Info backgrounds
+14. **Info 50** (`#ecfdf3`) - Info backgrounds
 15. **Info 600** (`#1570ef`) - Info text
 16. **Gold 500** (`#f5bd02`) - Secondary color
 17. **Primary 800** (`#14573a`) - Brand text
