@@ -59,8 +59,8 @@ Named scale (semantic): `xxs` 2px, `xs` 4px, `sm` 6px, `md` 8px, `lg` 12px, `xl`
 Default font: **IBM Plex Sans Arabic** (loads automatically with the stylesheet).
 
 ```
-dga-display-{2xl|xl|lg|md|sm|xs}   /* 72→24px, headings/hero */
-dga-text-{xl|lg|md|sm|xs|2xs}      /* 20→10px, body text */
+dga-display-{2xl|xl|lg|md|sm|xs}   /* 72→24px, headings/hero (2xl–md carry -2% tracking) */
+dga-text-{xl|lg|md|sm|xs|2xs}      /* 20→12px, body text */
 dga-fw-{regular|medium|semibold|bold}   /* 400/500/600/700 */
 ```
 
@@ -81,6 +81,15 @@ dga-rounded-{none|xs|sm|md|lg|xl|full}   /* 0, 2, 4, 8(default), 16, 24, pill/ci
 Directional: `dga-rounded-t-*` / `-b-*` / `-l-*` / `-r-*` (side pairs), `dga-rounded-tl-*` / `-tr-*` / `-bl-*` / `-br-*` (single corners).
 
 Component defaults for consistency: buttons/inputs `md` (8px), cards `lg` (16px), modals `xl` (24px), tags `sm` (4px), avatars/badges `full`.
+
+## Shadows & effects
+
+Elevation scale (shadow color `#101828`; larger levels layer two shadows):
+```
+dga-shadow-{none|xs|sm|md|lg|xl|2xl|3xl}   /* xs/sm subtle → md default (cards) → xl+ floating layers */
+dga-backdrop-blur-{sm|md|lg|xl}            /* 8/16/24/40px; frosted overlays — needs a translucent bg */
+```
+Prefer subtle elevation (`xs`–`md`) for most surfaces; reserve `xl`+ for genuinely floating layers (modals, menus).
 
 ## Grid & flex
 
