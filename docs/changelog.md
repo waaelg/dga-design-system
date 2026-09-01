@@ -4,6 +4,52 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.5.4] — 2026-09-01
+
+### Fixed
+- `<dga-accordion-item>` lost its body content when the element was upgraded
+  while already in the DOM with attributes set (the common case: markup in
+  the HTML, script loaded afterwards). `attributeChangedCallback` could run
+  before `connectedCallback` had captured the slotted content, so an early
+  render overwrote the answer with an empty body. The item now captures its
+  content safely and does not render until it has.
+
+---
+
+## [0.5.3] — 2026-09-01
+
+### Added
+- Effect utilities: `.dga-shadow-{none|xs|sm|md|lg|xl|2xl|3xl}` (elevation
+  scale) and `.dga-backdrop-blur-{sm|md|lg|xl}`. The scale was defined but
+  previously not emitted as classes.
+
+### Changed
+- Foundations aligned to the DGA Figma spec values:
+  - Display `2xl/xl/lg/md` now carry `-2%` tracking (`letter-spacing: -0.02em`).
+  - `Text 2xs` is `12px / 18px`.
+  - `Info 50` is `#ECFDF3`.
+
+---
+
+## [0.5.2] — 2026-09-01
+
+### Changed
+- Docs only: added a CDN (jsDelivr/unpkg) usage section and restructured the
+  "Usage by project type" guidance around a single web-components-first setup.
+  Published `dist/` output is unchanged from 0.5.1.
+
+---
+
+## [0.5.1] — 2026-08-30
+
+### Changed
+- Replaced the deprecated Sass `if()` function with `@if`/`@else` across the
+  utility generators. Generated CSS is byte-for-byte identical.
+- Bumped transitive dev dependencies flagged by `npm audit` (`nanoid`,
+  `postcss`) to patched versions. Published `dist/` output is unchanged.
+
+---
+
 ## [0.5.0] — 2026-07-22
 
 ### Added

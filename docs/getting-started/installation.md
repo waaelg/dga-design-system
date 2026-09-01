@@ -27,12 +27,12 @@ Add the CSS with a `<link>`, and load the JS as an ES module:
 <!-- Styles -->
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.3/dist/style.css"
+  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.4/dist/style.css"
 />
 
 <!-- Components + JS (must be type="module") -->
 <script type="module">
-  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.3/dist/index.js'
+  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.4/dist/index.js'
 </script>
 ```
 
@@ -45,7 +45,7 @@ Full page example:
   <meta charset="utf-8" />
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.3/dist/style.css"
+    href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.4/dist/style.css"
   />
 </head>
 <body>
@@ -54,7 +54,7 @@ Full page example:
   </dga-alert>
 
   <script type="module">
-    import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.3/dist/index.js'
+    import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.4/dist/index.js'
   </script>
 </body>
 </html>
@@ -65,14 +65,14 @@ Full page example:
 Same files are available from unpkg:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@waaelg/dga-design-system@0.5.3/dist/style.css" />
+<link rel="stylesheet" href="https://unpkg.com/@waaelg/dga-design-system@0.5.4/dist/style.css" />
 <script type="module">
-  import 'https://unpkg.com/@waaelg/dga-design-system@0.5.3/dist/index.js'
+  import 'https://unpkg.com/@waaelg/dga-design-system@0.5.4/dist/index.js'
 </script>
 ```
 
 ::: tip Pin the version
-The examples pin `@0.5.3` for reproducible, cacheable builds. Use `@latest` to always fetch the newest release, or a range like `@0.5` to get patch updates automatically.
+The examples pin `@0.5.4` for reproducible, cacheable builds. Use `@latest` to always fetch the newest release, or a range like `@0.5` to get patch updates automatically.
 :::
 
 ::: warning ES module only
