@@ -4,6 +4,19 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.5.7] — 2026-09-01
+
+### Fixed
+- `<dga-pie-chart>` labels no longer overflow or overlap surrounding content.
+  They were absolutely positioned at a hardcoded offset with `width: max-content`,
+  so the component reserved no space for them — long labels ran off horizontally
+  and, inside flex/grid layouts, the labels collapsed out of the box. The chart
+  is now a normal-flow column (the circle renders on an inner `.dga-pie-chart__disc`,
+  labels sit below and wrap), so it reserves its own height in any layout. The
+  donut-hole style is also now correctly scoped to the chart.
+
+---
+
 ## [0.5.6] — 2026-09-01
 
 ### Fixed

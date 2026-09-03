@@ -178,15 +178,15 @@ Load the package straight from **jsDelivr** or **unpkg** — no install, no bund
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.6/dist/style.css"
+  href="https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.7/dist/style.css"
 />
 
 <script type="module">
-  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.6/dist/index.js';
+  import 'https://cdn.jsdelivr.net/npm/@waaelg/dga-design-system@0.5.7/dist/index.js';
 </script>
 ```
 
-Same files are on unpkg (`https://unpkg.com/@waaelg/dga-design-system@0.5.6/dist/…`). Pin a version for reproducible builds, or use `@latest` to always fetch the newest release. See the [installation docs](./docs/getting-started/installation.md#cdn-no-build-step) for a full example.
+Same files are on unpkg (`https://unpkg.com/@waaelg/dga-design-system@0.5.7/dist/…`). Pin a version for reproducible builds, or use `@latest` to always fetch the newest release. See the [installation docs](./docs/getting-started/installation.md#cdn-no-build-step) for a full example.
 
 ---
 
