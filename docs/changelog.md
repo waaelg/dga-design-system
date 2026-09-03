@@ -4,6 +4,21 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.6.0] — 2026-09-01
+
+### Added
+- `<dga-pie-chart>` (and `DGAChart`) default color palettes via a `style-color`
+  attribute (`brand` | `color`), matching the DGA Figma "Style Color" property.
+  Segments may now omit `color` and are auto-filled from the chosen palette:
+  - `brand` (default) — a monochromatic Saudi-green ramp spread across the
+    segments (one segment = `primary-500`).
+  - `color` — a categorical sequence: `gold-500`, `primary-300`, `warning-500`,
+    `info-500`, `lavender-500`, `error-500` (cycles after 6).
+  An explicit segment `color` still overrides. Legacy markup uses
+  `data-style-color="color"`.
+
+---
+
 ## [0.5.7] — 2026-09-01
 
 ### Fixed
