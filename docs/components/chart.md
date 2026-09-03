@@ -93,10 +93,10 @@ Default size: 150×150px, centered with `margin: 0 auto`.
 
 ## Generated markup
 
-JS adds:
+JS builds, inside the `.dga-pie-chart` host (a flex column):
 
-- `background: conic-gradient(...)` on the chart element
-- `.dga-pie-chart__labels` with `.dga-pie-chart__label` and `.dga-pie-chart__circle` swatches
+- `.dga-pie-chart__disc` — the circle, with `background: conic-gradient(...)` applied inline
+- `.dga-pie-chart__labels` — the legend below the circle, holding `.dga-pie-chart__label` items with `.dga-pie-chart__circle` swatches (wraps when space is tight)
 
 ---
 
