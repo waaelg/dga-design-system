@@ -4,6 +4,20 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.5.6] — 2026-09-01
+
+### Fixed
+- `<dga-code-snippet>` lost its code when provided as slotted text (e.g.
+  `<dga-code-snippet multiline>…code…</dga-code-snippet>`) — the same
+  upgrade-order bug fixed for the accordion (0.5.4) and alert (0.5.5). An early
+  `attributeChangedCallback` render (from the `multiline` attribute on upgrade)
+  overwrote the slotted code before it was captured. Attribute-based
+  `code="…"` usage was never affected. This completes the audit of all
+  `<dga-*>` components for this class of bug (`dga-pie-chart` and
+  `dga-verify-bar` render from attributes only and were never affected).
+
+---
+
 ## [0.5.5] — 2026-09-01
 
 ### Fixed
