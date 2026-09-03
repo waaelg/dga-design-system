@@ -4,6 +4,18 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.5.5] — 2026-09-01
+
+### Fixed
+- `<dga-alert>` lost its message content under the same upgrade-order bug fixed
+  for the accordion in 0.5.4: `attributeChangedCallback` rendered synchronously
+  on upgrade — before the deferred `requestAnimationFrame` capture — creating an
+  empty `.dga-alert-content`, after which the capture guard saw that element and
+  skipped capturing. The component now captures its slotted content synchronously
+  in `connectedCallback` and does not render until it has.
+
+---
+
 ## [0.5.4] — 2026-09-01
 
 ### Fixed
