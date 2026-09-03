@@ -1,0 +1,158 @@
+// =============================================================================
+// DGA Bar Chart (stacked) — CSS/flex based, RTL-aware
+// =============================================================================
+
+$dga-bar-plot-height: 260px;
+
+.dga-bar-chart {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  color: $dga-gray-700;
+}
+
+// ---- Legend -----------------------------------------------------------------
+.dga-bar-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px 16px;
+  margin-block-end: 12px;
+}
+
+.dga-bar-chart__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dga-bar-chart__legend-dot {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+
+// ---- Frame: [y-title] [plot-wrap] / [_] [x-title] ---------------------------
+.dga-bar-chart__frame {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+}
+
+.dga-bar-chart__axis-title {
+  font-weight: 600;
+  color: $dga-gray-800;
+  text-align: center;
+}
+
+.dga-bar-chart__axis-title--y {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.dga-bar-chart__axis-title--x {
+  grid-column: 2;
+  grid-row: 2;
+  margin-block-start: 8px;
+}
+
+// ---- Plot wrap: [y-axis] [plot] / [_] [x-axis] ------------------------------
+.dga-bar-chart__plot-wrap {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: $dga-bar-plot-height auto;
+  column-gap: 8px;
+}
+
+.dga-bar-chart__y-axis {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: end;
+  color: $dga-gray-600;
+  line-height: 1;
+}
+
+.dga-bar-chart__spacer {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+// ---- Plot: gridlines + bars stacked ----------------------------------------
+.dga-bar-chart__plot {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  block-size: $dga-bar-plot-height;
+}
+
+.dga-bar-chart__gridlines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dga-bar-chart__gridline {
+  block-size: 0;
+  border-block-start: 1px solid $dga-gray-200;
+}
+
+.dga-bar-chart__bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding-inline: 4px;
+}
+
+.dga-bar-chart__col {
+  flex: 1 1 0;
+  block-size: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.dga-bar-chart__bar {
+  inline-size: 60%;
+  max-inline-size: 44px;
+  display: flex;
+  flex-direction: column-reverse;
+  border-start-start-radius: 4px;
+  border-start-end-radius: 4px;
+  overflow: hidden;
+}
+
+.dga-bar-chart__seg {
+  inline-size: 100%;
+}
+
+// ---- X axis -----------------------------------------------------------------
+.dga-bar-chart__x-axis {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: space-around;
+  padding-inline: 4px;
+  padding-block-start: 8px;
+  color: $dga-gray-700;
+}
+
+.dga-bar-chart__x-tick {
+  flex: 1 1 0;
+  text-align: center;
+}
