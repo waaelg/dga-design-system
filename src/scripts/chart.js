@@ -13,7 +13,11 @@ export default class DGAChart {
 
   init() {
     const hole = this.chart.getAttribute("data-hole") === "true";
-    renderPieChart(this.chart, this.data, { hole });
+    const styleColor =
+      this.chart.getAttribute("data-style-color") === "color"
+        ? "color"
+        : "brand";
+    renderPieChart(this.chart, this.data, { hole, styleColor });
   }
 
   generateGradient() {

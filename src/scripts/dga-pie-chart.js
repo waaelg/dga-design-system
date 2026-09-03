@@ -5,7 +5,7 @@ import {
 
 class DGAPieChartElement extends HTMLElement {
   static get observedAttributes() {
-    return ["data", "hole"];
+    return ["data", "hole", "style-color"];
   }
 
   connectedCallback() {
@@ -20,8 +20,10 @@ class DGAPieChartElement extends HTMLElement {
     const chartData = parseChartDataAttribute(this.getAttribute("data"));
     const hole =
       this.hasAttribute("hole") && this.getAttribute("hole") !== "false";
+    const styleColor =
+      this.getAttribute("style-color") === "color" ? "color" : "brand";
 
-    renderPieChart(this, chartData, { hole });
+    renderPieChart(this, chartData, { hole, styleColor });
   }
 }
 

@@ -44,8 +44,17 @@ CSS conic-gradient pie / donut chart with labels.
 |-----------|---------|-------------|
 | `data` | `[]` | JSON array of segments (see data shape) |
 | `hole` | `false` | Present = donut (white center) |
+| `style-color` | `brand` | Default palette used when a segment omits `color`: `brand` (Saudi-green ramp) or `color` (categorical) |
 
 No `new DGAChart()` required. Update the `data` attribute to re-render.
+
+Segments may omit `color` — they are then auto-colored from the theme palette (see [Color palettes](#color-palettes)):
+
+```html
+<dga-pie-chart style-color="color"
+  data='[{"label":"A","from":"0%","to":"50%"},{"label":"B","from":"50%","to":"100%"}]'>
+</dga-pie-chart>
+```
 
 ---
 
@@ -75,8 +84,9 @@ new DGAChart(document.getElementById('chart1'), data)
 |-----------|--------|
 | `data-hole="false"` | Solid pie |
 | `data-hole="true"` | Donut (white center) |
+| `data-style-color="color"` | Use the categorical palette (default is `brand`) |
 
-Default size: 150×150px, centered with `margin: 0 auto`.
+Default size: 150×150px. The chart is a flex column (disc + legend below).
 
 ---
 
@@ -87,7 +97,31 @@ Default size: 150×150px, centered with `margin: 0 auto`.
 | `label` | Legend text |
 | `from` | Segment start (e.g. `0%`) |
 | `to` | Segment end (e.g. `40%`) |
-| `color` | Hex (`#2d7a5a`), CSS var (`var(--dga-primary-100)`), or token name (`primary-100`) |
+| `color` | *Optional.* Hex (`#2d7a5a`), CSS var (`var(--dga-primary-100)`), or a DGA token **with the `dga-` prefix** (`dga-primary-100`). Omit to auto-assign from the theme palette. |
+
+---
+
+## Color palettes
+
+When a segment has no `color`, it is filled from the palette chosen by
+`style-color` (web component) / `data-style-color` (legacy):
+
+**`brand`** (default) — a monochromatic Saudi-green ramp, spread across the
+segments so even a few slices span dark → light. One segment uses
+`primary-500`.
+
+**`color`** — a categorical sequence (cycles after 6):
+
+| # | Token |
+|---|-------|
+| 1 | `gold-500` |
+| 2 | `primary-300` |
+| 3 | `warning-500` |
+| 4 | `info-500` |
+| 5 | `lavender-500` |
+| 6 | `error-500` |
+
+An explicit `color` on a segment always overrides the palette.
 
 ---
 
