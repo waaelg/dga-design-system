@@ -1,0 +1,90 @@
+// =============================================================================
+// DGA Line / Area Chart — inline SVG, RTL-aware
+// =============================================================================
+
+.dga-line-chart {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  color: $dga-gray-700;
+}
+
+.dga-line-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px 16px;
+  margin-block-end: 12px;
+}
+
+.dga-line-chart__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dga-line-chart__legend-dot {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.dga-line-chart__frame {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+}
+
+.dga-line-chart__axis-title {
+  font-weight: 600;
+  color: $dga-gray-800;
+  text-align: center;
+}
+
+.dga-line-chart__axis-title--y {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.dga-line-chart__axis-title--x {
+  grid-column: 2;
+  grid-row: 2;
+  margin-block-start: 4px;
+}
+
+.dga-line-chart__plot {
+  grid-column: 2;
+  grid-row: 1;
+  min-inline-size: 0;
+}
+
+.dga-line-chart__svg {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+
+  text {
+    font-family: inherit;
+  }
+}
+
+.dga-line-chart__grid {
+  stroke: $dga-gray-200;
+  stroke-width: 1;
+}
+
+.dga-line-chart__tick {
+  fill: $dga-gray-600;
+  font-size: 11px;
+}
+
+.dga-line-chart__xtick {
+  fill: $dga-gray-700;
+  font-size: 12px;
+}
