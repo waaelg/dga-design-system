@@ -43,6 +43,11 @@ export function renderPieChart(element, data = [], { hole = false } = {}) {
 
   element.classList.add("dga-pie-chart");
   element.setAttribute("data-hole", hole ? "true" : "false");
-  element.style.background = generateChartGradient(data);
-  element.innerHTML = generateChartLabelsHtml(data);
+  // The gradient now lives on an inner disc so the host can be a normal-flow
+  // column (disc + labels), reserving its own space instead of relying on
+  // absolutely-positioned labels.
+  element.style.background = "";
+  element.innerHTML = `<span class="dga-pie-chart__disc" style="background: ${generateChartGradient(
+    data
+  )}"></span>${generateChartLabelsHtml(data)}`;
 }
