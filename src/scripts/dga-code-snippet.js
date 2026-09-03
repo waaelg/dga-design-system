@@ -12,11 +12,12 @@ class DGACodeSnippetElement extends HTMLElement {
 
   constructor() {
     super();
+    this._codeContent = null;
     this._boundCopy = this._handleCopy.bind(this);
   }
 
   connectedCallback() {
-    if (!this._codeContent) {
+    if (this._codeContent == null) {
       this._codeContent =
         this.getAttribute("code")?.trim() || this.textContent?.trim() || "";
     }
@@ -28,6 +29,10 @@ class DGACodeSnippetElement extends HTMLElement {
   }
 
   attributeChangedCallback() {
+    // On upgrade, attributeChangedCallback can fire before connectedCallback.
+    // Don't render until the slotted code has been captured, otherwise
+    // _render() would overwrite it (e.g. slotted code + a `multiline` attr).
+    if (this._codeContent == null) return;
     if (this.isConnected) this._render();
   }
 
