@@ -9,30 +9,15 @@ class DGAAlertElement extends HTMLElement {
 
   constructor() {
     super();
+    this._bodyContent = null;
     this._boundDismiss = this._handleDismiss.bind(this);
   }
 
   connectedCallback() {
-    this._scheduleInitialRender();
-  }
-
-  _scheduleInitialRender() {
-    // Frameworks (Vue/React) may inject child content after connect.
-    requestAnimationFrame(() => {
-      this._captureBodyContent();
-      this._render();
-    });
-  }
-
-  _captureBodyContent() {
-    if (this._bodyContent || this.querySelector(".dga-alert-content")) {
-      return;
+    if (this._bodyContent == null) {
+      this._bodyContent = this.innerHTML.trim();
     }
-
-    const html = this.innerHTML.trim();
-    if (html) {
-      this._bodyContent = html;
-    }
+    this._render();
   }
 
   disconnectedCallback() {
@@ -40,6 +25,10 @@ class DGAAlertElement extends HTMLElement {
   }
 
   attributeChangedCallback() {
+    // On upgrade, attributeChangedCallback can fire before connectedCallback.
+    // Don't render until the original slotted content has been captured,
+    // otherwise _render() would overwrite it with an empty body.
+    if (this._bodyContent == null) return;
     if (this.isConnected) this._render();
   }
 
