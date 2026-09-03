@@ -4,6 +4,23 @@ All notable changes to **@waaelg/dga-design-system**.
 
 ---
 
+## [0.7.0] — 2026-09-01
+
+### Added
+- **`<dga-bar-chart>`** (and `DGABarChart`) — stacked bar chart with an
+  auto-scaled Y-axis, gridlines, legend, and axis titles. CSS/flex based,
+  RTL-aware. Attributes: `data`, `style-color`, `max`, `x-label`, `y-label`,
+  `show-legend`, `show-x-label`, `show-y-label`.
+- **`<dga-line-chart>`** (and `DGALineChart`) — line / area chart (inline SVG)
+  with an optional area fill (`show-content`), auto-scaled Y-axis, gridlines,
+  legend, and axis titles. Independent series, RTL-aware. Same attribute set
+  plus `show-content`.
+
+Both auto-color series from the `style-color` palette (`brand` | `color`)
+using existing `--dga-*` tokens, with a per-series `color` override.
+
+---
+
 ## [0.6.0] — 2026-09-01
 
 ### Added
